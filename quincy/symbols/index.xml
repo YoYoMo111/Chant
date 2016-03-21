@@ -248,11 +248,11 @@
 	<symbol id="221" name="virga strata" fileName="gall_special_oriscus_virga-strata_4.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
 	<symbol id="222" name="pes stratus simple" fileName="gall_special_pes-stratus_simple_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
 	
-	<symbol id="221" name="test" fileName="gall_special_quilisma_pes_1.png" school="StGall" level="5" group="Quilisma" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="222" name="test" fileName="gall_special_quilisma_pes_2.png" school="StGall" level="5" group="Quilisma" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="223" name="test" fileName="gall_special_quilisma_pes_3.png" school="StGall" level="5" group="Quilisma" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="224" name="test" fileName="gall_special_quilisma_pes_4.png" school="StGall" level="5" group="Quilisma" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="225" name="test" fileName="gall_special_quilisma_torculus-resupinus_1.png" school="StGall" level="5" group="Quilisma" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="223" name="pes" fileName="gall_special_quilisma_pes_1.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="224" name="pes" fileName="gall_special_quilisma_pes_2.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="225" name="pes" fileName="gall_special_quilisma_pes_3.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="226" name="pes" fileName="gall_special_quilisma_pes_4.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="227" name="torculus resupinus" fileName="gall_special_quilisma_torculus-resupinus_1.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
 	
 	
 	<!-- ================================ Laon ===============================-->
