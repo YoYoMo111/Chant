@@ -263,10 +263,10 @@ SelectSymbolToMatchExercise.prototype.showHint = function() {
 	this.clearMarks();
 	
 	if (this.studentsAnswer == "") {
-		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong">Please select at least one symbol.</div>';
+		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div id="hint-notable">Please select at least one symbol.</div></div>';
 	}	
 	else {
-		document.getElementById("hint").innerHTML = '<div id="hint-box"><table id="hintTable"></table></div>';
+		document.getElementById("hint").innerHTML = '<div id="hint-box"><table id="hintTable"><tbody id="hint-tbody"></tbody></table></div>';
 		
 		var checked = this.studentsAnswer.split("-");
 		var rightAnswers = this.solution.split("-");
@@ -286,12 +286,12 @@ SelectSymbolToMatchExercise.prototype.showHint = function() {
 		
 		if (wrongAnswers.length == 0) {
 			if (this.studentsAnswer == this.solution) {
-			    document.getElementById("hint-box").innerHTML = "You answer is correct.";
+			    document.getElementById("hint-notable").innerHTML = "You answer is correct.";
 				document.getElementById("hint-box").className = "hint-correct";
 				return;
 		    }
 			else {
-				document.getElementById("hint-box").innerHTML = 
+				document.getElementById("hint-notable").innerHTML = 
 				    "Your answer is correct but incomplete. The correct answer has one or more additional possibilities.";
 			}
 		}
@@ -300,7 +300,7 @@ SelectSymbolToMatchExercise.prototype.showHint = function() {
 }
 
 SelectSymbolToMatchExercise.prototype.showSymbolInfo = function(index) {
-	document.getElementById("hintTable").innerHTML += 
+	document.getElementById("hint-tbody").innerHTML += 
 	    '<tr class="hint-tr"><td><img src="quincy/symbols/' +
 		this.symbolDB.symbols[index].school + '/Level_' + this.symbolDB.symbols[index].level +
 		'/Group_' + this.symbolDB.symbols[index].group + '/' +

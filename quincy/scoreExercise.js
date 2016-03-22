@@ -236,7 +236,7 @@ ScoreExercise.prototype.showRightAnswer = function() {
 }
 
 ScoreExercise.prototype.showHint = function() {
-	document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><table id="hintTable"></table></div>';
+	document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><table id="hintTable"><tbody id="hint-tbody"></tbody></table></div>';
 	for (var i = 0; i < this.size; i++) {
 		// Check neums
 		if (this.studentsAnswerIDs[i] != "") {
@@ -265,7 +265,7 @@ ScoreExercise.prototype.showHint = function() {
 }
 
 ScoreExercise.prototype.showSymbolInfo = function(symbolID) {
-	document.getElementById("hintTable").innerHTML += //yoyo add hint border
+	document.getElementById("hint-tbody").innerHTML += //yoyo add hint border
 	    '<tr class="hint-tr" ><td><img src="quincy/symbols/' +
 		this.symbolDB.symbols[symbolID].school + '/Level_' + this.symbolDB.symbols[symbolID].level +
 		'/Group_' + this.symbolDB.symbols[symbolID].group + '/' +

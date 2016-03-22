@@ -169,12 +169,12 @@ position: relative;
   /*border-width: 1px 0px;*/
   margin-left: 45px;
   z-index: 1;
-  width: 768px;
+  width: 728px;/*768*/
   min-height: 17px;
-  padding: 22px 0 19px 0;
+  padding: 0px 20px 0px 20px;
   text-align: center;
   font-size: 12px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   line-height: 14px;
   /*color: #FFFFFF;*/
   /*font-family: Helvetica, Helvetica Neue, Arial, sans-serif;bottom:0;*/
@@ -185,27 +185,63 @@ position: relative;
 	
 }
 
+#hint-notable{
+  padding: 22px 0 19px 0;
+}
+
 .hint-correct {
   /*background-color: #64EC64;*/
   background-color: rgba(204, 236, 194, 0.46);
   border: 1px solid rgba(0, 128, 0, 0.21);
+
 }
 
 .hint-wrong {
   background-color:rgb(255, 230, 230);
   border: 1px solid rgba(255, 0, 0, 0.21);
 }
+
+table#hintTable{
+  margin-left: 6px;
+  margin-right: 6px;
+  width: 716px;
+
+  border-collapse: collapse;
+}
+
+table#hintTable tr{
+  border:1px solid rgba(0, 0, 0, 0.1);
+}
+table#hintTable tr:first-child {
+  border-top: 0;
+}
+table#hintTable tr:last-child {
+ 
+  border-bottom: 0;
+
+}
+table#hintTable tr{
+  border-left:0;
+  border-right:0;
+}
+
 .hint-tr{
-  border-top: 1px dotted;
-  border-bottom: 1px dotted;
+  /*border-top: 1px dotted;*/
+  /*border-bottom: 1px dotted;*/
   border-color: rgba(128, 128, 128, 0.57);
 }
 .hint-td{
   line-height: 1.7;
 padding-right: 30px;
+width:610px;
 text-align: Justify;
 text-justify: inter-ideograph;
 }
+
+#hint-tbody{
+  margin-left:20px;
+}
+
 .progressBar {
   margin: 0px 0 0 0;
   height: 13px; 
@@ -545,11 +581,7 @@ table.inside-table {
   background-color: inherit;
   width: 741px;/*inside table width*/
 }
-#hintTable{
-  margin-left: 6px;
-  margin-right: 6px;
-  width: 756px;
-}
+
 .Num{
   vertical-align: top;/*ouside table question Num*/
   text-align: center;

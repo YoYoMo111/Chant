@@ -107,10 +107,10 @@ GivenNameEnterNameExercise.prototype.grade = function() {
 GivenNameEnterNameExercise.prototype.showHint = function() {
 	this.grade();
 	if (this.score == this.answers.length) {	    
-		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct">Your answer is correct.</div>';
+		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><div id="hint-notable">Your answer is correct.</div></div>';
 	}	
 	else {
-	    document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong">Your answer is wrong. Please try again.</div>';
+	    document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div id="hint-notable">Your answer is wrong. Please try again.</div></div>';
 	}
 	this.hintOn = true;
 }
