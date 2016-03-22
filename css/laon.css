@@ -28,7 +28,7 @@
 	padding-top: 4px;
 	width: 0.01px;
 }
-
+/*
 #u1008-4
 {
 	z-index: 86;
@@ -45,14 +45,14 @@
 	width: 167px;
 	margin: 0px 0px 0px 773px;
 }
-
+*/
 #pu3757
 {
 	width: 0.01px;
 	margin-left: 20px;
 	margin-top: -5px;
 }
-
+/*
 #u3757
 {
 	z-index: 90;
@@ -586,7 +586,7 @@
 	min-height: 17px;
 	width: 67px;
 	margin: 0px -10000px 0px 0px;
-}
+}*/
 
 #u2714-4
 {
@@ -608,6 +608,8 @@
 	position: relative;
 	padding: 14px 8px 8px;
 	border-width: 1px 0px;
+
+	margin-top: 12px;
 }
 
 #u3132-4

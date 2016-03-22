@@ -83,7 +83,7 @@ body
 
 a:link
 {
-	color: #FF6969;
+	color: #FF8A20;
 	font-style: normal;
 	font-weight: normal;
 	text-decoration: none;
@@ -91,7 +91,7 @@ a:link
 
 a:visited
 {
-	color: #FF6969;
+	color: #FF8A20;
 	font-style: normal;
 	font-weight: normal;
 	text-decoration: none;
@@ -99,7 +99,7 @@ a:visited
 
 a:hover
 {
-	color: #FF9C9C;
+	color: #FF994D;
 	font-style: normal;
 	font-weight: normal;
 	text-decoration: underline;
@@ -107,7 +107,7 @@ a:hover
 
 a:active
 {
-	color: #FF6969;
+	color: #FF8A20;
 	font-style: normal;
 	font-weight: normal;
 	text-decoration: none;
@@ -193,7 +193,7 @@ a.nontext /* used to override default properties of 'a' tag */
 
 .levels a:hover
 {
-	color: #FF6969;
+	color: #FF8A20;
 	font-style: normal;
 	text-decoration: none;
 }
