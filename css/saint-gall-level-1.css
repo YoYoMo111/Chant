@@ -1757,14 +1757,14 @@ padding-top:220px;
 	margin:0px 15px 0px 15px;
 	border-style: solid;
     border-color: rgba(248, 168, 49, 0.67);
-	border-width: 1px 0px 1px 0px;
+	/*border-width: 1px 0px 1px 0px;*/
 }
 .menu-line2{
 	height:49px;
 	margin:0px 15px 0px 15px;
 	border-style: solid;
     border-color: rgba(248, 168, 49, 0.67);
-	border-width: 0px 0px 1px 0px;
+	/*border-width: 0px 0px 1px 0px;*/
 }
 
 body
