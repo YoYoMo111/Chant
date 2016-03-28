@@ -6,7 +6,8 @@ function IntroPage(school, level, group) {
 	                    ["Single-note Neums", "Repercussive Neums", "Two-note Neums", "Three-note Neums", "Four- or Five-note Neums", "Review Lesson", "Assessment"],
 						["Melodic Implications", "Melodic and Rhythmic Implications", "Review Lesson", "Assessment"],
 						["Group 1", "Group 2", "Group 3", "Group 4", "Group 5", "Group 6", "Group 7", "Review Lesson", "Assessment"],
-						["Group 1", "Group 2", "Group 3", "Group 4", "Group 5", "Review Lesson", "Assessment"]];
+						["Group 1", "Group 2", "Group 3", "Group 4", "Group 5", "Review Lesson", "Assessment"],
+						["Group 1", "Review Lesson", "Assessment"]];
 	this.introText = ["review", "test"];
 }
 

@@ -17,39 +17,41 @@ function ExerciseGroup(school, level, group, mechanism, mode) {
 	this.data = xmlhttp.responseXML;
 	var numOfSymbols = this.data.getElementsByTagName("symbol").length;
 	
-	// Get number of neums of the given group, level, school
-	var i = 0;
-	for(; i < numOfSymbols; i++) {
-		if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&
-		    this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
-			this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
-			this.indexOfFirstNeum = i++;
-			break;
+	// Get number of neums of the given group, level, school for Gall level 1-5
+	if (school == "StGall" && level < 6) {
+		var i = 0;
+		for(; i < numOfSymbols; i++) {
+			if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&
+				this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
+				this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
+				this.indexOfFirstNeum = i++;
+				break;
+			}
 		}
-	}
-	while (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&
-		   this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
-		   this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
-	    i++;
-	}
-	this.groupNeumCount = i - this.indexOfFirstNeum;
-	
-	// Get number of modern equivalents
-	for(; i < numOfSymbols; i++) {
-		if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == "Modern" &&
-		    this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
-			this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
-			this.indexOfFirstModernEquivalent = i++;
-			break;
+		while (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&
+			   this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
+			   this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
+			i++;
 		}
+		this.groupNeumCount = i - this.indexOfFirstNeum;
+		
+		// Get number of modern equivalents
+		for(; i < numOfSymbols; i++) {
+			if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == "Modern" &&
+				this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
+				this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
+				this.indexOfFirstModernEquivalent = i++;
+				break;
+			}
+		}
+		while (i < numOfSymbols &&
+			   this.data.getElementsByTagName("symbol")[i].getAttribute("school") == "Modern" &&
+			   this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
+			   this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
+			i++;
+		}
+		this.modernEquivalentsCount = i - this.indexOfFirstModernEquivalent;
 	}
-	while (i < numOfSymbols &&
-	       this.data.getElementsByTagName("symbol")[i].getAttribute("school") == "Modern" &&
-		   this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
-		   this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
-	    i++;
-	}
-	this.modernEquivalentsCount = i - this.indexOfFirstModernEquivalent;
 	
 	this.createExercises(mode);
 }
@@ -161,6 +163,34 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		}
 		for (var key in englishToLatinMap) {
 			this.exercises.push(new SelectSymbolToMatchExercise(22, this.school, this.level, this.group, key, this.mechanism));
+		}
+	}
+	
+	else if (this.level == 5) {
+		
+	}
+	
+	// Special score exercises for level 6
+	else if (this.level == 6) {
+		var xmlhttp;
+	    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		    xmlhttp = new XMLHttpRequest();
+	    }
+	    else {// code for IE6, IE5
+  		    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	    }
+	    xmlhttp.open("GET","quincy/scores/gall_level_6_score_index.xml", false);
+	    xmlhttp.send();
+	
+	    var scoreInfo = xmlhttp.responseXML;
+	    var length = scoreInfo.getElementsByTagName("score").length;
+		var scoreExercises = new Array();
+		
+		for (var i = 0; i < length; i++) {
+			var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+			var size = scoreInfo.getElementsByTagName("score")[i].getAttribute("size");
+			var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+			this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, size, solution, this.mechanism));
 		}
 	}
 	

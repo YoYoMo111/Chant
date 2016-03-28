@@ -169,90 +169,87 @@
 	<symbol id="144" name="similarly=likewise--similiter" fileName="gall_letter_simil-similter_other_1.png" school="StGall" level="4" group="7" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
 	<symbol id="145" name="or--vel" fileName="gall_letter_vl-vel_other_1.png" school="StGall" level="4" group="7" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
 	<symbol id="146" name="flexibly=pliantly--volubiter" fileName="gall_letter_vol-volubiliter_other_1.png" school="StGall" level="4" group="7" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<!-- Gall level 5 group 1 -->	
-	<symbol id="147" name="apostropha liquescent" fileName="gall_special_liquescence_apostropha-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="148" name="bivirga liquescent" fileName="gall_special_liquescence_bivirga-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="149" name="climacus liquescent augmentative" fileName="gall_special_liquescence_climacus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="150" name="climacus liquescent diminutive" fileName="gall_special_liquescence_climacus-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="151" name="clivis liquescent augmentative" fileName="gall_special_liquescence_clivis-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="152" name="clivis liquescent augmentative" fileName="gall_special_liquescence_clivis-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="153" name="clivis liquescent diminutive" fileName="gall_special_liquescence_clivis-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="154" name="distropha liquescent" fileName="gall_special_liquescence_distropha-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="155" name="oriscus liquescent" fileName="gall_special_liquescence_oriscus-liquescent_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="156" name="pes liquescent augmentative" fileName="gall_special_liquescence_pes-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="157" name="pes liquescent augmentative" fileName="gall_special_liquescence_pes-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="158" name="pes liquescent augmentative" fileName="gall_special_liquescence_pes-liquescent-augmentative_3.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="159" name="pes liquescent diminutive" fileName="gall_special_liquescence_pes-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="160" name="pes quassus liquescent" fileName="gall_special_liquescence_pes-quassus-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="161" name="pes subbipunctis augmentative" fileName="gall_special_liquescence_pes-subbipunctis-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="162" name="porrectus flexus augmentative" fileName="gall_special_liquescence_porrectus-flexus-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="163" name="porrectus liquescent augmentative" fileName="gall_special_liquescence_porrectus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="164" name="porrectus liquescent diminutive" fileName="gall_special_liquescence_porrectus-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="165" name="pressus liquescent augmentative" fileName="gall_special_liquescence_pressus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="166" name="pressus liquescent augmentative" fileName="gall_special_liquescence_pressus-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="167" name="pressus liquescent diminutive" fileName="gall_special_liquescence_pressus-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="168" name="pressus liquescent diminutive" fileName="gall_special_liquescence_pressus-liquescent-diminutive_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="169" name="quilisma liquescent" fileName="gall_special_liquescence_quilisma-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="170" name="quilisma liquescent" fileName="gall_special_liquescence_quilisma-liquescent_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="171" name="salicus liquescent augmentative" fileName="gall_special_liquescence_salicus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="172" name="salicus liquescent augmentative" fileName="gall_special_liquescence_salicus-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="173" name="salicus liquescent diminuative" fileName="gall_special_liquescence_salicus-liquescent-diminuative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="174" name="scandicus flexus augmentative" fileName="gall_special_liquescence_scandicus-flexus-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="175" name="scandicus liquescent augmentative" fileName="gall_special_liquescence_scandicus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="176" name="scandicus liquescent diminutive" fileName="gall_special_liquescence_scandicus-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="177" name="torculus liquescent augmentative" fileName="gall_special_liquescence_torculus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="178" name="torculus liquescent augmentative" fileName="gall_special_liquescence_torculus-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="179" name="torculus resupinus augmentative" fileName="gall_special_liquescence_torculus-resupinus-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="180" name="torculus resupinus diminutive" fileName="gall_special_liquescence_torculus-resupinus-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="181" name="tractulus liquescent" fileName="gall_special_liquescence_tractulus-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="182" name="trigon liquescent" fileName="gall_special_liquescence_trigon-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="183" name="tristropha-liquescent" fileName="gall_special_liquescence_tristropha-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="184" name="trivirga liquescent" fileName="gall_special_liquescence_trivirga-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="185" name="virga-liquescent" fileName="gall_special_liquescence_virga-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="186" name="virga strata liquescent augmentative" fileName="gall_special_liquescence_virga-strata-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	
-	<symbol id="187" name="climacus resupinus oriscus" fileName="gall_special_oriscus_climacus-resupinus-oriscus_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="188" name="isolated" fileName="gall_special_oriscus_isolated_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="189" name="pes quassus" fileName="gall_special_oriscus_pes-quassus_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="190" name="pes quassus" fileName="gall_special_oriscus_pes-quassus_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="191" name="pes quassus" fileName="gall_special_oriscus_pes-quassus_3.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="192" name="porrectus oriscus inside" fileName="gall_special_oriscus_porrectus-oriscus-inside_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="193" name="porrectus repercussion before" fileName="gall_special_oriscus_porrectus-repercussion-before_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="194" name="porrectus repercussion before" fileName="gall_special_oriscus_porrectus-repercussion-before_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="195" name="pressus" fileName="gall_special_oriscus_pressus_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="196" name="pressus" fileName="gall_special_oriscus_pressus_10.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="197" name="pressus" fileName="gall_special_oriscus_pressus_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="198" name="pressus" fileName="gall_special_oriscus_pressus_3.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="199" name="pressus" fileName="gall_special_oriscus_pressus_4.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="200" name="pressus" fileName="gall_special_oriscus_pressus_5_V1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="201" name="pressus" fileName="gall_special_oriscus_pressus_5_V2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="202" name="pressus" fileName="gall_special_oriscus_pressus_6.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="203" name="pressus" fileName="gall_special_oriscus_pressus_7.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="204" name="pressus" fileName="gall_special_oriscus_pressus_8.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="205" name="pressus" fileName="gall_special_oriscus_pressus_9.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="206" name="salicus" fileName="gall_special_oriscus_salicus_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="207" name="salicus" fileName="gall_special_oriscus_salicus_10.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="208" name="salicus" fileName="gall_special_oriscus_salicus_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="209" name="salicus" fileName="gall_special_oriscus_salicus_3.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="210" name="salicus" fileName="gall_special_oriscus_salicus_4_V1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="211" name="salicus" fileName="gall_special_oriscus_salicus_4_V2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="212" name="salicus" fileName="gall_special_oriscus_salicus_5.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="213" name="salicus" fileName="gall_special_oriscus_salicus_6.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="214" name="salicus" fileName="gall_special_oriscus_salicus_7.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="215" name="salicus" fileName="gall_special_oriscus_salicus_8.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="216" name="salicus" fileName="gall_special_oriscus_salicus_9.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="217" name="salicus-repercussion-inside" fileName="gall_special_oriscus_salicus-repercussion-inside_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="218" name="virga strata" fileName="gall_special_oriscus_virga-strata_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="219" name="virga strata" fileName="gall_special_oriscus_virga-strata_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="220" name="virga strata" fileName="gall_special_oriscus_virga-strata_3.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="221" name="virga strata" fileName="gall_special_oriscus_virga-strata_4.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="222" name="pes stratus simple" fileName="gall_special_pes-stratus_simple_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	
-	<symbol id="223" name="pes" fileName="gall_special_quilisma_pes_1.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="224" name="pes" fileName="gall_special_quilisma_pes_2.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="225" name="pes" fileName="gall_special_quilisma_pes_3.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="226" name="pes" fileName="gall_special_quilisma_pes_4.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
-	<symbol id="227" name="torculus resupinus" fileName="gall_special_quilisma_torculus-resupinus_1.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<!-- Gall level 5 group 1 -->
+	<symbol id="147" name="pes" fileName="gall_special_quilisma_pes_1.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="148" name="pes" fileName="gall_special_quilisma_pes_2.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="149" name="pes" fileName="gall_special_quilisma_pes_3.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="150" name="pes" fileName="gall_special_quilisma_pes_4.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="151" name="torculus resupinus" fileName="gall_special_quilisma_torculus-resupinus_1.png" school="StGall" level="5" group="3" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<!-- Gall level 5 group 2, Oriscus basic  -->
+	<symbol id="152" name="isolated oriscus" fileName="gall_special_oriscus_isolated_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="153" name="pes quassus" fileName="gall_special_oriscus_pes-quassus_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="154" name="pressus" fileName="gall_special_oriscus_pressus_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="155" name="pressus" fileName="gall_special_oriscus_pressus_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="156" name="salicus" fileName="gall_special_oriscus_salicus_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="157" name="salicus" fileName="gall_special_oriscus_salicus_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="158" name="virga strata" fileName="gall_special_oriscus_virga-strata_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="159" name="pes stratus" fileName="gall_special_pes-stratus_simple_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<!-- Gall level 5 group 3, Oriscus variations  -->
+	<symbol id="160" name="climacus resupinus oriscus" fileName="gall_special_oriscus_climacus-resupinus-oriscus_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="161" name="pes quassus" fileName="gall_special_oriscus_pes-quassus_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="162" name="pes quassus" fileName="gall_special_oriscus_pes-quassus_3.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="163" name="porrectus oriscus inside" fileName="gall_special_oriscus_porrectus-oriscus-inside_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="164" name="porrectus repercussion before" fileName="gall_special_oriscus_porrectus-repercussion-before_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="165" name="porrectus repercussion before" fileName="gall_special_oriscus_porrectus-repercussion-before_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="166" name="pressus" fileName="gall_special_oriscus_pressus_3.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="167" name="pressus" fileName="gall_special_oriscus_pressus_4.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="168" name="pressus" fileName="gall_special_oriscus_pressus_5.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="169" name="pressus" fileName="gall_special_oriscus_pressus_6.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="170" name="pressus" fileName="gall_special_oriscus_pressus_7.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="171" name="pressus" fileName="gall_special_oriscus_pressus_8.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="172" name="pressus" fileName="gall_special_oriscus_pressus_9.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="173" name="pressus" fileName="gall_special_oriscus_pressus_10.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="174" name="salicus" fileName="gall_special_oriscus_salicus_3.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="175" name="salicus" fileName="gall_special_oriscus_salicus_4_V1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="176" name="salicus" fileName="gall_special_oriscus_salicus_7.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="177" name="salicus" fileName="gall_special_oriscus_salicus_8.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="178" name="salicus" fileName="gall_special_oriscus_salicus_9.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="179" name="salicus" fileName="gall_special_oriscus_salicus_10.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="180" name="salicus-repercussion-inside" fileName="gall_special_oriscus_salicus-repercussion-inside_1.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="181" name="virga strata" fileName="gall_special_oriscus_virga-strata_2.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="182" name="virga strata" fileName="gall_special_oriscus_virga-strata_3.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="183" name="virga strata" fileName="gall_special_oriscus_virga-strata_4.png" school="StGall" level="5" group="2" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<!-- Gall level 5 group 4 -->	
+	<symbol id="184" name="apostropha liquescent" fileName="gall_special_liquescence_apostropha-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="185" name="bivirga liquescent" fileName="gall_special_liquescence_bivirga-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="186" name="climacus liquescent augmentative" fileName="gall_special_liquescence_climacus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="187" name="climacus liquescent diminutive" fileName="gall_special_liquescence_climacus-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="188" name="clivis liquescent augmentative" fileName="gall_special_liquescence_clivis-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="189" name="clivis liquescent augmentative" fileName="gall_special_liquescence_clivis-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="190" name="clivis liquescent diminutive" fileName="gall_special_liquescence_clivis-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="191" name="distropha liquescent" fileName="gall_special_liquescence_distropha-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="192" name="oriscus liquescent" fileName="gall_special_liquescence_oriscus-liquescent_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="193" name="pes liquescent augmentative" fileName="gall_special_liquescence_pes-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="194" name="pes liquescent augmentative" fileName="gall_special_liquescence_pes-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="195" name="pes liquescent augmentative" fileName="gall_special_liquescence_pes-liquescent-augmentative_3.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="196" name="pes liquescent diminutive" fileName="gall_special_liquescence_pes-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="197" name="pes quassus liquescent" fileName="gall_special_liquescence_pes-quassus-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="198" name="pes subbipunctis augmentative" fileName="gall_special_liquescence_pes-subbipunctis-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="199" name="porrectus flexus augmentative" fileName="gall_special_liquescence_porrectus-flexus-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="200" name="porrectus liquescent augmentative" fileName="gall_special_liquescence_porrectus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="201" name="porrectus liquescent diminutive" fileName="gall_special_liquescence_porrectus-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="202" name="pressus liquescent augmentative" fileName="gall_special_liquescence_pressus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="203" name="pressus liquescent augmentative" fileName="gall_special_liquescence_pressus-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="204" name="pressus liquescent diminutive" fileName="gall_special_liquescence_pressus-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="205" name="pressus liquescent diminutive" fileName="gall_special_liquescence_pressus-liquescent-diminutive_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="206" name="quilisma liquescent" fileName="gall_special_liquescence_quilisma-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="207" name="quilisma liquescent" fileName="gall_special_liquescence_quilisma-liquescent_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="208" name="salicus liquescent augmentative" fileName="gall_special_liquescence_salicus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="209" name="salicus liquescent augmentative" fileName="gall_special_liquescence_salicus-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="210" name="salicus liquescent diminuative" fileName="gall_special_liquescence_salicus-liquescent-diminuative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="211" name="scandicus flexus augmentative" fileName="gall_special_liquescence_scandicus-flexus-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="212" name="scandicus liquescent augmentative" fileName="gall_special_liquescence_scandicus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="213" name="scandicus liquescent diminutive" fileName="gall_special_liquescence_scandicus-liquescent-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="214" name="torculus liquescent augmentative" fileName="gall_special_liquescence_torculus-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="215" name="torculus liquescent augmentative" fileName="gall_special_liquescence_torculus-liquescent-augmentative_2.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="216" name="torculus resupinus augmentative" fileName="gall_special_liquescence_torculus-resupinus-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="217" name="torculus resupinus diminutive" fileName="gall_special_liquescence_torculus-resupinus-diminutive_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="218" name="tractulus liquescent" fileName="gall_special_liquescence_tractulus-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="219" name="trigon liquescent" fileName="gall_special_liquescence_trigon-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="220" name="tristropha-liquescent" fileName="gall_special_liquescence_tristropha-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="221" name="trivirga liquescent" fileName="gall_special_liquescence_trivirga-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="222" name="virga-liquescent" fileName="gall_special_liquescence_virga-liquescent_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
+	<symbol id="223" name="virga strata liquescent augmentative" fileName="gall_special_liquescence_virga-strata-liquescent-augmentative_1.png" school="StGall" level="5" group="1" matchingModern="100" matchingLaon="0" altType="" altLoc="" info="" />
 	
 	
 	<!-- ================================ Laon ===============================-->
