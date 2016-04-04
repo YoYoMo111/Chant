@@ -532,6 +532,16 @@ vertical-align: middle;
   /*margin-right: 29px*/
 }
 
+#scoreExAnswer2{
+  width: 729px;
+  height:100px;
+  border: solid black 1px;
+}
+.big-drop-area{
+  width: 729px;
+  height:100px;
+  border: solid black;
+}
 #symbolSection{
 float:left;
 }

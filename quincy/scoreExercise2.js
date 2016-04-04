@@ -33,7 +33,7 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	document.getElementById("dynamicArea").innerHTML =
 	    '<div><img class="score-image" style="margin-top: 10px; margin-bottom: 10px;" src="quincy/scores/' + this.scoreFileName + '"></div>' +
 	    '<div id="drag-area">' +
-		'<div id="scoreExAnswer"></div>' + 
+		'<div id="scoreExAnswer2"></div>' + 
 		'<div id="symbolSection"></div>' +
 		'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
 		'</div>';//yoyo add style, make it not overlap.
@@ -41,9 +41,9 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
     // Show the table with drop boxes and text boxes
 	var tableInnerHTML = "";	   
 	
-		tableInnerHTML = '<table class="score-exercise-answer-table" style="width:340px;"><tr><th>No.</th><th>Neum</th><th>No.</th><th>Neum</th>';
-		tableInnerHTML += '</tr>';
-		document.getElementById("scoreExAnswer").style.width="340px";
+		//tableInnerHTML = '<table id="answer-table" class="score-exercise-answer-table" style="width:340px;"><tr><th>No.</th><th>Neum</th><th>No.</th><th>Neum</th>';
+		//tableInnerHTML += '</tr>';
+		//document.getElementById("scoreExAnswer2").style.width="340px";
 	   
 	var self = this;
 	/*for (var i = 0; i < this.size; i++) {
@@ -56,7 +56,7 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
   			    '<div class="dropbox" id="neum-dropbox_' + i + '" data-neumID=""></div>' +
 				'<img class="delete-icon" id="delete-icon_' + i + '" src="quincy/img/delete.png">' +
 			  '</td>';*/
-        	for (var i = 0; i+4 < this.size; i++) {
+        	/*for (var i = 0; i+4 < this.size; i++) {
 		tableInnerHTML +=
 		    '<tr>' + 
 			  '<td style="width: 25px;">' + (i + 1) + '</td>' + //yoyo add fixed width
@@ -91,27 +91,29 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 			  }
 			tableInnerHTML += '</tr>';	
 	tableInnerHTML += '</table>';
-	document.getElementById("scoreExAnswer").innerHTML = tableInnerHTML;
+	document.getElementById("scoreExAnswer2").innerHTML = tableInnerHTML;
+	document.getElementById("answer-table").style.display="none";*/
 	
 	// Delete icons' callback functions
-	for (var i = 0; i < this.size; i++) {
+	/*for (var i = 0; i < this.size; i++) {
 		document.getElementById("delete-icon_" + i).onclick = function(event) {
 	        self.deleteNeum(event);
 	    };
-	}
+	}*/
 
     // Allow drag and drop on answer drop boxes
 	for (var i = 0; i < this.size; i++) {
-		document.getElementById("neum-dropbox_" + i).ondragstart = function(event) {
+		/*document.getElementById("symbol_"+i).ondragstart = function(event) {
 	        self.dragStart(event);
-	    };
-        document.getElementById("neum-dropbox_" + i).ondragover = function(event) {
+	    };*/
+        document.getElementById("scoreExAnswer2").ondragover = function(event) {
 	        self.allowDrop(event);
 	    };		
-		document.getElementById("neum-dropbox_" + i).ondrop = function(event) {
+		document.getElementById("scoreExAnswer2").ondrop = function(event) {
 		    self.drop(event);
 	    };
 	}
+	
 	
 	// Show all neums of this level
 	this.nNeumsInARow = 5;
@@ -142,8 +144,13 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	}
 }
 
-ScoreExercise2.prototype.dragStart = function(ev) {    
-    
+ScoreExercise2.prototype.dragStart = function(ev) {   
+console.log("run gragstart");
+var style = window.getComputedStyle(ev.target, null);
+	var transfer=ev.dataTransfer.setData("text/plain", (parseInt(style.getPropertyValue("left"), 10) - (ev.clientX-((window.innerWidth-15-1096)/2+226+66.5))) /*+ ',' + (parseInt(style.getPropertyValue("top"), 10) - ev.clientY) + ',' + ev.target.getAttribute('data-item')*/); 
+    console.log("transfer:"+transfer);
+    console.log("run gragstart end");
+
 }
 
 ScoreExercise2.prototype.allowDrop = function(ev) {
@@ -153,12 +160,19 @@ ScoreExercise2.prototype.allowDrop = function(ev) {
 ScoreExercise2.prototype.drop = function(ev) {
 	console.log(ev.target.innerHTML);
 	ev.preventDefault();
-	
+
+	//var offset = ev.dataTransfer.getData("text/plain");//get offset from dragStart
+
 	var imageID = ev.dataTransfer.getData("text/html");
 	var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
-	ev.target.innerHTML = this.showNeumWithID(symbolID);
+	ev.target.innerHTML += this.showNeumWithID(symbolID);
 	ev.target.setAttribute("data-neumID", symbolID);
+	document.getElementById("symbol_" + symbolID + "_copy").style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
+	console.log(ev.clientX);
+	console.log("width:"+window.innerWidth);
+	//console.log("offset:"+offset);
 }
+
 
 ScoreExercise2.prototype.deleteNeum = function(ev) {
 	document.getElementById("neum-dropbox_" + ev.target.id.substring(12)).innerHTML = "";
@@ -246,5 +260,5 @@ ScoreExercise2.prototype.showNeumWithID = function(ID) {
     return '<img id="symbol_' + ID + '_copy" src="quincy/symbols/' +
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +
-	        '" draggable="false" style="width:60px;height:60px;">';
+	        '" draggable="false" style="width:60px;height:60px;left:0px; position: absolute;">';
 }
