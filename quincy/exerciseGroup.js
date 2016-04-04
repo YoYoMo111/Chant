@@ -62,7 +62,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	if (this.level == 1) {
 		for (var i = 0; i < this.groupNeumCount; i++) {
 			var questionSymbolID = this.indexOfFirstNeum + i;		
-			// Exercise type 1 - enter name of given neum
+			// Exercise type 1 - enter given neum's name
 			// One question for each neum
 			this.exercises.push(new GivenNeumEnterEnglishNameExercise(questionSymbolID, this.mechanism));
 			
@@ -90,7 +90,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		for (var i = 0; i < this.modernEquivalentsCount; i++) {
 			var questionSymbolID = i + this.indexOfFirstModernEquivalent;    // ID of modern symbol
 			this.exercises.push(new SelectSymbolToMatchExercise(4, this.school, this.level, this.group, questionSymbolID, this.mechanism));
-		}	
+		}
 	}
 
 	// Exercise type 5 - select neum alternation
@@ -167,7 +167,38 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	}
 	
 	else if (this.level == 5) {
+		// Exercise type 3 - select modern symbol(s) to match neum
+		for (var i = 0; i < this.groupNeumCount; i++) {
+			var questionSymbolID = this.indexOfFirstNeum + i;
+//			this.exercises.push(new SelectSymbolToMatchExercise(3, this.school, this.level, this.group, questionSymbolID, this.mechanism));
+		}
 		
+		// Exercise type 4 - select neum(s) to match modern symbol
+		for (var i = 0; i < this.modernEquivalentsCount; i++) {
+			var questionSymbolID = i + this.indexOfFirstModernEquivalent;    // ID of modern symbol
+//			this.exercises.push(new SelectSymbolToMatchExercise(4, this.school, this.level, this.group, questionSymbolID, this.mechanism));
+		}
+		
+		// Group 1/2/4 = level 1, add exercises type 1 & 2
+		if (this.group != 3) {
+			// Exercise type 1 - enter given neum's name
+			for (var i = 0; i < this.groupNeumCount; i++) {
+				var questionSymbolID = this.indexOfFirstNeum + i;		
+				this.exercises.push(new GivenNeumEnterEnglishNameExercise(questionSymbolID, this.mechanism));
+			}
+			
+			// Exercise type 2 - select neum to match name
+			var names = new Array();
+			for (var i = 0; i < this.groupNeumCount; i++) {
+				var neumNames = this.data.getElementsByTagName("symbol")[this.indexOfFirstNeum+i].getAttribute("name").split("=");
+				for (var j = 0; j < neumNames.length; j++) {
+					if (!nameExists(names, neumNames[j])) {
+						names.push(neumNames[j]);
+//						this.exercises.push(new SelectSymbolToMatchExercise(2, this.school, this.level, this.group, neumNames[j], this.mechanism));
+					}
+				}
+			}
+		}
 	}
 	
 	// Special score exercises for level 6
