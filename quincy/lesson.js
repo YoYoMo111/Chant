@@ -67,7 +67,7 @@ Lesson.prototype.prevQuestion = function() {
 	if (this.currentEx > 0 && this.currentEx < this.exerciseGroup.exercises.length - 1) {
 		this.exerciseGroup.exercises[this.currentEx].saveAnswer();
 	}
-	console.log(this.exerciseGroup.exercises[this.currentEx].grade());
+
     if (this.currentEx > 0) {
 	    this.currentEx--;
 	}    

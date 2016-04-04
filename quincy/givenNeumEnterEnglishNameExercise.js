@@ -2,9 +2,9 @@
 function GivenNeumEnterEnglishNameExercise(questionSymbolID, mechanism) {
     Exercise.call(this, mechanism);
 	this.score = 0;
-	this.maxScore = 1;
 	this.questionSymbolID = questionSymbolID;
 	this.hintOn = false;
+	this.studentsAnswer = new Array();
 	
 	this.getSolution();
 }
@@ -21,18 +21,17 @@ GivenNeumEnterEnglishNameExercise.prototype.show = function(index, numOfQuestion
     document.getElementById("question").innerHTML = 
     	"Question " + index + " of " + numOfQuestions + ": Enter the name of the given neum.";
 		
-	document.getElementById("dynamicArea").innerHTML =
-    	'<div id="type2ExAnswerArea">' +
-    	  '<center><div id="questionSymbol">' + 
-		    '<img id="symbol_' + this.questionSymbolID + '"src="quincy/symbols/' +	school + '/Level_' + level +
-			'/Group_' + group + '/' + fileName + '"style="width:80px;height:80px">' +
-		    '</div>' +
-	        /*'<br>' +*/
-	        '<div id="enterboxArea">'+
-	        '<input id="englishNameTextBox" class="enter-name-ex-text-box" type="text" size="30">'+
-	        '</div>' +
-	        '<div id="buttonDiv"></div>' +
-	      '</center></div>';
+	var html = '<div id="type2ExAnswerArea"><center><div id="questionSymbol">' + 
+		       '<img id="symbol_' + this.questionSymbolID + '"src="quincy/symbols/' +
+			   school + '/Level_' + level + '/Group_' + group + '/' + fileName +
+			   '"style="width:80px;height:80px"></div><div id="enterboxArea">';
+			   
+	for (var i = 0; i < this.solution.length; i++) {
+		html += '<input id="englishNameTextBox' + i + '" class="enter-name-ex-text-box" type="text" size="30"><br>';
+	}
+	html += '</div><div id="buttonDiv"></div></center></div>';
+	
+	document.getElementById("dynamicArea").innerHTML = html;
 	
 	// Show check answer button if it's in exercise mode
 	if (this.mechanism == 1) {
@@ -41,9 +40,11 @@ GivenNeumEnterEnglishNameExercise.prototype.show = function(index, numOfQuestion
 			'<button id="cheat" class="cheat-btn" type="button">Reveal Answer</button>';
 			
 		var self = this;
-	    document.getElementById("englishNameTextBox").onkeyup = function(event) {
-	        self.handleKeyPress(event);
-	    };
+		for (var i = 0; i < this.solution.length; i++) {
+			document.getElementById("englishNameTextBox" + i).onkeyup = function(event) {
+				self.handleKeyPress(event);
+			};
+		}
 		document.getElementById("checkAnswer").onclick = function() {
 			self.saveAnswer();
 	        self.showHint();
@@ -54,7 +55,9 @@ GivenNeumEnterEnglishNameExercise.prototype.show = function(index, numOfQuestion
 	}
 	
 	// Show answer previously entered by student
-	document.getElementById("englishNameTextBox").value = this.studentsAnswer;
+	for (var i = 0; i < this.studentsAnswer.length; i++) {
+		document.getElementById("englishNameTextBox" + i).value = this.studentsAnswer[i];		
+	}
 }
 
 GivenNeumEnterEnglishNameExercise.prototype.handleKeyPress = function(ev) {
@@ -72,34 +75,42 @@ GivenNeumEnterEnglishNameExercise.prototype.handleKeyPress = function(ev) {
 
 GivenNeumEnterEnglishNameExercise.prototype.getSolution = function() {
 	// solution is in format of name1=name2	
-    this.solution = this.symbolDB.symbols[this.questionSymbolID].name;
+    this.solution = this.symbolDB.symbols[this.questionSymbolID].name.split("=");
+	this.maxScore = this.solution.length;
 }
 
 GivenNeumEnterEnglishNameExercise.prototype.saveAnswer = function() {
-    if (document.getElementById("englishNameTextBox")) {
-		this.studentsAnswer = document.getElementById("englishNameTextBox").value;
+	this.studentsAnswer.length = 0;
+	for (var i = 0; i < this.solution.length; i++) {
+		this.studentsAnswer[i] = document.getElementById("englishNameTextBox" + i).value;
 	}
 }
 
 GivenNeumEnterEnglishNameExercise.prototype.showRightAnswer = function() {
-	document.getElementById("englishNameTextBox").value = this.solution.replace("=", " OR ");
+	for (var i = 0; i < this.solution.length; i++) {
+		document.getElementById("englishNameTextBox" + i).value = this.solution[i];
+	}
 }
 
 GivenNeumEnterEnglishNameExercise.prototype.grade = function() {
 	this.score = 0;
     this.saveAnswer();
-	var rightAnswers = this.solution.split("=");
-	for (var i = 0; i < rightAnswers.length; i++) {
-		if (this.studentsAnswer.toLowerCase() == rightAnswers[i].toLowerCase()) {
-			this.score = 1;
-			break;
+	
+    var answersCopy = this.solution.slice(0);
+	for (var i = 0; i < this.studentsAnswer.length; i++) {
+		for (var j = 0; j < answersCopy.length; j++) {
+			if (this.studentsAnswer[i].toLowerCase() == answersCopy[j].toLowerCase()) {
+				this.score += 1;
+				answersCopy.splice(j, 1);
+				break;
+			}
 		}
 	}
 }
 
 GivenNeumEnterEnglishNameExercise.prototype.showHint = function() {
 	this.grade();
-	if (this.score == 1) {	    
+	if (this.score == this.solution.length) {	    
 		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><div id="hint-notable">Your answer is correct.</div></div>';
 	}	
 	else {
