@@ -116,7 +116,7 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	
 	
 	// Show all neums of this level
-	this.nNeumsInARow = 5;
+	this.nNeumsInARow = 8;
 	this.symbolDB.filterList(this.school, 1, this.studentsAnswer, this.nNeumsInARow);
 	
 	// Show check answer button if it's in exercise mode
