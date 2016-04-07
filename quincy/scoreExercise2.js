@@ -23,6 +23,7 @@ function ScoreExercise2(school, level, scoreFileName, size, solution, mechanism)
 ScoreExercise2.prototype = Object.create(Exercise.prototype);
 ScoreExercise2.prototype.constructor = ScoreExercise2;
 
+var dropTime = 0;
 
 ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	var str = "Question " + index + " of " + numOfQuestions + ": Drag the neums to the box to match the notes in the score.";
@@ -159,6 +160,7 @@ ScoreExercise2.prototype.allowDrop = function(ev) {
 
 ScoreExercise2.prototype.drop = function(ev) {
 	console.log(ev.target.innerHTML);
+	console.log("what is target"+ev.target);
 	ev.preventDefault();
 
 	//var offset = ev.dataTransfer.getData("text/plain");//get offset from dragStart
@@ -167,10 +169,11 @@ ScoreExercise2.prototype.drop = function(ev) {
 	var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
 	ev.target.innerHTML += this.showNeumWithID(symbolID);
 	ev.target.setAttribute("data-neumID", symbolID);
-	document.getElementById("symbol_" + symbolID + "_copy").style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
+	document.getElementById("symbol_" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
 	console.log(ev.clientX);
 	console.log("width:"+window.innerWidth);
 	//console.log("offset:"+offset);
+	dropTime++;
 }
 
 
@@ -257,8 +260,9 @@ ScoreExercise2.prototype.grade = function() {
 }
 
 ScoreExercise2.prototype.showNeumWithID = function(ID) {
-    return '<img id="symbol_' + ID + '_copy" src="quincy/symbols/' +
+
+    return '<img id="symbol_' + ID + '_copy_'+dropTime+'" src="quincy/symbols/' +
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +
-	        '" draggable="false" style="width:60px;height:60px;left:0px; position: absolute;">';
+	        '" draggable="false" style="width:60px;height:60px; position: absolute;">';
 }
