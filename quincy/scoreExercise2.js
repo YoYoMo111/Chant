@@ -107,15 +107,17 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 		/*document.getElementById("symbol_"+i).ondragstart = function(event) {
 	        self.dragStart(event);
 	    };*/
-        document.getElementById("scoreExAnswer2").ondragover = function(event) {
+       document.getElementById("scoreExAnswer2").ondragover = function(event) {
 	        self.allowDrop(event);
 	    };		
 		document.getElementById("scoreExAnswer2").ondrop = function(event) {
 		    self.drop(event);
 	    };
 	}
-	
-	
+	/*
+	document.getElementById("scoreExAnswer2").addEventListener('dragover', self.allowDrop, false);
+	document.getElementById("scoreExAnswer2").addEventListener('drop', self.drop, false);
+	*/
 	// Show all neums of this level
 	this.nNeumsInARow = 8;
 	this.symbolDB.filterList(this.school, 1, this.studentsAnswer, this.nNeumsInARow);
@@ -159,6 +161,7 @@ ScoreExercise2.prototype.allowDrop = function(ev) {
 }
 
 ScoreExercise2.prototype.drop = function(ev) {
+
 	console.log(ev.target.innerHTML);
 	console.log("what is target"+ev.target);
 	ev.preventDefault();
@@ -167,9 +170,13 @@ ScoreExercise2.prototype.drop = function(ev) {
 
 	var imageID = ev.dataTransfer.getData("text/html");
 	var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
-	ev.target.innerHTML += this.showNeumWithID(symbolID);
+	//ev.target.innerHTML += this.showNeumWithID(symbolID);
+	document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
+	//this.alowDropOnSymbol(symbolID);
 	ev.target.setAttribute("data-neumID", symbolID);
-	document.getElementById("symbol_" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
+	document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
+	
+
 	console.log(ev.clientX);
 	console.log("width:"+window.innerWidth);
 	//console.log("offset:"+offset);
@@ -261,8 +268,23 @@ ScoreExercise2.prototype.grade = function() {
 
 ScoreExercise2.prototype.showNeumWithID = function(ID) {
 
-    return '<img id="symbol_' + ID + '_copy_'+dropTime+'" src="quincy/symbols/' +
+    return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" style="width:60px;height:60px; position: absolute;">'+
+    		'<img id="symbol_' + ID + '_copy_'+dropTime+'" class="answer-symbol" src="quincy/symbols/' +
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +
-	        '" draggable="false" style="width:60px;height:60px; position: absolute;">';
+	        '" draggable="true" style="width:60px;height:60px; position: absolute;">'+
+	        '<img id="delete-button" src="quincy/img/delete.png" >'+'</div>';
+
 }
+/*
+ScoreExercise2.prototype.alowDropOnSymbol = function(ID) {
+
+	document.getElementById("symbol_" + ID + "_copy_" + dropTime).ondragover = function(event) {
+	        self.allowDrop(event);
+	    };		
+	    //console.log("allow drop on symbol");
+	document.getElementById("symbol_" + ID + "_copy_" + dropTime).ondrop = function(event) {
+		    self.drop(event);
+		    console.log("drop on symbol");
+	    };
+}*/

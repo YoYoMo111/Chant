@@ -546,6 +546,14 @@ vertical-align: middle;
 float:left;
 }
 
+.answer-symbol:hover {
+border: solid 1px  #ddd;
+}
+
+#delete-button{
+  position:absolute;
+  width:18px;
+}
 table.score-exercise-answer-table {
   border: 1px solid #666;
   width:403px;
