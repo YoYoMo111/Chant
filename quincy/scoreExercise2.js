@@ -10,7 +10,7 @@ function ScoreExercise2(school, level, scoreFileName, size, solution, mechanism)
 	this.maxScore = this.size;
 
 	this.getSolution();
-	
+
 	// Init student answer arrays
 	this.studentsAnswerIDs = new Array();
 	this.studentAnswerNames = new Array();
@@ -112,6 +112,7 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	    };		
 		document.getElementById("scoreExAnswer2").ondrop = function(event) {
 		    self.drop(event);
+
 	    };
 	}
 	/*
@@ -163,7 +164,7 @@ ScoreExercise2.prototype.allowDrop = function(ev) {
 ScoreExercise2.prototype.drop = function(ev) {
 
 	console.log(ev.target.innerHTML);
-	console.log("what is target"+ev.target);
+	
 	ev.preventDefault();
 
 	//var offset = ev.dataTransfer.getData("text/plain");//get offset from dragStart
@@ -176,13 +177,45 @@ ScoreExercise2.prototype.drop = function(ev) {
 	ev.target.setAttribute("data-neumID", symbolID);
 	document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
 	
+	
+
 
 	console.log(ev.clientX);
 	console.log("width:"+window.innerWidth);
 	//console.log("offset:"+offset);
 	dropTime++;
 }
+/*
+function reAllowDrop(ev) {
+    ev.preventDefault();
+}
 
+function reDrag(ev) {
+	console.log("run re drag");
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function reDrop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    document.getElementById(data).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235)))+'px';
+}*/
+
+/*
+ScoreExercise2.prototype.reDrop = function(ev) {
+	ev.preventDefault();
+
+	var imageID = ev.dataTransfer.getData("text/html");
+	console.log("imageID:"+imageID);
+	var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
+	console.log("symbolID:"+symbolID);
+	ev.target.setAttribute("data-neumID", symbolID);
+	document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235)))+'px';
+	
+
+	console.log(ev.clientX);
+	console.log("width:"+window.innerWidth);
+}*/
 
 ScoreExercise2.prototype.deleteNeum = function(ev) {
 	document.getElementById("neum-dropbox_" + ev.target.id.substring(12)).innerHTML = "";
@@ -265,15 +298,27 @@ ScoreExercise2.prototype.grade = function() {
 		}
 	}
 }
+/*
+function show(id) {
+	document.getElementById(id).style.visibility = "visible";
+	console.log("delete visible");
+}
+function hide(id) {
+	document.getElementById(id).style.visibility = "hidden";
+	console.log("delete hidden");
+}
+*/
+
+
 
 ScoreExercise2.prototype.showNeumWithID = function(ID) {
 
-    return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" style="width:60px;height:60px; position: absolute;">'+
-    		'<img id="symbol_' + ID + '_copy_'+dropTime+'" class="answer-symbol" src="quincy/symbols/' +
+    return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" class="answer-symbol" style="width:60px;height:60px; position: absolute;" >'+
+    		'<img class="symbol-images" id="symbol_' + ID + '_copy_'+dropTime+'"  src="quincy/symbols/' +
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +
 	        '" draggable="true" style="width:60px;height:60px; position: absolute;">'+
-	        '<img id="delete-button" src="quincy/img/delete.png" >'+'</div>';
+	        '<img id="delete-button'+dropTime+'" class="delete-buttons" style="width:18px; " src="quincy/img/delete.png" >'+'</div>';
 
 }
 /*
