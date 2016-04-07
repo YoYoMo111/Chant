@@ -184,7 +184,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 			// Exercise type 1 - enter given neum's name
 			for (var i = 0; i < this.groupNeumCount; i++) {
 				var questionSymbolID = this.indexOfFirstNeum + i;		
-				this.exercises.push(new GivenNeumEnterEnglishNameExercise(questionSymbolID, this.mechanism));
+//				this.exercises.push(new GivenNeumEnterEnglishNameExercise(questionSymbolID, this.mechanism));
 			}
 			
 			// Exercise type 2 - select neum to match name
@@ -194,7 +194,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 				for (var j = 0; j < neumNames.length; j++) {
 					if (!nameExists(names, neumNames[j])) {
 						names.push(neumNames[j]);
-//						this.exercises.push(new SelectSymbolToMatchExercise(2, this.school, this.level, this.group, neumNames[j], this.mechanism));
+						this.exercises.push(new SelectSymbolToMatchExercise(2, this.school, this.level, this.group, neumNames[j], this.mechanism));
 					}
 				}
 			}
