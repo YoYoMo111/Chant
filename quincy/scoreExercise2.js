@@ -24,6 +24,7 @@ ScoreExercise2.prototype = Object.create(Exercise.prototype);
 ScoreExercise2.prototype.constructor = ScoreExercise2;
 
 var dropTime = 0;
+var insideSymbolID = [];
 
 ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	var str = "Question " + index + " of " + numOfQuestions + ": Drag the neums to the box to match the notes in the score.";
@@ -115,6 +116,8 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 
 	    };
 	}
+
+
 	/*
 	document.getElementById("scoreExAnswer2").addEventListener('dragover', self.allowDrop, false);
 	document.getElementById("scoreExAnswer2").addEventListener('drop', self.drop, false);
@@ -149,11 +152,11 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 }
 
 ScoreExercise2.prototype.dragStart = function(ev) {   
-console.log("run gragstart");
-var style = window.getComputedStyle(ev.target, null);
+	console.log("run dragstart");
+	var style = window.getComputedStyle(ev.target, null);
 	var transfer=ev.dataTransfer.setData("text/plain", (parseInt(style.getPropertyValue("left"), 10) - (ev.clientX-((window.innerWidth-15-1096)/2+226+66.5))) /*+ ',' + (parseInt(style.getPropertyValue("top"), 10) - ev.clientY) + ',' + ev.target.getAttribute('data-item')*/); 
     console.log("transfer:"+transfer);
-    console.log("run gragstart end");
+    //console.log("run gragstart end");
 
 }
 
@@ -171,6 +174,7 @@ ScoreExercise2.prototype.drop = function(ev) {
 
 	var imageID = ev.dataTransfer.getData("text/html");
 	var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
+	console.log("imageID =" + imageID);
 	//ev.target.innerHTML += this.showNeumWithID(symbolID);
 	document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 	//this.alowDropOnSymbol(symbolID);
@@ -183,6 +187,10 @@ ScoreExercise2.prototype.drop = function(ev) {
 	console.log(ev.clientX);
 	console.log("width:"+window.innerWidth);
 	//console.log("offset:"+offset);
+	var self = this;
+	document.getElementById('symbol-container-'+ symbolID + '_copy_'+ dropTime).ondragstart = function(event) {
+	    self.dragStart(event);
+	};
 	dropTime++;
 }
 /*
@@ -312,8 +320,12 @@ function hide(id) {
 
 
 ScoreExercise2.prototype.showNeumWithID = function(ID) {
+	
+		insideSymbolID[dropTime] =  'symbol-container-'+ ID + '_copy_'+dropTime;
+		console.log("insideSymbolID="+insideSymbolID[dropTime]);
+	
 
-    return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" class="answer-symbol" style="width:60px;height:60px; position: absolute;" >'+
+    return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" class="answer-symbol"  ondragstart="dragStart(event)"draggable="true" style="width:60px;height:60px; position: absolute;" >'+
     		'<img class="symbol-images" id="symbol_' + ID + '_copy_'+dropTime+'"  src="quincy/symbols/' +
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +
