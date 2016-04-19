@@ -13,7 +13,7 @@ Lesson.prototype.initUI = function(container_div_id) {
 		  '<div id="progressBarOutline"><div id="progressBar"></div></div>' +
 	      '<div id="dynamicArea"></div>' +
 	      '<div id="controls"></div>' +
-	      '<center><button id="excercise-btn" type="button">Go to Excercise</button></center>'+
+	      '<center><button id="excercise-btn" type="button">Go to Excercises</button></center>'+
 	      '<div id="hint"></div>' +
 	    '</div>';
 	
