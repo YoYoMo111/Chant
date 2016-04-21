@@ -668,7 +668,7 @@
 	background-color: transparent;
 	text-align: center;
 	font-size: 14px;
-	letter-spacing: 5px;
+	letter-spacing: 1.5px;
 	text-transform: uppercase;
 	color: #545554;
 	font-family: ubuntu, sans-serif;
@@ -740,7 +740,7 @@
 	text-transform: uppercase;
 	text-align: center;
 	color: #545554;
-	letter-spacing: 5px;
+	letter-spacing: 1.5px;
 	font-family: ubuntu, sans-serif;
 	font-weight: 500;
 	position: relative;
@@ -810,7 +810,7 @@
 	text-transform: uppercase;
 	text-align: center;
 	color: #545554;
-	letter-spacing: 5px;
+	letter-spacing: 1.5px;
 	font-family: ubuntu, sans-serif;
 	font-weight: 500;
 	position: relative;
@@ -880,7 +880,7 @@
 	text-transform: uppercase;
 	text-align: center;
 	color: #545554;
-	letter-spacing: 5px;
+	letter-spacing: 1.5px;
 	font-family: ubuntu, sans-serif;
 	font-weight: 500;
 	position: relative;
@@ -967,7 +967,7 @@
 	text-transform: uppercase;
 	text-align: center;
 	color: #545554;
-	letter-spacing: 5px;
+	letter-spacing: 1.5px;
 	font-family: ubuntu, sans-serif;
 	font-weight: 500;
 	position: relative;
