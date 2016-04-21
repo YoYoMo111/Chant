@@ -152,11 +152,14 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 }
 
 ScoreExercise2.prototype.dragStart = function(ev) {   
-	console.log("run dragstart");
-	var style = window.getComputedStyle(ev.target, null);
-	var transfer=ev.dataTransfer.setData("text/plain", (parseInt(style.getPropertyValue("left"), 10) - (ev.clientX-((window.innerWidth-15-1096)/2+226+66.5))) /*+ ',' + (parseInt(style.getPropertyValue("top"), 10) - ev.clientY) + ',' + ev.target.getAttribute('data-item')*/); 
-    console.log("transfer:"+transfer);
+	console.log("run dragstart2");
+	//var style = window.getComputedStyle(ev.target, null);
+	//var transfer=ev.dataTransfer.setData("text/plain", (parseInt(style.getPropertyValue("left"), 10) - (ev.clientX-((window.innerWidth-15-1096)/2+226+66.5))) /*+ ',' + (parseInt(style.getPropertyValue("top"), 10) - ev.clientY) + ',' + ev.target.getAttribute('data-item')*/); 
+    //console.log("transfer:"+transfer);
     //console.log("run gragstart end");
+
+    ev.dataTransfer.setData("text/html", ev.target.id);
+	this.draggedSymbol = ev.target.id;
 
 }
 
@@ -173,25 +176,28 @@ ScoreExercise2.prototype.drop = function(ev) {
 	//var offset = ev.dataTransfer.getData("text/plain");//get offset from dragStart
 
 	var imageID = ev.dataTransfer.getData("text/html");
-	var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
 	console.log("imageID =" + imageID);
-	//ev.target.innerHTML += this.showNeumWithID(symbolID);
-	document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
-	//this.alowDropOnSymbol(symbolID);
-	ev.target.setAttribute("data-neumID", symbolID);
-	document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
-	
-	
+	if(imageID.indexOf("copy")<0){
+		var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
+		
+		//ev.target.innerHTML += this.showNeumWithID(symbolID);
+		document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
+		//this.alowDropOnSymbol(symbolID);
+		ev.target.setAttribute("data-neumID", symbolID);
+		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
+		console.log(ev.clientX);
+		console.log("width:"+window.innerWidth);
+		//console.log("offset:"+offset);
+		var self = this;
+		document.getElementById('symbol-container-'+ symbolID + '_copy_'+ dropTime).ondragstart = function(event) {
+		    self.dragStart(event);
+		};
+		dropTime++;
+	}
+	else{
+		document.getElementById(imageID).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
 
-
-	console.log(ev.clientX);
-	console.log("width:"+window.innerWidth);
-	//console.log("offset:"+offset);
-	var self = this;
-	document.getElementById('symbol-container-'+ symbolID + '_copy_'+ dropTime).ondragstart = function(event) {
-	    self.dragStart(event);
-	};
-	dropTime++;
+	}
 }
 /*
 function reAllowDrop(ev) {
@@ -329,7 +335,7 @@ ScoreExercise2.prototype.showNeumWithID = function(ID) {
     		'<img class="symbol-images" id="symbol_' + ID + '_copy_'+dropTime+'"  src="quincy/symbols/' +
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +
-	        '" draggable="true" style="width:60px;height:60px; position: absolute;">'+
+	        '" draggable="false" style="width:60px;height:60px; position: absolute;">'+
 	        '<img id="delete-button'+dropTime+'" class="delete-buttons" style="width:18px; " src="quincy/img/delete.png" >'+'</div>';
 
 }
