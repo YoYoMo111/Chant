@@ -30,10 +30,11 @@ ChantApp.prototype.initLesson = function(school, level, group) {
 	this.lesson = new Lesson(this.school, level, group);
     this.lesson.initUI(this.container_div_id);
 
-    if (level==1||level==2||level==6){groupNum=5;}
+    if (level==1||level==2){groupNum=5;}
     else if(level==3){groupNum=2;}
     else if(level==4){groupNum=7;}
     else if(level==5){groupNum=4;}
+    else if(level==6){groupNum=1;}
 
 	// Change text color of selected menu item to red
 	for (var i = 1; i <= groupNum; i++){
@@ -67,10 +68,11 @@ ChantApp.prototype.initReviewLesson = function(school, level) {
 	
 	this.reviewLesson.initUI(this.container_div_id);
 
-	if (level==1||level==2||level==6){groupNum=5;}
+	if (level==1||level==2){groupNum=5;}
     else if(level==3){groupNum=2;}
     else if(level==4){groupNum=7;}
     else if(level==5){groupNum=4;}
+    else if(level==6){groupNum=1;}
 
 	// Change text color of selected menu item to red
 	for (var i = 1; i <= groupNum; i++){
@@ -101,10 +103,11 @@ ChantApp.prototype.initTest = function(school, level) {
 	this.levelTest = new LevelTest(this.school, level, this.stGallGroups[level-1]);
 	this.levelTest.initUI(this.container_div_id);
 
-	if (level==1||level==2||level==6){groupNum=5;}
+	if (level==1||level==2){groupNum=5;}
     else if(level==3){groupNum=2;}
     else if(level==4){groupNum=7;}
     else if(level==5){groupNum=4;}
+    else if(level==6){groupNum=1;}
 	
 	// Change text color of selected menu item to red
 
@@ -136,10 +139,11 @@ ChantApp.prototype.initQuizlet = function(school, level) {
 	this.quizlet = new Quizlet(this.school, level, this.stGallGroups[level-1]);
 	this.quizlet.initUI(this.container_div_id);
 
-	if (level==1||level==2||level==6){groupNum=5;}
+	if (level==1||level==2){groupNum=5;}
     else if(level==3){groupNum=2;}
     else if(level==4){groupNum=7;}
     else if(level==5){groupNum=4;}
+    else if(level==6){groupNum=1;}
 	
 	// Change text color of selected menu item to red
 	for (var i = 1; i <= groupNum; i++){
