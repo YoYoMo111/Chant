@@ -170,13 +170,13 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		// Exercise type 3 - select modern symbol(s) to match neum
 		for (var i = 0; i < this.groupNeumCount; i++) {
 			var questionSymbolID = this.indexOfFirstNeum + i;
-//			this.exercises.push(new SelectSymbolToMatchExercise(3, this.school, this.level, this.group, questionSymbolID, this.mechanism));
+			this.exercises.push(new SelectSymbolToMatchExercise(3, this.school, this.level, this.group, questionSymbolID, this.mechanism));
 		}
 		
 		// Exercise type 4 - select neum(s) to match modern symbol
 		for (var i = 0; i < this.modernEquivalentsCount; i++) {
 			var questionSymbolID = i + this.indexOfFirstModernEquivalent;    // ID of modern symbol
-//			this.exercises.push(new SelectSymbolToMatchExercise(4, this.school, this.level, this.group, questionSymbolID, this.mechanism));
+			this.exercises.push(new SelectSymbolToMatchExercise(4, this.school, this.level, this.group, questionSymbolID, this.mechanism));
 		}
 		
 		// Group 1/2/4 = level 1, add exercises type 1 & 2
@@ -184,7 +184,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 			// Exercise type 1 - enter given neum's name
 			for (var i = 0; i < this.groupNeumCount; i++) {
 				var questionSymbolID = this.indexOfFirstNeum + i;		
-//				this.exercises.push(new GivenNeumEnterEnglishNameExercise(questionSymbolID, this.mechanism));
+				this.exercises.push(new GivenNeumEnterEnglishNameExercise(questionSymbolID, this.mechanism));
 			}
 			
 			// Exercise type 2 - select neum to match name

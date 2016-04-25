@@ -57,8 +57,7 @@ SelectSymbolToMatchExercise.prototype.show = function(index, numOfQuestions) {
     	    "Question " + index + " of " + numOfQuestions + ": Select the neum that matches the given name.";
 	}
 	else if (this.type == 3) {    // Select modern symbols to match neum
-		document.getElementById("question").innerHTML = 
-	        "Question " + index + " of " + numOfQuestions + ": Select the example(s) of modern notation that match the given neum.<br>In any set of notes with a red note, it is the red note that must be matched.";
+		document.getElementById("question").innerHTML = "Question " + index + " of " + numOfQuestions + ": Select the example(s) of modern notation that match the given neum.<br>In any set of notes with a red note, it is the red note that must be matched.";
 	}
 	else if (this.type == 4) {    // Select neums to match modern symbols
 		// For the red notes
