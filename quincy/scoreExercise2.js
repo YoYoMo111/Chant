@@ -13,9 +13,11 @@ function ScoreExercise2(school, level, scoreFileName, size, solution, mechanism)
 
 	// Init student answer arrays
 	this.studentsAnswerIDs = new Array();
+	this.studentsAnswerIDs = [""];
+	this.studentsAnswerLefts = new Array();
 	this.studentAnswerNames = new Array();
 	for (var i = 0; i < this.size; i++) {
-        this.studentsAnswerIDs.push("");
+        //this.studentsAnswerIDs.push("");
         this.studentAnswerNames.push("");
 	}
 }
@@ -36,12 +38,6 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	    '<div><img class="score-image" style="margin-top: 10px; margin-bottom: 10px;" src="quincy/scores/' + this.scoreFileName + '"></div>' +
 	    '<div id="drag-area">' +
 		'<div id="scoreExAnswer2">'+
-		    '<div id="symbol-container-0_copy_0" class="answer-symbol" onclick="sendOnTop(event)" ondragstart="dragStart(event)" draggable="true" style="width:60px; height:60px;position:absolute;left:140px;">'+
-		    '<img class="symbol-images" id="symbol_0_copy_0" src="quincy/symbols/StGall/Level_1/Group_1/gall_single-note_gravis_simple_1.png" draggable="false" style="width:60px;height:60px;position:absolute;">'+
-		    '</div>'+
-		    '<div id="symbol-container-1_copy_1" class="answer-symbol" onclick="sendOnTop(event)" ondragstart="dragStart(event)" draggable="true" style="width:60px; height:60px;position:absolute;left:341px;">'+
-		    '<img class="symbol-images" id="symbol_1_copy_1" src="quincy/symbols/StGall/Level_1/Group_1/gall_single-note_punctum_simple_1.png" draggable="false" style="width:60px;height:60px;position:absolute;">'+
-		    '</div>'+
 		'</div>' + 
 		'<div id="symbolSection"></div>' +
 		'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
@@ -157,17 +153,31 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	}
 	
 	// Show student's answer
-	for (var i = 0; i < this.size; i++) {
+	dropTime=0;
+	for (var i = 0; i < this.studentsAnswerIDs.length; i++) {
+		console.log("length-"+this.studentsAnswerIDs.length);
+		console.log("run"+i);
 		if (this.studentsAnswerIDs[i] != "") {
-			document.getElementById("neum-dropbox_" + i).innerHTML = this.showNeumWithID(this.studentsAnswerIDs[i]);
-			document.getElementById("neum-dropbox_" + i).setAttribute("data-neumID", this.studentsAnswerIDs[i]);		
+			document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(this.studentsAnswerIDs[i]);
+			//document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
+			var answer = document.getElementById("scoreExAnswer2").children;
+			document.getElementById(answer[i]).style.left=studentsAnswerLefts[i]+'px';
+			console.log("run"+i);		
 		}
+		dropTime++;
 	}
 }
 
 var my_index = 100;
 function sendOnTop(ev){
-	document.getElementById(ev.target.id).style.zIndex = my_index++;
+	if(document.getElementById("symbol-container-"+ev.target.id.substring(7))==null||"symbol-container-"+ev.target.id.substring(13)==null)return;
+
+	if(ev.target.id.indexOf("button")<0){
+	    document.getElementById("symbol-container-"+ev.target.id.substring(7)).style.zIndex = my_index++;
+	}
+	else{
+		document.getElementById("symbol-container-"+ev.target.id.substring(13)).style.zIndex = my_index++;
+	}
 }
 
 var offset;
@@ -261,6 +271,17 @@ ScoreExercise2.prototype.reDrop = function(ev) {
 	console.log(ev.clientX);
 	console.log("width:"+window.innerWidth);
 }*/
+function Remove(EId)
+{
+    return(EObj=document.getElementById(EId))?EObj.parentNode.removeChild(EObj):false;
+}
+
+function deleteNeum(ev){
+	console.log("substring" + ev.target.id.substring(13));
+	document.getElementById("symbol-container-" + ev.target.id.substring(13)).innerHTML = "";
+	document.getElementById("symbol-container-" + ev.target.id.substring(13)).style.display = "none";
+	Remove("symbol-container-" + ev.target.id.substring(13));
+}
 
 ScoreExercise2.prototype.deleteNeum = function(ev) {
 	document.getElementById("neum-dropbox_" + ev.target.id.substring(12)).innerHTML = "";
@@ -281,6 +302,35 @@ ScoreExercise2.prototype.saveAnswer = function() {
 	//}
 //	console.log(this.studentsAnswerIDs);
 //	console.log(this.solutionIDs);
+	//this.studentsAnswerIDs = [""];
+	//this.studentsAnswerLefts = [""];
+
+	var answer = document.getElementById("scoreExAnswer2").children;
+	//console.log("answer children:"+answer[0].children[0].id);
+	for( var i = 0; i < answer.length; i++){
+		this.studentsAnswerIDs[i] = document.getElementById(answer[i].id).getAttribute("data-neumID");
+		var style = window.getComputedStyle(answer[i], null);
+		this.studentsAnswerLefts[i] = parseInt(style.getPropertyValue("left"), 10);
+		
+		console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerLefts[i]);
+	}
+	for(i = 0; i<=answer.length-1; i++){
+		if(this.studentsAnswerLefts[i] > this.studentsAnswerLefts[i+1]){
+
+			var temp1 = this.studentsAnswerLefts[i+1];
+			this.studentsAnswerLefts[i+1] = this.studentsAnswerLefts[i];
+			this.studentsAnswerLefts[i] = temp1;
+
+			var temp2 = this.studentsAnswerIDs[i+1];
+			this.studentsAnswerIDs[i+1] = this.studentsAnswerIDs[i];
+			this.studentsAnswerIDs[i] = temp2;
+			i = i - 2;
+		}
+	}
+	console.log(this.studentsAnswerIDs);
+	console.log(this.studentsAnswerLefts);
+
+//console.log("answer1:"+c[0].id);
 }
 
 ScoreExercise2.prototype.showRightAnswer = function() {
@@ -363,12 +413,15 @@ ScoreExercise2.prototype.showNeumWithID = function(ID) {
 		console.log("insideSymbolID="+insideSymbolID[dropTime]);
 	
 
-    return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" class="answer-symbol" onclick="sendOnTop(event)" ondragstart="dragStart(event)" draggable="true" style="width:60px;height:60px; position: absolute;" >'+
-    		'<img class="symbol-images" id="symbol_' + ID + '_copy_'+dropTime+'"  src="quincy/symbols/' +
+    return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" class="answer-symbol" data-neumID="'+ID+'" onclick="sendOnTop(event)" ondragstart="dragStart(event)" draggable="true" style="width:60px;height:60px; position: absolute;" >'+	
+    		'<img class="symbol-images" id="symbol_' + ID + '_copy_'+dropTime+'" data-neumID="'+ID+'" src="quincy/symbols/' +
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +
 	        '" draggable="false" style="width:60px;height:60px; position: absolute;">'+
-	        '<img id="delete-button'+dropTime+'" class="delete-buttons" style="width:18px; " src="quincy/img/delete.png" >'+'</div>';
+	        '<img id="delete-button'+ ID + '_copy_'+dropTime+'" class="delete-buttons" onclick="deleteNeum(event)" style="width:18px; z-index: 500; position:absolute;" src="quincy/img/delete.png" >'+
+	        '<img id="tick'+ ID + '_copy_'+dropTime+'" class="tick-marks" src="quincy/img/tick.png">'+
+	        '<img id="x'+ ID + '_copy_'+dropTime+'" class="x-marks" src="quincy/img/x.png">'
+	        '</div>';
 
 }
 /*
