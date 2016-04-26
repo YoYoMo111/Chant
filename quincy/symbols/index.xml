@@ -187,7 +187,8 @@
 	<!-- Gall level 5 group 3, Oriscus variations  -->
 	<symbol id="160" name="climacus resupinus oriscus" fileName="gall_special_oriscus_climacus-resupinus-oriscus_1.png" school="StGall" level="5" group="3" matchingModern="574-575" matchingLaon="0" altType="" altLoc="" info="Three descending notes; the last note is repeated." />
 	<symbol id="161" name="pes quassus" fileName="gall_special_oriscus_pes-quassus_2.png" school="StGall" level="5" group="3" matchingModern="576-577-578" matchingLaon="0" altType="" altLoc="" info="Oriscus followed by a higher note(with frendoror fragor)." />
-	<symbol id="162" name="pes quassus" fileName="gall_special_oriscus_pes-quassus_3.png" school="StGall" level="5" group="3" matchingModern="576-577-578" matchingLaon="0" altType="" altLoc="" info="Oriscus followed by a higher note with an episema." />
+	<symbol id="162" name="pes quassus" fileName="gall_special_oriscus_pes-quassus_3.png" school="StGall" level="5" group="3" matchingModern="579-580-581" matchingLaon="0" altType="" altLoc="" info="Oriscus followed by a higher note with an episema." />
+	
 	<symbol id="163" name="porrectus oriscus inside" fileName="gall_special_oriscus_porrectus-oriscus-inside_1.png" school="StGall" level="5" group="3" matchingModern="579-580-581" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note (both with episema), repeated note, higher note." />
 	<symbol id="164" name="porrectus repercussion before" fileName="gall_special_oriscus_porrectus-repercussion-before_1.png" school="StGall" level="5" group="3" matchingModern="582-583" matchingLaon="0" altType="" altLoc="" info="Note, repeated note, lower note, higher note." />
 	<symbol id="165" name="porrectus repercussion before" fileName="gall_special_oriscus_porrectus-repercussion-before_2.png" school="StGall" level="5" group="3" matchingModern="584-585" matchingLaon="0" altType="" altLoc="" info="Note (with episema), repeated note, lower note, higher note." />
@@ -638,9 +639,15 @@
     <!-- Modern level 5 group 3 -->
 	<symbol id="574" name="climacus resupinus oriscus" fileName="modern-gall_special_oriscus_climacus-resupinus-oriscus_1A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="160" altType="" altLoc="" info=""/>
 	<symbol id="575" name="climacus resupinus oriscus" fileName="modern-gall_special_oriscus_climacus-resupinus-oriscus_1B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="160" altType="" altLoc="" info=""/>
-	<symbol id="576" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_3A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="161-162" altType="" altLoc="" info=""/>
-	<symbol id="577" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_3B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="161-162" altType="" altLoc="" info=""/>
-	<symbol id="578" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_3C.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="161-162" altType="" altLoc="" info=""/>
+	
+	<symbol id="576" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_1A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="161" altType="" altLoc="" info=""/>
+	<symbol id="577" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_1B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="161" altType="" altLoc="" info=""/>
+	<symbol id="578" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_1C.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="161" altType="" altLoc="" info=""/>
+	
+	<symbol id="579" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_3A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="162" altType="" altLoc="" info=""/>
+	<symbol id="580" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_3B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="162" altType="" altLoc="" info=""/>
+	<symbol id="581" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_3C.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="162" altType="" altLoc="" info=""/>
+	
 	<symbol id="579" name="porrectus oriscus inside" fileName="modern-gall_special_oriscus_porrectus-oriscus-inside_1A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="163" altType="" altLoc="" info=""/>
 	<symbol id="580" name="porrectus oriscus inside" fileName="modern-gall_special_oriscus_porrectus-oriscus-inside_1B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="163" altType="" altLoc="" info=""/>
 	<symbol id="581" name="porrectus oriscus inside" fileName="modern-gall_special_oriscus_porrectus-oriscus-inside_1C.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="163" altType="" altLoc="" info=""/>
