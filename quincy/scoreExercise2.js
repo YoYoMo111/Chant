@@ -15,6 +15,8 @@ function ScoreExercise2(school, level, scoreFileName, size, solution, mechanism)
 	this.studentsAnswerIDs = new Array();
 	this.studentsAnswerLefts = new Array();
 	this.studentAnswerNames = new Array();
+	this.tickIDs = new Array();
+	this.xIDs = new Array();
 	for (var i = 0; i < this.size; i++) {
         //this.studentsAnswerIDs.push("");
         this.studentAnswerNames.push("");
@@ -319,10 +321,19 @@ ScoreExercise2.prototype.saveAnswer = function() {
 
 	var answer = document.getElementById("scoreExAnswer2").children;
 	//console.log("answer children:"+answer[0].children[0].id);
+	this.studentsAnswerIDs = [""];
+	this.studentsAnswerLefts = [""];
+	this.tickIDs = [""];
+	this.xIDs = [""];
+
 	for( var i = 0; i < answer.length; i++){
 		this.studentsAnswerIDs[i] = document.getElementById(answer[i].id).getAttribute("data-neumID");
 		var style = window.getComputedStyle(answer[i], null);
 		this.studentsAnswerLefts[i] = parseInt(style.getPropertyValue("left"), 10);
+		this.tickIDs[i] = 'tick' + answer[i].id.substring(17);
+		this.xIDs[i] = 'x' + answer[i].id.substring(17);
+
+		console.log(answer[i].id.substring(17));
 		
 		//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerLefts[i]);
 	}
@@ -336,12 +347,21 @@ ScoreExercise2.prototype.saveAnswer = function() {
 			var temp2 = this.studentsAnswerIDs[i+1];
 			this.studentsAnswerIDs[i+1] = this.studentsAnswerIDs[i];
 			this.studentsAnswerIDs[i] = temp2;
+
+			var temp3 = this.tickIDs[i+1];
+			this.tickIDs[i+1] = this.tickIDs[i];
+			this.tickIDs[i] = temp3;
+
+			var temp4 = this.xIDs[i+1];
+			this.xIDs[i+1] = this.xIDs[i];
+			this.xIDs[i] = temp4;
 			i = i - 2;
 		}
 	}
-	//console.log(this.studentsAnswerIDs);
-	//console.log(this.studentsAnswerLefts);
-
+	console.log(this.studentsAnswerIDs);
+	console.log(this.studentsAnswerLefts);
+	console.log(this.tickIDs);
+	console.log(this.xIDs);
 //console.log("answer1:"+c[0].id);
 }
 
@@ -356,20 +376,23 @@ ScoreExercise2.prototype.showRightAnswer = function() {
 
 ScoreExercise2.prototype.showHint = function() {
 	document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><table id="hintTable"></table></div>';
-	for (var i = 0; i < this.size; i++) {
+	for (var i = 0; i < this.studentsAnswerIDs.length; i++) {
 		// Check neums
 		if (this.studentsAnswerIDs[i] != "") {
+			console.log("answer:"+this.studentsAnswerIDs[i]);
+			console.log("solution:"+this.solutionIDs[i]);
 			if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
-			    document.getElementById("checkmark_" + i).style.display = "inline-block";
+			    document.getElementById(this.tickIDs[i]).style.visibility = "visible";
 			}
 			else {
-				document.getElementById("x-mark_" + i).style.display = "inline-block";
-				this.showSymbolInfo(this.studentsAnswerIDs[i]);
+				document.getElementById(this.xIDs[i]).style.visibility = "visible";
+				//this.showSymbolInfo(this.studentsAnswerIDs[i]);
 			}
-			document.getElementById("delete-icon_" + i).style.left = "20px"; //yoyo revise
-			document.getElementById("delete-icon_" + i).style.float="left";
-			document.getElementById("delete-icon_" + i).style.top = "31px";
+
 		}
+	}
+	if(this.studentsAnswerIDs.length < this.solutionIDs.length){
+		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable">Missing neums!</table></div>';
 	}
 }
 
