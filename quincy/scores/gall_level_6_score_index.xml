@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <scores>
-    <score id="0" fileName="gall_6_lesson_1.png" school="StGall" level="6" type="lesson" size="6" solution="0-1-2-3-4-5" symbolPos="68-128-200-260-320-600"/>
-    <score id="1" fileName="gall_6_lesson_2.png" school="StGall" level="6" type="lesson" size="6" solution="8-9-10-11-12-13" symbolPos="68-128-200-260-320-600"/>
+    <score id="0" fileName="gall_6_lesson_1.png" school="StGall" level="6" type="lesson" size="3" solution="3-14-14" symbolPos="289-363-471"/>
+    <score id="1" fileName="gall_6_lesson_2.png" school="StGall" level="6" type="lesson" size="5" solution="9-14-2-2-2" symbolPos="303-383-444-473-506"/>
 	
 </scores>

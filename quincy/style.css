@@ -423,6 +423,11 @@ vertical-align: middle;
   margin-left: 66px;
   border:solid 1px rgba(128, 128, 128, 0.39);
 }
+.score-image-2{
+  width: 608px;
+  margin-left: 129.5px;
+  border:solid 1px rgba(128, 128, 128, 0.39);
+}
 .result-score-image{
   width: 728px;
 }
@@ -534,11 +539,12 @@ vertical-align: middle;
 }
 
 #scoreExAnswer2{
-  width: 729px;
+  width: 608px;
   height:67px;
-  border: solid black 1px;
+  border: solid  rgba(128, 128, 128, 0.39) 1px;
   margin-bottom: 15px;
   padding-top: 5px;
+  margin-left: 61.5px;
 }
 .big-drop-area{
   width: 729px;

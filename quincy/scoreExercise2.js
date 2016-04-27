@@ -37,7 +37,7 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	document.getElementById("question").innerHTML = str;
 	
 	document.getElementById("dynamicArea").innerHTML =
-	    '<div><img class="score-image" style="margin-top: 10px; margin-bottom: 10px;" src="quincy/scores/' + this.scoreFileName + '"></div>' +
+	    '<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" src="quincy/scores/' + this.scoreFileName + '"></div>' +
 	    '<div id="drag-area">' +
 		'<div id="scoreExAnswer2">'+
 		'</div>' + 
