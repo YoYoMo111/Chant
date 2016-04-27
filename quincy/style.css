@@ -561,16 +561,17 @@ display: block;
 }
 
 .delete-buttons{
-  visibility: visible;
+  visibility: hidden;
   margin-left:42px;
   z-index: 500;
 }
 .delete-buttons:hover{
   cursor: pointer;
 }
+/*
 .symbol-images:hover + .delete-buttons{
   visibility: visible;
-}
+}*/
 .tick-marks,.x-marks{
   width: 18px;
   z-index: 500;

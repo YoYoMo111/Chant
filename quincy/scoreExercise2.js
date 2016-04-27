@@ -13,7 +13,6 @@ function ScoreExercise2(school, level, scoreFileName, size, solution, mechanism)
 
 	// Init student answer arrays
 	this.studentsAnswerIDs = new Array();
-	this.studentsAnswerIDs = [""];
 	this.studentsAnswerLefts = new Array();
 	this.studentAnswerNames = new Array();
 	for (var i = 0; i < this.size; i++) {
@@ -152,30 +151,43 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	    };
 	}
 	
+
+
 	// Show student's answer
 	dropTime=0;
 	for (var i = 0; i < this.studentsAnswerIDs.length; i++) {
-		console.log("length-"+this.studentsAnswerIDs.length);
-		console.log("run"+i);
 		if (this.studentsAnswerIDs[i] != "") {
+				console.log(this.studentsAnswerIDs);
+				console.log(this.studentsAnswerLefts);
 			document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(this.studentsAnswerIDs[i]);
 			//document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 			var answer = document.getElementById("scoreExAnswer2").children;
-			document.getElementById(answer[i]).style.left=studentsAnswerLefts[i]+'px';
-			console.log("run"+i);		
+			document.getElementById(answer[i].id).style.left = this.studentsAnswerLefts[i]+'px';		
 		}
 		dropTime++;
 	}
+	
 }
 
 var my_index = 100;
 function sendOnTop(ev){
 	if(document.getElementById("symbol-container-"+ev.target.id.substring(7))==null||"symbol-container-"+ev.target.id.substring(13)==null)return;
 
-	if(ev.target.id.indexOf("button")<0){
+	if(ev.target.id.indexOf("button") < 0){
 	    document.getElementById("symbol-container-"+ev.target.id.substring(7)).style.zIndex = my_index++;
+	    console.log("hide1");
+	    var buttons = document.getElementsByClassName("delete-buttons");
+	    if(document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility != "visible"){
+		    for (var i = 0; i < buttons.length; i++){
+		    	buttons[i].style.visibility = "hidden";
+		    }
+			document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility = "visible";
+		}
+		else{
+			document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility = "hidden";
+		}
 	}
-	else{
+	else {
 		document.getElementById("symbol-container-"+ev.target.id.substring(13)).style.zIndex = my_index++;
 	}
 }
@@ -312,7 +324,7 @@ ScoreExercise2.prototype.saveAnswer = function() {
 		var style = window.getComputedStyle(answer[i], null);
 		this.studentsAnswerLefts[i] = parseInt(style.getPropertyValue("left"), 10);
 		
-		console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerLefts[i]);
+		//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerLefts[i]);
 	}
 	for(i = 0; i<=answer.length-1; i++){
 		if(this.studentsAnswerLefts[i] > this.studentsAnswerLefts[i+1]){
@@ -327,8 +339,8 @@ ScoreExercise2.prototype.saveAnswer = function() {
 			i = i - 2;
 		}
 	}
-	console.log(this.studentsAnswerIDs);
-	console.log(this.studentsAnswerLefts);
+	//console.log(this.studentsAnswerIDs);
+	//console.log(this.studentsAnswerLefts);
 
 //console.log("answer1:"+c[0].id);
 }
@@ -410,7 +422,7 @@ function hide(id) {
 ScoreExercise2.prototype.showNeumWithID = function(ID) {
 	
 		insideSymbolID[dropTime] =  'symbol-container-'+ ID + '_copy_'+dropTime;
-		console.log("insideSymbolID="+insideSymbolID[dropTime]);
+		//console.log("insideSymbolID="+insideSymbolID[dropTime]);
 	
 
     return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" class="answer-symbol" data-neumID="'+ID+'" onclick="sendOnTop(event)" ondragstart="dragStart(event)" draggable="true" style="width:60px;height:60px; position: absolute;" >'+	
