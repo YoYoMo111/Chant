@@ -179,6 +179,14 @@ SymbolDB.prototype.handleKeyPress = function(ev) {
 SymbolDB.prototype.drag = function(ev) {
 	console.log("run gragstart");
     ev.dataTransfer.setData("text/html", ev.target.id);
+
+    var offset;
+    
+    	offset = (ev.clientX - 537)%76;
+  
+
+    ev.dataTransfer.setData("text", offset);
+
 	this.draggedSymbol = ev.target.id;
 
 	//var style = window.getComputedStyle(ev.target, null);

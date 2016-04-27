@@ -1,11 +1,12 @@
 // A child class of Exercise
-function ScoreExercise2(school, level, scoreFileName, size, solution, mechanism) {
+function ScoreExercise2(school, level, scoreFileName, size, solution, symbolPos, mechanism) {
     Exercise.call(this, mechanism);
 	this.school = school;
 	this.level = level;
 	this.scoreFileName = scoreFileName;
 	this.size = size;
 	this.solution = solution;
+	this.symbolPos = symbolPos;
 	this.score = 0;
 	this.maxScore = this.size;
 
@@ -229,9 +230,11 @@ ScoreExercise2.prototype.drop = function(ev) {
 	ev.preventDefault();
 
 	//var offset = ev.dataTransfer.getData("text/plain");//get offset from dragStart
+	var offset1 = ev.dataTransfer.getData("text");
+	console.log("offset1 =" + offset1);
 
 	var imageID = ev.dataTransfer.getData("text/html");
-	console.log("imageID =" + imageID);
+	//console.log("imageID =" + imageID);
 	if(imageID.indexOf("copy")<0){
 		var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
 		
@@ -239,7 +242,7 @@ ScoreExercise2.prototype.drop = function(ev) {
 		document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 		//this.alowDropOnSymbol(symbolID);
 		ev.target.setAttribute("data-neumID", symbolID);
-		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235))/*+ parseInt(offset, 10)*/)+'px';
+		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset1/*+ parseInt(offset, 10)*/)+'px';
 		console.log("x="+ev.clientX);
 		console.log("window width:"+window.innerWidth);
 		//console.log("offset:"+offset);
@@ -250,7 +253,12 @@ ScoreExercise2.prototype.drop = function(ev) {
 		dropTime++;
 	}
 	else{
-		document.getElementById(imageID).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset/*+ parseInt(offset, 10)*/)+'px';
+		if(((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset)>735){
+			document.getElementById(imageID).style.left = '735px';
+		}
+		else{
+			document.getElementById(imageID).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset)+'px';
+		}
 
 	}
 }
@@ -305,7 +313,8 @@ ScoreExercise2.prototype.deleteNeum = function(ev) {
 }
 
 ScoreExercise2.prototype.getSolution = function() {
-	this.solutionIDs = this.solution.split("-");  
+	this.solutionIDs = this.solution.split("-");
+	this.solutionPos = this.symbolPos.split("-");  
 	console.log(this.solutionIDs)  // An array of neum IDs	
 }
 
@@ -333,7 +342,7 @@ ScoreExercise2.prototype.saveAnswer = function() {
 		this.tickIDs[i] = 'tick' + answer[i].id.substring(17);
 		this.xIDs[i] = 'x' + answer[i].id.substring(17);
 
-		console.log(answer[i].id.substring(17));
+		//console.log(answer[i].id.substring(17));
 		
 		//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerLefts[i]);
 	}
@@ -358,29 +367,68 @@ ScoreExercise2.prototype.saveAnswer = function() {
 			i = i - 2;
 		}
 	}
-	console.log(this.studentsAnswerIDs);
-	console.log(this.studentsAnswerLefts);
-	console.log(this.tickIDs);
-	console.log(this.xIDs);
-//console.log("answer1:"+c[0].id);
+	//console.log(this.studentsAnswerIDs);
+	//console.log(this.studentsAnswerLefts);
+	//console.log(this.tickIDs);
+	//console.log(this.xIDs);
+	//console.log("answer1:"+c[0].id);
+	this.score=0;
+	for (var i = 0; i < this.studentsAnswerIDs.length; i++) {
+		// Check neums
+		if (this.studentsAnswerIDs[i] != "") {
+			if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
+			    this.score++;
+			    
+			}
+
+		}
+	}
+	console.log("score:" + this.score);
 }
 
 ScoreExercise2.prototype.showRightAnswer = function() {
-	for (var i = 0; i < this.size; i++) {
+	/*for (var i = 0; i < this.size; i++) {
 		document.getElementById("checkmark_" + i).style.display = "none";    // hide checkmark
 		document.getElementById("x-mark_" + i).style.display = "none";    	 // hide x-mark
 		document.getElementById("neum-dropbox_" + i).innerHTML = this.showNeumWithID(this.solutionIDs[i]);
 		document.getElementById("neum-dropbox_" + i).setAttribute("data-neumID", this.solutionIDs[i]);
+	}*/
+	document.getElementById("scoreExAnswer2").innerHTML = "";
+	document.getElementById("hint").innerHTML = "";
+	//var l = 67;
+	dropTime=0;
+	for (var i = 0; i < this.solutionIDs.length; i++) {
+		if (this.solutionIDs[i] != "") {
+				//console.log(this.studentsAnswerIDs);
+				//console.log(this.studentsAnswerLefts);
+			document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(this.solutionIDs[i]);
+			var answer = document.getElementById("scoreExAnswer2").children;
+			document.getElementById(answer[i].id).style.left = this.solutionPos[i]+'px';
+			//document.getElementById(answer[i].id).style.left = l+'px';		
+		}
+		//l = l+60;
+		dropTime++;
 	}
 }
 
 ScoreExercise2.prototype.showHint = function() {
-	document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><table id="hintTable"></table></div>';
+	//document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><table id="hintTable"></table></div>';
+
+	var tMarks = document.getElementsByClassName("tick-marks");
+		    for (var i = 0; i < tMarks.length; i++){
+		    	tMarks[i].style.visibility = "hidden";
+		    }
+	var xMarks = document.getElementsByClassName("x-marks");
+		    for (var i = 0; i < xMarks.length; i++){
+		    	xMarks[i].style.visibility = "hidden";
+		    }
+		
+
 	for (var i = 0; i < this.studentsAnswerIDs.length; i++) {
 		// Check neums
 		if (this.studentsAnswerIDs[i] != "") {
-			console.log("answer:"+this.studentsAnswerIDs[i]);
-			console.log("solution:"+this.solutionIDs[i]);
+			//console.log("answer:"+this.studentsAnswerIDs[i]);
+			//console.log("solution:"+this.solutionIDs[i]);
 			if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
 			    document.getElementById(this.tickIDs[i]).style.visibility = "visible";
 			}
@@ -392,7 +440,7 @@ ScoreExercise2.prototype.showHint = function() {
 		}
 	}
 	if(this.studentsAnswerIDs.length < this.solutionIDs.length){
-		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable">Missing neums!</table></div>';
+		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable"><div id="hint-notable">Missing neums!</div></table></div>';
 	}
 }
 

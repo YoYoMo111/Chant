@@ -421,6 +421,7 @@ vertical-align: middle;
 .score-image {
   width: 728px;
   margin-left: 66px;
+  border:solid 1px rgba(128, 128, 128, 0.39);
 }
 .result-score-image{
   width: 728px;
@@ -534,10 +535,10 @@ vertical-align: middle;
 
 #scoreExAnswer2{
   width: 729px;
-  height:80px;
+  height:67px;
   border: solid black 1px;
   margin-bottom: 15px;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 .big-drop-area{
   width: 729px;

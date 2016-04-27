@@ -221,7 +221,9 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 			var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
 			var size = scoreInfo.getElementsByTagName("score")[i].getAttribute("size");
 			var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
-			this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, size, solution, this.mechanism));
+			var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
+
+			this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, size, solution, symbolPos, this.mechanism));
 		}
 	}
 	
