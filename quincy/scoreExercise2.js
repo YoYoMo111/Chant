@@ -41,7 +41,7 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	    '<div id="drag-area">' +
 		'<div id="scoreExAnswer2">'+
 		'</div>' + 
-		'<div id="symbolSection"></div>' +
+		'<div id="symbolSection" class="symbolSectionL6"></div>' +
 		'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
 		'</div>';//yoyo add style, make it not overlap.
 	

@@ -552,10 +552,11 @@ vertical-align: middle;
   border: solid black;
 }
 #symbolSection{
-float:left;
-margin-left: 61.5px;
+  float:left;
 }
-
+.symbolSectionL6{
+  margin-left: 61.5px;
+}
 #delete-button{
   position:absolute;
   width:18px;
