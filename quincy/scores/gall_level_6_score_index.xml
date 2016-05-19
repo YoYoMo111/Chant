@@ -1,6 +1,39 @@
 <?xml version="1.0"?>
 <scores>
-    <score id="0" fileName="gall_6_lesson_1.png" school="StGall" level="6" type="lesson" size="3" solution="3-14-14" symbolPos="289-363-471"/>
-    <score id="1" fileName="gall_6_lesson_2.png" school="StGall" level="6" type="lesson" size="5" solution="9-14-2-2-2" symbolPos="303-383-444-473-506"/>
+    <score id="0" fileName="gall_6_lesson_1.png" school="StGall" level="6" type="lesson" solution="3-14-14" symbolPos="289-363-471"/>
+    <score id="1" fileName="gall_6_lesson_2.png" school="StGall" level="6" type="lesson" solution="9-14-2-2-2" symbolPos="303-383-444-473-506"/>
+	
+	<score id="2" fileName="gall_6_lesson_3.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="3" fileName="gall_6_lesson_4.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="4" fileName="gall_6_lesson_5.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="5" fileName="gall_6_lesson_6.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="6" fileName="gall_6_lesson_7.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="7" fileName="gall_6_lesson_8.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="8" fileName="gall_6_lesson_9.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="9" fileName="gall_6_lesson_10.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="10" fileName="gall_6_lesson_11.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="11" fileName="gall_6_lesson_12.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="12" fileName="gall_6_lesson_13.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="13" fileName="gall_6_lesson_14.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="14" fileName="gall_6_lesson_15.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="15" fileName="gall_6_lesson_16.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	
+	<score id="16" fileName="gall_6_review_1.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="17" fileName="gall_6_review_2.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="18" fileName="gall_6_review_3.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="19" fileName="gall_6_review_4.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	
+    <score id="20" fileName="gall_6_test_1.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="21" fileName="gall_6_test_2.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="22" fileName="gall_6_test_3.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="23" fileName="gall_6_test_4.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="24" fileName="gall_6_test_5.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="25" fileName="gall_6_test_6.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="26" fileName="gall_6_test_7.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="27" fileName="gall_6_test_8.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="28" fileName="gall_6_test_9.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="29" fileName="gall_6_test_10.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="30" fileName="gall_6_test_11.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+	<score id="31" fileName="gall_6_test_12.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
 	
 </scores>

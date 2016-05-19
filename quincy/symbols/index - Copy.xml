@@ -648,14 +648,18 @@
 	<symbol id="582" name="pes stratus" fileName="modern-gall_special_pes-stratus_simple_1A.png" school="Modern" level="5" group="2" matchingLaon="" matchingStGall="163" altType="" altLoc="" info="Lower note, higher note, repeated note."/>
 	<symbol id="583" name="pes stratus" fileName="modern-gall_special_pes-stratus_simple_1B.png" school="Modern" level="5" group="2" matchingLaon="" matchingStGall="163" altType="" altLoc="" info="Lower note, higher note, repeated note."/>
     <!-- Modern level 5 group 3 -->
-	<symbol id="574" name="climacus resupinus oriscus" fileName="modern-gall_special_oriscus_climacus-resupinus-oriscus_1A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="160" altType="" altLoc="" info="Three descending notes; the last note is repeated."/>
-	<symbol id="575" name="climacus resupinus oriscus" fileName="modern-gall_special_oriscus_climacus-resupinus-oriscus_1B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="160" altType="" altLoc="" info="Three descending notes; the last note is repeated."/>
+		
+	
 	<symbol id="576" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_1A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="161" altType="" altLoc="" info="Oriscus followed by a higher note (with frendoror fragor)."/>
 	<symbol id="577" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_1B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="161" altType="" altLoc="" info="Oriscus followed by a higher note (with frendoror fragor)."/>
 	<symbol id="578" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_1C.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="161" altType="" altLoc="" info="Oriscus followed by a higher note (with frendoror fragor)."/>
 	<symbol id="579" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_3A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="162" altType="" altLoc="" info="Oriscus followed by a higher note with an episema."/>
 	<symbol id="580" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_3B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="162" altType="" altLoc="" info="Oriscus followed by a higher note with an episema."/>
 	<symbol id="581" name="pes quassus" fileName="modern-gall_special_oriscus_pes-quassus_3C.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="162" altType="" altLoc="" info="Oriscus followed by a higher note with an episema."/>
+	<symbol id="574" name="climacus resupinus oriscus" fileName="modern-gall_special_oriscus_climacus-resupinus-oriscus_1A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="160" altType="" altLoc="" info="Three descending notes; the last note is repeated."/>
+	<symbol id="575" name="climacus resupinus oriscus" fileName="modern-gall_special_oriscus_climacus-resupinus-oriscus_1B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="160" altType="" altLoc="" info="Three descending notes; the last note is repeated."/>
+	<symbol id="575" name="climacus resupinus oriscus" fileName="modern-gall_special_oriscus_climacus-resupinus-oriscus_1C.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="160" altType="" altLoc="" info="Three descending notes; the last note is repeated."/>
+	<symbol id="575" name="climacus resupinus oriscus" fileName="modern-gall_special_oriscus_climacus-resupinus-oriscus_1D.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="160" altType="" altLoc="" info="Three descending notes; the last note is repeated."/>
 	<symbol id="582" name="porrectus oriscus inside" fileName="modern-gall_special_oriscus_porrectus-oriscus-inside_1A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="163" altType="" altLoc="" info="Higher note, lower note (both with episema), repeated note, higher note."/>
 	<symbol id="583" name="porrectus oriscus inside" fileName="modern-gall_special_oriscus_porrectus-oriscus-inside_1B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="163" altType="" altLoc="" info="Higher note, lower note (both with episema), repeated note, higher note."/>
 	<symbol id="584" name="porrectus oriscus inside" fileName="modern-gall_special_oriscus_porrectus-oriscus-inside_1C.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="163" altType="" altLoc="" info="Higher note, lower note (both with episema), repeated note, higher note."/>
@@ -665,10 +669,18 @@
 	<symbol id="588" name="porrectus repercussion before" fileName="modern-gall_special_oriscus_porrectus-repercussion-before_2B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="165" altType="" altLoc="" info="Note (with episema), repeated note, lower note, higher note."/>
 	<symbol id="589" name="pressus" fileName="modern-gall_special_oriscus_pressus_1A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="166-169" altType="" altLoc="" info="Note, repeated note (with celeriter), lower note, higher note."/>
 	<symbol id="590" name="pressus" fileName="modern-gall_special_oriscus_pressus_1B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="166-169" altType="" altLoc="" info="Note, repeated note (with celeriter), lower note, higher note."/>
-	<symbol id="591" name="pressus" fileName="modern-gall_special_oriscus_pressus_4A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="167" altType="" altLoc="" info="Note (with episema), repeated note(with celeriter), lower note, higher note."/>
-	<symbol id="592" name="pressus" fileName="modern-gall_special_oriscus_pressus_4B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="167" altType="" altLoc="" info="Note (with episema), repeated note(with celeriter), lower note, higher note."/>
 	<symbol id="593" name="pressus" fileName="modern-gall_special_oriscus_pressus_5A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="168-170" altType="" altLoc="" info="Note, repeated note (with tenete), lower note, higher note."/>
 	<symbol id="594" name="pressus" fileName="modern-gall_special_oriscus_pressus_5B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="168-170" altType="" altLoc="" info="Note, repeated note (with tenete), lower note, higher note."/>
+	
+	
+	
+	<symbol id="591" name="pressus" fileName="modern-gall_special_oriscus_pressus_4A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="167" altType="" altLoc="" info="Note (with episema), repeated note(with celeriter), lower note, higher note."/>
+	<symbol id="592" name="pressus" fileName="modern-gall_special_oriscus_pressus_4B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="167" altType="" altLoc="" info="Note (with episema), repeated note(with celeriter), lower note, higher note."/>
+	
+	
+	
+	
+	
 	<symbol id="595" name="pressus" fileName="modern-gall_special_oriscus_pressus_8A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="171" altType="" altLoc="" info="Note (with episema), repeated note, lower note."/>
 	<symbol id="596" name="pressus" fileName="modern-gall_special_oriscus_pressus_8B.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="171" altType="" altLoc="" info="Note (with episema), repeated note, lower note."/>
 	<symbol id="597" name="pressus" fileName="modern-gall_special_oriscus_pressus_9A.png" school="Modern" level="5" group="3" matchingLaon="" matchingStGall="172-173" altType="" altLoc="" info="Note, repeated note, much lower note."/>

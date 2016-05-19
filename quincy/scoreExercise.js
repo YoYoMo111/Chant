@@ -4,8 +4,8 @@ function ScoreExercise(school, level, scoreFileName, size, solution, mechanism) 
 	this.school = school;
 	this.level = level;
 	this.scoreFileName = scoreFileName;
-	this.size = size;
 	this.solution = solution;
+	this.size = solution.split("-").length;
 	this.type = 5;
 	this.score = 0;
 	this.maxScore = this.size * 2;

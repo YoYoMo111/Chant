@@ -217,6 +217,9 @@
 	<symbol id="184" name="virga strata" fileName="gall_special_oriscus_virga-strata_3.png" school="StGall" level="5" group="3" matchingModern="615-616" matchingLaon="0" altType="" altLoc="" info="Note followed by a repeated note, OR note followed by a note one step higher (with tenete)." />
 	<symbol id="185" name="virga strata" fileName="gall_special_oriscus_virga-strata_4.png" school="StGall" level="5" group="3" matchingModern="617-618" matchingLaon="0" altType="" altLoc="" info="Note (with episema) followed by a repeated note, OR note (with episema) followed by a note one step higher." />
 	
+	<symbol id="184" name="torculus pressus" fileName="gall_special_torculus_pressus.png" school="StGall" level="5" group="3" matchingModern="615-616" matchingLaon="0" altType="" altLoc="" info="Note followed by a repeated note, OR note followed by a note one step higher (with tenete)." />
+	<symbol id="185" name="torculus pressus" fileName="gall_special_torculus_pressus_long.png" school="StGall" level="5" group="3" matchingModern="617-618" matchingLaon="0" altType="" altLoc="" info="Note (with episema) followed by a repeated note, OR note (with episema) followed by a note one step higher." />
+	
 	
 	
 	<!-- Gall level 5 group 4 -->	
@@ -398,8 +401,8 @@
 	<symbol id="338" name="extended stropha" fileName="modern-gall_repercussive_extended-stropha_simple_1.png" school="Modern" level="1" group="2" matchingLaon="16" matchingStGall="4" altType="" altLoc="" info="Five quick or light notes on the same pitch."/>
 	<symbol id="339" name="tristropha=trivirga" fileName="modern-gall_repercussive_tristropha=trivirga_simple_1.png" school="Modern" level="1" group="2" matchingLaon="13" matchingStGall="7-8" altType="" altLoc="" info="Three quick or light notes on the same pitch; also possibly three notes on the same pitch and of normal or perhaps more-than-normal length."/>
 	<symbol id="340" name="trivirga" fileName="modern-gall_repercussive_trivirga_simple_1.png" school="Modern" level="1" group="2" matchingLaon="16" matchingStGall="8" altType="" altLoc="" info="Three notes on the same pitch; they are of normal or perhaps more-than-normal length."/>
-	<symbol id="341" name="trigon" fileName="modern-gall_repercussive_trigon_simple_1A.png" school="Modern" level="1" group="2" matchingLaon="" matchingStGall="9" altType="" altLoc="" info="Three light notes; the first two are the same pitch; the last is a lower pitch."/>
-	<symbol id="342" name="trigon" fileName="modern-gall_repercussive_trigon_simple_1B.png" school="Modern" level="1" group="2" matchingLaon="" matchingStGall="9" altType="" altLoc="" info="Three light notes; the first two are the same pitch; the last is a lower pitch."/>
+	<symbol id="341" name="trigon" fileName="modern-gall_repercussive_trigon_simple_1.png" school="Modern" level="1" group="2" matchingLaon="" matchingStGall="9" altType="" altLoc="" info="Three light notes; the first two are the same pitch; the last is a lower pitch."/>
+	<symbol id="342" name="trigon" fileName="modern-gall_repercussive_trigon_simple_2.png" school="Modern" level="1" group="2" matchingLaon="" matchingStGall="9" altType="" altLoc="" info="Three light notes; the first two are the same pitch; the last is a lower pitch."/>
 	<!-- Modern level 1 group 3 -->
 	<symbol id="343" name="clivis" fileName="modern-gall_two-note_clivis_simple_1.png" school="Modern" level="1" group="3" matchingLaon="" matchingStGall="10" altType="" altLoc="" info="A higher note followed by a lower note."/>
 	<symbol id="344" name="clivis" fileName="modern-gall_two-note_clivis_simple_2.png" school="Modern" level="1" group="3" matchingLaon="" matchingStGall="10" altType="" altLoc="" info="A higher note followed by a lower note."/>
@@ -625,10 +628,10 @@
 	<symbol id="557" name="torculus resupinus" fileName="modern-gall_four-five-note_torculus-resupinus_neums_4B.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="88" altType="" altLoc="" info=""/>
 	<symbol id="558" name="torculus resupinus" fileName="modern-gall_four-five-note_torculus-resupinus_neums_4C.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="88" altType="" altLoc="" info=""/>
 	<symbol id="559" name="torculus resupinus" fileName="modern-gall_four-five-note_torculus-resupinus_neums_4D.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="88" altType="" altLoc="" info=""/>
-	<symbol id="560" name="torculus resupinus" fileName="modern-gall_special_torculus_repetition_before_A.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="89" altType="" altLoc="" info=""/>
-	<symbol id="561" name="torculus resupinus" fileName="modern-gall_special_torculus_repetition_before_B.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="89" altType="" altLoc="" info=""/>
-	<symbol id="562" name="torculus resupinus" fileName="modern-gall_special_torculus_repetition_before_C.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="89" altType="" altLoc="" info=""/>
-	<symbol id="563" name="torculus resupinus" fileName="modern-gall_special_torculus_repetition_before_D.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="89" altType="" altLoc="" info=""/>
+	<symbol id="560" name="torculus resupinus" fileName="modern-gall_special_torculus_repetition_before_1.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="89" altType="" altLoc="" info=""/>
+	<symbol id="561" name="torculus resupinus" fileName="modern-gall_special_torculus_repetition_before_2.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="89" altType="" altLoc="" info=""/>
+	<symbol id="562" name="torculus resupinus" fileName="modern-gall_special_torculus_repetition_before_3.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="89" altType="" altLoc="" info=""/>
+	<symbol id="563" name="torculus resupinus" fileName="modern-gall_special_torculus_repetition_before_4.png" school="Modern" level="2" group="5" matchingLaon="" matchingStGall="89" altType="" altLoc="" info=""/>
 	<!-- Modern level 5 group 1 -->
 	<symbol id="555" name="quilisma pes" fileName="modern-gall_special_quilisma_pes_1.png" school="Modern" level="5" group="1" matchingLaon="" matchingStGall="147-148" altType="" altLoc="" info="Quilisma followed by a higher note."/>
 	<symbol id="556" name="quilisma pes" fileName="modern-gall_special_quilisma_pes_3.png" school="Modern" level="5" group="1" matchingLaon="" matchingStGall="149-150" altType="" altLoc="" info="Quilismafollowed by a higher note with an episema."/>
