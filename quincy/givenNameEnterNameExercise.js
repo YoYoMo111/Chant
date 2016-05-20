@@ -1,7 +1,8 @@
 // A child class of Exercise
-function GivenNameEnterNameExercise(type, name, answers, mechanism) {
+function GivenNameEnterNameExercise(language, name, answers, mechanism) {
     Exercise.call(this, mechanism);
-	this.type = type;
+	this.type = 9;
+	this.language = language;
 	this.neumName = name;
 	this.answers = answers;
 	this.hintOn = false;
@@ -17,11 +18,11 @@ GivenNameEnterNameExercise.prototype.show = function(index, numOfQuestions) {
 	var term = (this.maxScore == 1) ? "term" : "terms";
 	var match = (this.maxScore == 1) ? "matches" : "match";
 	
-	if (this.type == 1) {
+	if (this.language == 1) {
 		document.getElementById("question").innerHTML = 
 			"Question " + index + " of " + numOfQuestions + ": Enter the Latin " + term + " that " + match + " the given English term.";
 	}
-	else if (this.type == 2) {
+	else if (this.language == 2) {
 		document.getElementById("question").innerHTML = 
 			"Question " + index + " of " + numOfQuestions + ": Enter the English " + term + " that " + match + " the given Latin term.";
 	}

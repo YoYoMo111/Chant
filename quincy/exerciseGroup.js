@@ -93,7 +93,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		}
 	}
 
-	// Exercise type 5 - select neum alternation
+	// Exercise type 6 - select neum alternation
 	// Only available in level 2
 	else if (this.level == 2) {
 		for (var i = 0; i < this.groupNeumCount; i++) {
@@ -103,7 +103,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		}
 	}
 	
-	// Exercise type 6 - multiple choice, multiple answers, each neum has its own unique set of modern equivalents
+	// Exercise type 7 - multiple choice, multiple answers, each neum has its own unique set of modern equivalents
 	// Only available in level 3
 	else if (this.level == 3) {
 		for (var i = 0; i < this.groupNeumCount; i++) {
@@ -114,7 +114,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	}
 	
 	else if (this.level == 4) {
-		// Exercise type 7 - enter the neum's English name or Latin name
+		// Exercise type 8 - enter the neum's English name or Latin name
 		for (var i = 0; i < this.groupNeumCount; i++) {
 			// One question for each neum
 			var questionSymbolID = this.indexOfFirstNeum + i;			
@@ -122,7 +122,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 			this.exercises.push(new GivenNeumEnterEnglishOrLatinNamesExercise(2, questionSymbolID, this.mechanism));
 		}
 		
-		// Exercise type 8 - given English/Latin name enter Latin/English name
+		// Exercise type 9 - given English/Latin name enter Latin/English name
 		// There are neums that have the same name, and neums that have multiple names
 		// Questions are created on a name basis. One question for each name, not neum
 		var englishToLatinMap = new Array();

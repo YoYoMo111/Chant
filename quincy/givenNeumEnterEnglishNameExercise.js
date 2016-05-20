@@ -1,6 +1,7 @@
 // A child class of Exercise
 function GivenNeumEnterEnglishNameExercise(questionSymbolID, mechanism) {
     Exercise.call(this, mechanism);
+	this.type = 1;
 	this.score = 0;
 	this.questionSymbolID = questionSymbolID;
 	this.hintOn = false;

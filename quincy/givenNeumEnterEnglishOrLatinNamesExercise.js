@@ -1,7 +1,8 @@
 // A child class of Exercise
-function GivenNeumEnterEnglishOrLatinNamesExercise(type, questionSymbolID, mechanism) {
+function GivenNeumEnterEnglishOrLatinNamesExercise(language, questionSymbolID, mechanism) {
     Exercise.call(this, mechanism);
-	this.type = type;
+	this.type = 8;
+	this.language = language;
 	this.questionSymbolID = questionSymbolID;
 	this.hintOn = false;
 	this.score = 0;
@@ -19,7 +20,7 @@ GivenNeumEnterEnglishOrLatinNamesExercise.prototype.show = function(index, numOf
 	var group = this.symbolDB.symbols[this.questionSymbolID].group;
 	var fileName = this.symbolDB.symbols[this.questionSymbolID].fileName;
 
-	var language = (this.type == 2) ? "English" : "Latin";
+	var language = (this.language == 2) ? "English" : "Latin";
 	var term = (this.answerLength == 1)? " term" : " terms";
     document.getElementById("question").innerHTML = 
     	"Question " + index + " of " + numOfQuestions + ": Enter the " + language + term + " that the given letter signifies.";
@@ -82,7 +83,7 @@ GivenNeumEnterEnglishOrLatinNamesExercise.prototype.getSolution = function() {
     var nameArray = this.symbolDB.symbols[this.questionSymbolID].name.split("--");
 	this.correctEnglishName = nameArray[0].split("=");
 	this.correctLatinName = nameArray[1].split("=");
-	this.answerLength = (this.type == 2) ? this.correctEnglishName.length : this.correctLatinName.length;
+	this.answerLength = (this.language == 2) ? this.correctEnglishName.length : this.correctLatinName.length;
 	this.maxScore = this.answerLength;
 }
 
@@ -94,7 +95,7 @@ GivenNeumEnterEnglishOrLatinNamesExercise.prototype.saveAnswer = function() {
 }
 
 GivenNeumEnterEnglishOrLatinNamesExercise.prototype.showRightAnswer = function() {
-	var names = (this.type == 2) ? this.correctEnglishName : this.correctLatinName;
+	var names = (this.language == 2) ? this.correctEnglishName : this.correctLatinName;
 	for (var i = 0; i < names.length; i++) {
 		document.getElementById("nameTextBox" + i).value = names[i];
 	}
@@ -105,7 +106,7 @@ GivenNeumEnterEnglishOrLatinNamesExercise.prototype.grade = function() {
     this.saveAnswer();
 	var answersCopy;
 	
-	if (this.type == 1)	   answersCopy = this.correctLatinName.slice(0);
+	if (this.language == 1)	   answersCopy = this.correctLatinName.slice(0);
 	else                   answersCopy = this.correctEnglishName.slice(0);
 
 	for (var i = 0; i < this.studentsAnswer.length; i++) {

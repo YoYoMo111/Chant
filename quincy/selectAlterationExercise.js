@@ -1,6 +1,7 @@
 // A child class of Exercise
 function SelectAlterationExercise(questionSymbolID, mechanism) {
     Exercise.call(this, mechanism);
+	this.type = 6;
 	this.score = 0;
 	this.questionSymbolID = questionSymbolID;
 	this.secondPartUnlocked = false;

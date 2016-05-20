@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <scores>
-    <score id="0" fileName="gall_6_lesson_1.png" school="StGall" level="6" type="lesson" solution="3-14-14" symbolPos="289-363-471"/>
-    <score id="1" fileName="gall_6_lesson_2.png" school="StGall" level="6" type="lesson" solution="9-14-2-2-2" symbolPos="303-383-444-473-506"/>
-	
-	<score id="2" fileName="gall_6_lesson_3.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
-    <score id="3" fileName="gall_6_lesson_4.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
+    <score id="0" fileName="gall_6_lesson_1.png" school="StGall" level="6" type="lesson" solution="3-15-15" symbolPos="289-363-471"/>
+    <score id="1" fileName="gall_6_lesson_2.png" school="StGall" level="6" type="lesson" solution="10-15-2-2-2" symbolPos="303-383-444-473-506"/>
+	<score id="2" fileName="gall_6_lesson_3.png" school="StGall" level="6" type="lesson" solution="15-10-2" symbolPos="289-363-471"/>
+    <score id="3" fileName="gall_6_lesson_4.png" school="StGall" level="6" type="lesson" solution="11-10-10" symbolPos="289-363-471"/>
 	<score id="4" fileName="gall_6_lesson_5.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
     <score id="5" fileName="gall_6_lesson_6.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
 	<score id="6" fileName="gall_6_lesson_7.png" school="StGall" level="6" type="lesson" solution="" symbolPos=""/>
