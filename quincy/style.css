@@ -185,8 +185,8 @@ position: relative;
 	
 }
 
-#hint-notable{
-  padding: 22px 0 19px 0;
+.hint-no-table{
+  padding: 22px 0 22px 0;
 }
 
 .hint-correct {

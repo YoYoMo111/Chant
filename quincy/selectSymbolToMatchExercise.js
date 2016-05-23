@@ -262,7 +262,7 @@ SelectSymbolToMatchExercise.prototype.showHint = function() {
 	this.clearMarks();
 	
 	if (this.studentsAnswer == "") {
-		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div id="hint-notable">Please select at least one symbol.</div></div>';
+		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Please select at least one symbol.</div></div>';
 	}	
 	else {
 		document.getElementById("hint").innerHTML = '<div id="hint-box"><table id="hintTable"><tbody id="hint-tbody"></tbody></table></div>';
@@ -285,13 +285,12 @@ SelectSymbolToMatchExercise.prototype.showHint = function() {
 		
 		if (wrongAnswers.length == 0) {
 			if (this.studentsAnswer == this.solution) {
-			    document.getElementById("hint-notable").innerHTML = "You answer is correct.";
-				document.getElementById("hint-box").className = "hint-correct";
+				document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><div class="hint-no-table">Your answer is correct.</div></div>';
 				return;
 		    }
 			else {
-				document.getElementById("hint-notable").innerHTML = 
-				    "Your answer is correct but incomplete. The correct answer has one or more additional possibilities.";
+				document.getElementById("hint").innerHTML = 
+					'<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is correct but incomplete. The correct answer has one or more additional possibilities.</div></div>';
 			}
 		}
 		document.getElementById("hint-box").className = "hint-wrong";

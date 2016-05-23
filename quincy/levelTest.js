@@ -1,7 +1,7 @@
 function LevelTest(school, level, groups) {
 	var mechanism = 0;    // hide "check answer" and "reveal answer" buttons
 	var mode = 2;
-	var N = 20;
+	var N = 5;
 	this.exercises = new Array();
 	this.grades = new Array();
 	
@@ -17,7 +17,7 @@ function LevelTest(school, level, groups) {
 	for (var i = 0; i < groups.length; i++) {		
 	    var n = Math.ceil(exerciseGroups[i].exercises.length * N / totalNumber);
 	    exerciseGroups[i].exercises.splice(n, exerciseGroups[i].exercises.length - n);
-//		this.exercises = this.exercises.concat(exerciseGroups[i].exercises);
+		this.exercises = this.exercises.concat(exerciseGroups[i].exercises);
 	}
 	this.exercises.splice(N, this.exercises.length - N);
     

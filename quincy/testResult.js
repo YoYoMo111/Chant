@@ -25,7 +25,23 @@ TestResult.prototype.show = function(exercises) {
 		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].fileName + '"><br>';
 			
 			if (exercises[i].type == 1) {//fill name excerise result:
-				tableHTML += "Your answer: " + exercises[i].studentsAnswer + "<br class=fillExLineHight>Right answer: " + exercises[i].solution.replace("=", " OR ");
+				//tableHTML += "Your answer: " + exercises[i].studentsAnswer + "<br class=fillExLineHight>Right answer: " + exercises[i].solution.replace("=", " OR ");
+				
+				var answer = "";
+				for (var j = 0; j < exercises[i].studentsAnswer.length; j++) {
+					if (exercises[i].studentsAnswer[j] != "") {
+						answer += exercises[i].studentsAnswer[j] + ", ";
+					}
+				}
+				answer = answer.substring(0, answer.length - 2);
+				
+				var solution = "";
+				for (var j = 0; j < exercises[i].solution.length; j++) {
+					solution += exercises[i].solution[j] + ", ";
+				}
+				solution = solution.substring(0, solution.length - 2);
+				
+				tableHTML += "Your answer: " + answer + "<br class=fillExLineHight>Right answer: " + solution;
 			}
 			else {
 				tableHTML += this.showSymbolAnswers(exercises[i]);

@@ -147,7 +147,7 @@ ReviewLesson.prototype.nextQuestion = function() {
 
 ReviewLesson.prototype.showProgress = function(count) {
 	var html = "";
-	for (var i = 0; i < count; i++) { // 728 or 635
+	for (var i = 0; i < count; i++) {
 		html = '<div class="progressBar" style="width:' + (851 / this.numOfQuestions)*(i+1) + 'px"></div>';
 	}
 	document.getElementById("progressBar").innerHTML = html;
