@@ -218,67 +218,50 @@
 	<symbol id="190" name="torculus pressus" fileName="gall_special_torculus_pressus.png" school="StGall" level="5" group="3" matchingModern="632" matchingLaon="0" altType="" altLoc="" info="Lower note, higher note, lower note, repeated note, lower note." />
 	<symbol id="191" name="torculus pressus" fileName="gall_special_torculus_pressus_long.png" school="StGall" level="5" group="3" matchingModern="633" matchingLaon="0" altType="" altLoc="" info="Lower note, higher note, lower note, repeated note, lower note; last two notes are lengthened." />
 	<!-- Gall level 5 group 4 -->	
-	<symbol id="186" name="" fileName="gall_special_liquescence_apostropha-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Single liquescent note." />
+	<symbol id="186" name="stropha augmentative" fileName="gall_special_liquescence_apostropha-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="634-635" matchingLaon="0" altType="" altLoc="" info="Single liquescent note." />
+	<symbol id="187" name="bivirga augmentative" fileName="gall_special_liquescence_bivirga-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="636" matchingLaon="0" altType="" altLoc="" info="Two lengthened repeated notes; the second note is liquescent." />
+	<symbol id="189" name="climacus augmentative" fileName="gall_special_liquescence_climacus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="637" matchingLaon="0" altType="" altLoc="" info="Three descending notes; the last note is augmentatively liquescent." />
+	<symbol id="188" name="clivis augmentative=climacus diminutive" fileName="gall_special_liquescence_climacus-liquescent-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="638-639-640-641" matchingLaon="0" altType="" altLoc="" info="Three descending notes; the last note is diminutively liquescent OR higher note, lower note; second note is augmentatively liquescent." />
+	<symbol id="190" name="clivis augmentative" fileName="gall_special_liquescence_clivis-liquescent-augmentative_2.png" school="StGall" level="5" group="4" matchingModern="640-641" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note; second note is augmentatively liquescent." />
+	<symbol id="191" name="cephalicus=clivis diminutive" fileName="gall_special_liquescence_clivis-liquescent-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="634-642-643" matchingLaon="0" altType="" altLoc="" info="Single augmentatively liquescent note OR higher note, lower note; second note is diminutively liquescent." />
+	<symbol id="192" name="distropha augmentative" fileName="gall_special_liquescence_distropha-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="644-645-646-647" matchingLaon="0" altType="" altLoc="" info="Two light repeated notes, second note is augmentatively liquescent OR two light repeated notes followed by a lower diminutively liquescent note." />
+	<symbol id="193" name="oriscus augmentative=pressus diminutive" fileName="gall_special_liquescence_oriscus-liquescent_2.png" school="StGall" level="5" group="4" matchingModern="634-642-648" matchingLaon="0" altType="" altLoc="" info="Augmentatively liquescent oriscus OR note, repeated note, lower diminutively liquescent note." />
+	<symbol id="194" name="pes augmentative=torculus diminutive" fileName="gall_special_liquescence_pes-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="649-650-652" matchingLaon="0" altType="" altLoc="" info="Lower note, higher augmentatively liquescent note OR lower note, higher note, lower diminutively liquescent note." />
+	<symbol id="195" name="pes augmentative" fileName="gall_special_liquescence_pes-liquescent-augmentative_2.png" school="StGall" level="5" group="4" matchingModern="649-650" matchingLaon="0" altType="" altLoc="" info="Lower note, higher augmentatively liquescent note." />
+	<symbol id="196" name="pes augmentative=salicus diminutive=scandicus diminutive" fileName="gall_special_liquescence_pes-liquescent-augmentative_3.png" school="StGall" level="5" group="4" matchingModern="649-650-654-655" matchingLaon="0" altType="" altLoc="" info="Lower note, higher augmentatively liquescent note OR three ascending notes; the second note may or may not be an oriscus and the third note is diminutively liquescent." />
+	<symbol id="197" name="stropha liquescent=virga liquescent=pes diminutive" fileName="gall_special_liquescence_tractulus-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="634-642-656" matchingLaon="0" altType="" altLoc="" info="Single liquescent note OR lower note followed by a higher diminutively liquescent note." />
+	<symbol id="198" name="pes quassus liquescent" fileName="gall_special_liquescence_pes-quassus-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="657" matchingLaon="0" altType="" altLoc="" info="Oriscus followed by a higher liquescent note." />
+	<symbol id="199" name="pes subbipunctis augmentative" fileName="gall_special_liquescence_pes-subbipunctis-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="658" matchingLaon="0" altType="" altLoc="" info="Lower note, higher note, lower note, lower augmentatively liquescent note." />
+	<symbol id="200" name="porrectus flexus augmentative" fileName="gall_special_liquescence_porrectus-flexus-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="659" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note, higher note, lower augmentatively liquescent note." />
+	<symbol id="201" name="porrectus flexus diminutive=porrectus augmentative=pinnosa" fileName="gall_special_liquescence_porrectus-flexus-liquescent-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="653-660" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note, higher note, lower diminutively liquescent note OR higher note, lower note, higher augmentatively liquescent note." />
+	<symbol id="202" name="porrectus diminutive" fileName="gall_special_liquescence_porrectus-liquescent-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="661" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note, higher diminutively liquescent note." />
+	<symbol id="203" name="pressus augmentative" fileName="gall_special_liquescence_pressus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="662-663-664-665" matchingLaon="0" altType="" altLoc="" info="Note, repeated note, lower augmentatively liquescent note." />
 	
-	<symbol id="187" name="" fileName="gall_special_liquescence_bivirga-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Two repeated longer notes, second note is liquescent." />
+	<symbol id="204" name="pressus augmentative" fileName="gall_special_liquescence_pressus-liquescent-augmentative_2.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note, repeated note, lower augmentatively liquescent note." />
 	
-	<symbol id="189" name="" fileName="gall_special_liquescence_climacus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note, second note is liquescent; OR three descending notes, last note is liquescent." />
-
-	<symbol id="188" name="" fileName="gall_special_liquescence_climacus-liquescent-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Three descending notes, last note is liquescent." />
+	<symbol id="205" name="virga strata augmentative=pressus diminutive" fileName="gall_special_liquescence_virga-strata-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note followed by an augmentatively liquescent note on the same pitch OR note followed an augmentatively liquescent note that is one step higher OR note followed by a repeated note followed by a lower diminutively liquescent note." />
 	
-	<symbol id="190" name="" fileName="gall_special_liquescence_clivis-liquescent-augmentative_2.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note, second note is liquescent." />
+	<symbol id="206" name="quilisma pes liquescent" fileName="gall_special_liquescence_quilisma-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Quilisma followed by a higher liquescent note." />
 	
-	<symbol id="191" name="" fileName="gall_special_liquescence_clivis-liquescent-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Single liquescent note." />
+	<symbol id="207" name="quilisma pes liquescent" fileName="gall_special_liquescence_quilisma-liquescent_2.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Quilisma followed by a higher liquescent note." />
 	
-	<symbol id="192" name="" fileName="gall_special_liquescence_distropha-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher liquescent note." />
+	<symbol id="208" name="salicus augmentative" fileName="gall_special_liquescence_salicus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note followed by an oriscus followed by a higher augmentatively liquescent note." />
 	
-	<symbol id="193" name="" fileName="gall_special_liquescence_oriscus-liquescent_2.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Oriscus followed by a higher liquescent note." />
+	<symbol id="209" name="salicus augmentative" fileName="gall_special_liquescence_salicus-liquescent-augmentative_2.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note followed by an oriscus followed by a higher augmentatively liquescent note." />
 	
-	<symbol id="194" name="" fileName="gall_special_liquescence_pes-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher note, lower note, lower liquescent note." />
+	<symbol id="210" name="scandicus flexus augmentative" fileName="gall_special_liquescence_scandicus-flexus-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Three ascending notes followed by a lower augmentatively liquescent note." />
 	
-	<symbol id="195" name="" fileName="gall_special_liquescence_pes-liquescent-augmentative_2.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note, higher note, lower liquescent note." />
+	<symbol id="211" name="scandicus augmentative=scandicus flexus diminutive" fileName="gall_special_liquescence_scandicus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Three ascending notes; last note is augmentatively liquescent OR three rising notes followed by a lower, diminutively liquescent note." />
 	
-	<symbol id="196" name="" fileName="gall_special_liquescence_pes-liquescent-augmentative_3.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note, higher note, lower liquescent note; OR higher note, lower note, higher liquescent note." />
+	<symbol id="212" name="torculus augmentative" fileName="gall_special_liquescence_torculus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher note, lower augmentatively liquescent note." />
 	
-	<symbol id="197" name="" fileName="gall_special_liquescence_tractulus-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Higher note, lower note, higher liquescent note." />
+	<symbol id="213" name="torculus resupinus augmentative" fileName="gall_special_liquescence_torculus-resupinus-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher note, lower note, higher augmentatively liquescent note." />
 	
-	<symbol id="198" name="" fileName="gall_special_liquescence_pes-quassus-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note, repeated note, lower liquescent note." />
+	<symbol id="214" name="torculus resupinus diminutive" fileName="gall_special_liquescence_torculus-resupinus-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher note, lower note, higher diminutively liquescent note." />
 	
-	<symbol id="199" name="" fileName="gall_special_liquescence_pes-subbipunctis-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note, repeated note, lower liquescent note." />
+	<symbol id="215" name="tristropha augmentative" fileName="gall_special_liquescence_tristropha-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Three light, repeated notes; last note is augmentatively liquescent." />
 	
-	<symbol id="200" name="" fileName="gall_special_liquescence_porrectus-flexus-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Quilisma followed by higher liquescent note." />
-	
-	<symbol id="201" name="" fileName="gall_special_liquescence_porrectus-flexus-liquescent-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Quilisma followed by higher liquescent note." />
-	
-	<symbol id="202" name="" fileName="gall_special_liquescence_porrectus-liquescent-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note followed by an oriscus followed by a higher liquescent note." />
-	
-	<symbol id="203" name="" fileName="gall_special_liquescence_pressus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note followed by an oriscus followed by a higher liquescent note." />
-	
-	<symbol id="204" name="" fileName="gall_special_liquescence_pressus-liquescent-augmentative_2.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note, higher note, higher note, lower liquescent note." />
-	
-	<symbol id="205" name="" fileName="gall_special_liquescence_virga-strata-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note, higher note, higher note, higher liquescent note; OR note, higher note, higher note, lower liquescent note." />
-	
-	<symbol id="206" name="" fileName="gall_special_liquescence_quilisma-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher liquescent note; OR three ascending notes, last note is liquescent; OR three ascending notes: second note is an oriscus, third note is liquescent." />
-	
-	<symbol id="207" name="" fileName="gall_special_liquescence_quilisma-liquescent_2.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Note, higher note, lower liquescent note." />
-	
-	<symbol id="208" name="" fileName="gall_special_liquescence_salicus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher liquescent note; OR lower note, higher note, lower liquescent note." />
-	
-	<symbol id="209" name="" fileName="gall_special_liquescence_salicus-liquescent-augmentative_2.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher note, lower note, higher liquescent note." />
-	
-	<symbol id="210" name="" fileName="gall_special_liquescence_scandicus-flexus-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher note, lower note, higher liquescent note." />
-	
-	<symbol id="211" name="" fileName="gall_special_liquescence_scandicus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Lower note, higher liquescent note." />
-	
-	<symbol id="212" name="" fileName="gall_special_liquescence_torculus-liquescent-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Two light repeated notes, second note is liquescent; OR two light repeated notes followed by a lower liquescent note." />
-	
-	<symbol id="213" name="" fileName="gall_special_liquescence_torculus-resupinus-augmentative_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Three repeated light notes, last note is liquescent." />
-	
-	<symbol id="214" name="" fileName="gall_special_liquescence_torculus-resupinus-diminutive_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Three repeated longer notes, last note is liquescent." />
-	
-	<symbol id="215" name="" fileName="gall_special_liquescence_tristropha-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Single liquescent note; OR higher note, lower note, second note is liquescent." />
-	
-	<symbol id="216" name="" fileName="gall_special_liquescence_trivirga-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Two repeated notes, second note is liquescent; OR note followed by liquescent note one step higher." />
+	<symbol id="216" name="trivirga augmentative" fileName="gall_special_liquescence_trivirga-liquescent_1.png" school="StGall" level="5" group="4" matchingModern="" matchingLaon="0" altType="" altLoc="" info="Three lengthened repeated notes; the last note is augmentatively liquescent." />
 
 	
 	<symbol id="217" name="dummy" fileName="" school="" level="" group="" matchingModern="" matchingLaon="" altType="" altLoc="" info="" />
