@@ -1,5 +1,5 @@
 // A child class of Exercise
-function ScoreExercise2(school, level, scoreFileName, size, solution, symbolPos, mechanism) {
+function ScoreExercise2(school, level, scoreFileName, solution, symbolPos, mechanism) {
     Exercise.call(this, mechanism);
 	this.type = 7;
 	this.school = school;

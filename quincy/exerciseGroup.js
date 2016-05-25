@@ -219,11 +219,10 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		
 		for (var i = 0; i < length; i++) {
 			var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
-			var size = scoreInfo.getElementsByTagName("score")[i].getAttribute("size");
 			var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
 			var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
 
-			this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, size, solution, symbolPos, this.mechanism));
+			this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
 		}
 	}
 	
@@ -231,7 +230,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	// mode 1 - regular mode
 	if (mode == 1) {
 		// Shuffle exercises
-	    this.exercises = shuffle(this.exercises);
+//	    this.exercises = shuffle(this.exercises);
 
 	    // Add intro and end pages
 	    this.exercises.splice(0, 0, new IntroPage(this.school, this.level, this.group));

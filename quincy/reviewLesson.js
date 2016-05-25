@@ -34,9 +34,8 @@ function ReviewLesson(school, level, groups) {
 	var scoreExercises = new Array();
 	for (; i < length; i++) {
 		var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
-	    var size = scoreInfo.getElementsByTagName("score")[i].getAttribute("size");
 	    var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
-		scoreExercises.push(new ScoreExercise(school, level, scoreFileName, size, solution, mechanism));
+		scoreExercises.push(new ScoreExercise(school, level, scoreFileName, solution, mechanism));
 		
 		if (i + 1 >= length ||
 		    scoreInfo.getElementsByTagName("score")[i+1].getAttribute("school") != school ||
