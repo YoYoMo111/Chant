@@ -201,7 +201,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		}
 	}
 	
-	// Special score exercises for level 6
+	// Exercise type 10
 	else if (this.level == 6) {
 		var xmlhttp;
 	    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -215,14 +215,14 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	
 	    var scoreInfo = xmlhttp.responseXML;
 	    var length = scoreInfo.getElementsByTagName("score").length;
-		var scoreExercises = new Array();
 		
 		for (var i = 0; i < length; i++) {
-			var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
-			var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
-			var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-
-			this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+			if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "lesson") {
+				var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+				var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+				var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
+				this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+			}
 		}
 	}
 	

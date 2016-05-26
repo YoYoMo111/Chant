@@ -22,8 +22,8 @@ GivenNeumEnterEnglishOrLatinNamesExercise.prototype.show = function(index, numOf
 
 	var language = (this.language == 2) ? "English" : "Latin";
 	var term = (this.answerLength == 1)? " term" : " terms";
-    document.getElementById("question").innerHTML = 
-    	"Question " + index + " of " + numOfQuestions + ": Enter the " + language + term + " that the given letter signifies.";
+	this.questionText = "Enter the " + language + term + " that the given letter signifies";
+    document.getElementById("question").innerHTML = "Question " + index + " of " + numOfQuestions + ": " + this.questionText + ".";
 		
 	var html = '<div id="type2ExAnswerArea"><center><div id="questionSymbol">' +
 		           '<img id="symbol_' + this.questionSymbolID + '"src="quincy/symbols/' +	school + '/Level_' + level +
@@ -123,10 +123,10 @@ GivenNeumEnterEnglishOrLatinNamesExercise.prototype.grade = function() {
 GivenNeumEnterEnglishOrLatinNamesExercise.prototype.showHint = function() {
 	this.grade();
 	if (this.score == this.answerLength) {	    
-		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><div id="hint-notable">Your answer is correct.</div></div>';
+		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><div class="hint-no-table">Your answer is correct.</div></div>';
 	}	
 	else {
-	    document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div id="hint-notable">Your answer is wrong. Please try again.</div></div>';
+	    document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is wrong. Please try again.</div></div>';
 	}
 	this.hintOn = true;
 }

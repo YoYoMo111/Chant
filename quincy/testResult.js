@@ -3,7 +3,10 @@ function TestResult() {
 	                     "Select the neum that matches the given name",
 	                     "Select the example(s) of modern notation that match the given neum",
 						 "Select the neum(s) that match the given modern note",
-						 "Drag neums to match the notes in the score and enter the neums' names"];
+						 "Drag neums to match the notes in the score and enter the neums' names",
+						 "Identify the type and location of alteration of the given neum",
+						 "Select the modern equivalent(s) of the given neum",
+						 "TBD"];
 }
 
 TestResult.prototype.show = function(exercises) {
@@ -14,7 +17,15 @@ TestResult.prototype.show = function(exercises) {
 	var tableHTML = '<table class="test-result-table"><div class=title><tr><th>No.</th><th style="text-align: center;">Question</th><th>Points</th></tr></div>';
 	
 	for (var i = 1; i < exercises.length - 1; i++) {              //all exercise result padding bottom
-		tableHTML += '<tr class=OutsideUnit><td class=Num>' + i + '</td><td style="padding-bottom: 20px;">' + this.questionText[exercises[i].type-1];//yoyo add num,outside unit
+	    var text = "";
+	    if (exercises[i].type == 8) {
+			text = exercises[i].questionText;
+		}
+		else {
+			text = this.questionText[exercises[i].type-1];
+		}
+	
+		tableHTML += '<tr class=OutsideUnit><td class=Num>' + i + '</td><td style="padding-bottom: 20px;">' + text;//yoyo add num,outside unit
 
 	    // Show question symbol of type 1, 3, or 4 exercise 
 		if (exercises[i].type == 1 || exercises[i].type == 3 || exercises[i].type == 4) {
@@ -56,7 +67,34 @@ TestResult.prototype.show = function(exercises) {
 		else if (exercises[i].type == 5) {
 			tableHTML += '<img class=test-result-symbol src="quincy/img/transparent.png"><br>' + this.showScoreAnswers(exercises[i]);
 		}
-			  
+		// TODO
+		else if (exercises[i].type == 6) {
+			tableHTML += '<img class="test-result-symbol" src="quincy/symbols/' +
+            			 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].school + '/Level_' +
+		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].level + '/Group_' +
+		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].group + '/' +
+		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].fileName + '"><br>';
+			
+			tableHTML += this.showAlterationAnswers(exercises[i]);
+		}
+		
+		else if (exercises[i].type == 7) {
+			
+			
+		}
+		else if (exercises[i].type == 8) {
+			
+			
+		}
+		else if (exercises[i].type == 9) {
+			
+			
+		}
+		else if (exercises[i].type == 10) {
+			
+			
+		}
+		
 		tableHTML += '</td><td class=MyScore>' + exercises[i].score + '</td></tr>';//yoyo add class my score
 		
 		totalScore += exercises[i].score;
@@ -117,4 +155,25 @@ TestResult.prototype.showScoreAnswers = function(exercise) {
 	}
 	html += "</table>";
 	return html;
+}
+
+TestResult.prototype.showAlterationAnswers = function(exercise) {
+	var html = "Your answer: " + exercise.studentAnswerAltType + ", " + exercise.studentAnswerAltLoc;
+		
+	html += "<br class=fillExLineHight>Right answer: ";
+	if (exercise.altType != "both") {
+		html += exercise.altType + " - " + this.getAltLocText(exercise.altLoc);
+	}
+	else {
+		var loc = exercise.altLoc.split(",");
+		html += "rhythmic - " + this.getAltLocText(loc[0]) + ", repercussive - " + this.getAltLocText(loc[1]);
+	}
+	return html;
+}
+
+TestResult.prototype.getAltLocText = function(loc) {
+	if (loc == 1)         return "beginning";
+	else if (loc == 2)    return "middle";
+	else if (loc == 3)    return "end";
+	else if (loc == 4)    return "all";
 }

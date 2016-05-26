@@ -112,10 +112,10 @@ GivenNeumEnterEnglishNameExercise.prototype.grade = function() {
 GivenNeumEnterEnglishNameExercise.prototype.showHint = function() {
 	this.grade();
 	if (this.score == this.solution.length) {	    
-		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><div id="hint-notable">Your answer is correct.</div></div>';
+		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><div class="hint-no-table">Your answer is correct.</div></div>';
 	}	
 	else {
-	    document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div id="hint-notable">Your answer is wrong. Please try again.</div></div>';
+	    document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is wrong. Please try again.</div></div>';
 	}
 	this.hintOn = true;
 }
