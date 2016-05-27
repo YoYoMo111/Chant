@@ -695,6 +695,7 @@ padding-left: 70px;
 .divider{
   border-left: 1px; 
   border-style: solid;
+  border-color: #ddd;
 }
 .fillExLineHight{
   line-height: 3;

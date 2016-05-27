@@ -201,7 +201,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		}
 	}
 	
-	// Exercise type 10
+	// Exercise type 10 - score exercises for level 6
 	else if (this.level == 6) {
 		var xmlhttp;
 	    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari

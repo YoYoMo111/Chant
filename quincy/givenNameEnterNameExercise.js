@@ -19,13 +19,12 @@ GivenNameEnterNameExercise.prototype.show = function(index, numOfQuestions) {
 	var match = (this.maxScore == 1) ? "matches" : "match";
 	
 	if (this.language == 1) {
-		document.getElementById("question").innerHTML = 
-			"Question " + index + " of " + numOfQuestions + ": Enter the Latin " + term + " that " + match + " the given English term.";
+		this.questionText = "Enter the Latin " + term + " that " + match + " the given English term";
 	}
 	else if (this.language == 2) {
-		document.getElementById("question").innerHTML = 
-			"Question " + index + " of " + numOfQuestions + ": Enter the English " + term + " that " + match + " the given Latin term.";
+		this.questionText = "Enter the English " + term + " that " + match + " the given Latin term";
 	}
+	document.getElementById("question").innerHTML = "Question " + index + " of " + numOfQuestions + ": " + this.questionText + ".";
 	
 	var html = '<center><div id="neumName">' + this.neumName + '</div>'+
 				'<div id="enterboxArea">';

@@ -6,6 +6,7 @@ function TestResult() {
 						 "Drag neums to match the notes in the score and enter the neums' names",
 						 "Identify the type and location of alteration of the given neum",
 						 "Select the modern equivalent(s) of the given neum",
+						 "TBD",
 						 "TBD"];
 }
 
@@ -18,7 +19,7 @@ TestResult.prototype.show = function(exercises) {
 	
 	for (var i = 1; i < exercises.length - 1; i++) {              //all exercise result padding bottom
 	    var text = "";
-	    if (exercises[i].type == 8) {
+	    if (exercises[i].type == 8 || exercises[i].type == 9) {
 			text = exercises[i].questionText;
 		}
 		else {
@@ -29,11 +30,7 @@ TestResult.prototype.show = function(exercises) {
 
 	    // Show question symbol of type 1, 3, or 4 exercise 
 		if (exercises[i].type == 1 || exercises[i].type == 3 || exercises[i].type == 4) {
-			tableHTML += '<img class="test-result-symbol" src="quincy/symbols/' +
-            			 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].school + '/Level_' +
-		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].level + '/Group_' +
-		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].group + '/' +
-		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].fileName + '"><br>';
+			tableHTML += this.showQuestionSymbol(exercises[i]);
 			
 			if (exercises[i].type == 1) {//fill name excerise result:
 				//tableHTML += "Your answer: " + exercises[i].studentsAnswer + "<br class=fillExLineHight>Right answer: " + exercises[i].solution.replace("=", " OR ");
@@ -52,7 +49,7 @@ TestResult.prototype.show = function(exercises) {
 				}
 				solution = solution.substring(0, solution.length - 2);
 				
-				tableHTML += "Your answer: " + answer + "<br class=fillExLineHight>Right answer: " + solution;
+				tableHTML += "Your answer: " + answer + '<br class="fillExLineHight">Right answer: ' + solution;
 			}
 			else {
 				tableHTML += this.showSymbolAnswers(exercises[i]);
@@ -69,27 +66,56 @@ TestResult.prototype.show = function(exercises) {
 		}
 		// TODO
 		else if (exercises[i].type == 6) {
-			tableHTML += '<img class="test-result-symbol" src="quincy/symbols/' +
-            			 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].school + '/Level_' +
-		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].level + '/Group_' +
-		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].group + '/' +
-		                 exercises[i].symbolDB.symbols[exercises[i].questionSymbolID].fileName + '"><br>';
-			
+			tableHTML += this.showQuestionSymbol(exercises[i]);
 			tableHTML += this.showAlterationAnswers(exercises[i]);
 		}
-		
+		// TODO		
 		else if (exercises[i].type == 7) {
 			
 			
 		}
 		else if (exercises[i].type == 8) {
+			tableHTML += this.showQuestionSymbol(exercises[i]);
 			
+			var html = "Your answer: ";
+			var str = "";
+			for (var j = 0; j < exercises[i].studentsAnswer.length; j++) {
+				if (exercises[i].studentsAnswer[j] != "") {
+					str += exercises[i].studentsAnswer[j] + ", ";
+				}
+			}
+			html += str.substr(0, str.length - 2);
+			str = "";
 			
+			html += '<br class="fillExLineHight">Right answer: ';
+			var names = (exercises[i].language == 2) ? exercises[i].correctEnglishName : exercises[i].correctLatinName;
+			for (var j = 0; j < names.length; j++) {
+				str += names[j] + ", ";
+			}
+			html += str.substr(0, str.length - 2);
+			tableHTML += html;
 		}
 		else if (exercises[i].type == 9) {
+			tableHTML += ": " + exercises[i].neumName + '<img class=test-result-symbol src="quincy/img/transparent.png"><br>';
 			
+			var html = "Your answer: ";
+			var str = "";
+			for (var j = 0; j < exercises[i].studentsAnswer.length; j++) {
+				if (exercises[i].studentsAnswer[j] != "") {
+					str += exercises[i].studentsAnswer[j] + ", ";
+				}
+			}
+			html += str.substr(0, str.length - 2);
+			str = "";
 			
+			html += '<br class="fillExLineHight">Right answer: ';
+			for (var j = 0; j < exercises[i].answers.length; j++) {
+				str += exercises[i].answers[j] + ", ";
+			}
+			html += str.substr(0, str.length - 2);
+			tableHTML += html;	
 		}
+		// TODO
 		else if (exercises[i].type == 10) {
 			
 			
@@ -106,6 +132,14 @@ TestResult.prototype.show = function(exercises) {
 	//yoyo add div class yourscore.
     document.getElementById("prev").style.visibility = "hidden";
 	document.getElementById("next").style.visibility = "hidden";
+}
+
+TestResult.prototype.showQuestionSymbol = function(exercise) {	
+	return '<img class="test-result-symbol" src="quincy/symbols/' +
+          	exercise.symbolDB.symbols[exercise.questionSymbolID].school + '/Level_' +
+		    exercise.symbolDB.symbols[exercise.questionSymbolID].level + '/Group_' +
+		    exercise.symbolDB.symbols[exercise.questionSymbolID].group + '/' +
+		    exercise.symbolDB.symbols[exercise.questionSymbolID].fileName + '"><br>';
 }
 
 TestResult.prototype.showSymbolAnswers = function(exercise) {	
