@@ -5,7 +5,7 @@ function ReviewLesson(school, level, groups) {
 	// Compile exercises of all groups in this level
 	for (var i = 0; i < groups.length; i++) {		
 		var exerciseGroup = new ExerciseGroup(school, level, groups[i], mechanism, 0);
-//		this.exercises = this.exercises.concat(exerciseGroup.exercises);
+		this.exercises = this.exercises.concat(exerciseGroup.exercises);
 	}
     
 	// Add review score exercises

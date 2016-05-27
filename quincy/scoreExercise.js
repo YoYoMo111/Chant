@@ -9,7 +9,7 @@ function ScoreExercise(school, level, scoreFileName, solution, mechanism) {
 	this.type = 5;
 	this.score = 0;
 	this.maxScore = this.size * 2;
-	this.mode = 1;
+	this.mode = 2;
 
 	this.getSolution();
 	
