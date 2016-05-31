@@ -1,15 +1,15 @@
 // A child class of Exercise
 function SelectSymbolToMatch2Exercise(school, level, group, questionSymbolInfo, mechanism) {
     Exercise.call(this, mechanism);
+	this.type = 7;
 	this.school = school;
 	this.level = level;
 	this.group = group;
-	this.symbol = 0;
+	this.score = 0;
 	this.questionSymbolID = questionSymbolInfo;
 	
 	this.loadSymbolInfo();
 	this.randomizeImageArrayOrder();
-	this.maxScore = 1;
 }
 
 SelectSymbolToMatch2Exercise.prototype = Object.create(Exercise.prototype);
@@ -33,13 +33,13 @@ SelectSymbolToMatch2Exercise.prototype.loadSymbolInfo = function() {
 	for (var i = 0; i < length; i++) {
 		if (extraIndex.getElementsByTagName("symbol")[i].getAttribute("id") == this.questionSymbolID) {
 			this.choice = extraIndex.getElementsByTagName("symbol")[i].getAttribute("choice").split("-");
-			this.solution = extraIndex.getElementsByTagName("symbol")[i].getAttribute("solution");
+			this.rawSolution = extraIndex.getElementsByTagName("symbol")[i].getAttribute("solution");
 			break;	
 		}
 	}
 	
 	// convert a-b-c to 0-1-2
-	var temp = this.solution.split("-");
+	var temp = this.rawSolution.split("-");
 	for (var i = 0; i < temp.length; i++) {
 		temp[i] = temp[i].charCodeAt(0) - 'A'.charCodeAt(0);
 	}
@@ -49,6 +49,7 @@ SelectSymbolToMatch2Exercise.prototype.loadSymbolInfo = function() {
 		this.solution += temp[i] + "-";
 	}
 	this.solution = this.solution.substring(0, this.solution.length - 1);
+	this.maxScore = this.solution.split("-").length;
 }
 
 SelectSymbolToMatch2Exercise.prototype.randomizeImageArrayOrder = function() {	
@@ -178,20 +179,20 @@ SelectSymbolToMatch2Exercise.prototype.saveAnswer = function() {
 
 SelectSymbolToMatch2Exercise.prototype.grade = function() {
 	this.saveAnswer();
-	this.symbol = 0;
+	this.score = 0;
 	if (this.studentsAnswer != "") {
 		var checked = this.studentsAnswer.split("-");
 		var rightAnswers = this.solution.split("-");
 		
 		for (var i = 0; i < checked.length; i++) {
 		    if (isInArray(rightAnswers, checked[i])) {
-			    this.symbol++;
+			    this.score++;
 		    }
 			else {
-				this.symbol--;
+				this.score--;
 			}
 	    }
-		if (this.symbol < 0)    this.symbol = 0;
+		if (this.score < 0)    this.score = 0;
 	}
 }
 

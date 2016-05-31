@@ -149,6 +149,24 @@ SymbolDB.prototype.filterList = function(school, level, studentsAnswer, nNeumsIn
 	this.showList(nNeumsInARow);
 }
 
+// Filter the symbol list for level 6
+SymbolDB.prototype.filterListForLevelSix = function(neumIds, studentsAnswer, nNeumsInARow) {
+	// reset visibility of all symbols
+    this.numOfVisibleSymbols = 0;
+    for (var i = 0; i < this.symbols.length; i++) {
+	    this.symbols[i].visible = false;
+	}
+		
+	for (var i = 0; i < neumIds.length; i++) {
+		this.symbols[neumIds[i]].visible = true;
+		this.symbols[neumIds[i]].belongsToThisExercise = true;
+		this.numOfVisibleSymbols++;
+	}
+	
+	this.studentsAnswer = studentsAnswer;
+	this.showList(nNeumsInARow);
+}
+
 // Handle key press
 SymbolDB.prototype.handleKeyPress = function(ev) {    
     var keywords = document.getElementById("keywords").value;

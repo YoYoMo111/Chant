@@ -55,7 +55,6 @@ TestResult.prototype.show = function(exercises) {
 				tableHTML += this.showSymbolAnswers(exercises[i]);
 			}
 		}
-		// Show neum name of type 2 exercise
 		else if (exercises[i].type == 2) {
 			tableHTML += ": " + exercises[i].neumName + '<img class=test-result-symbol src="quincy/img/transparent.png"><br>'; // <div style="height=50px;width=1px;"></div>
 			tableHTML += this.showSymbolAnswers(exercises[i]);
@@ -69,10 +68,9 @@ TestResult.prototype.show = function(exercises) {
 			tableHTML += this.showQuestionSymbol(exercises[i]);
 			tableHTML += this.showAlterationAnswers(exercises[i]);
 		}
-		// TODO		
 		else if (exercises[i].type == 7) {
-			
-			
+			tableHTML += this.showQuestionSymbol(exercises[i]);
+			tableHTML += this.showSymbolAnswersForTypeSeven(exercises[i]);
 		}
 		else if (exercises[i].type == 8) {
 			tableHTML += this.showQuestionSymbol(exercises[i]);
@@ -162,6 +160,27 @@ TestResult.prototype.showSymbolAnswers = function(exercise) {
 		        exercise.symbolDB.symbols[solutionSymbolIDs[i]].level + '/Group_' +
 		        exercise.symbolDB.symbols[solutionSymbolIDs[i]].group + '/' +
 		        exercise.symbolDB.symbols[solutionSymbolIDs[i]].fileName + '">';
+	}
+	html += "</td></tr></table>";
+	return html;
+}
+
+TestResult.prototype.showSymbolAnswersForTypeSeven = function(exercise) {
+	var html = "<table><tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+	if (exercise.studentsAnswer != "") {
+		var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
+		for (var i = 0; i < studentAnswerSymbolIDs.length; i++) {
+			html += '<img class="test-result-symbol" src="quincy/symbols/Extra/' +
+				exercise.school + '/Level_' + exercise.level + '/Group_' + exercise.group + '/' +
+				exercise.getOptionImageFileName(exercise.symbolDB.symbols[exercise.questionSymbolID].fileName, String.fromCharCode(65 + parseInt(studentAnswerSymbolIDs[i]))) + '">';
+		}
+	}
+	html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+	var indices = exercise.rawSolution.split("-");
+	for (var i = 0; i < indices.length; i++) {
+		html += '<img class="test-result-symbol" src="quincy/symbols/Extra/' +
+				exercise.school + '/Level_' + exercise.level + '/Group_' + exercise.group + '/' +
+				exercise.getOptionImageFileName(exercise.symbolDB.symbols[exercise.questionSymbolID].fileName, indices[i]) + '">';		
 	}
 	html += "</td></tr></table>";
 	return html;

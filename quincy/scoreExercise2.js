@@ -23,6 +23,11 @@ function ScoreExercise2(school, level, scoreFileName, solution, symbolPos, mecha
         //this.studentsAnswerIDs.push("");
         this.studentAnswerNames.push("");
 	}
+	
+	this.neums = [3, 15, 10, 2, 11, 17, 12, 22,
+				 21, 16, 51, 53, 151, 0, 97, 89,
+				 82, 5, 158, 190, 30, 29, 191, 31,
+				 71, 13, 14, 18, 23, 24, 27, 28];
 }
 
 ScoreExercise2.prototype = Object.create(Exercise.prototype);
@@ -137,7 +142,7 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	*/
 	// Show all neums of this level
 	this.nNeumsInARow = 8;
-	this.symbolDB.filterList(this.school, 1, this.studentsAnswer, this.nNeumsInARow);
+	this.symbolDB.filterListForLevelSix(this.neums, this.studentsAnswer, this.nNeumsInARow);
 	
 	// Show check answer button if it's in exercise mode
 	if (this.mechanism == 1) {
@@ -226,7 +231,7 @@ ScoreExercise2.prototype.allowDrop = function(ev) {
 
 ScoreExercise2.prototype.drop = function(ev) {
 
-	console.log(ev.target.innerHTML);
+//	console.log(ev.target.innerHTML);
 	
 	ev.preventDefault();
 
@@ -441,7 +446,10 @@ ScoreExercise2.prototype.showHint = function() {
 		}
 	}
 	if(this.studentsAnswerIDs.length < this.solutionIDs.length){
-		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable"><div id="hint-notable">Missing neums!</div></table></div>';
+		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable"><div class="hint-no-table">More neums are expected.</div></table></div>';
+	}
+	else {
+		document.getElementById("hint").innerHTML = "";
 	}
 }
 
@@ -502,9 +510,9 @@ ScoreExercise2.prototype.showNeumWithID = function(ID) {
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +
 	        '" draggable="false" style="width:60px;height:60px; position: absolute;">'+
-	        '<img id="delete-button'+ ID + '_copy_'+dropTime+'" class="delete-buttons" onclick="deleteNeum(event)" style="width:18px; z-index: 500; position:absolute;" src="quincy/img/delete.png" >'+
-	        '<img id="tick'+ ID + '_copy_'+dropTime+'" class="tick-marks" src="quincy/img/tick.png">'+
-	        '<img id="x'+ ID + '_copy_'+dropTime+'" class="x-marks" src="quincy/img/x.png">'
+	        '<img id="delete-button'+ ID + '_copy_'+dropTime+'" class="delete-buttons" onclick="deleteNeum(event)" style="width:18px; z-index: 500; position:absolute;" draggable="false" src="quincy/img/delete.png" >'+
+	        '<img id="tick'+ ID + '_copy_'+dropTime+'" class="tick-marks" draggable="false" src="quincy/img/tick.png">'+
+	        '<img id="x'+ ID + '_copy_'+dropTime+'" class="x-marks" draggable="false" src="quincy/img/x.png">'
 	        '</div>';
 
 }
