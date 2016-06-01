@@ -115,9 +115,9 @@ ReviewLesson.prototype.initUI = function(container_div_id) {
 	};
 
 	document.getElementById("prev").style.visibility = "hidden";//init
-
+	
 	window.onclick = function(event) {
-	    if (event.target.id != "checkAnswer"  && document.getElementById("hint").innerHTML) {
+	    if (event.target.id != "checkAnswer" && document.getElementById("hint").innerHTML) {
 		    document.getElementById("hint").innerHTML = "";
 		}
 	};			

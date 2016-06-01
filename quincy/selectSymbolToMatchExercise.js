@@ -48,7 +48,11 @@ SelectSymbolToMatchExercise.prototype.randomizeImageArrayOrder = function() {
 	for (i = 0; i < this.numOfChoices; i++) {
 		this.imageOrder[i] = i;
 	}
-	this.imageOrder = shuffle(this.imageOrder);
+	
+	// Don't randomize symbols for level 5 group 3 & 4
+	if (!(this.level == 5 && (this.group == 3 || this.group == 4))) {
+		this.imageOrder = shuffle(this.imageOrder);
+	}
 }
 
 SelectSymbolToMatchExercise.prototype.show = function(index, numOfQuestions) {
@@ -276,7 +280,9 @@ SelectSymbolToMatchExercise.prototype.showHint = function() {
 		    if (!isInArray(rightAnswers, checked[i])) {    // Show x marks on incorrectly selected symbols
 			    wrongAnswers.push(checked[i]);
 			    this.selectableImages[this.mapping[checked[i]]].showXMark();
-				this.showSymbolInfo(checked[i]);
+				if (this.type != 21 && this.type != 22) {    // No show of hint table in level 4
+					this.showSymbolInfo(checked[i]);
+				}
 		    }
 			else {    // Show check marks on incorrectly selected symbols
 				this.selectableImages[this.mapping[checked[i]]].showCheckMark();
@@ -292,6 +298,10 @@ SelectSymbolToMatchExercise.prototype.showHint = function() {
 				document.getElementById("hint").innerHTML = 
 					'<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is correct but incomplete. The correct answer has one or more additional possibilities.</div></div>';
 			}
+		}
+		else {
+			document.getElementById("hint").innerHTML = 
+				'<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is wrong. Please try again.</div></div>';
 		}
 		document.getElementById("hint-box").className = "hint-wrong";
 	}

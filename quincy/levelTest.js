@@ -82,6 +82,7 @@ LevelTest.prototype.initUI = function(container_div_id) {
 		  '<div id="progressBarOutline"><div id="progressBar"></div></div>' +	      
 		  '<div id="dynamicArea"></div>' +
 	      '<div id="controls" style="margin-top: 50px;"></div>' +
+		  '<div id="hint"></div>' +
 	    '</div>';
 	    	
 	// control buttons
