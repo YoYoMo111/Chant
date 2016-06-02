@@ -177,7 +177,7 @@
 	<symbol id="151" name="quilisma pes" fileName="gall_special_quilisma_pes_1.png" school="StGall" level="5" group="1" matchingModern="564" matchingLaon="0" altType="" altLoc="" info="Quilisma followed by a higher note." />
 	<symbol id="152" name="quilisma pes" fileName="gall_special_quilisma_pes_2.png" school="StGall" level="5" group="1" matchingModern="564" matchingLaon="0" altType="" altLoc="" info="Quilisma followed by a higher note." />
 	<symbol id="153" name="quilisma pes" fileName="gall_special_quilisma_pes_3.png" school="StGall" level="5" group="1" matchingModern="565" matchingLaon="0" altType="" altLoc="" info="Quilisma followed by a higher note with an episema." />
-	<symbol id="154" name="quilisma pes" fileName="gall_special_quilisma_pes_4.png" school="StGall" level="5" group="1" matchingModern="565" matchingLaon="0" altType="" altLoc="" info="Quilisma followed by a higher note with an episema" />
+	<symbol id="154" name="quilisma pes" fileName="gall_special_quilisma_pes_4.png" school="StGall" level="5" group="1" matchingModern="565" matchingLaon="0" altType="" altLoc="" info="Quilisma followed by a higher note with an episema." />
 	<symbol id="155" name="quilisma torculus resupinus" fileName="gall_special_quilisma_torculus-resupinus_1.png" school="StGall" level="5" group="1" matchingModern="566" matchingLaon="0" altType="" altLoc="" info="Quilisma, higher note, lower note, higher note." />
 	<!-- Gall level 5 group 2, Oriscus basics  -->
 	<symbol id="156" name="isolated oriscus" fileName="gall_special_oriscus_isolated_1.png" school="StGall" level="5" group="2" matchingModern="567" matchingLaon="0" altType="" altLoc="" info="Isolated note; normally indicates a repetition of the previous note or an emphasis on the following note." />

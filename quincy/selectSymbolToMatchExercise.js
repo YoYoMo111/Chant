@@ -300,8 +300,9 @@ SelectSymbolToMatchExercise.prototype.showHint = function() {
 			}
 		}
 		else {
-			document.getElementById("hint").innerHTML = 
-				'<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is wrong. Please try again.</div></div>';
+			if (this.type == 21 || this.type == 22) {
+				document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is wrong. Please try again.</div></div>';
+			}
 		}
 		document.getElementById("hint-box").className = "hint-wrong";
 	}

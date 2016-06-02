@@ -1,6 +1,6 @@
 function TestResult() {
 	this.questionText = ["Enter the name of the given neum",
-	                     "Select the neum that matches the given name",
+	                     "Select the neum that matches the given name: ",
 	                     "Select the example(s) of modern notation that match the given neum",
 						 "Select the neum(s) that match the given modern note",
 						 "Drag neums to match the notes in the score and enter the neums' names",
@@ -18,9 +18,12 @@ TestResult.prototype.show = function(exercises) {
 	var tableHTML = '<table class="test-result-table"><div class=title><tr><th>No.</th><th style="text-align: center;">Question</th><th>Points</th></tr></div>';
 	
 	for (var i = 1; i < exercises.length - 1; i++) {              //all exercise result padding bottom
-	    var text = "";
+	    var text;
 	    if (exercises[i].type == 8 || exercises[i].type == 9) {
 			text = exercises[i].questionText;
+		}
+		else if (exercises[i].type == 21 || exercises[i].type == 22) {
+			text = "Select the letter(s) that signify the given term: ";
 		}
 		else {
 			text = this.questionText[exercises[i].type-1];
@@ -55,8 +58,8 @@ TestResult.prototype.show = function(exercises) {
 				tableHTML += this.showSymbolAnswers(exercises[i]);
 			}
 		}
-		else if (exercises[i].type == 2) {
-			tableHTML += ": " + exercises[i].neumName + '<img class=test-result-symbol src="quincy/img/transparent.png"><br>'; // <div style="height=50px;width=1px;"></div>
+		else if (exercises[i].type == 2 || exercises[i].type == 21 || exercises[i].type == 22) {
+			tableHTML += exercises[i].neumName + '<img class=test-result-symbol src="quincy/img/transparent.png"><br>'; // <div style="height=50px;width=1px;"></div>
 			tableHTML += this.showSymbolAnswers(exercises[i]);
 		}
 		// Show score of score exercise

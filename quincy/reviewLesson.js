@@ -93,7 +93,8 @@ ReviewLesson.prototype.initUI = function(container_div_id) {
 		  '<div id="progressBarOutline"><div id="progressBar"></div></div>' +
 	      '<div id="dynamicArea"></div>' +
 	      '<div id="controls"></div>' +
-	      '<div id="hint" style="margin-top: 60px;"></div>' +
+		  '<button id="excercise-btn" type="button" style="display: block; visibility: hidden; margin-top: 0px; margin-bottom: 0px;"><a>Go to Excercises >></a></button>' +
+	      '<div id="hint"></div>' +
 	    '</div>';
 	
 	// control buttons

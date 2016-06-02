@@ -1,7 +1,13 @@
 function LevelTest(school, level, groups) {
 	var mechanism = 0;    // hide "check answer" and "reveal answer" buttons
 	var mode = 2;
-	var N = 5;
+	var N;
+	if (level == 2 || level == 6) {
+		N = 5;
+	}
+	else {
+		N = 20;
+	}
 	this.exercises = new Array();
 	this.grades = new Array();
 	
