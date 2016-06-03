@@ -68,14 +68,14 @@ function ReviewLesson(school, level, groups) {
 				var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
 				var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
 				var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-				scoreExercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+				scoreExercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, mechanism));
 			}
 		}
 	}
 
 	// Combine regular exercises and 2 score exercises, then shuffle
 	this.exercises = this.exercises.concat(scoreExercises);
-	this.exercises = shuffle(this.exercises);
+//	this.exercises = shuffle(this.exercises);
 	this.numOfQuestions = this.exercises.length;
 	
 	this.exercises.splice(0, 0, new IntroPage(school, level, groups.length + 1));

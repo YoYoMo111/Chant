@@ -6,6 +6,7 @@ function SelectAlterationExercise(questionSymbolID, mechanism) {
 	this.questionSymbolID = questionSymbolID;
 	this.secondPartUnlocked = false;
 	this.modernShowed = false;
+	this.radioButtonDisabled = false;
 	this.studentAnswerAltType = "";
 	this.studentAnswerAltLoc = "";
 	
@@ -40,12 +41,10 @@ SelectAlterationExercise.prototype.show = function(index, numOfQuestions) {
 	            '<div id="button-div-1" class="buttons"></div>' +
 	        '</div>' +
 			'<div id="question-2"></div>' +		
-		'<button id="show-modern-symbols" type="button">+ Show Modern Equivalents</button>' +
+		(this.mechanism == 1 ? '<button id="show-modern-symbols" type="button">+ Show Modern Equivalents</button>' : '') +
 		'<div class="modern-equivalents-card">'+
 		'<div id="modern-equivalents"></div></div>'+
 		'</center>';
-		
-
 	
 	// Show check answer button if it's in exercise mode
 	if (this.mechanism == 1) {
@@ -65,9 +64,25 @@ SelectAlterationExercise.prototype.show = function(index, numOfQuestions) {
 			self.showRightAnswer(1);
 	    };
 	}
+	// Test mode
+	else if (this.mechanism == 0) {
+		document.getElementById("button-div-1").innerHTML =
+		    '<button id="continue" class="check-answer-btn" type="button">Continue</button>';
+			
+		var self = this;
+		document.getElementById("continue").onclick = function() {
+			self.saveAnswer();
+			self.disableRadioButtons();
+	        self.showSecondPart();
+			self.secondPartUnlocked = true;
+	    };
+	}
 	
 	if (this.secondPartUnlocked) {
 		this.showSecondPart();
+	}
+	if (this.radioButtonDisabled) {
+		this.disableRadioButtons();
 	}
 	this.showStudentsAnswer();
 }
@@ -116,10 +131,11 @@ SelectAlterationExercise.prototype.showSecondPart = function() {
 					'<div id="t-1-4" class="mark"><img src="quincy/img/tick.png" style="width:16px; height:16px;margin-top:2px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-1" id="alt-loc-1-choice-4" value="all">All</div></form>' +
 	           '<div id="hint-div-2" class="hint-div"></div>' +
-	           '<div id="button-div-2" class="buttons">' +
-			       '<button id="check-answer-2" class="check-answer-btn" type="button">Check Answer</button>' +
-			       '<button id="cheat-2" class="cheat-btn" type="button">Reveal Answer</button>' +
-			   '</div>';
+			   (this.mechanism == 1 ?
+				   ('<div id="button-div-2" class="buttons">' +
+					   '<button id="check-answer-2" class="check-answer-btn" type="button">Check Answer</button>' +
+					   '<button id="cheat-2" class="cheat-btn" type="button">Reveal Answer</button>' +
+				   '</div>') : '');
 	}
 	else {
 		html = '<p class="question">Which part of the neum does the rhythmic alteration affect?</p>' +
@@ -161,10 +177,11 @@ SelectAlterationExercise.prototype.showSecondPart = function() {
 					'<div id="t-2-4" class="mark"><img src="quincy/img/tick.png" style="width:16px; height:16px;margin-top:2px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-2" id="alt-loc-2-choice-4" value="all">All</div></form>' +
 	           '<div id="hint-div-3" class="hint-div"></div>' +
-	           '<div id="button-div-2" class="buttons">' +
-			       '<button id="check-answer-2" class="check-answer-btn" type="button">Check Answer</button>' +
-			       '<button id="cheat-2" class="cheat-btn" type="button">Reveal Answer</button>' +
-			   '</div>';
+			   (this.mechanism == 1 ?
+				   ('<div id="button-div-2" class="buttons">' +
+					   '<button id="check-answer-2" class="check-answer-btn" type="button">Check Answer</button>' +
+					   '<button id="cheat-2" class="cheat-btn" type="button">Reveal Answer</button>' +
+				   '</div>') : '');
 	}
 	document.getElementById("question-2").innerHTML = html;
 	document.getElementById("question-2").className = "question_card";
@@ -174,14 +191,16 @@ SelectAlterationExercise.prototype.showSecondPart = function() {
 		document.getElementById(this.studentAnswerAltType).checked = true;
 	}
 	
-	var self = this;
-	document.getElementById("check-answer-2").onclick = function() {
-		self.saveAnswer();
-	    self.showHint(2);
-	};
-	document.getElementById("cheat-2").onclick = function() {
-		self.showRightAnswer(2);
-	};
+	if (this.mechanism == 1) {
+		var self = this;
+		document.getElementById("check-answer-2").onclick = function() {
+			self.saveAnswer();
+			self.showHint(2);
+		};
+		document.getElementById("cheat-2").onclick = function() {
+			self.showRightAnswer(2);
+		};
+	}
 }
 
 SelectAlterationExercise.prototype.getSolution = function() {
@@ -264,8 +283,32 @@ SelectAlterationExercise.prototype.showRightAnswer = function(num) {
 }
 
 SelectAlterationExercise.prototype.grade = function() {
-	this.score = 0;
     this.saveAnswer();
+	
+	if (this.altType = this.studentAnswerAltType) {
+		this.score = 1;
+	}
+	else {
+		this.score = 0;
+	}
+	
+	var studentAnswerSet = this.studentAnswerAltLoc.split(",");
+	var rightAnswers = this.altLoc.split(",");
+	for (var i = 0; i < studentAnswerSet.length; i++) {
+		var studentsChoices = studentAnswerSet[i].split("-");
+		if (isInArray(studentsChoices, rightAnswers[i])) {
+			this.score += 1;
+			if (studentsChoices.length > 1) {
+				this.score -= (studentsChoices.length - 1);
+			}
+			if (this.score < 0)    this.score = 0;
+		}
+		else {
+			this.score -= studentsChoices.length;
+			if (this.score < 0)    this.score = 0;
+		}
+	}
+	console.log(this.score);
 }
 
 SelectAlterationExercise.prototype.showHint = function(num) {
@@ -329,6 +372,13 @@ SelectAlterationExercise.prototype.showHint = function(num) {
 			}
 		}
 	}
+}
+
+SelectAlterationExercise.prototype.disableRadioButtons = function() {
+	document.getElementById("rhythmic").disabled = true;
+	document.getElementById("repercussive").disabled = true;
+	document.getElementById("both").disabled = true;
+	this.radioButtonDisabled = true;
 }
 
 function isInArray(array, element) {

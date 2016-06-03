@@ -195,7 +195,6 @@ SymbolDB.prototype.handleKeyPress = function(ev) {
 
 // Handle drag and drop events 
 SymbolDB.prototype.drag = function(ev) {
-	console.log("run gragstart");
     ev.dataTransfer.setData("text/html", ev.target.id);
 
     var offset;
@@ -210,7 +209,6 @@ SymbolDB.prototype.drag = function(ev) {
 	//var style = window.getComputedStyle(ev.target, null);
 	//var transfer=ev.dataTransfer.setData("text/plain", (parseInt(style.getPropertyValue("left"), 10) - (ev.clientX-((window.innerWidth-15-1096)/2+226+66.5))) /*+ ',' + (parseInt(style.getPropertyValue("top"), 10) - ev.clientY) + ',' + ev.target.getAttribute('data-item')*/); 
 	//console.log("transfer:"+(parseInt(style.getPropertyValue("left"), 10) - (ev.clientX-((window.innerWidth-15-1096)/2+226+66.5))));
-    console.log("run gragstart end");
 }
 
 // SymbolList

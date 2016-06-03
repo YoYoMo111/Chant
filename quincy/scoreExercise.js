@@ -189,7 +189,6 @@ ScoreExercise.prototype.allowDrop = function(ev) {
 }
 
 ScoreExercise.prototype.drop = function(ev) {
-	console.log(ev.target.innerHTML);
 	ev.preventDefault();
 	
 	var imageID = ev.dataTransfer.getData("text/html");

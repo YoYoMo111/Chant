@@ -3,11 +3,12 @@ function TestResult() {
 	                     "Select the neum that matches the given name: ",
 	                     "Select the example(s) of modern notation that match the given neum",
 						 "Select the neum(s) that match the given modern note",
-						 "Drag neums to match the notes in the score and enter the neums' names",
+						 "Drag neums to match the notes in the score and enter the neums' names.",
 						 "Identify the type and location of alteration of the given neum",
 						 "Select the modern equivalent(s) of the given neum",
 						 "TBD",
-						 "TBD"];
+						 "TBD",
+						 "Drag the neums to the box to match the notes in the score."];
 }
 
 TestResult.prototype.show = function(exercises) {
@@ -31,7 +32,6 @@ TestResult.prototype.show = function(exercises) {
 	
 		tableHTML += '<tr class=OutsideUnit><td class=Num>' + i + '</td><td style="padding-bottom: 20px;">' + text;//yoyo add num,outside unit
 
-	    // Show question symbol of type 1, 3, or 4 exercise 
 		if (exercises[i].type == 1 || exercises[i].type == 3 || exercises[i].type == 4) {
 			tableHTML += this.showQuestionSymbol(exercises[i]);
 			
@@ -62,11 +62,10 @@ TestResult.prototype.show = function(exercises) {
 			tableHTML += exercises[i].neumName + '<img class=test-result-symbol src="quincy/img/transparent.png"><br>'; // <div style="height=50px;width=1px;"></div>
 			tableHTML += this.showSymbolAnswers(exercises[i]);
 		}
-		// Show score of score exercise
 		else if (exercises[i].type == 5) {
 			tableHTML += '<img class=test-result-symbol src="quincy/img/transparent.png"><br>' + this.showScoreAnswers(exercises[i]);
 		}
-		// TODO
+		// working
 		else if (exercises[i].type == 6) {
 			tableHTML += this.showQuestionSymbol(exercises[i]);
 			tableHTML += this.showAlterationAnswers(exercises[i]);
@@ -116,10 +115,10 @@ TestResult.prototype.show = function(exercises) {
 			html += str.substr(0, str.length - 2);
 			tableHTML += html;	
 		}
-		// TODO
+		// working
 		else if (exercises[i].type == 10) {
-			
-			
+			tableHTML += '<img class="result-score-image" src="quincy/scores/' + exercises[i].scoreFileName + '"><br>';
+			tableHTML += this.showSymbolAnswers(exercises[i]);
 		}
 		
 		tableHTML += '</td><td class=MyScore>' + exercises[i].score + '</td></tr>';//yoyo add class my score
@@ -214,22 +213,46 @@ TestResult.prototype.showScoreAnswers = function(exercise) {
 }
 
 TestResult.prototype.showAlterationAnswers = function(exercise) {
-	var html = "Your answer: " + exercise.studentAnswerAltType + ", " + exercise.studentAnswerAltLoc;
-		
-	html += "<br class=fillExLineHight>Right answer: ";
+	var html = "Your answer: ";
+	var type = (exercise.studentAnswerAltType == "") ? "unselected" : exercise.studentAnswerAltType;
+	html += "<br class=fillExLineHight> - Type: " + type;
+	
 	if (exercise.altType != "both") {
-		html += exercise.altType + " - " + this.getAltLocText(exercise.altLoc);
+		html += "<br class=fillExLineHight> - Location: " + this.getAltLocText(exercise.studentAnswerAltLoc);
+	}
+	else {
+		var answerSet = exercise.studentAnswerAltLoc.split(",");
+		html += "<br class=fillExLineHight> - Location: rhythmic - " + this.getAltLocText(answerSet[0]) + ", repercussive - " + this.getAltLocText(answerSet[1]);
+	}
+		
+	html += "<br class=fillExLineHight>Right answer:";
+	if (exercise.altType != "both") {
+		html += "<br class=fillExLineHight> - Type: " + exercise.altType + "<br class=fillExLineHight> - Location: " + this.getAltLocText(exercise.altLoc);
+		console.log(exercise.altType);
+		console.log(this.getAltLocText(exercise.altLoc));
 	}
 	else {
 		var loc = exercise.altLoc.split(",");
-		html += "rhythmic - " + this.getAltLocText(loc[0]) + ", repercussive - " + this.getAltLocText(loc[1]);
+		html += "<br class=fillExLineHight> - Type: both<br class=fillExLineHight> - Location: rhythmic - " + this.getAltLocText(loc[0]) + ", repercussive - " + this.getAltLocText(loc[1]);
+		console.log(exercise.altType);
+		console.log(this.getAltLocText(loc[0]) + ", " + this.getAltLocText(loc[1]));
 	}
 	return html;
 }
 
 TestResult.prototype.getAltLocText = function(loc) {
-	if (loc == 1)         return "beginning";
-	else if (loc == 2)    return "middle";
-	else if (loc == 3)    return "end";
-	else if (loc == 4)    return "all";
+	if (loc == 0) {
+		return "unselected";
+	}
+	else {
+		var locs = loc.split("-");
+		var str = "";
+		for (var i = 0; i < locs.length; i++) {
+			if (locs[i] == 1)     str += "beginning + ";
+			else if (locs[i] == 2)    str += "middle + ";
+			else if (locs[i] == 3)    str += "end + ";
+			else if (locs[i] == 4)    str += "all + ";
+		}
+		return str.substr(0, str.length - 3);
+	}
 }

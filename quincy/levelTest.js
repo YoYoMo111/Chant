@@ -2,7 +2,7 @@ function LevelTest(school, level, groups) {
 	var mechanism = 0;    // hide "check answer" and "reveal answer" buttons
 	var mode = 2;
 	var N;
-	if (level == 2 || level == 6) {
+	if (level == 2) {
 		N = 5;
 	}
 	else {
@@ -28,49 +28,74 @@ function LevelTest(school, level, groups) {
 	this.exercises.splice(N, this.exercises.length - N);
     
 	// Add score exercises
-	var xmlhttp;
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-  		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.open("GET","quincy/scores/scoreIndex.xml", false);
-	xmlhttp.send();
-	
-	var scoreInfo = xmlhttp.responseXML;
-	var i = 0;
-	var length = scoreInfo.getElementsByTagName("score").length;
-	
-	for (; i < length; i++) {
-		if (scoreInfo.getElementsByTagName("score")[i].getAttribute("school") == school &&
-    		scoreInfo.getElementsByTagName("score")[i].getAttribute("level") == level &&
-			scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "test") {
-			break;
-		}
-	}
-	
 	var scoreExercises = new Array();
-	for (; i < length; i++) {
-		var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
-	    var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
-		scoreExercises.push(new ScoreExercise(school, level, scoreFileName, solution, mechanism));
 
-		if (i + 1 >= length ||
-		    scoreInfo.getElementsByTagName("score")[i+1].getAttribute("school") != school ||
-    		scoreInfo.getElementsByTagName("score")[i+1].getAttribute("level") != level ||
-			scoreInfo.getElementsByTagName("score")[i].getAttribute("type") != "test") {
-			break;
+	if (level < 6) {
+		var xmlhttp;
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		}
+		else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","quincy/scores/scoreIndex.xml", false);
+		xmlhttp.send();
+		
+		var scoreInfo = xmlhttp.responseXML;
+		var i = 0;
+		var length = scoreInfo.getElementsByTagName("score").length;
+		
+		for (; i < length; i++) {
+			if (scoreInfo.getElementsByTagName("score")[i].getAttribute("school") == school &&
+				scoreInfo.getElementsByTagName("score")[i].getAttribute("level") == level &&
+				scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "test") {
+				break;
+			}
+		}
+		
+		for (; i < length; i++) {
+			var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+			var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+			scoreExercises.push(new ScoreExercise(school, level, scoreFileName, solution, mechanism));
+
+			if (i + 1 >= length ||
+				scoreInfo.getElementsByTagName("score")[i+1].getAttribute("school") != school ||
+				scoreInfo.getElementsByTagName("score")[i+1].getAttribute("level") != level ||
+				scoreInfo.getElementsByTagName("score")[i].getAttribute("type") != "test") {
+				break;
+			}
+		}
+		
+		// Randomly draw 2 score exercises
+		scoreExercises = shuffle(scoreExercises);
+		scoreExercises.splice(2, scoreExercises.length - 2);
+	}
+	else {
+		var xmlhttp;
+	    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		    xmlhttp = new XMLHttpRequest();
+	    }
+	    else {// code for IE6, IE5
+  		    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	    }
+	    xmlhttp.open("GET","quincy/scores/gall_level_6_score_index.xml", false);
+	    xmlhttp.send();
+	
+	    var scoreInfo = xmlhttp.responseXML;
+	    var length = scoreInfo.getElementsByTagName("score").length;		
+		for (var i = 0; i < length; i++) {
+			if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "test") {
+				var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+				var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+				var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
+				scoreExercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, mechanism));
+			}
 		}
 	}
-	
-	// Randomly draw 2 score exercises
-	scoreExercises = shuffle(scoreExercises);
-	scoreExercises.splice(2, scoreExercises.length - 2);
 	
 	// Combine N regular exercises and 2 score exercises
 	this.exercises = this.exercises.concat(scoreExercises);
-	this.exercises = shuffle(this.exercises);
+//	this.exercises = shuffle(this.exercises);
 	this.numOfQuestions = this.exercises.length;
 	
 	this.exercises.splice(0, 0, new IntroPage(school, level, groups.length + 2));

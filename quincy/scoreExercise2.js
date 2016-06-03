@@ -1,7 +1,7 @@
 // A child class of Exercise
 function ScoreExercise2(school, level, scoreFileName, solution, symbolPos, mechanism) {
     Exercise.call(this, mechanism);
-	this.type = 7;
+	this.type = 10;
 	this.school = school;
 	this.level = level;
 	this.scoreFileName = scoreFileName;
@@ -15,13 +15,13 @@ function ScoreExercise2(school, level, scoreFileName, solution, symbolPos, mecha
 
 	// Init student answer arrays
 	this.studentsAnswerIDs = new Array();
-	this.studentsAnswerLefts = new Array();
-	this.studentAnswerNames = new Array();
+	this.studentsAnswerIDsLefts = new Array();
+	this.studentsAnswerNames = new Array();
 	this.tickIDs = new Array();
 	this.xIDs = new Array();
 	for (var i = 0; i < this.size; i++) {
         //this.studentsAnswerIDs.push("");
-        this.studentAnswerNames.push("");
+        this.studentsAnswerNames.push("");
 	}
 	
 	this.neums = [3, 15, 10, 2, 11, 17, 12, 22,
@@ -142,7 +142,7 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	*/
 	// Show all neums of this level
 	this.nNeumsInARow = 8;
-	this.symbolDB.filterListForLevelSix(this.neums, this.studentsAnswer, this.nNeumsInARow);
+	this.symbolDB.filterListForLevelSix(this.neums, this.studentsAnswerIDs, this.nNeumsInARow);
 	
 	// Show check answer button if it's in exercise mode
 	if (this.mechanism == 1) {
@@ -159,19 +159,17 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 			self.showRightAnswer();
 	    };
 	}
-	
-
 
 	// Show student's answer
 	dropTime=0;
 	for (var i = 0; i < this.studentsAnswerIDs.length; i++) {
 		if (this.studentsAnswerIDs[i] != "") {
 				console.log(this.studentsAnswerIDs);
-				console.log(this.studentsAnswerLefts);
+				console.log(this.studentsAnswerIDsLefts);
 			document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(this.studentsAnswerIDs[i]);
 			//document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 			var answer = document.getElementById("scoreExAnswer2").children;
-			document.getElementById(answer[i].id).style.left = this.studentsAnswerLefts[i]+'px';		
+			document.getElementById(answer[i].id).style.left = this.studentsAnswerIDsLefts[i]+'px';		
 		}
 		dropTime++;
 	}
@@ -321,7 +319,6 @@ ScoreExercise2.prototype.deleteNeum = function(ev) {
 ScoreExercise2.prototype.getSolution = function() {
 	this.solutionIDs = this.solution.split("-");
 	this.solutionPos = this.symbolPos.split("-");  
-	console.log(this.solutionIDs)  // An array of neum IDs	
 }
 
 ScoreExercise2.prototype.saveAnswer = function() {
@@ -332,32 +329,32 @@ ScoreExercise2.prototype.saveAnswer = function() {
 //	console.log(this.studentsAnswerIDs);
 //	console.log(this.solutionIDs);
 	//this.studentsAnswerIDs = [""];
-	//this.studentsAnswerLefts = [""];
+	//this.studentsAnswerIDsLefts = [""];
 
 	var answer = document.getElementById("scoreExAnswer2").children;
 	//console.log("answer children:"+answer[0].children[0].id);
 	this.studentsAnswerIDs = [""];
-	this.studentsAnswerLefts = [""];
+	this.studentsAnswerIDsLefts = [""];
 	this.tickIDs = [""];
 	this.xIDs = [""];
 
 	for( var i = 0; i < answer.length; i++){
 		this.studentsAnswerIDs[i] = document.getElementById(answer[i].id).getAttribute("data-neumID");
 		var style = window.getComputedStyle(answer[i], null);
-		this.studentsAnswerLefts[i] = parseInt(style.getPropertyValue("left"), 10);
+		this.studentsAnswerIDsLefts[i] = parseInt(style.getPropertyValue("left"), 10);
 		this.tickIDs[i] = 'tick' + answer[i].id.substring(17);
 		this.xIDs[i] = 'x' + answer[i].id.substring(17);
 
 		//console.log(answer[i].id.substring(17));
 		
-		//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerLefts[i]);
+		//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerIDsLefts[i]);
 	}
 	for(i = 0; i<=answer.length-1; i++){
-		if(this.studentsAnswerLefts[i] > this.studentsAnswerLefts[i+1]){
+		if(this.studentsAnswerIDsLefts[i] > this.studentsAnswerIDsLefts[i+1]){
 
-			var temp1 = this.studentsAnswerLefts[i+1];
-			this.studentsAnswerLefts[i+1] = this.studentsAnswerLefts[i];
-			this.studentsAnswerLefts[i] = temp1;
+			var temp1 = this.studentsAnswerIDsLefts[i+1];
+			this.studentsAnswerIDsLefts[i+1] = this.studentsAnswerIDsLefts[i];
+			this.studentsAnswerIDsLefts[i] = temp1;
 
 			var temp2 = this.studentsAnswerIDs[i+1];
 			this.studentsAnswerIDs[i+1] = this.studentsAnswerIDs[i];
@@ -373,22 +370,19 @@ ScoreExercise2.prototype.saveAnswer = function() {
 			i = i - 2;
 		}
 	}
-	//console.log(this.studentsAnswerIDs);
-	//console.log(this.studentsAnswerLefts);
-	//console.log(this.tickIDs);
-	//console.log(this.xIDs);
-	//console.log("answer1:"+c[0].id);
+
+	this.studentsAnswer = "";
 	this.score=0;
 	for (var i = 0; i < this.studentsAnswerIDs.length; i++) {
 		// Check neums
 		if (this.studentsAnswerIDs[i] != "") {
 			if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
 			    this.score++;
-			    
 			}
-
+			this.studentsAnswer += this.studentsAnswerIDs[i] + "-";
 		}
 	}
+	this.studentsAnswer = this.studentsAnswer.substr(0, this.studentsAnswer.length - 1);
 	console.log("score:" + this.score);
 }
 
@@ -406,7 +400,7 @@ ScoreExercise2.prototype.showRightAnswer = function() {
 	for (var i = 0; i < this.solutionIDs.length; i++) {
 		if (this.solutionIDs[i] != "") {
 				//console.log(this.studentsAnswerIDs);
-				//console.log(this.studentsAnswerLefts);
+				//console.log(this.studentsAnswerIDsLefts);
 			document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(this.solutionIDs[i]);
 			var answer = document.getElementById("scoreExAnswer2").children;
 			document.getElementById(answer[i].id).style.left = this.solutionPos[i]+'px';
