@@ -229,8 +229,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	// mode 0 - review mode, no shuffling, no intro/end page, do nothing here
 	// mode 1 - regular mode
 	if (mode == 1) {
-		// Shuffle exercises
-//	    this.exercises = shuffle(this.exercises);
+	    this.exercises = shuffle(this.exercises);
 
 	    // Add intro and end pages
 	    this.exercises.splice(0, 0, new IntroPage(this.school, this.level, this.group));
@@ -239,7 +238,6 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	
 	// mode 2 - test mode, shuffle, no intro/end page
 	else if (mode == 2) {
-		// Shuffle exercises
 	    this.exercises = shuffle(this.exercises);
 	}
 }

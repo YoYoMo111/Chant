@@ -75,7 +75,7 @@ function ReviewLesson(school, level, groups) {
 
 	// Combine regular exercises and 2 score exercises, then shuffle
 	this.exercises = this.exercises.concat(scoreExercises);
-//	this.exercises = shuffle(this.exercises);
+	this.exercises = shuffle(this.exercises);
 	this.numOfQuestions = this.exercises.length;
 	
 	this.exercises.splice(0, 0, new IntroPage(school, level, groups.length + 1));

@@ -217,31 +217,33 @@ TestResult.prototype.showAlterationAnswers = function(exercise) {
 	var type = (exercise.studentAnswerAltType == "") ? "unselected" : exercise.studentAnswerAltType;
 	html += "<br class=fillExLineHight> - Type: " + type;
 	
-	if (exercise.altType != "both") {
-		html += "<br class=fillExLineHight> - Location: " + this.getAltLocText(exercise.studentAnswerAltLoc);
+	if (exercise.secondPartUnlocked) {
+		if (exercise.altType != "both") {
+			html += "<br class=fillExLineHight> - Location: " + this.getAltLocText(exercise.studentAnswerAltLoc);
+		}
+		else {
+			var answerSet = exercise.studentAnswerAltLoc.split(",");
+			html += "<br class=fillExLineHight> - Location: rhythmic - " + this.getAltLocText(answerSet[0]) + ", repercussive - " + this.getAltLocText(answerSet[1]);
+		}
 	}
 	else {
-		var answerSet = exercise.studentAnswerAltLoc.split(",");
-		html += "<br class=fillExLineHight> - Location: rhythmic - " + this.getAltLocText(answerSet[0]) + ", repercussive - " + this.getAltLocText(answerSet[1]);
+		html += "<br class=fillExLineHight> - Location: unselected";
 	}
+	
 		
 	html += "<br class=fillExLineHight>Right answer:";
 	if (exercise.altType != "both") {
 		html += "<br class=fillExLineHight> - Type: " + exercise.altType + "<br class=fillExLineHight> - Location: " + this.getAltLocText(exercise.altLoc);
-		console.log(exercise.altType);
-		console.log(this.getAltLocText(exercise.altLoc));
 	}
 	else {
 		var loc = exercise.altLoc.split(",");
 		html += "<br class=fillExLineHight> - Type: both<br class=fillExLineHight> - Location: rhythmic - " + this.getAltLocText(loc[0]) + ", repercussive - " + this.getAltLocText(loc[1]);
-		console.log(exercise.altType);
-		console.log(this.getAltLocText(loc[0]) + ", " + this.getAltLocText(loc[1]));
 	}
 	return html;
 }
 
 TestResult.prototype.getAltLocText = function(loc) {
-	if (loc == 0) {
+	if (loc == 0 || loc == "") {
 		return "unselected";
 	}
 	else {

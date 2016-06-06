@@ -1,13 +1,9 @@
 function LevelTest(school, level, groups) {
 	var mechanism = 0;    // hide "check answer" and "reveal answer" buttons
 	var mode = 2;
-	var N;
-	if (level == 2) {
-		N = 5;
-	}
-	else {
-		N = 20;
-	}
+	var N = 20;
+//	if (level == 2)  N = 3;
+	
 	this.exercises = new Array();
 	this.grades = new Array();
 	
@@ -95,7 +91,7 @@ function LevelTest(school, level, groups) {
 	
 	// Combine N regular exercises and 2 score exercises
 	this.exercises = this.exercises.concat(scoreExercises);
-//	this.exercises = shuffle(this.exercises);
+	this.exercises = shuffle(this.exercises);
 	this.numOfQuestions = this.exercises.length;
 	
 	this.exercises.splice(0, 0, new IntroPage(school, level, groups.length + 2));

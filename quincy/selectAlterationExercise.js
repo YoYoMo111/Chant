@@ -285,7 +285,7 @@ SelectAlterationExercise.prototype.showRightAnswer = function(num) {
 SelectAlterationExercise.prototype.grade = function() {
     this.saveAnswer();
 	
-	if (this.altType = this.studentAnswerAltType) {
+	if (this.altType == this.studentAnswerAltType) {
 		this.score = 1;
 	}
 	else {
@@ -298,7 +298,7 @@ SelectAlterationExercise.prototype.grade = function() {
 		var studentsChoices = studentAnswerSet[i].split("-");
 		if (isInArray(studentsChoices, rightAnswers[i])) {
 			this.score += 1;
-			if (studentsChoices.length > 1) {
+			if (studentsChoices.length > 1) {    // There is only one answer
 				this.score -= (studentsChoices.length - 1);
 			}
 			if (this.score < 0)    this.score = 0;
@@ -308,7 +308,7 @@ SelectAlterationExercise.prototype.grade = function() {
 			if (this.score < 0)    this.score = 0;
 		}
 	}
-	console.log(this.score);
+	//console.log(this.score);
 }
 
 SelectAlterationExercise.prototype.showHint = function(num) {
