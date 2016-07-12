@@ -6,7 +6,7 @@
 	<!-- Gall level 1 group 1 -->
 	<symbol id="0" name="gravis" fileName="gall_single-note_gravis_simple_1.png" school="StGall" level="1" group="1" matchingModern="324" matchingLaon="44" altType="" altLoc="" info="A lower note by a significant interval."/>
 	<symbol id="1" name="punctum" fileName="gall_single-note_punctum_simple_1.png" school="StGall" level="1" group="1" matchingModern="325" matchingLaon="0" altType="" altLoc="" info="A lower, lighter note, but relatively rare in St. Gall mss."/>
-	<symbol id="2" name="tractulus" fileName="gall_single-note_tractulus_simple_1.png" school="StGall" level="1" group="1" matchingModern="325-326-327-328-329" matchingLaon="78" altType="" altLoc="" info="A lower note; possibly a note in a series of repeated notes."/>
+	<symbol id="2" name="tractulus" fileName="gall_single-note_tractulus_simple_1.png" school="StGall" level="1" group="1" matchingModern="325-326-327-328-329" matchingLaon="78" altType="" altLoc="" info="A lower note."/>
 	<symbol id="3" name="virga" fileName="gall_single-note_virga_simple_1.png" school="StGall" level="1" group="1" matchingModern="325-329-330-331-332-333-334-335" matchingLaon="0" altType="" altLoc="" info="A higher note; possibly a note in a series of repeated notes."/>
 	<!-- Gall level 1 group 2 -->
     <symbol id="4" name="extended stropha" fileName="gall_repercussive_extended-stropha_simple_1.png" school="StGall" level="1" group="2" matchingModern="338" matchingLaon="0" altType="" altLoc="" info="Five quick or light notes on the same pitch." />
