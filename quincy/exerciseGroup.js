@@ -37,7 +37,7 @@ function ExerciseGroup(school, level, group, mechanism, mode) {
 		
 		// Get number of modern equivalents
 		for(; i < numOfSymbols; i++) {
-			if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == "Modern" &&
+			if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school + "Modern" &&
 				this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
 				this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
 				this.indexOfFirstModernEquivalent = i++;
@@ -45,7 +45,7 @@ function ExerciseGroup(school, level, group, mechanism, mode) {
 			}
 		}
 		while (i < numOfSymbols &&
-			   this.data.getElementsByTagName("symbol")[i].getAttribute("school") == "Modern" &&
+			   this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school + "Modern" &&
 			   this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
 			   this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
 			i++;

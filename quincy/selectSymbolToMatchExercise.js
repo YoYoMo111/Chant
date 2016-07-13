@@ -23,7 +23,7 @@ SelectSymbolToMatchExercise.prototype = Object.create(Exercise.prototype);
 SelectSymbolToMatchExercise.prototype.constructor = SelectSymbolToMatchExercise;
 
 SelectSymbolToMatchExercise.prototype.randomizeImageArrayOrder = function() {
-	var school = (this.type == 3) ? "Modern" : this.school;
+	var school = (this.type == 3) ? (this.school + "Modern") : this.school;
 	
 	// Get number of symbols of the given group
 	var i = 0;
@@ -125,7 +125,7 @@ SelectSymbolToMatchExercise.prototype.showOptionSymbols = function() {
 	this.mapping = new Array();
 	
 	// Create the array of selectable images
-	var school = (this.type == 3) ? "Modern" : this.school;
+	var school = (this.type == 3) ? (this.school + "Modern") : this.school;
 	for (var i = 0; i < this.numOfChoices; i++) {
 	    var symbolID = this.imageOrder[i] + this.indexOfFirstSymbol;
 		var imgDir = 'quincy/symbols/' + school + '/Level_' + this.level + '/Group_' + this.group + '/' +

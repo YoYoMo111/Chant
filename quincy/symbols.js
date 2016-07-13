@@ -70,7 +70,11 @@ SymbolDB.prototype.loadDB = function() {
 			    this.symbols[i].matchingLaon = data.getElementsByTagName("symbol")[i].getAttribute("matchingLaon");
 				this.symbols[i].matchingModern = data.getElementsByTagName("symbol")[i].getAttribute("matchingModern");
 				break;
-			case "Modern":
+			case "StGallModern":
+			    this.symbols[i].matchingStGall = data.getElementsByTagName("symbol")[i].getAttribute("matchingStGall");
+				this.symbols[i].matchingLaon = data.getElementsByTagName("symbol")[i].getAttribute("matchingLaon");
+				break;
+			case "LaonModern":
 			    this.symbols[i].matchingStGall = data.getElementsByTagName("symbol")[i].getAttribute("matchingStGall");
 				this.symbols[i].matchingLaon = data.getElementsByTagName("symbol")[i].getAttribute("matchingLaon");
 				break;
