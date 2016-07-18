@@ -18,7 +18,7 @@ function ExerciseGroup(school, level, group, mechanism, mode) {
 	var numOfSymbols = this.data.getElementsByTagName("symbol").length;
 	
 	// Get number of neums of the given group, level, school for Gall level 1-5
-	if (school == "StGall" && level < 6) {
+	if (school == "StGall" && level < 6 || school =="Laon") {
 		var i = 0;
 		for(; i < numOfSymbols; i++) {
 			if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&

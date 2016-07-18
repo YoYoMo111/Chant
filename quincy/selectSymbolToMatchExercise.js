@@ -108,7 +108,6 @@ SelectSymbolToMatchExercise.prototype.show = function(index, numOfQuestions) {
 		    '<button id="checkAnswer" class="check-answer-btn" type="button">Check Answer</button>' +
 			'<button id="cheat" class="cheat-btn" type="button">Reveal Answer</button>';
 			
-			
 		var self = this;
 	    document.getElementById("checkAnswer").onclick = function() {
 			self.saveAnswer();
@@ -220,7 +219,12 @@ SelectSymbolToMatchExercise.prototype.getSolution = function() {
 	}
 	// Select neums to match modern symbols
 	else if (this.type == 4) {
-		this.solution = this.symbolDB.symbols[this.questionSymbolID].matchingStGall;
+		if (this.school == "StGall") {
+			this.solution = this.symbolDB.symbols[this.questionSymbolID].matchingStGall;
+		}
+		else {
+			this.solution = this.symbolDB.symbols[this.questionSymbolID].matchingLaon;
+		}
 	}    
 }
 
