@@ -19,8 +19,8 @@ Lesson.prototype.initUI = function(container_div_id) {
 	
 	// control buttons
 	document.getElementById("controls").innerHTML = 
-         '<div id="prev"><img id="prev-img"  src="quincy/left.gif" /></div>' +
-         '<div id="next"><img id="next-img"  src="quincy/right.gif" /></div>';
+         '<div id="prev"><img id="prev-img"  src="quincy/img/left.gif" /></div>' +
+         '<div id="next"><img id="next-img"  src="quincy/img/right.gif" /></div>';
 		 
 	this.exerciseGroup.exercises[0].show(0);
 	
