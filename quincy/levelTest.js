@@ -74,7 +74,7 @@ function LevelTest(school, level, groups) {
 	    else {// code for IE6, IE5
   		    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	    }
-	    xmlhttp.open("GET","quincy/scores/gall_level_6_score_index.xml", false);
+	    xmlhttp.open("GET","quincy/scores/" + school + "_level_6_score_index.xml", false);
 	    xmlhttp.send();
 	
 	    var scoreInfo = xmlhttp.responseXML;

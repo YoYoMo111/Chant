@@ -21,7 +21,7 @@ GivenNeumEnterEnglishOrLatinNamesExercise.prototype.show = function(index, numOf
 	var fileName = this.symbolDB.symbols[this.questionSymbolID].fileName;
 
 	var language = (this.language == 2) ? "English" : "Latin";
-	var term = (this.answerLength == 1)? " term" : " terms";
+	var term = (this.answerLength == 1) ? " term" : " terms";
 	this.questionText = "Enter the " + language + term + " that the given letter signifies";
     document.getElementById("question").innerHTML = "Question " + index + " of " + numOfQuestions + ": " + this.questionText + ".";
 		

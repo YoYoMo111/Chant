@@ -24,7 +24,7 @@ SelectSymbolToMatch2Exercise.prototype.loadSymbolInfo = function() {
 	else {// code for IE6, IE5
   		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	xmlhttp.open("GET","quincy/symbols/Extra/extraIndex.xml", false);
+	xmlhttp.open("GET","quincy/symbols/Extra/" + this.school + "/extraIndex.xml", false);
 	xmlhttp.send();
 	
 	var extraIndex = xmlhttp.responseXML;

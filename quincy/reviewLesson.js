@@ -58,7 +58,7 @@ function ReviewLesson(school, level, groups) {
 	    else {// code for IE6, IE5
   		    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	    }
-	    xmlhttp.open("GET","quincy/scores/gall_level_6_score_index.xml", false);
+	    xmlhttp.open("GET","quincy/scores/" + school + "_level_6_score_index.xml", false);
 	    xmlhttp.send();
 	
 	    var scoreInfo = xmlhttp.responseXML;
@@ -68,7 +68,7 @@ function ReviewLesson(school, level, groups) {
 				var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
 				var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
 				var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-				scoreExercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, mechanism));
+				scoreExercises.push(new ScoreExercise2(school, level, scoreFileName, solution, symbolPos, mechanism));
 			}
 		}
 	}

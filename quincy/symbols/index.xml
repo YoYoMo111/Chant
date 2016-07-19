@@ -661,7 +661,7 @@
 	<symbol id="606" name="" fileName="" school="" level="" group="" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />		
 
 	
-	<!-- ================================ Laon ===============================-->
+	<!-- ============================= Laon Modern ============================-->
 	<!-- Laon level 1 group 1 -->
 	<symbol id="607" name="punctum" fileName="modern-laon_single-note_punctum_simple_1.png" school="LaonModern" level="1" group="1" matchingLaon="577-578-579-580" matchingStGall="" altType="" altLoc="" info="" />		
 	<symbol id="608" name="virga" fileName="modern-laon_single-note_virga_simple_2.png" school="LaonModern" level="1" group="1" matchingLaon="578-579-580" matchingStGall="" altType="" altLoc="" info="" />		
