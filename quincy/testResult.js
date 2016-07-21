@@ -59,7 +59,7 @@ TestResult.prototype.show = function(exercises) {
 			}
 		}
 		else if (exercises[i].type == 2 || exercises[i].type == 21 || exercises[i].type == 22) {
-			tableHTML += exercises[i].neumName + '<img class=test-result-symbol src="quincy/img/transparent.png"><br>'; // <div style="height=50px;width=1px;"></div>
+			tableHTML += exercises[i].neumName + '.<img class=test-result-symbol src="quincy/img/transparent.png"><br>'; // <div style="height=50px;width=1px;"></div>
 			tableHTML += this.showSymbolAnswers(exercises[i]);
 		}
 		else if (exercises[i].type == 5) {
