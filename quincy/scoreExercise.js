@@ -39,7 +39,7 @@ ScoreExercise.prototype.show = function(index, numOfQuestions) {
 	document.getElementById("question").innerHTML = str;
 	
 	document.getElementById("dynamicArea").innerHTML =
-	    '<div><img class="score-image" style="margin-top: 10px; margin-bottom: 10px;" src="quincy/scores/' + this.scoreFileName + '"></div>' +
+	    '<div><img class="score-image" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
 	    '<div id="drag-area">' +
 		'<div id="scoreExAnswer"></div>' + 
 		'<div id="symbolSection"></div>' +
@@ -149,7 +149,7 @@ ScoreExercise.prototype.show = function(index, numOfQuestions) {
 	}
 	
 	// Show all neums of this level
-	this.nNeumsInARow = (this.mode == 2) ? 3 : 5;
+	this.nNeumsInARow = (this.mode == 2) ? 4 : 5;
 	this.symbolDB.filterList(this.school, this.level, this.studentsAnswer, this.nNeumsInARow);
 	
 	// Show check answer button if it's in exercise mode
