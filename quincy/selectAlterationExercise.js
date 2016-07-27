@@ -206,7 +206,12 @@ SelectAlterationExercise.prototype.showSecondPart = function() {
 SelectAlterationExercise.prototype.getSolution = function() {
     this.altType = this.symbolDB.symbols[this.questionSymbolID].altType;
 	this.altLoc = this.symbolDB.symbols[this.questionSymbolID].altLoc;
-	this.maxScore = this.altLoc.split(",").length + 1;
+	
+	this.maxScore = 1;    // Alteration type is 1 point
+	var choiceSet = this.altLoc.split(",");
+	for (var i = 0; i < choiceSet.length; i++) {
+		this.maxScore += choiceSet[i].split("-").length;    // Each part of alteration is 1 point
+	}
 }
 
 SelectAlterationExercise.prototype.saveAnswer = function() {
@@ -293,22 +298,21 @@ SelectAlterationExercise.prototype.grade = function() {
 	}
 	
 	var studentAnswerSet = this.studentAnswerAltLoc.split(",");
-	var rightAnswers = this.altLoc.split(",");
+	var rightAnswerSet = this.altLoc.split(",");
 	for (var i = 0; i < studentAnswerSet.length; i++) {
 		var studentsChoices = studentAnswerSet[i].split("-");
-		if (isInArray(studentsChoices, rightAnswers[i])) {
-			this.score += 1;
-			if (studentsChoices.length > 1) {    // There is only one answer
-				this.score -= (studentsChoices.length - 1);
-			}
-			if (this.score < 0)    this.score = 0;
-		}
-		else {
-			this.score -= studentsChoices.length;
-			if (this.score < 0)    this.score = 0;
+		for (var j = 0; j < studentsChoices.length; j++) {
+			if (studentsChoices[j] != 0) {
+				if (isInArray(rightAnswerSet[i], studentsChoices[j])) {
+					this.score += 1;
+				}
+				else {
+					this.score -= 1;
+				}
+			}	
 		}
 	}
-	//console.log(this.score);
+	if (this.score < 0)    this.score = 0;	
 }
 
 SelectAlterationExercise.prototype.showHint = function(num) {
@@ -372,6 +376,7 @@ SelectAlterationExercise.prototype.showHint = function(num) {
 			}
 		}
 	}
+	this.grade();
 }
 
 SelectAlterationExercise.prototype.disableRadioButtons = function() {
