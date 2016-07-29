@@ -9,9 +9,11 @@ function ChantApp(container_div_id) {
 						 ["1"]];
 						 
     this.laonGroups = [["1", "2", "3", "4", "5"],
-	                   ["2A", "3A", "4A", "5A"], 
-				       ["1C", "1D", "2D", "3D", "3E"],
-					   ["1", "2", "3", "4"]];
+	                   ["1", "2", "3", "4", "5"], 
+				       ["1", "2"],
+					   ["1", "2", "3", "4", "5", "6"],
+					   ["1", "2", "3", "4"],
+					   ["1"]];
 				       
 	this.school = "";
 	this.level = 0;
@@ -64,9 +66,8 @@ ChantApp.prototype.initReviewLesson = function(school, level) {
 	else if (school == 2) {    // Laon
 		this.school = "Laon";
 		this.schoolTitle = "Laon";
-		this.reviewLesson = new ReviewLesson(this.school, this.laonLevels[level-1], this.laonGroups[level-1]);
+		this.reviewLesson = new ReviewLesson(this.school, level, this.laonGroups[level-1]);
 	}
-	
 	this.reviewLesson.initUI(this.container_div_id);
 
 	if (level==1||level==2){groupNum=5;}
@@ -84,24 +85,21 @@ ChantApp.prototype.initReviewLesson = function(school, level) {
 	document.getElementById("u1981").style.background="#FF994D";//review
 	document.getElementById("u1960").style.background="transparent";//assessment
 	document.getElementById("quizlet").style.background="transparent";//quizlet
-
-
-/*	var count = 0;
-	if (this.school == "StGall") {
-		count = this.stGallGroups[level-1].length;
-	}
-	else {
-		count = this.laonGroups[level-1].length;
-	}
-	this.changeTextColor(count+1);*/
 }
 
 ChantApp.prototype.initTest = function(school, level) {
-	this.school = (school == 1) ? "StGall" : "Laon";
-	this.schoolTitle = (school == 1) ? "St. Gall" : "Laon";
 	this.level = level;
-	
-	this.levelTest = new LevelTest(this.school, level, this.stGallGroups[level-1]);
+
+	if (school == 1) {    // St. Gall
+		this.school = "StGall";
+		this.schoolTitle = "St. Gall";
+		this.levelTest = new LevelTest(this.school, level, this.stGallGroups[level-1]);
+	}
+	else if (school == 2) {    // Laon
+		this.school = "Laon";
+		this.schoolTitle = "Laon";
+		this.levelTest = new LevelTest(this.school, level, this.laonGroups[level-1]);
+	}	
 	this.levelTest.initUI(this.container_div_id);
 
 	if (level==1||level==2){groupNum=5;}
@@ -120,24 +118,22 @@ ChantApp.prototype.initTest = function(school, level) {
 	document.getElementById("u1981").style.background="transparent";//review
 	document.getElementById("u1960").style.background="#FF994D";//assessment
 	document.getElementById("quizlet").style.background="transparent";//quizlet
-
-/*	var count = 0;
-	if (this.school == "StGall") {
-		count = this.stGallGroups[level-1].length;
-	}
-	else {
-		count = this.laonGroups[level-1].length;
-	}
-	this.changeTextColor(count+2);*/
 }
 
 /*yoyo add*/
 ChantApp.prototype.initQuizlet = function(school, level) {
-	this.school = (school == 1) ? "StGall" : "Laon";
-	this.schoolTitle = (school == 1) ? "St. Gall" : "Laon";
 	this.level = level;
-	
-	this.quizlet = new Quizlet(this.school, level, this.stGallGroups[level-1]);
+
+	if (school == 1) {    // St. Gall
+		this.school = "StGall";
+		this.schoolTitle = "St. Gall";
+		this.quizlet = new Quizlet(this.school, level, this.stGallGroups[level-1]);
+	}
+	else if (school == 2) {    // Laon
+		this.school = "Laon";
+		this.schoolTitle = "Laon";
+		this.quizlet = new Quizlet(this.school, level, this.laonGroups[level-1]);
+	}		
 	this.quizlet.initUI(this.container_div_id);
 
 	if (level==1||level==2){groupNum=5;}
@@ -155,15 +151,6 @@ ChantApp.prototype.initQuizlet = function(school, level) {
 	document.getElementById("u1981").style.background="transparent";//review
 	document.getElementById("u1960").style.background="transparent";//assessment
 	document.getElementById("quizlet").style.background="#FF994D";//quizlet
-
-/*	var count = 0;
-	if (this.school == "StGall") {
-		count = this.stGallGroups[level-1].length;
-	}
-	else {
-		count = this.laonGroups[level-1].length;
-	}
-	this.changeTextColor(count+2);*/
 }
 
 ChantApp.prototype.changeTextColor = function(index) {
