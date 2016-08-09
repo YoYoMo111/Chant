@@ -5,14 +5,14 @@ function IntroPage(school, level, group) {
 	this.stGallGroup = [["Single-note Neums", "Repercussive Neums", "Two-note Neums", "Three-note Neums", "Four- or Five-note Neums", "Review Lesson", "Assessment"],
 	                    ["Single-note Neums", "Repercussive Neums", "Two-note Neums", "Three-note Neums", "Four- or Five-note Neums", "Review Lesson", "Assessment"],
 						["Melodic Implications", "Melodic and Rhythmic Implications", "Review Lesson", "Assessment"],
-						["Melodic Implications", "Rhythmic Implications", "Modifying Letters", "Combinations", "Infrequently Used", "Combined Letter Separate Meanings", "Others", "Review Lesson", "Assessment"],
+						["Melodic Implications", "Rhythmic Implications", "Modifying Letters", "Combinations", "Infrequently Used", "Combined Letters Separate Meanings", "Others", "Review Lesson", "Assessment"],
 						["Quilisma", "Oriscus Basics", "Oriscus Variations", "Liquescence", "Review Lesson", "Assessment"],
 						["Neumatic Breaks", "Review Lesson", "Assessment"]];
 						
 	this.laonGroup =   [["Single-note Neums", "Repercussive Neums", "Two-note Neums", "Three-note Neums", "Four- or Five-note Neums", "Review Lesson", "Assessment"],
 	                    ["Single-note Neums", "Repercussive Neums", "Two-note Neums", "Three-note Neums", "Four- or Five-note Neums", "Review Lesson", "Assessment"],
 						["Melodic Implications", "Melodic and-or Rhythmic Implications", "Review Lesson", "Assessment"],
-						["Melodic Implications", "Rhythmic Implications", "Modifying Letters", "Combinations", "Infrequently Used", "Combined Letter Separate Meanings", "Others", "Review Lesson", "Assessment"],
+						["Melodic Implications", "Rhythmic Implications", "Melodic or Rhythmic Implications", "Combinations", "Combined Letters Separate Meanings", "Tironien Signs", "Review Lesson", "Assessment"],
 						["Quilisma", "Oriscus Basics", "Oriscus Variations", "Liquescence", "Review Lesson", "Assessment"],
 						["Neumatic Breaks", "Review Lesson", "Assessment"]];
 	
