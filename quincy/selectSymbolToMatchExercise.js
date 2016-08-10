@@ -50,7 +50,7 @@ SelectSymbolToMatchExercise.prototype.randomizeImageArrayOrder = function() {
 	}
 	
 	// Don't randomize symbols for level 5 group 3 & 4
-	if (!(this.level == 5 && (this.group == 3 || this.group == 4))) {
+	if (!(this.school == "StGall" && this.level == 5 && (this.group == 3 || this.group == 4))) {
 		this.imageOrder = shuffle(this.imageOrder);
 	}
 }
