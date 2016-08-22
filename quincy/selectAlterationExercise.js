@@ -33,7 +33,7 @@ SelectAlterationExercise.prototype.show = function(index, numOfQuestions) {
 		'</div><br>' +
 		'<center style="margin-top: -30px;">' +
 		    '<div id="question-1" class="question_card">'+
-	            '<p class="question">What type of alteration is present in this neum?</p>' +
+	            '<p class="question">What type of alteration is presented in this neum?</p>' +
 		        '<form id="options1"><input class="OptBox" type="radio" name="alt-type" id="rhythmic" value="rhythmic">Rhythmic<br>' +
 		        '<input class="OptBox" type="radio" name="alt-type" id="repercussive" value="repercussive">Repercussive<br>' +
 			    '<input class="OptBox" type="radio" name="alt-type" id="both" value="both">Both</form>' +
