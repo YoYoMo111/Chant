@@ -609,6 +609,7 @@ table.score-exercise-answer-table th {
 
 table.test-result-table {
   border: 1px solid #666;
+  width:851px;
 }
 table.test-result-table th,td {
   border-collapse: collapse;
@@ -630,7 +631,7 @@ table.test-result-table th {
 
 table.inside-table {
   background-color: inherit;
-  width: 741px;/*inside table width*/
+  width: 728px;/*inside table width (731px)*/
 }
 
 .Num{
@@ -645,7 +646,8 @@ table.inside-table {
   /*text-align: center;*/
   background-color:transparent;
   vertical-align: top;
-  width:372px
+  width:372px;
+  padding-left: 0px;
 }
 .RightAnswer{
   /*text-align: center;*/
@@ -691,6 +693,13 @@ padding-left: 70px;
   width: 50px;
   height: 50px;
   vertical-align: middle;/*picture vertically align,then questions in odd vertically align*/
+}
+.test-result-symbol-answer {/*add background to answer symbol, make it look neat*/
+  margin: 5px 10px 5px 0px;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;/*picture vertically align,then questions in odd vertically align*/
+  background-color: rgb(252, 237, 217);/*rgba(255, 220, 129, 0.32);*/
 }
 .divider{
   border-left: 1px; 

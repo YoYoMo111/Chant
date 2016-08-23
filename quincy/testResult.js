@@ -147,7 +147,7 @@ TestResult.prototype.showSymbolAnswers = function(exercise) {
 	if (exercise.studentsAnswer != "") {
 		var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
 		for (var i = 0; i < studentAnswerSymbolIDs.length; i++) {
-		html += '<img class="test-result-symbol" src="quincy/symbols/' +
+		html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
 		        exercise.symbolDB.symbols[studentAnswerSymbolIDs[i]].school + '/Level_' +
 		        exercise.symbolDB.symbols[studentAnswerSymbolIDs[i]].level + '/Group_' +
 		        exercise.symbolDB.symbols[studentAnswerSymbolIDs[i]].group + '/' +
@@ -157,7 +157,7 @@ TestResult.prototype.showSymbolAnswers = function(exercise) {
 	html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
 	var solutionSymbolIDs = exercise.solution.split("-");
 	for (var i = 0; i < solutionSymbolIDs.length; i++) {
-		html += '<img class="test-result-symbol" src="quincy/symbols/' +
+		html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
 		        exercise.symbolDB.symbols[solutionSymbolIDs[i]].school + '/Level_' +
 		        exercise.symbolDB.symbols[solutionSymbolIDs[i]].level + '/Group_' +
 		        exercise.symbolDB.symbols[solutionSymbolIDs[i]].group + '/' +
