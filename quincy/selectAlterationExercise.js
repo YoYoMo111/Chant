@@ -115,20 +115,20 @@ SelectAlterationExercise.prototype.showSecondPart = function() {
 		html = '<p class="question">Which part of the neum does the ' + this.altType + ' alteration affect?</p>' +
 		       '<form id="options2">'+
 		       '<div class="OptContainer">'+
-		       		'<div id="x-1-1" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-1-1" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-1-1" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-1-1" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 		       		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-1" id="alt-loc-1-choice-1" value="beginning">Beginning<br></div>' +
 		       	'<div class="OptContainer">'+
-		       		'<div id="x-1-2" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-1-2" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-1-2" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-1-2" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-1" id="alt-loc-1-choice-2" value="middle">Middle<br></div>' +
 			   '<div class="OptContainer">'+
-		       		'<div id="x-1-3" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-1-3" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-1-3" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-1-3" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-1" id="alt-loc-1-choice-3" value="end">End<br></div>' +
 			   '<div class="OptContainer">'+
-		       		'<div id="x-1-4" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-1-4" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-1-4" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-1-4" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-1" id="alt-loc-1-choice-4" value="all">All</div></form>' +
 	           '<div id="hint-div-2" class="hint-div"></div>' +
 			   (this.mechanism == 1 ?
@@ -141,40 +141,40 @@ SelectAlterationExercise.prototype.showSecondPart = function() {
 		html = '<p class="question">Which part of the neum does the rhythmic alteration affect?</p>' +
 		       '<form id="options2">'+
 		       '<div class="OptContainer">'+
-		       		'<div id="x-1-1" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-1-1" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-1-1" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-1-1" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 		       		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-1" id="alt-loc-1-choice-1" value="beginning">Beginning<br></div>' +
 		       	'<div class="OptContainer">'+
-		       		'<div id="x-1-2" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-1-2" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-1-2" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-1-2" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-1" id="alt-loc-1-choice-2" value="middle">Middle<br></div>' +
 			   	'<div class="OptContainer">'+
-			   	    '<div id="x-1-3" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-1-3" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+			   	    '<div id="x-1-3" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-1-3" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-1" id="alt-loc-1-choice-3" value="end">End<br></div>' +
 			   	'<div class="OptContainer">'+
-			   	    '<div id="x-1-4" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-1-4" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+			   	    '<div id="x-1-4" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-1-4" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-1" id="alt-loc-1-choice-4" value="all">All</form></div>' +
 		       '<div id="hint-div-2" class="hint-div"></div>' +
 
 			   '<p class="question">Which part of the neum does the repercussive alteration affect?</p>' +
 		       '<form id="options2">'+
 		       '<div class="OptContainer">'+
-		       		'<div id="x-2-1" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-2-1" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-2-1" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-2-1" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 		       		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-2" id="alt-loc-2-choice-1" value="beginning">Beginning<br></div>' +
 		       '<div class="OptContainer">'+
-		       		'<div id="x-2-2" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-2-2" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-2-2" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-2-2" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-2" id="alt-loc-2-choice-2" value="middle">Middle<br></div>' +
 			   	'<div class="OptContainer">'+
-		       		'<div id="x-2-3" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-2-3" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-2-3" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-2-3" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-2" id="alt-loc-2-choice-3" value="end">End<br></div>' +
 			   	'<div class="OptContainer">'+
-		       		'<div id="x-2-4" class="mark"><img src="quincy/img/x.png" style="margin-top:2px;width: 14px;"/></div>'+
-					'<div id="t-2-4" class="mark"><img src="quincy/img/tick.png" style="margin-top:2px;width: 14px;"/></div></div>' +
+		       		'<div id="x-2-4" class="mark"><img src="quincy/img/x.png" style="margin-top:3px;width: 13px;"/></div>'+
+					'<div id="t-2-4" class="mark"><img src="quincy/img/tick.png" style="margin-top:3.5px;width: 13px;"/></div></div>' +
 			   		'<div class="choice"><input class="OptBox" type="checkbox" name="alt-loc-2" id="alt-loc-2-choice-4" value="all">All</div></form>' +
 	           '<div id="hint-div-3" class="hint-div"></div>' +
 			   (this.mechanism == 1 ?
