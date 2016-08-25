@@ -791,11 +791,18 @@
 
 #u3757:active
 {
+	/*width: 450px;
+	height: 104px;
+	min-height: 0px;*/
+	/*margin: 20px -10000px 0px 0px;*/
+	/*margin: 45px -10000px 0px 0px;*/
+
+	z-index: 90;
 	width: 450px;
 	height: 104px;
-	min-height: 0px;
-	/*margin: 20px -10000px 0px 0px;*/
-	margin: 45px -10000px 0px 0px;
+	margin-right: -10000px;
+	margin-top: 34px;
+	left: 323px;
 }
 
 #u1008-4
