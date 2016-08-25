@@ -416,6 +416,7 @@ vertical-align: middle;
 .symbolHolder {
   border:1px solid #ddd;
   float: left;
+  background-color: #f9f9f9;
 }
 
 .score-image {

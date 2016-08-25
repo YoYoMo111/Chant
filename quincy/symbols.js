@@ -90,7 +90,7 @@ SymbolDB.prototype.showList = function(nNeumsInARow) {
 	// show list of symbols
     var e = document.getElementById("symbolSection");	
     var html = '<div id="symbolList" style="width:' + (width + 2 * padding + 2) * nNeumsInARow + 'px; height:' + Math.ceil(this.numOfVisibleSymbols / nNeumsInARow) * (width + 2 * padding + 6) +
-	           'px; background-color:#f9f9f9;">';
+	           'px;">';
     
 	for (var i = 0; i < this.symbols.length; i++) {
 	    if (this.symbols[i].visible) {
