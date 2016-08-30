@@ -43,9 +43,9 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 	document.getElementById("question").innerHTML = str;
 	
 	document.getElementById("dynamicArea").innerHTML =
-	    '<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
+		'<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
 	    '<div id="drag-area">' +
-		'<div id="scoreExAnswer2">'+
+	    '<div id="scoreExAnswer2">'+
 		'</div>' + 
 		'<div id="symbolSection" class="symbolSectionL6"></div>' +
 		'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
@@ -499,7 +499,7 @@ ScoreExercise2.prototype.showNeumWithID = function(ID) {
 		//console.log("insideSymbolID="+insideSymbolID[dropTime]);
 	
 
-    return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" class="answer-symbol" data-neumID="'+ID+'" onclick="sendOnTop(event)" ondragstart="dragStart(event)" draggable="true" style="width:60px;height:60px; position: absolute;" >'+	
+    return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" class="answer-symbol" data-neumID="'+ID+'" onclick="sendOnTop(event)" ondragstart="dragStart(event)" draggable="true" style="width:60px;height:60px; top:137px; position: absolute;" >'+	
     		'<img class="symbol-images" id="symbol_' + ID + '_copy_'+dropTime+'" data-neumID="'+ID+'" src="quincy/symbols/' +
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +

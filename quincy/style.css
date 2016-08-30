@@ -426,8 +426,10 @@ vertical-align: middle;
 }
 .score-image-2{
   width: 608px;
-  margin-left: 129.5px;
-  border:solid 1px rgba(128, 128, 128, 0.39);
+  margin-left: 127.5px;/*129.5*/
+  /*padding-bottom: 50px;
+  border:solid 1px rgba(128, 128, 128, 0.39);*/
+  position: absolute;
 }
 .result-score-image{
   width: 728px;
@@ -541,10 +543,11 @@ vertical-align: middle;
 
 #scoreExAnswer2{
   width: 608px;
-  height:67px;
+  height:178px;/*67*/
   border: solid  rgba(128, 128, 128, 0.39) 1px;
   margin-bottom: 15px;
-  padding-top: 5px;
+  margin-top:10px;
+  /*padding-top: 5px;*/
   margin-left: 61.5px;
 }
 .big-drop-area{
