@@ -724,9 +724,11 @@
 	<!-- Laon level 4 group 2 -->
 	<symbol id="663" name="increase=lengthen--augete" fileName="laon_letter_a_1.png" school="Laon" level="4" group="2" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="664" name="quickly--celeriter" fileName="laon_letter_c_1.png" school="Laon" level="4" group="2" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="665" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_letter_n_1.png" school="Laon" level="4" group="2" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+
+
+
 	<symbol id="666" name="do not (hold)=negate=joined=naturally--non (tenere)=negare=nectum=naturaliter" fileName="laon_letter_n_2.png" school="Laon" level="4" group="2" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="667" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_letter_t_1.png" school="Laon" level="4" group="2" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="667" name="hold--tenere" fileName="laon_letter_t_1.png" school="Laon" level="4" group="2" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<!-- Laon level 4 group 3 -->
 	<symbol id="668" name="moderately=a little--mediocriter" fileName="laon_letter_m_1.png" school="Laon" level="4" group="3" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<!-- Laon level 4 group 4 -->
@@ -740,39 +742,36 @@
 	<symbol id="675" name="higher, hold--sursum, tenere" fileName="laon_letter_rt_1.png" school="Laon" level="4" group="5" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="676" name="hold, lower--tenere, humiliter" fileName="laon_letter_th_1.png" school="Laon" level="4" group="5" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<!-- Laon level 4 group 6 -->
-	<symbol id="677" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_-01.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="678" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_deorsum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="679" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_devertit_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="680" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_devertit_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="681" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_devertit_simple_3.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="682" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_devexum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="683" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_iusum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="684" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_prode-sub-eam_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="685" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_quam-mox_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="686" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_saltate_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="687" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_saltim_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="688" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_saltim_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="689" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_seorsum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="690" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sonare_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="691" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sonare_simple_2_V1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="692" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sonare_simple_2_V2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="693" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sonare_simple_3_V1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="694" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sonare_simple_3_V2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="695" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sub_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="696" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sub_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="697" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sub_simple_3.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="698" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_subjice_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="699" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_supra_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="700" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_supra_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="701" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_supra_simple_3.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="702" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sursum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="703" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_sursum_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="704" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_ut-supra_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="705" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_ut-supra_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="706" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_ut-supra_simple_3.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="707" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_ut-supra_simple_4.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="708" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_ut-supra_simple_5.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="709" name="connected=joined together--coniunguntur=coniunctim" fileName="laon_tironien_ut-supra_simple_6.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="678" name="downwards--deorsum" fileName="laon_tironien_deorsum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="679" name="bend--devertit" fileName="laon_tironien_devertit_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="680" name="bend--devertit" fileName="laon_tironien_devertit_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="681" name="bend--devertit" fileName="laon_tironien_devertit_simple_3.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="682" name="lower=descending--devexum" fileName="laon_tironien_devexum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="683" name="downwards--iusum" fileName="laon_tironien_iusum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="684" name="place it lower--pro sub eam=trade subtus" fileName="laon_tironien_prode-sub-eam_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="685" name="very quickly--quam mox" fileName="laon_tironien_quam-mox_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="686" name="leap quickly--saltate=salte" fileName="laon_tironien_saltate_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="687" name="dance-like--saltim" fileName="laon_tironien_saltim_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="688" name="dance-like--saltim" fileName="laon_tironien_saltim_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="689" name="separated--seorsum" fileName="laon_tironien_seorsum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="690" name="make resound--sonare" fileName="laon_tironien_sonare_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="691" name="make resound--sonare" fileName="laon_tironien_sonare_simple_2_V1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="694" name="make resound--sonare" fileName="laon_tironien_sonare_simple_3_V2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="695" name="below--sub" fileName="laon_tironien_sub_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="696" name="below--sub" fileName="laon_tironien_sub_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="697" name="below--sub" fileName="laon_tironien_sub_simple_3.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="698" name="put a little lower--subjice" fileName="laon_tironien_subjice_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="699" name="above--supra" fileName="laon_tironien_supra_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="700" name="above--supra" fileName="laon_tironien_supra_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="701" name="above--supra" fileName="laon_tironien_supra_simple_3.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="702" name="higher--sursum" fileName="laon_tironien_sursum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="703" name="higher--sursum" fileName="laon_tironien_sursum_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="704" name="as above--ut supra" fileName="laon_tironien_ut-supra_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="705" name="as above--ut supra" fileName="laon_tironien_ut-supra_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="706" name="as above--ut supra" fileName="laon_tironien_ut-supra_simple_3.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="707" name="as above--ut supra" fileName="laon_tironien_ut-supra_simple_4.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="708" name="as above--ut supra" fileName="laon_tironien_ut-supra_simple_5.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="709" name="as above--ut supra" fileName="laon_tironien_ut-supra_simple_6.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<!-- Laon level 5 group 1 -->
 	<symbol id="710" name="pes quilisma" fileName="laon_special_pes_quilisma_1.png" school="Laon" level="5" group="1" matchingModern="921-922" matchingStGall="" altType="" altLoc="" info="Quilisma followed by a higher note." />		
 	<symbol id="711" name="torculus quilisma" fileName="laon_special_torculus_initial-quilisma_1.png" school="Laon" level="5" group="1" matchingModern="923" matchingStGall="" altType="" altLoc="" info="Quilisma followed by a higher note followed by a lower note." />		
