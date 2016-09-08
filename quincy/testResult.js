@@ -52,7 +52,7 @@ TestResult.prototype.show = function(exercises) {
 				}
 				solution = solution.substring(0, solution.length - 2);
 				
-				tableHTML += "Your answer: " + answer + '<br class="fillExLineHight">Right answer: ' + solution;
+				tableHTML += "<div>Your answer: " + answer + '<br class="fillExLineHight"><br class="fillExLineHight">Right answer: ' + solution + '</div>';
 			}
 			else {
 				tableHTML += this.showSymbolAnswers(exercises[i]);
