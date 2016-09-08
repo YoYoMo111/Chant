@@ -203,7 +203,7 @@ var offset;
 function dragStart(ev){
 	console.log("run dragstart3");
 	var style = window.getComputedStyle(ev.target, null);
-	offset = (ev.clientX-((window.innerWidth-15-1096)/2+235))-parseInt(style.getPropertyValue("left"), 10);
+	offset = (ev.pageX-(($(document).width()-1096)/2+235))-parseInt(style.getPropertyValue("left"), 10);
 	console.log("offset: "+offset);
 	ev.dataTransfer.setData("text/html", ev.target.id);
 }
@@ -239,15 +239,25 @@ ScoreExercise2.prototype.drop = function(ev) {
 
 	var imageID = ev.dataTransfer.getData("text/html");
 	//console.log("imageID =" + imageID);
-	if(imageID.indexOf("copy")<0){
+	var left1 = (ev.pageX-(($(document).width()-1096)/2+235)) - offset1;
+	var left2 = (ev.pageX-(($(document).width()-1096)/2+235)) - offset;
+
+	if(imageID.indexOf("copy")<0){//no copy in image id, means drop from the pool
 		var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
 		
 		//ev.target.innerHTML += this.showNeumWithID(symbolID);
 		document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 		//this.alowDropOnSymbol(symbolID);
 		ev.target.setAttribute("data-neumID", symbolID);
-		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset1/*+ parseInt(offset, 10)*/)+'px';
-		console.log("x="+ev.clientX);
+		if(left1 > 675){
+			left1 = 675;
+		}
+		else if(left1 < 127){
+			left1 = 127;
+		}
+		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = left1+'px';
+		console.log("dropX="+ev.pageX);
+		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offset1) );
 		console.log("window width:"+window.innerWidth);
 		//console.log("offset:"+offset);
 		/*var self = this;
@@ -257,12 +267,16 @@ ScoreExercise2.prototype.drop = function(ev) {
 		dropTime++;
 	}
 	else{
-		if(((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset)>735){
-			document.getElementById(imageID).style.left = '735px';
+		if(left2 > 675){
+			left2 = 675;
 		}
-		else{
-			document.getElementById(imageID).style.left = ((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset)+'px';
+		else if(left2 < 127){
+			left2 = 127;
 		}
+		
+		document.getElementById(imageID).style.left = left2+'px';
+		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offset) );
+		//console.log("window width:"+((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset));	
 
 	}
 }
