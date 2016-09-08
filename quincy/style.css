@@ -550,6 +550,8 @@ vertical-align: middle;
   margin-top:10px;
   /*padding-top: 5px;*/
   margin-left: 61.5px;
+  background:url("../images/score_bg.png");
+  background-position-y: -2px;
 }
 .big-drop-area{
   width: 729px;
@@ -716,7 +718,7 @@ padding-left: 70px;
   border-color: #ddd;
 }
 .fillExLineHight{
-  line-height: 2;
+  line-height: 1;
 }
 .question{
   text-align: left;
