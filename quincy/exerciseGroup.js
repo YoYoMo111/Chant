@@ -138,7 +138,11 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 					englishToLatinMap[englishNames[j]] = latinNames;
 				}
 				else {
-					englishToLatinMap[englishNames[j]] = englishToLatinMap[englishNames[j]].concat(latinNames);
+					for (var k = 0; k < latinNames.length; k++) {
+						if (!nameExists(englishToLatinMap[englishNames[j]], latinNames[k])) {
+							englishToLatinMap[englishNames[j]].push(latinNames[k]);
+						}
+					}
 				}
 			}
 			for (var j = 0; j < latinNames.length; j++) {
@@ -146,7 +150,11 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 					latinToEnglishMap[latinNames[j]] = englishNames;
 				}
 				else {
-					latinToEnglishMap[latinNames[j]] = latinToEnglishMap[latinNames[j]].concat(englishNames);
+					for (var k = 0; k < englishNames.length; k++) {
+						if (!nameExists(latinToEnglishMap[latinNames[j]], englishNames[k])) {
+							latinToEnglishMap[latinNames[j]].push(englishNames[k]);
+						}
+					}
 				}
 			}
 		}
