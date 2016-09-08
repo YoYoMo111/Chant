@@ -274,7 +274,9 @@ ScoreExercise2.prototype.drop = function(ev) {
 			left2 = 127;
 		}
 		
-		document.getElementById(imageID).style.left = left2+'px';
+		console.log("imageID =" + imageID.substring(imageID.indexOf("symbol")));
+		//document.getElementById(imageID).style.left = left2+'px';
+		$("#"+imageID.substring(imageID.indexOf("symbol"))).css('left',left2);//in chrome, imageID has meta tag, so we use substring
 		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offset) );
 		//console.log("window width:"+((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset));	
 
