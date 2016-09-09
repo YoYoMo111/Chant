@@ -16,6 +16,15 @@ Quizlet.prototype.initUI = function(container_div_id) {
 
 	this.container_div = document.getElementById(container_div_id);
 	this.container_div.innerHTML = 
-	    '<div id="scatterLink" class="box"><a href="javascript:void(0)" onclick="document.getElementById(\'scatter\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">Scatter</a></div>' +
-		'<div id="raceLink" class="box"><a href="javascript:void(0)" onclick="document.getElementById(\'race\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">Space Race</a></div>' ;
+	    '<div id="quizletOutdiv" style="margin-left: 123.5px;"><div id="scatterLink" class="quizletBox" onclick="document.getElementById(\'scatter\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
+	    '<div class="quizletContent">'+
+	    '<img id="scatterIcon" src="images/scatter.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+	    '<a href="javascript:void(0)" >Scatter</a>'+
+	    '</div></div>' +
+
+		'<div id="raceLink" class="quizletBox" onclick="document.getElementById(\'race\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
+		'<div class="quizletContent">'+
+		'<img id="gravityIcon" src="images/gravity.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+		'<a href="javascript:void(0)" >Gravity</a>'+
+		'</div></div></div>' ;
 }
