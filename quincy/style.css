@@ -571,7 +571,7 @@ vertical-align: middle;
   /*padding-top: 5px;*/
   margin-left: 61.5px;
   background:url("../images/score_bg.png");
-  background-position-y: -2px;
+  background-position-y: 3.5px;
 }
 .big-drop-area{
   width: 729px;
