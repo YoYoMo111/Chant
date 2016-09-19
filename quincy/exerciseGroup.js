@@ -138,6 +138,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 					englishToLatinMap[englishNames[j]] = latinNames;
 				}
 				else {
+					// Avoid adding duplicates
 					for (var k = 0; k < latinNames.length; k++) {
 						if (!nameExists(englishToLatinMap[englishNames[j]], latinNames[k])) {
 							englishToLatinMap[englishNames[j]].push(latinNames[k]);
@@ -150,6 +151,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 					latinToEnglishMap[latinNames[j]] = englishNames;
 				}
 				else {
+					// Avoid adding duplicates
 					for (var k = 0; k < englishNames.length; k++) {
 						if (!nameExists(latinToEnglishMap[latinNames[j]], englishNames[k])) {
 							latinToEnglishMap[latinNames[j]].push(englishNames[k]);
