@@ -627,121 +627,168 @@
 	margin-top: 12px;
 }
 
+
+
+/*new curriculum style*/
 #pu1465
 {
 	width: 0.01px;
-	/*margin-left: 20px;*/
-	margin-top: 17px;
+	margin-left: 13px;
+	margin-top: 14px;
 }
 
 #u1465
 {
 	z-index: 92;
-	width: 453px;
-	padding-bottom: 191px;
+	width: 282px;
+	height: 317px;
 	position: relative;
 	margin-right: -10000px;
-	background: transparent url("../images/saint_gall.jpg") no-repeat right center;
-	background-size: cover;
+	background: transparent url("../images/gall_icon.png") no-repeat  center;
+	background-size: 400px;
 }
 
 #u1465:hover
 {
 	border-color: #FF6969;
-	width: 453px;
+	width: 282px;
+	height: 317px;
 	min-height: 0px;
 	margin: 0px -10000px 0px 0px;
-	background: transparent url("../images/saint_gall.jpg") no-repeat right center;
-	background-size: cover;
-}
-
-#u1473-4
-{
-	z-index: 97;
-	width: 453px;
-	min-height: 92px;
-	background-color: #A3A3A3;
-	background-color: rgba(0,0,0,0.36);
-	opacity: 0.8;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-	filter: alpha(opacity=80);
-	padding-top: 20px;
-	text-align: center;
-	color: #FFFFFF;
-	letter-spacing: 10px;
-	text-transform: uppercase;
-	line-height: 67px;
-	font-size: 56px;
-	font-family: ubuntu, sans-serif;
-	font-weight: 500;
-	font-style: normal;
-	position: relative;
-	margin-right: -10000px;
-	margin-top: 190px;
-	-pie-background: rgba(0,0,0,0.36);
-}
-
-#u1473-4:hover
-{
-	background-color: #FFC9C9;
-	background-color: rgba(255, 138, 32, 0.53);
-	padding-top: 20px;
-	padding-bottom: 0px;
-	min-height: 92px;
-	width: 453px;
-	margin: 190px -10000px 0px 0px;
-	-pie-background: rgba(255,105,105,0.36);
+	background: transparent url("../images/gall_icon.png") no-repeat  center;
+	background-size: 400px;
+	opacity: 0.7;
 }
 
 #u1457
 {
 	z-index: 91;
-	width: 453px;
-	padding-bottom: 191px;
+	width: 282px;
+	height: 317px;
 	position: relative;
 	margin-right: -10000px;
-	left: 467px;
-	background: transparent url("../images/school_laon.jpg") no-repeat left top;
-	background-size: cover;
+	left: 306px;
+	background: transparent url("../images/laon_icon.png") no-repeat center;
+	background-size:400px;
+}
+#u1457:hover,#u3990:hover{
+	opacity: 0.7;
 }
 
-#u1475-4
+#u3990
 {
-	z-index: 101;
-	width: 453px;
-	min-height: 92px;
-	background-color: #A3A3A3;
-	background-color: rgba(0,0,0,0.36);
-	opacity: 0.8;
+	z-index: 105;
+	width: 282px;
+	height: 317px;
+	position: relative;
+	margin-right: -10000px;
+	left: 612px;
+	background: transparent url("../images/gall_n_laon_icon.png") no-repeat center;
+	background-size: 400px;
+}
+
+#pu1473-4
+{
+	width: 0.01px;
+	margin-left: 13px;
+	margin-top: 15px;
+}
+
+#u1473-4
+{
+	z-index: 97;
+	width: 282px;
+	min-height: 55px;
+	background-color: transparent;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 	filter: alpha(opacity=80);
-	padding-top: 20px;
+	color: #7F7F7F;
+	line-height: 54px;
 	text-align: center;
-	color: #FFFFFF;
-	letter-spacing: 10px;
+	letter-spacing: 3px;
 	text-transform: uppercase;
-	line-height: 67px;
-	font-size: 56px;
+	font-size: 30px;
 	font-family: ubuntu, sans-serif;
 	font-weight: 500;
 	font-style: normal;
 	position: relative;
 	margin-right: -10000px;
-	margin-top: 190px;
-	-pie-background: rgba(0,0,0,0.36);
+}
+
+#u1473-4:hover
+{
+	padding-bottom: 0px;
+	min-height: 55px;
+	width: 282px;
+	margin: 0px -10000px 0px 0px;
+	-pie-background: rgba(255,105,105,0.36);
+	opacity: 0.7;
+}
+
+#u1475-4
+{
+	z-index: 101;
+	width: 282px;
+	min-height: 55px;
+	background-color: transparent;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	filter: alpha(opacity=80);
+	color: #7F7F7F;
+	line-height: 54px;
+	text-align: center;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-family: ubuntu, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	position: relative;
+	margin-right: -10000px;
+	left: 306px;
 }
 
 #u1475-4:hover
 {
-	background-color: #FFDBDB;
-	background-color: rgba(255, 138, 32, 0.53);
-	padding-top: 20px;
 	padding-bottom: 0px;
-	min-height: 92px;
-	width: 453px;
-	margin: 190px -10000px 0px 0px;
+	min-height: 55px;
+	width: 282px;
+	margin: 0px -10000px 0px 0px;
 	-pie-background: rgba(255,156,156,0.36);
+	opacity: 0.7;
 }
+
+#u3991-4
+{
+	z-index: 106;
+	width: 282px;
+	min-height: 55px;
+	background-color: transparent;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	filter: alpha(opacity=80);
+	color: #7F7F7F;
+	line-height: 54px;
+	text-align: center;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-family: ubuntu, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	position: relative;
+	margin-right: -10000px;
+	left: 612px;
+}
+
+#u3991-4:hover
+{
+	padding-bottom: 0px;
+	min-height: 55px;
+	width: 282px;
+	margin: 0px -10000px 0px 0px;
+	-pie-background: rgba(255,156,156,0.36);
+	opacity: 0.7;
+}
+/*new cur end*/
 
 #u110
 {/*
@@ -752,7 +799,7 @@
 
 	z-index: 2;
 	width: 1096px;
-	margin-top: 20px;
+	margin-top: 47px;
 	padding-top: 20px;
 }
 
@@ -773,7 +820,7 @@
 	width: 318px;
 	margin-right: -10000px;
 	margin-top: -1px;
-	left: 602px;
+	left: 778px;
 }
 
 #u744
