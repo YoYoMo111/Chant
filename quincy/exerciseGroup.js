@@ -17,8 +17,8 @@ function ExerciseGroup(school, level, group, mechanism, mode) {
 	this.data = xmlhttp.responseXML;
 	var numOfSymbols = this.data.getElementsByTagName("symbol").length;
 	
-	// Get number of neums of the given group, level, school for Gall level 1-5
-	if (school == "StGall" && level < 6 || school =="Laon") {
+	// Get number of neums of the given group, level, school for level 1-5
+	if (level < 6) {
 		var i = 0;
 		for(; i < numOfSymbols; i++) {
 			if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&
@@ -211,27 +211,53 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		}
 	}
 	
-	// Exercise type 10 - score exercises for level 6
 	else if (this.level == 6) {
-		var xmlhttp;
-	    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		    xmlhttp = new XMLHttpRequest();
-	    }
-	    else {// code for IE6, IE5
-  		    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	    }
-	    xmlhttp.open("GET","quincy/scores/" + this.school + "_level_6_score_index.xml", false);
-	    xmlhttp.send();
-	
-	    var scoreInfo = xmlhttp.responseXML;
-	    var length = scoreInfo.getElementsByTagName("score").length;
+		// Exercise type 10 - St. Gall level 6 score exercise
+		if (this.school == "StGall") {
+			var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			}
+			else {// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.open("GET","quincy/scores/" + this.school + "_level_6_score_index.xml", false);
+			xmlhttp.send();
 		
-		for (var i = 0; i < length; i++) {
-			if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "lesson") {
-				var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
-				var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
-				var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-				this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+			var scoreInfo = xmlhttp.responseXML;
+			var length = scoreInfo.getElementsByTagName("score").length;
+			
+			for (var i = 0; i < length; i++) {
+				if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "lesson") {
+					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
+					this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+				}
+			}
+		}
+		// Exercise type 11 - Laon level 6 score exercise
+		else {
+			var xmlhttp;
+			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			}
+			else {// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.open("GET","quincy/scores/" + this.school + "_level_6_score_index.xml", false);
+			xmlhttp.send();
+		
+			var scoreInfo = xmlhttp.responseXML;
+			var length = scoreInfo.getElementsByTagName("score").length;
+			
+			for (var i = 0; i < length; i++) {
+				if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "lesson") {
+					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
+					this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+				}
 			}
 		}
 	}
