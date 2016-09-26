@@ -10,6 +10,7 @@ function ScoreExercise2(school, level, scoreFileName, solution, symbolPos, mecha
 	this.symbolPos = symbolPos;
 	this.score = 0;
 	this.maxScore = this.size;
+	this.numOfAnswers = 2;
 
 	this.getSolution();
 
@@ -41,15 +42,30 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 
 
 	document.getElementById("question").innerHTML = str;
+
+	if(this.numOfAnswers == 1){
 	
-	document.getElementById("dynamicArea").innerHTML =
-		'<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
-	    '<div id="drag-area">' +
-	    '<div id="scoreExAnswer2">'+
-		'</div>' + 
-		'<div id="symbolSection" class="symbolSectionL6"></div>' +
-		'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
-		'</div>';//yoyo add style, make it not overlap.
+		document.getElementById("dynamicArea").innerHTML =
+			'<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
+		    '<div id="drag-area">' +
+		    '<div id="laonScoreExAnswer">'+
+			'</div>' + 
+			'<div id="symbolSection" class="symbolSectionL6"></div>' +
+			'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
+			'</div>';//yoyo add style, make it not overlap.
+	}
+	else if(this.numOfAnswers == 2){
+		document.getElementById("dynamicArea").innerHTML =
+			'<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
+		    '<div id="drag-area">' +
+		    '<div id="laonScoreExAnswer" style="border-bottom-style: dashed;">'+
+			'</div>' + 
+			'<div id="laonScoreExAnswer2">'+
+			'</div>'+
+			'<div id="symbolSection" class="symbolSectionL6"></div>' +
+			'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
+			'</div>';//yoyo add style, make it not overlap.
+	}
 	
     // Show the table with drop boxes and text boxes
 	var tableInnerHTML = "";	   
@@ -119,10 +135,18 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 		/*document.getElementById("symbol_"+i).ondragstart = function(event) {
 	        self.dragStart(event);
 	    };*/
-       document.getElementById("scoreExAnswer2").ondragover = function(event) {
+       document.getElementById("laonScoreExAnswer").ondragover = function(event) {
 	        self.allowDrop(event);
 	    };		
-		document.getElementById("scoreExAnswer2").ondrop = function(event) {
+		document.getElementById("laonScoreExAnswer").ondrop = function(event) {
+		    self.drop(event);
+
+	    };
+
+	    document.getElementById("laonScoreExAnswer2").ondragover = function(event) {
+	        self.allowDrop(event);
+	    };		
+		document.getElementById("laonScoreExAnswer2").ondrop = function(event) {
 		    self.drop(event);
 
 	    };
@@ -166,10 +190,24 @@ ScoreExercise2.prototype.show = function(index, numOfQuestions) {
 		if (this.studentsAnswerIDs[i] != "") {
 				console.log(this.studentsAnswerIDs);
 				console.log(this.studentsAnswerIDsLefts);
-			document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(this.studentsAnswerIDs[i]);
+			document.getElementById("laonScoreExAnswer").innerHTML += this.showNeumWithID(this.studentsAnswerIDs[i]);
 			//document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
-			var answer = document.getElementById("scoreExAnswer2").children;
-			document.getElementById(answer[i].id).style.left = this.studentsAnswerIDsLefts[i]+'px';		
+			var answer = document.getElementById("laonScoreExAnswer").children;
+			document.getElementById(answer[i].id).style.left = this.studentsAnswerIDsLefts[i]+'px';	
+			document.getElementById(answer[i].id).style.top = this.studentsAnswerIDsTops[i]+'px';	
+		}
+		dropTime++;
+	}
+
+	for (var i = 0; i < this.studentsAnswerIDs2.length; i++) {
+		if (this.studentsAnswerIDs2[i] != "") {
+				console.log(this.studentsAnswerIDs2);
+				console.log(this.studentsAnswerIDsLefts2);
+			document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(this.studentsAnswerIDs2[i]);
+			//document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
+			var answer2 = document.getElementById("laonScoreExAnswer2").children;
+			document.getElementById(answer2[i].id).style.left = this.studentsAnswerIDsLefts2[i]+'px';	
+			document.getElementById(answer2[i].id).style.top = this.studentsAnswerIDsTops2[i]+'px';	
 		}
 		dropTime++;
 	}
@@ -199,12 +237,14 @@ function sendOnTop(ev){
 	}
 }
 
-var offset;
+var offsetX2;
+var offsetY2;
 function dragStart(ev){
 	console.log("run dragstart3");
 	var style = window.getComputedStyle(ev.target, null);
-	offset = (ev.pageX-(($(document).width()-1096)/2+235))-parseInt(style.getPropertyValue("left"), 10);
-	console.log("offset: "+offset);
+	offsetX2 = (ev.pageX-(($(document).width()-1096)/2+235))-parseInt(style.getPropertyValue("left"), 10);
+	offsetY2 = ev.pageY - 335 - parseInt(style.getPropertyValue("top"), 10);
+	console.log("offsetX2: "+offsetX2);
 	ev.dataTransfer.setData("text/html", ev.target.id);
 }
 
@@ -215,8 +255,8 @@ ScoreExercise2.prototype.dragStart = function(ev) {
     //console.log("transfer:"+transfer);
     //console.log("run gragstart end");
     var style = window.getComputedStyle(ev.target, null);
-	offset = (ev.clientX-((window.innerWidth-15-1096)/2+235))-parseInt(style.getPropertyValue("left"), 10);
-	console.log("offset: "+offset);
+	offsetX2 = (ev.clientX-((window.innerWidth-15-1096)/2+235))-parseInt(style.getPropertyValue("left"), 10);
+	console.log("offsetX2: "+offsetX2);
 
     ev.dataTransfer.setData("text/html", ev.target.id);
 	this.draggedSymbol = ev.target.id;
@@ -234,19 +274,32 @@ ScoreExercise2.prototype.drop = function(ev) {
 	ev.preventDefault();
 
 	//var offset = ev.dataTransfer.getData("text/plain");//get offset from dragStart
-	var offset1 = ev.dataTransfer.getData("text");
-	console.log("offset1 =" + offset1);
+	var offset = ev.dataTransfer.getData("text/plain").split(',');
+	var offsetX1 = offset[0];
+	console.log("offsetX1 =" + offsetX1);
+
+	var offsetY1 = offset[1];
+	console.log("offsetY1 =" + offsetY1);
 
 	var imageID = ev.dataTransfer.getData("text/html");
 	//console.log("imageID =" + imageID);
-	var left1 = (ev.pageX-(($(document).width()-1096)/2+235)) - offset1;
-	var left2 = (ev.pageX-(($(document).width()-1096)/2+235)) - offset;
+	var left1 = (ev.pageX-(($(document).width()-1096)/2+235)) - offsetX1;
+	var left2 = (ev.pageX-(($(document).width()-1096)/2+235)) - offsetX2;//for drag and drop in the answerbox
+
+	var top1 = ev.pageY - 335 - offsetY1;
+	var top2 = ev.pageY - 335 - offsetY2;
 
 	if(imageID.indexOf("copy")<0){//no copy in image id, means drop from the pool
 		var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+7));
-		
 		//ev.target.innerHTML += this.showNeumWithID(symbolID);
-		document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
+
+		if(ev.pageY < 642){//identify which answer box they put neums,642 will change according to the box height
+			document.getElementById("laonScoreExAnswer").innerHTML += this.showNeumWithID(symbolID);
+		}
+		else if(ev.pageY > 642){
+			document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
+		}
+		//document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 		//this.alowDropOnSymbol(symbolID);
 		ev.target.setAttribute("data-neumID", symbolID);
 		if(left1 > 675){
@@ -256,8 +309,10 @@ ScoreExercise2.prototype.drop = function(ev) {
 			left1 = 127;
 		}
 		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = left1+'px';
+		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.top = top1+'px';
 		console.log("dropX="+ev.pageX);
-		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offset1) );
+		console.log("dropY = " + ev.pageY);
+		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offsetX1) );
 		console.log("window width:"+window.innerWidth);
 		//console.log("offset:"+offset);
 		/*var self = this;
@@ -277,7 +332,8 @@ ScoreExercise2.prototype.drop = function(ev) {
 		console.log("imageID =" + imageID.substring(imageID.indexOf("symbol")));
 		//document.getElementById(imageID).style.left = left2+'px';
 		$("#"+imageID.substring(imageID.indexOf("symbol"))).css('left',left2);//in chrome, imageID has meta tag, so we use substring
-		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offset) );
+		$("#"+imageID.substring(imageID.indexOf("symbol"))).css('top',top2);
+		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offsetX2) );
 		//console.log("window width:"+((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset));	
 
 	}
@@ -347,19 +403,42 @@ ScoreExercise2.prototype.saveAnswer = function() {
 	//this.studentsAnswerIDs = [""];
 	//this.studentsAnswerIDsLefts = [""];
 
-	var answer = document.getElementById("scoreExAnswer2").children;
+	var answer = document.getElementById("laonScoreExAnswer").children;
 	//console.log("answer children:"+answer[0].children[0].id);
 	this.studentsAnswerIDs = [""];
 	this.studentsAnswerIDsLefts = [""];
+	this.studentsAnswerIDsTops = [""];
 	this.tickIDs = [""];
 	this.xIDs = [""];
+
+	var answer2 = document.getElementById("laonScoreExAnswer2").children;
+	//console.log("answer children:"+answer[0].children[0].id);
+	this.studentsAnswerIDs2 = [""];
+	this.studentsAnswerIDsLefts2 = [""];
+	this.studentsAnswerIDsTops2 = [""];
+	this.tickIDs2 = [""];
+	this.xIDs2 = [""];
 
 	for( var i = 0; i < answer.length; i++){
 		this.studentsAnswerIDs[i] = document.getElementById(answer[i].id).getAttribute("data-neumID");
 		var style = window.getComputedStyle(answer[i], null);
 		this.studentsAnswerIDsLefts[i] = parseInt(style.getPropertyValue("left"), 10);
+		this.studentsAnswerIDsTops[i] = parseInt(style.getPropertyValue("top"), 10);
 		this.tickIDs[i] = 'tick' + answer[i].id.substring(17);
 		this.xIDs[i] = 'x' + answer[i].id.substring(17);
+
+		//console.log(answer[i].id.substring(17));
+		
+		//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerIDsLefts[i]);
+	}
+
+	for( var i = 0; i < answer2.length; i++){
+		this.studentsAnswerIDs2[i] = document.getElementById(answer2[i].id).getAttribute("data-neumID");
+		var style2 = window.getComputedStyle(answer2[i], null);
+		this.studentsAnswerIDsLefts2[i] = parseInt(style2.getPropertyValue("left"), 10);
+		this.studentsAnswerIDsTops2[i] = parseInt(style2.getPropertyValue("top"), 10);
+		this.tickIDs2[i] = 'tick' + answer2[i].id.substring(17);
+		this.xIDs2[i] = 'x' + answer2[i].id.substring(17);
 
 		//console.log(answer[i].id.substring(17));
 		
@@ -386,6 +465,27 @@ ScoreExercise2.prototype.saveAnswer = function() {
 			i = i - 2;
 		}
 	}
+	for(i = 0; i<=answer2.length-1; i++){
+		if(this.studentsAnswerIDsLefts2[i] > this.studentsAnswerIDsLefts2[i+1]){
+
+			var temp1 = this.studentsAnswerIDsLefts2[i+1];
+			this.studentsAnswerIDsLefts2[i+1] = this.studentsAnswerIDsLefts2[i];
+			this.studentsAnswerIDsLefts2[i] = temp1;
+
+			var temp2 = this.studentsAnswerIDs2[i+1];
+			this.studentsAnswerIDs2[i+1] = this.studentsAnswerIDs2[i];
+			this.studentsAnswerIDs2[i] = temp2;
+
+			var temp3 = this.tickIDs2[i+1];
+			this.tickIDs2[i+1] = this.tickIDs2[i];
+			this.tickIDs2[i] = temp3;
+
+			var temp4 = this.xIDs2[i+1];
+			this.xIDs2[i+1] = this.xIDs2[i];
+			this.xIDs2[i] = temp4;
+			i = i - 2;
+		}
+	}
 
 	this.studentsAnswer = "";
 	this.score=0;
@@ -409,7 +509,7 @@ ScoreExercise2.prototype.showRightAnswer = function() {
 		document.getElementById("neum-dropbox_" + i).innerHTML = this.showNeumWithID(this.solutionIDs[i]);
 		document.getElementById("neum-dropbox_" + i).setAttribute("data-neumID", this.solutionIDs[i]);
 	}*/
-	document.getElementById("scoreExAnswer2").innerHTML = "";
+	document.getElementById("laonScoreExAnswer").innerHTML = "";
 	document.getElementById("hint").innerHTML = "";
 	//var l = 67;
 	dropTime=0;
@@ -417,8 +517,8 @@ ScoreExercise2.prototype.showRightAnswer = function() {
 		if (this.solutionIDs[i] != "") {
 				//console.log(this.studentsAnswerIDs);
 				//console.log(this.studentsAnswerIDsLefts);
-			document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(this.solutionIDs[i]);
-			var answer = document.getElementById("scoreExAnswer2").children;
+			document.getElementById("laonScoreExAnswer").innerHTML += this.showNeumWithID(this.solutionIDs[i]);
+			var answer = document.getElementById("laonScoreExAnswer").children;
 			document.getElementById(answer[i].id).style.left = this.solutionPos[i]+'px';
 			//document.getElementById(answer[i].id).style.left = l+'px';		
 		}

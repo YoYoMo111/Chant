@@ -199,17 +199,24 @@ SymbolDB.prototype.handleKeyPress = function(ev) {
 
 // Handle drag and drop events 
 SymbolDB.prototype.drag = function(ev) {
+	console.log("run dragstart1 in symbols");
+
     ev.dataTransfer.setData("text/html", ev.target.id);
 
-    var offset;
+    var offsetX;
+    var offsetY;
     
-    	offset = (ev.pageX - ((($(document).width()-1096)/2)+363))%76;
+    	offsetX = (ev.pageX - ((($(document).width()-1096)/2)+363))%76;
     	console.log("pagex:"+ev.pageX);
+    	console.log("pageY when drag:"+ev.pageY);
     	console.log("bodyWidth:"+$(document).width());
-    	console.log("offset="+offset);
+    	console.log("offsetX="+offsetX);
+
+    	offsetY = (ev.pageY - 708)%76;
   
 
-    ev.dataTransfer.setData("text", offset);
+    //ev.dataTransfer.setData("text", offsetX);
+    ev.dataTransfer.setData("text/plain", offsetX+','+offsetY);
 
 	this.draggedSymbol = ev.target.id;
 

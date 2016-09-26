@@ -234,7 +234,8 @@ ScoreExercise2.prototype.drop = function(ev) {
 	ev.preventDefault();
 
 	//var offset = ev.dataTransfer.getData("text/plain");//get offset from dragStart
-	var offset1 = ev.dataTransfer.getData("text");
+	var offsetxy = ev.dataTransfer.getData("text/plain").split(',');
+	var offset1 = offsetxy[0];
 	console.log("offset1 =" + offset1);
 
 	var imageID = ev.dataTransfer.getData("text/html");

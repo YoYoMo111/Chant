@@ -573,6 +573,30 @@ vertical-align: middle;
   background:url("../images/score_bg.png");
   background-position-y: 3.5px;
 }
+
+#laonScoreExAnswer{
+  width: 608px;
+  height:270px;/*67 320*/
+  border: solid  rgba(128, 128, 128, 0.39) 1px;
+  /*margin-bottom: 15px;*/
+  margin-top:10px;
+  /*padding-top: 5px;*/
+  margin-left: 61.5px;
+  background:url("../images/score_bg.png");
+  background-position-y: 3.5px;
+}
+#laonScoreExAnswer2{
+  width: 608px;
+  height:152px;/*67 202*/
+  border: solid  rgba(128, 128, 128, 0.39);
+  border-width: 0px 1px 1px 1px;
+  /*margin-bottom: 15px;*/
+  /*margin-top:10px;*/
+  /*padding-top: 5px;*/
+  margin-left: 61.5px;
+  background:url("../images/score_bg.png");
+  background-position-y: 3.5px;
+}
 .big-drop-area{
   width: 729px;
   height:100px;
@@ -580,6 +604,7 @@ vertical-align: middle;
 }
 #symbolSection{
   float:left;
+  margin-top: 15px;
 }
 .symbolSectionL6{
   margin-left: 61.5px;
