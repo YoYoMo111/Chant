@@ -1,5 +1,5 @@
 // A child class of Exercise
-function laonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolPos, mechanism) {
+function LaonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolPos, mechanism) {
     Exercise.call(this, mechanism);
 	this.type = 11;
 	this.school = school;
@@ -31,13 +31,13 @@ function laonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolP
 				 71, 13, 14, 18, 23, 24, 27, 28];
 }
 
-laonLevel6ScoreExercise.prototype = Object.create(Exercise.prototype);
-laonLevel6ScoreExercise.prototype.constructor = laonLevel6ScoreExercise;
+LaonLevel6ScoreExercise.prototype = Object.create(Exercise.prototype);
+LaonLevel6ScoreExercise.prototype.constructor = LaonLevel6ScoreExercise;
 
 var dropTime = 0;
 var insideSymbolID = [];
 
-laonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
+LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 	var str = "Question " + index + " of " + numOfQuestions + ": Drag the neums to the box to match the notes in the score.";
 
 
@@ -248,7 +248,7 @@ function dragStart(ev){
 	ev.dataTransfer.setData("text/html", ev.target.id);
 }
 
-laonLevel6ScoreExercise.prototype.dragStart = function(ev) {   
+LaonLevel6ScoreExercise.prototype.dragStart = function(ev) {   
 	console.log("run dragstart2");
 	//var style = window.getComputedStyle(ev.target, null);
 	//var transfer=ev.dataTransfer.setData("text/plain", (parseInt(style.getPropertyValue("left"), 10) - (ev.clientX-((window.innerWidth-15-1096)/2+226+66.5))) /*+ ',' + (parseInt(style.getPropertyValue("top"), 10) - ev.clientY) + ',' + ev.target.getAttribute('data-item')*/); 
@@ -263,11 +263,11 @@ laonLevel6ScoreExercise.prototype.dragStart = function(ev) {
 
 }
 
-laonLevel6ScoreExercise.prototype.allowDrop = function(ev) {
+LaonLevel6ScoreExercise.prototype.allowDrop = function(ev) {
     ev.preventDefault();
 }
 
-laonLevel6ScoreExercise.prototype.drop = function(ev) {
+LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 
 //	console.log(ev.target.innerHTML);
 	
@@ -361,7 +361,7 @@ function reDrop(ev) {
 }*/
 
 /*
-laonLevel6ScoreExercise.prototype.reDrop = function(ev) {
+LaonLevel6ScoreExercise.prototype.reDrop = function(ev) {
 	ev.preventDefault();
 
 	var imageID = ev.dataTransfer.getData("text/html");
@@ -387,19 +387,19 @@ function deleteNeum(ev){
 	Remove("symbol-container-" + ev.target.id.substring(13));
 }
 
-laonLevel6ScoreExercise.prototype.deleteNeum = function(ev) {
+LaonLevel6ScoreExercise.prototype.deleteNeum = function(ev) {
 	document.getElementById("neum-dropbox_" + ev.target.id.substring(12)).innerHTML = "";
 	document.getElementById("neum-dropbox_" + ev.target.id.substring(12)).setAttribute("data-neumID", "");
 	document.getElementById("checkmark_" + ev.target.id.substring(12)).style.display = "none";
 	document.getElementById("x-mark_" + ev.target.id.substring(12)).style.display = "none";
 }
 
-laonLevel6ScoreExercise.prototype.getSolution = function() {
+LaonLevel6ScoreExercise.prototype.getSolution = function() {
 	this.solutionIDs = this.solution.split("-");
 	this.solutionPos = this.symbolPos.split("-");  
 }
 
-laonLevel6ScoreExercise.prototype.saveAnswer = function() {
+LaonLevel6ScoreExercise.prototype.saveAnswer = function() {
 	// Save student's answers - neum IDs and names
 	//for (var i = 0; i < this.size; i++) {
 		//this.studentsAnswerIDs[i] = document.getElementById("neum-dropbox_" + i).getAttribute("data-neumID");
@@ -508,7 +508,7 @@ laonLevel6ScoreExercise.prototype.saveAnswer = function() {
 	console.log("score:" + this.score);
 }
 
-laonLevel6ScoreExercise.prototype.showRightAnswer = function() {
+LaonLevel6ScoreExercise.prototype.showRightAnswer = function() {
 	/*for (var i = 0; i < this.size; i++) {
 		document.getElementById("checkmark_" + i).style.display = "none";    // hide checkmark
 		document.getElementById("x-mark_" + i).style.display = "none";    	 // hide x-mark
@@ -533,7 +533,7 @@ laonLevel6ScoreExercise.prototype.showRightAnswer = function() {
 	}
 }
 
-laonLevel6ScoreExercise.prototype.showHint = function() {
+LaonLevel6ScoreExercise.prototype.showHint = function() {
 	//document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><table id="hintTable"></table></div>';
 
 	var tMarks = document.getElementsByClassName("tick-marks");
@@ -569,7 +569,7 @@ laonLevel6ScoreExercise.prototype.showHint = function() {
 	}
 }
 
-laonLevel6ScoreExercise.prototype.showSymbolInfo = function(symbolID) {
+LaonLevel6ScoreExercise.prototype.showSymbolInfo = function(symbolID) {
 	document.getElementById("hintTable").innerHTML += //yoyo add hint border
 	    '<tr class="hint-tr" ><td><img src="quincy/symbols/' +
 		this.symbolDB.symbols[symbolID].school + '/Level_' + this.symbolDB.symbols[symbolID].level +
@@ -580,7 +580,7 @@ laonLevel6ScoreExercise.prototype.showSymbolInfo = function(symbolID) {
 		'</td></tr>';
 }
 
-laonLevel6ScoreExercise.prototype.checkEnteredName = function(solution, enteredText) {
+LaonLevel6ScoreExercise.prototype.checkEnteredName = function(solution, enteredText) {
 	var rightAnswers = solution.split("=");
 	for (var i = 0; i < rightAnswers.length; i++) {
 		if (enteredText.toLowerCase() == rightAnswers[i].toLowerCase()) {
@@ -590,7 +590,7 @@ laonLevel6ScoreExercise.prototype.checkEnteredName = function(solution, enteredT
 	return false;
 }
 
-laonLevel6ScoreExercise.prototype.grade = function() {
+LaonLevel6ScoreExercise.prototype.grade = function() {
 	this.saveAnswer();
 	this.score = 0;
 	for (var i = 0; i < this.size; i++) {
@@ -615,7 +615,7 @@ function hide(id) {
 
 
 
-laonLevel6ScoreExercise.prototype.showNeumWithID = function(ID) {
+LaonLevel6ScoreExercise.prototype.showNeumWithID = function(ID) {
 	
 		insideSymbolID[dropTime] =  'symbol-container-'+ ID + '_copy_'+dropTime;
 		//console.log("insideSymbolID="+insideSymbolID[dropTime]);
@@ -633,7 +633,7 @@ laonLevel6ScoreExercise.prototype.showNeumWithID = function(ID) {
 
 }
 /*
-laonLevel6ScoreExercise.prototype.alowDropOnSymbol = function(ID) {
+LaonLevel6ScoreExercise.prototype.alowDropOnSymbol = function(ID) {
 
 	document.getElementById("symbol_" + ID + "_copy_" + dropTime).ondragover = function(event) {
 	        self.allowDrop(event);

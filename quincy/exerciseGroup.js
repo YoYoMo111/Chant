@@ -256,7 +256,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
 					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
 					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-					this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+					this.exercises.push(new LaonLevel6ScoreExercise(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
 				}
 			}
 		}
