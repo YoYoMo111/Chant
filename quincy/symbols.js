@@ -212,7 +212,7 @@ SymbolDB.prototype.drag = function(ev) {
     	console.log("bodyWidth:"+$(document).width());
     	console.log("offsetX="+offsetX);
 
-    	offsetY = (ev.pageY - 708)%76;
+    	offsetY = ev.pageY - 708;
   
 
     //ev.dataTransfer.setData("text", offsetX);

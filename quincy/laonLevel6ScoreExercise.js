@@ -1,5 +1,5 @@
 // A child class of Exercise
-function ScoreExercise2(school, level, scoreFileName, solution, symbolPos, mechanism) {
+function laonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolPos, mechanism) {
     Exercise.call(this, mechanism);
 	this.type = 11;
 	this.school = school;
@@ -31,13 +31,13 @@ function ScoreExercise2(school, level, scoreFileName, solution, symbolPos, mecha
 				 71, 13, 14, 18, 23, 24, 27, 28];
 }
 
-ScoreExercise2.prototype = Object.create(Exercise.prototype);
-ScoreExercise2.prototype.constructor = ScoreExercise2;
+laonLevel6ScoreExercise.prototype = Object.create(Exercise.prototype);
+laonLevel6ScoreExercise.prototype.constructor = laonLevel6ScoreExercise;
 
 var dropTime = 0;
 var insideSymbolID = [];
 
-ScoreExercise2.prototype.show = function(index, numOfQuestions) {
+laonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 	var str = "Question " + index + " of " + numOfQuestions + ": Drag the neums to the box to match the notes in the score.";
 
 
@@ -248,7 +248,7 @@ function dragStart(ev){
 	ev.dataTransfer.setData("text/html", ev.target.id);
 }
 
-ScoreExercise2.prototype.dragStart = function(ev) {   
+laonLevel6ScoreExercise.prototype.dragStart = function(ev) {   
 	console.log("run dragstart2");
 	//var style = window.getComputedStyle(ev.target, null);
 	//var transfer=ev.dataTransfer.setData("text/plain", (parseInt(style.getPropertyValue("left"), 10) - (ev.clientX-((window.innerWidth-15-1096)/2+226+66.5))) /*+ ',' + (parseInt(style.getPropertyValue("top"), 10) - ev.clientY) + ',' + ev.target.getAttribute('data-item')*/); 
@@ -263,11 +263,11 @@ ScoreExercise2.prototype.dragStart = function(ev) {
 
 }
 
-ScoreExercise2.prototype.allowDrop = function(ev) {
+laonLevel6ScoreExercise.prototype.allowDrop = function(ev) {
     ev.preventDefault();
 }
 
-ScoreExercise2.prototype.drop = function(ev) {
+laonLevel6ScoreExercise.prototype.drop = function(ev) {
 
 //	console.log(ev.target.innerHTML);
 	
@@ -277,9 +277,15 @@ ScoreExercise2.prototype.drop = function(ev) {
 	var offset = ev.dataTransfer.getData("text/plain").split(',');
 	var offsetX1 = offset[0];
 	console.log("offsetX1 =" + offsetX1);
-
-	var offsetY1 = offset[1];
-	console.log("offsetY1 =" + offsetY1);
+	//two answer boxes change the position of the pool vertically, recalculate offsetY when 2 there are answers 
+	if(this.numOfAnswers == 1){
+		var offsetY1 = offset[1]%76;
+		console.log("offsetY1 =" + offsetY1);
+	}
+	else if(this.numOfAnswers == 2){
+		var offsetY1 = (offset[1]-104)%76;
+		console.log("offsetY1 =" + offsetY1);
+	}
 
 	var imageID = ev.dataTransfer.getData("text/html");
 	//console.log("imageID =" + imageID);
@@ -355,7 +361,7 @@ function reDrop(ev) {
 }*/
 
 /*
-ScoreExercise2.prototype.reDrop = function(ev) {
+laonLevel6ScoreExercise.prototype.reDrop = function(ev) {
 	ev.preventDefault();
 
 	var imageID = ev.dataTransfer.getData("text/html");
@@ -381,19 +387,19 @@ function deleteNeum(ev){
 	Remove("symbol-container-" + ev.target.id.substring(13));
 }
 
-ScoreExercise2.prototype.deleteNeum = function(ev) {
+laonLevel6ScoreExercise.prototype.deleteNeum = function(ev) {
 	document.getElementById("neum-dropbox_" + ev.target.id.substring(12)).innerHTML = "";
 	document.getElementById("neum-dropbox_" + ev.target.id.substring(12)).setAttribute("data-neumID", "");
 	document.getElementById("checkmark_" + ev.target.id.substring(12)).style.display = "none";
 	document.getElementById("x-mark_" + ev.target.id.substring(12)).style.display = "none";
 }
 
-ScoreExercise2.prototype.getSolution = function() {
+laonLevel6ScoreExercise.prototype.getSolution = function() {
 	this.solutionIDs = this.solution.split("-");
 	this.solutionPos = this.symbolPos.split("-");  
 }
 
-ScoreExercise2.prototype.saveAnswer = function() {
+laonLevel6ScoreExercise.prototype.saveAnswer = function() {
 	// Save student's answers - neum IDs and names
 	//for (var i = 0; i < this.size; i++) {
 		//this.studentsAnswerIDs[i] = document.getElementById("neum-dropbox_" + i).getAttribute("data-neumID");
@@ -502,7 +508,7 @@ ScoreExercise2.prototype.saveAnswer = function() {
 	console.log("score:" + this.score);
 }
 
-ScoreExercise2.prototype.showRightAnswer = function() {
+laonLevel6ScoreExercise.prototype.showRightAnswer = function() {
 	/*for (var i = 0; i < this.size; i++) {
 		document.getElementById("checkmark_" + i).style.display = "none";    // hide checkmark
 		document.getElementById("x-mark_" + i).style.display = "none";    	 // hide x-mark
@@ -527,7 +533,7 @@ ScoreExercise2.prototype.showRightAnswer = function() {
 	}
 }
 
-ScoreExercise2.prototype.showHint = function() {
+laonLevel6ScoreExercise.prototype.showHint = function() {
 	//document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-correct"><table id="hintTable"></table></div>';
 
 	var tMarks = document.getElementsByClassName("tick-marks");
@@ -563,7 +569,7 @@ ScoreExercise2.prototype.showHint = function() {
 	}
 }
 
-ScoreExercise2.prototype.showSymbolInfo = function(symbolID) {
+laonLevel6ScoreExercise.prototype.showSymbolInfo = function(symbolID) {
 	document.getElementById("hintTable").innerHTML += //yoyo add hint border
 	    '<tr class="hint-tr" ><td><img src="quincy/symbols/' +
 		this.symbolDB.symbols[symbolID].school + '/Level_' + this.symbolDB.symbols[symbolID].level +
@@ -574,7 +580,7 @@ ScoreExercise2.prototype.showSymbolInfo = function(symbolID) {
 		'</td></tr>';
 }
 
-ScoreExercise2.prototype.checkEnteredName = function(solution, enteredText) {
+laonLevel6ScoreExercise.prototype.checkEnteredName = function(solution, enteredText) {
 	var rightAnswers = solution.split("=");
 	for (var i = 0; i < rightAnswers.length; i++) {
 		if (enteredText.toLowerCase() == rightAnswers[i].toLowerCase()) {
@@ -584,7 +590,7 @@ ScoreExercise2.prototype.checkEnteredName = function(solution, enteredText) {
 	return false;
 }
 
-ScoreExercise2.prototype.grade = function() {
+laonLevel6ScoreExercise.prototype.grade = function() {
 	this.saveAnswer();
 	this.score = 0;
 	for (var i = 0; i < this.size; i++) {
@@ -609,7 +615,7 @@ function hide(id) {
 
 
 
-ScoreExercise2.prototype.showNeumWithID = function(ID) {
+laonLevel6ScoreExercise.prototype.showNeumWithID = function(ID) {
 	
 		insideSymbolID[dropTime] =  'symbol-container-'+ ID + '_copy_'+dropTime;
 		//console.log("insideSymbolID="+insideSymbolID[dropTime]);
@@ -627,7 +633,7 @@ ScoreExercise2.prototype.showNeumWithID = function(ID) {
 
 }
 /*
-ScoreExercise2.prototype.alowDropOnSymbol = function(ID) {
+laonLevel6ScoreExercise.prototype.alowDropOnSymbol = function(ID) {
 
 	document.getElementById("symbol_" + ID + "_copy_" + dropTime).ondragover = function(event) {
 	        self.allowDrop(event);
