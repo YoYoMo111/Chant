@@ -20,6 +20,13 @@ function LaonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolP
 	this.studentsAnswerNames = new Array();
 	this.tickIDs = new Array();
 	this.xIDs = new Array();
+
+	this.studentsAnswerIDs2 = new Array();
+	this.studentsAnswerIDsLefts2 = new Array();
+	this.studentsAnswerNames2 = new Array();
+	this.tickIDs2 = new Array();
+	this.xIDs2 = new Array();
+
 	for (var i = 0; i < this.size; i++) {
         //this.studentsAnswerIDs.push("");
         this.studentsAnswerNames.push("");
@@ -142,14 +149,15 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 		    self.drop(event);
 
 	    };
+		if(this.numOfAnswers == 2){
+		    document.getElementById("laonScoreExAnswer2").ondragover = function(event) {
+		        self.allowDrop(event);
+		    };		
+			document.getElementById("laonScoreExAnswer2").ondrop = function(event) {
+			    self.drop(event);
 
-	    document.getElementById("laonScoreExAnswer2").ondragover = function(event) {
-	        self.allowDrop(event);
-	    };		
-		document.getElementById("laonScoreExAnswer2").ondrop = function(event) {
-		    self.drop(event);
-
-	    };
+		    };
+		}
 	}
 /*
 	document.getElementById("symbol-container-0_copy_0").ondragstart = function(event) {
@@ -188,8 +196,9 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 	dropTime=0;
 	for (var i = 0; i < this.studentsAnswerIDs.length; i++) {
 		if (this.studentsAnswerIDs[i] != "") {
-				console.log(this.studentsAnswerIDs);
-				console.log(this.studentsAnswerIDsLefts);
+				console.log("id:"+this.studentsAnswerIDs);
+				console.log("left:"+this.studentsAnswerIDsLefts);
+				console.log("top:"+this.studentsAnswerIDsTops);
 			document.getElementById("laonScoreExAnswer").innerHTML += this.showNeumWithID(this.studentsAnswerIDs[i]);
 			//document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 			var answer = document.getElementById("laonScoreExAnswer").children;
@@ -201,8 +210,9 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 
 	for (var i = 0; i < this.studentsAnswerIDs2.length; i++) {
 		if (this.studentsAnswerIDs2[i] != "") {
-				console.log(this.studentsAnswerIDs2);
-				console.log(this.studentsAnswerIDsLefts2);
+				console.log("id:"+this.studentsAnswerIDs2);
+				console.log("left:"+this.studentsAnswerIDsLefts2);
+				console.log("top:"+this.studentsAnswerIDsTops2);
 			document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(this.studentsAnswerIDs2[i]);
 			//document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 			var answer2 = document.getElementById("laonScoreExAnswer2").children;
@@ -276,15 +286,15 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 	//var offset = ev.dataTransfer.getData("text/plain");//get offset from dragStart
 	var offset = ev.dataTransfer.getData("text/plain").split(',');
 	var offsetX1 = offset[0];
-	console.log("offsetX1 =" + offsetX1);
+	//console.log("offsetX1 =" + offsetX1);
 	//two answer boxes change the position of the pool vertically, recalculate offsetY when 2 there are answers 
 	if(this.numOfAnswers == 1){
-		var offsetY1 = offset[1]%76;
+		var offsetY1 = (offset[1])%76;
 		console.log("offsetY1 =" + offsetY1);
 	}
 	else if(this.numOfAnswers == 2){
-		var offsetY1 = (offset[1]-104)%76;
-		console.log("offsetY1 =" + offsetY1);
+		var offsetY1 = (offset[1]-104-50)%76;
+		//console.log("offsetY1 =" + offsetY1);
 	}
 
 	var imageID = ev.dataTransfer.getData("text/html");
@@ -319,7 +329,8 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 		console.log("dropX="+ev.pageX);
 		console.log("dropY = " + ev.pageY);
 		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offsetX1) );
-		console.log("window width:"+window.innerWidth);
+		console.log("top="+top1);
+		//console.log("window width:"+window.innerWidth);
 		//console.log("offset:"+offset);
 		/*var self = this;
 		document.getElementById('symbol-container-'+ symbolID + '_copy_'+ dropTime).ondragstart = function(event) {
@@ -335,11 +346,12 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 			left2 = 127;
 		}
 		
-		console.log("imageID =" + imageID.substring(imageID.indexOf("symbol")));
+		//console.log("imageID =" + imageID.substring(imageID.indexOf("symbol")));
 		//document.getElementById(imageID).style.left = left2+'px';
 		$("#"+imageID.substring(imageID.indexOf("symbol"))).css('left',left2);//in chrome, imageID has meta tag, so we use substring
 		$("#"+imageID.substring(imageID.indexOf("symbol"))).css('top',top2);
 		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offsetX2) );
+		console.log("top="+top2);
 		//console.log("window width:"+((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset));	
 
 	}
@@ -394,9 +406,19 @@ LaonLevel6ScoreExercise.prototype.deleteNeum = function(ev) {
 	document.getElementById("x-mark_" + ev.target.id.substring(12)).style.display = "none";
 }
 
-LaonLevel6ScoreExercise.prototype.getSolution = function() {
-	this.solutionIDs = this.solution.split("-");
-	this.solutionPos = this.symbolPos.split("-");  
+LaonLevel6ScoreExercise.prototype.getSolution = function() {//get the right answers.
+	//this.solutionIDs = this.solution.split("-");
+	//this.solutionPos = this.symbolPos.split("-"); 
+	this.solutionIDs = ["0","2","3"]; 
+	this.solutionPos = [
+						[30,60,30,60],
+						[30,60,30,60]
+					   ];
+	this.solutionIDs2 = ["5","10","11"]; 
+	this.solutionPos2 = [
+						[30,60,30,60],
+						[30,60,30,60]
+					   ];
 }
 
 LaonLevel6ScoreExercise.prototype.saveAnswer = function() {
@@ -417,39 +439,19 @@ LaonLevel6ScoreExercise.prototype.saveAnswer = function() {
 	this.tickIDs = [""];
 	this.xIDs = [""];
 
-	var answer2 = document.getElementById("laonScoreExAnswer2").children;
-	//console.log("answer children:"+answer[0].children[0].id);
-	this.studentsAnswerIDs2 = [""];
-	this.studentsAnswerIDsLefts2 = [""];
-	this.studentsAnswerIDsTops2 = [""];
-	this.tickIDs2 = [""];
-	this.xIDs2 = [""];
-
 	for( var i = 0; i < answer.length; i++){
-		this.studentsAnswerIDs[i] = document.getElementById(answer[i].id).getAttribute("data-neumID");
-		var style = window.getComputedStyle(answer[i], null);
-		this.studentsAnswerIDsLefts[i] = parseInt(style.getPropertyValue("left"), 10);
-		this.studentsAnswerIDsTops[i] = parseInt(style.getPropertyValue("top"), 10);
-		this.tickIDs[i] = 'tick' + answer[i].id.substring(17);
-		this.xIDs[i] = 'x' + answer[i].id.substring(17);
+			this.studentsAnswerIDs[i] = document.getElementById(answer[i].id).getAttribute("data-neumID");
+			var style = window.getComputedStyle(answer[i], null);
+			this.studentsAnswerIDsLefts[i] = parseInt(style.getPropertyValue("left"), 10);
+			this.studentsAnswerIDsTops[i] = parseInt(style.getPropertyValue("top"), 10);
+			this.tickIDs[i] = 'tick' + answer[i].id.substring(17);
+			this.xIDs[i] = 'x' + answer[i].id.substring(17);
 
-		//console.log(answer[i].id.substring(17));
-		
-		//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerIDsLefts[i]);
-	}
+			//console.log(answer[i].id.substring(17));
+			
+			//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerIDsLefts[i]);
+		}
 
-	for( var i = 0; i < answer2.length; i++){
-		this.studentsAnswerIDs2[i] = document.getElementById(answer2[i].id).getAttribute("data-neumID");
-		var style2 = window.getComputedStyle(answer2[i], null);
-		this.studentsAnswerIDsLefts2[i] = parseInt(style2.getPropertyValue("left"), 10);
-		this.studentsAnswerIDsTops2[i] = parseInt(style2.getPropertyValue("top"), 10);
-		this.tickIDs2[i] = 'tick' + answer2[i].id.substring(17);
-		this.xIDs2[i] = 'x' + answer2[i].id.substring(17);
-
-		//console.log(answer[i].id.substring(17));
-		
-		//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerIDsLefts[i]);
-	}
 	for(i = 0; i<=answer.length-1; i++){
 		if(this.studentsAnswerIDsLefts[i] > this.studentsAnswerIDsLefts[i+1]){
 
@@ -471,25 +473,49 @@ LaonLevel6ScoreExercise.prototype.saveAnswer = function() {
 			i = i - 2;
 		}
 	}
-	for(i = 0; i<=answer2.length-1; i++){
-		if(this.studentsAnswerIDsLefts2[i] > this.studentsAnswerIDsLefts2[i+1]){
 
-			var temp1 = this.studentsAnswerIDsLefts2[i+1];
-			this.studentsAnswerIDsLefts2[i+1] = this.studentsAnswerIDsLefts2[i];
-			this.studentsAnswerIDsLefts2[i] = temp1;
+	if(this.numOfAnswers == 2){	
+		var answer2 = document.getElementById("laonScoreExAnswer2").children;
+		//console.log("answer children:"+answer[0].children[0].id);
+		this.studentsAnswerIDs2 = [""];
+		this.studentsAnswerIDsLefts2 = [""];
+		this.studentsAnswerIDsTops2 = [""];
+		this.tickIDs2 = [""];
+		this.xIDs2 = [""];
 
-			var temp2 = this.studentsAnswerIDs2[i+1];
-			this.studentsAnswerIDs2[i+1] = this.studentsAnswerIDs2[i];
-			this.studentsAnswerIDs2[i] = temp2;
+		for( var i = 0; i < answer2.length; i++){
+			this.studentsAnswerIDs2[i] = document.getElementById(answer2[i].id).getAttribute("data-neumID");
+			var style2 = window.getComputedStyle(answer2[i], null);
+			this.studentsAnswerIDsLefts2[i] = parseInt(style2.getPropertyValue("left"), 10);
+			this.studentsAnswerIDsTops2[i] = parseInt(style2.getPropertyValue("top"), 10);
+			this.tickIDs2[i] = 'tick' + answer2[i].id.substring(17);
+			this.xIDs2[i] = 'x' + answer2[i].id.substring(17);
 
-			var temp3 = this.tickIDs2[i+1];
-			this.tickIDs2[i+1] = this.tickIDs2[i];
-			this.tickIDs2[i] = temp3;
+			//console.log(answer[i].id.substring(17));
+			
+			//console.log("answerid"+i+":"+this.studentsAnswerIDs[i]+"/"+"answerlefts"+i+":"+this.studentsAnswerIDsLefts[i]);
+		}
+		
+		for(i = 0; i<=answer2.length-1; i++){
+			if(this.studentsAnswerIDsLefts2[i] > this.studentsAnswerIDsLefts2[i+1]){
 
-			var temp4 = this.xIDs2[i+1];
-			this.xIDs2[i+1] = this.xIDs2[i];
-			this.xIDs2[i] = temp4;
-			i = i - 2;
+				var temp1 = this.studentsAnswerIDsLefts2[i+1];
+				this.studentsAnswerIDsLefts2[i+1] = this.studentsAnswerIDsLefts2[i];
+				this.studentsAnswerIDsLefts2[i] = temp1;
+
+				var temp2 = this.studentsAnswerIDs2[i+1];
+				this.studentsAnswerIDs2[i+1] = this.studentsAnswerIDs2[i];
+				this.studentsAnswerIDs2[i] = temp2;
+
+				var temp3 = this.tickIDs2[i+1];
+				this.tickIDs2[i+1] = this.tickIDs2[i];
+				this.tickIDs2[i] = temp3;
+
+				var temp4 = this.xIDs2[i+1];
+				this.xIDs2[i+1] = this.xIDs2[i];
+				this.xIDs2[i] = temp4;
+				i = i - 2;
+			}
 		}
 	}
 
@@ -545,7 +571,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 		    	xMarks[i].style.visibility = "hidden";
 		    }
 		
-
+/*
 	for (var i = 0; i < this.studentsAnswerIDs.length; i++) {
 		// Check neums
 		if (this.studentsAnswerIDs[i] != "") {
@@ -560,7 +586,198 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 			}
 
 		}
+	}*/
+//new check answer start
+	var correctNeums1 = 0; var correctNeums2 = 0;
+	var correctPos1 = 0; var correctPos2 = 0;
+	var correctPos3 = 0; var correctPos4 = 0;
+	var score1 = 0; var score2 = 0; var totalScore = 0;
+	//one answer box
+	if(this.numOfAnswers == 1){//check if it is right neum
+		for (var i = 0; i < this.studentsAnswerIDs.length; i++){
+			if (this.studentsAnswerIDs[i] != "") {
+				if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
+				   correctNeums1++;
+				}
+				else {
+					break;
+				}
+
+			}
+		}
+		if(correctNeums1>0){
+			for (var i = 1; i < correctNeums1; i++){//check if it is right position
+
+				var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+				var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+
+				if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
+					dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
+						correctPos1++;
+				}
+				else{
+					break;
+				}
+			}
+			for(var i = 0; i < correctPos1+1; i++){
+				document.getElementById(this.tickIDs[i]).style.visibility = "visible";
+			}
+			for(var i = correctPos1+1; i < this.studentsAnswerIDs.length; i++){
+				document.getElementById(this.xIDs[i]).style.visibility = "visible";
+			}
+		}
+		else{//no correct neums all wrong.
+			for(var i = 0; i < this.studentsAnswerIDs.length; i++){
+				document.getElementById(this.xIDs[i]).style.visibility = "visible";
+			}
+		}
 	}
+	//two answer box
+	else if(this.numOfAnswers == 2){
+	//forward check------------------------------
+		//check box1
+		for (var i = 0; i < this.studentsAnswerIDs.length; i++){
+			if (this.studentsAnswerIDs[i] != "") {
+				if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
+				   correctNeums1++;
+				}
+				else {
+					break;
+				}
+
+			}
+		}
+		for (var i = 1; i < correctNeums1; i++){//check if it is right position
+
+			var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+			var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+
+			if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
+				dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
+					correctPos1++;
+			}
+			else{
+				break;
+			}
+		}
+		//check box2
+		for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
+			if (this.studentsAnswerIDs2[i] != "") {
+				if (this.studentsAnswerIDs2[i] == this.solutionIDs2[i]) {    // answer is right
+				   correctNeums2++;
+				}
+				else {
+					break;
+				}
+
+			}
+		}
+		for (var i = 1; i < correctNeums2; i++){//check if it is right position
+
+			var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
+			var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
+
+			if (dx > this.solutionPos2[i-1][0] && dx < this.solutionPos2[i-1][1] &&
+				dy > this.solutionPos2[i-1][2] && dy < this.solutionPos2[i-1][3]){
+					correctPos2++;
+			}
+			else{
+				break;
+			}
+		}
+		score1 = correctPos2+correctPos1+2;
+		console.log("score1="+score1);
+
+		
+	//reverse check-------------------------------
+		//check box1
+		for (var i = 0; i < this.studentsAnswerIDs.length; i++){
+			if (this.studentsAnswerIDs[i] != "") {
+				if (this.studentsAnswerIDs[i] == this.solutionIDs2[i]) {    // answer is right
+				   correctNeums1++;
+				}
+				else {
+					break;
+				}
+
+			}
+		}
+		for (var i = 1; i < correctNeums1; i++){//check if it is right position
+
+			var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+			var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+
+			if (dx > this.solutionPos2[i-1][0] && dx < this.solutionPos2[i-1][1] &&
+				dy > this.solutionPos2[i-1][2] && dy < this.solutionPos2[i-1][3]){
+					correctPos3++;
+			}
+			else{
+				break;
+			}
+		}
+		//check box2
+		for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
+			if (this.studentsAnswerIDs2[i] != "") {
+				if (this.studentsAnswerIDs2[i] == this.solutionIDs[i]) {    // answer is right
+				   correctNeums2++;
+				}
+				else {
+					break;
+				}
+
+			}
+		}
+		for (var i = 1; i < correctNeums2; i++){//check if it is right position
+
+			var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
+			var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
+
+			if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
+				dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
+					correctPos4++;
+			}
+			else{
+				break;
+			}
+		}
+		score2 = correctPos3+correctPos4+2;
+		console.log("score2="+score2);
+
+		if(score1 >= score2){
+			for(var i = 0; i < correctPos1+1; i++){
+				document.getElementById(this.tickIDs[i]).style.visibility = "visible";
+			}
+			for(var i = correctPos1+1; i < this.studentsAnswerIDs.length; i++){
+				document.getElementById(this.xIDs[i]).style.visibility = "visible";
+			}
+			for(var i = 0; i < correctPos2+1; i++){
+				document.getElementById(this.tickIDs2[i]).style.visibility = "visible";
+			}
+			for(var i = correctPos2+1; i < this.studentsAnswerIDs2.length; i++){
+				document.getElementById(this.xIDs2[i]).style.visibility = "visible";
+			}
+			totalScore = score1;
+			console.log("total+"+totalScore);
+		}
+		else if(score1 < score2){
+			for(var i = 0; i < correctPos2+1; i++){
+				document.getElementById(this.tickIDs[i]).style.visibility = "visible";
+			}
+			for(var i = correctPos2+1; i < this.studentsAnswerIDs.length; i++){
+				document.getElementById(this.xIDs[i]).style.visibility = "visible";
+			}
+			for(var i = 0; i < correctPos1+1; i++){
+				document.getElementById(this.tickIDs2[i]).style.visibility = "visible";
+			}
+			for(var i = correctPos1+1; i < this.studentsAnswerIDs2.length; i++){
+				document.getElementById(this.xIDs2[i]).style.visibility = "visible";
+			}
+			totalScore = score2;
+			console.log("total="+totalScore);
+		}
+
+	}
+
 	if(this.studentsAnswerIDs.length < this.solutionIDs.length){
 		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable"><div class="hint-no-table">More neums are expected.</div></table></div>';
 	}
