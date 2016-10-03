@@ -1075,5 +1075,12 @@
 	<symbol id="988" name="torculus augmentative" fileName="modern-laon_special_liquescence_torculus-liquescent-augmentative_1.png" school="LaonModern" level="5" group="4" matchingLaon="752-753" matchingStGall="" altType="" altLoc="" info="Lower note, higher note, lower augmentatively liquescent note." />
 	<symbol id="989" name="torculus resupinus diminutive" fileName="modern-laon_special_liquescence_torculus-resupinus-diminutive_1.png" school="LaonModern" level="5" group="4" matchingLaon="754" matchingStGall="" altType="" altLoc="" info="Lower note, higher note, lower note, higher diminutively liquescent note." />
 	<symbol id="990" name="torculus resupinus augmentative" fileName="modern-laon_special_liquescence_torculus-resupinus-augmentative_1.png" school="LaonModern" level="5" group="4" matchingLaon="755" matchingStGall="" altType="" altLoc="" info="Lower note, higher note, lower note, higher augmentatively liquescent note." />
-	
+	<!-- Laon special neums -->
+	<symbol id="991" name="special 1" fileName="special_1.png" school="Laon" level="6" group="" matchingLaon="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="992" name="special 2" fileName="special_2.png" school="Laon" level="6" group="" matchingLaon="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="993" name="special 3" fileName="special_3.png" school="Laon" level="6" group="" matchingLaon="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="994" name="special 4" fileName="special_4.png" school="Laon" level="6" group="" matchingLaon="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="995" name="special 5" fileName="special_5.png" school="Laon" level="6" group="" matchingLaon="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="996" name="special 6" fileName="special_6.png" school="Laon" level="6" group="" matchingLaon="" matchingStGall="" altType="" altLoc="" info="" />
+
 </symbols>

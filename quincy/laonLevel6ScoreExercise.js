@@ -32,10 +32,10 @@ function LaonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolP
         this.studentsAnswerNames.push("");
 	}
 	
-	this.neums = [3, 15, 10, 2, 11, 17, 12, 22,
-				 21, 16, 51, 53, 151, 0, 97, 89,
-				 82, 5, 158, 190, 30, 29, 191, 31,
-				 71, 13, 14, 18, 23, 24, 27, 28];
+	this.neums = [578, 589, 584, 625, 585, 603, 636, 586,
+				  595, 596, 577, 587, 627, 618, 707, 720,
+				  600, 629, 616, 615, 594, 734, 713, 991,
+				  992, 993, 994, 995, 996, 626, 639, 588];
 }
 
 LaonLevel6ScoreExercise.prototype = Object.create(Exercise.prototype);
