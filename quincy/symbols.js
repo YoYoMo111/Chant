@@ -94,15 +94,7 @@ SymbolDB.prototype.showList = function(nNeumsInARow) {
     
 	for (var i = 0; i < this.symbols.length; i++) {
 	    if (this.symbols[i].visible) {
-	        if (this.symbols[i].id != this.studentsAnswer) {
-			    html += this.symbols[i].show(width, padding);			
-			}
-			else {    // place a place holder in the list and show the symbol in drop box
-			    html += "<div class=\"symbolHolder\" id=\"symbolHolder_" + this.symbols[i].id + "\"></div>";
-				document.getElementById("dropbox").innerHTML = '<img id="symbol_' + this.symbols[i].id + '" src="quincy/symbols/' +
-    				this.symbols[i].school + '/Level_' + this.symbols[i].level + '/Group_' + this.symbols[i].group + '/' +
-					this.symbols[i].fileName + '" draggable="true">';
-			}
+			html += this.symbols[i].show(width, padding);
 	    }
     }
 	html += '</div>';
