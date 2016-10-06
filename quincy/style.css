@@ -570,7 +570,7 @@ vertical-align: middle;
   margin-top:10px;
   /*padding-top: 5px;*/
   margin-left: 61.5px;
-  background:url("../images/score_bg.png");
+  background:url("../images/score_bg4.png");
   background-position-y: 3.5px;
 }
 
@@ -582,7 +582,7 @@ vertical-align: middle;
   margin-top:10px;
   /*padding-top: 5px;*/
   margin-left: 61.5px;
-  background:url("../images/score_bg.png");
+  background:url("../images/score_bg4.png");
   background-position-y: 3.5px;
 }
 #laonScoreExAnswer2{
@@ -594,8 +594,7 @@ vertical-align: middle;
   /*margin-top:10px;*/
   /*padding-top: 5px;*/
   margin-left: 61.5px;
-  background:url("../images/score_bg.png");
-  background-position-y: 3.5px;
+  background:rgba(145, 145, 145, 0.1);
 }
 .big-drop-area{
   width: 729px;
