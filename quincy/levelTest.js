@@ -2,7 +2,6 @@ function LevelTest(school, level, groups) {
 	var mechanism = 0;    // hide "check answer" and "reveal answer" buttons
 	var mode = 2;
 	var N = 20;
-//	if (level == 2)  N = 3;
 	
 	this.exercises = new Array();
 	this.grades = new Array();
@@ -19,7 +18,7 @@ function LevelTest(school, level, groups) {
 	for (var i = 0; i < groups.length; i++) {		
 	    var n = Math.ceil(exerciseGroups[i].exercises.length * N / totalNumber);
 	    exerciseGroups[i].exercises.splice(n, exerciseGroups[i].exercises.length - n);
-		this.exercises = this.exercises.concat(exerciseGroups[i].exercises);
+//		this.exercises = this.exercises.concat(exerciseGroups[i].exercises);
 	}
 	this.exercises.splice(N, this.exercises.length - N);
     
@@ -68,30 +67,44 @@ function LevelTest(school, level, groups) {
 	}
 	else {
 		var xmlhttp;
-	    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		    xmlhttp = new XMLHttpRequest();
-	    }
-	    else {// code for IE6, IE5
-  		    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	    }
-	    xmlhttp.open("GET","quincy/scores/" + school + "_level_6_score_index.xml", false);
-	    xmlhttp.send();
-	
-	    var scoreInfo = xmlhttp.responseXML;
-	    var length = scoreInfo.getElementsByTagName("score").length;		
-		for (var i = 0; i < length; i++) {
-			if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "test") {
-				var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
-				var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
-				var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-				scoreExercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, mechanism));
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		}
+		else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","quincy/scores/" + school + "_level_6_score_index.xml", false);
+		xmlhttp.send();
+		
+		var scoreInfo = xmlhttp.responseXML;
+		var length = scoreInfo.getElementsByTagName("score").length;
+			
+		if (school == "StGall") {
+			for (var i = 0; i < length; i++) {
+				if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "test") {
+					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
+					this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+				}
+			}
+		}
+		else {			
+			for (var i = 0; i < length; i++) {
+				if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "test") {
+					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
+					var symbolPosRange = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPosRange");
+					this.exercises.push(new LaonLevel6ScoreExercise(this.school, this.level, scoreFileName, solution, symbolPos, symbolPosRange, this.mechanism));
+				}
 			}
 		}
 	}
 	
 	// Combine N regular exercises and 2 score exercises
 	this.exercises = this.exercises.concat(scoreExercises);
-	this.exercises = shuffle(this.exercises);
+//	this.exercises = shuffle(this.exercises);
 	this.numOfQuestions = this.exercises.length;
 	
 	this.exercises.splice(0, 0, new IntroPage(school, level, groups.length + 2));

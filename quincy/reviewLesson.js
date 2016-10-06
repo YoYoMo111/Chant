@@ -5,7 +5,7 @@ function ReviewLesson(school, level, groups) {
 	// Compile exercises of all groups in this level
 	for (var i = 0; i < groups.length; i++) {		
 		var exerciseGroup = new ExerciseGroup(school, level, groups[i], mechanism, 0);
-		this.exercises = this.exercises.concat(exerciseGroup.exercises);
+//		this.exercises = this.exercises.concat(exerciseGroup.exercises);
 	}
     
 	// Add review score exercises
@@ -52,30 +52,44 @@ function ReviewLesson(school, level, groups) {
 	}
 	else if (level == 6) {
 		var xmlhttp;
-	    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		    xmlhttp = new XMLHttpRequest();
-	    }
-	    else {// code for IE6, IE5
-  		    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	    }
-	    xmlhttp.open("GET","quincy/scores/" + school + "_level_6_score_index.xml", false);
-	    xmlhttp.send();
-	
-	    var scoreInfo = xmlhttp.responseXML;
-	    var length = scoreInfo.getElementsByTagName("score").length;		
-		for (var i = 0; i < length; i++) {
-			if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "review") {
-				var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
-				var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
-				var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-				scoreExercises.push(new ScoreExercise2(school, level, scoreFileName, solution, symbolPos, mechanism));
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		}
+		else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","quincy/scores/" + school + "_level_6_score_index.xml", false);
+		xmlhttp.send();
+		
+		var scoreInfo = xmlhttp.responseXML;
+		var length = scoreInfo.getElementsByTagName("score").length;
+			
+		if (school == "StGall") {
+			for (var i = 0; i < length; i++) {
+				if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "review") {
+					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
+					this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+				}
+			}
+		}
+		else {			
+			for (var i = 0; i < length; i++) {
+				if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "review") {
+					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
+					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
+					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
+					var symbolPosRange = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPosRange");
+					this.exercises.push(new LaonLevel6ScoreExercise(this.school, this.level, scoreFileName, solution, symbolPos, symbolPosRange, this.mechanism));
+				}
 			}
 		}
 	}
 
 	// Combine regular exercises and 2 score exercises, then shuffle
 	this.exercises = this.exercises.concat(scoreExercises);
-	this.exercises = shuffle(this.exercises);
+//	this.exercises = shuffle(this.exercises);
 	this.numOfQuestions = this.exercises.length;
 	
 	this.exercises.splice(0, 0, new IntroPage(school, level, groups.length + 1));

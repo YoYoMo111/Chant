@@ -1,5 +1,5 @@
 // A child class of Exercise
-function LaonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolPos, mechanism) {
+function LaonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolPos, symbolPosRange, mechanism) {
     Exercise.call(this, mechanism);
 	this.type = 11;
 	this.school = school;
@@ -8,6 +8,7 @@ function LaonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolP
 	this.solution = solution;
 	this.size = solution.split("-").length;
 	this.symbolPos = symbolPos;
+	this.symbolPosRange = symbolPosRange;
 	this.score = 0;
 	this.maxScore = this.size;
 	this.numOfAnswers = 2;

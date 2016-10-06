@@ -212,21 +212,21 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	}
 	
 	else if (this.level == 6) {
-		// Exercise type 10 - St. Gall level 6 score exercise
-		if (this.school == "StGall") {
-			var xmlhttp;
-			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-				xmlhttp = new XMLHttpRequest();
-			}
-			else {// code for IE6, IE5
-				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-			xmlhttp.open("GET","quincy/scores/" + this.school + "_level_6_score_index.xml", false);
-			xmlhttp.send();
+		var xmlhttp;
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		}
+		else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET","quincy/scores/" + this.school + "_level_6_score_index.xml", false);
+		xmlhttp.send();
 		
-			var scoreInfo = xmlhttp.responseXML;
-			var length = scoreInfo.getElementsByTagName("score").length;
+		var scoreInfo = xmlhttp.responseXML;
+		var length = scoreInfo.getElementsByTagName("score").length;
 			
+		// Exercise type 10 - St. Gall level 6 score exercise
+		if (this.school == "StGall") {			
 			for (var i = 0; i < length; i++) {
 				if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "lesson") {
 					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
@@ -238,25 +238,13 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 		}
 		// Exercise type 11 - Laon level 6 score exercise
 		else {
-			var xmlhttp;
-			if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-				xmlhttp = new XMLHttpRequest();
-			}
-			else {// code for IE6, IE5
-				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-			xmlhttp.open("GET","quincy/scores/" + this.school + "_level_6_score_index.xml", false);
-			xmlhttp.send();
-		
-			var scoreInfo = xmlhttp.responseXML;
-			var length = scoreInfo.getElementsByTagName("score").length;
-			
 			for (var i = 0; i < length; i++) {
 				if (scoreInfo.getElementsByTagName("score")[i].getAttribute("type") == "lesson") {
 					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
 					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
 					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-					this.exercises.push(new LaonLevel6ScoreExercise(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+					var symbolPosRange = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPosRange");
+					this.exercises.push(new LaonLevel6ScoreExercise(this.school, this.level, scoreFileName, solution, symbolPos, symbolPosRange, this.mechanism));
 				}
 			}
 		}
@@ -265,7 +253,7 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	// mode 0 - review mode, no shuffling, no intro/end page, do nothing here
 	// mode 1 - regular mode
 	if (mode == 1) {
-	    this.exercises = shuffle(this.exercises);
+//	    this.exercises = shuffle(this.exercises);
 
 	    // Add intro and end pages
 	    this.exercises.splice(0, 0, new IntroPage(this.school, this.level, this.group));
