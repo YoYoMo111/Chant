@@ -471,6 +471,10 @@ LaonLevel6ScoreExercise.prototype.saveAnswer = function() {
 			var temp4 = this.xIDs[i+1];
 			this.xIDs[i+1] = this.xIDs[i];
 			this.xIDs[i] = temp4;
+
+			var temp5 = this.studentsAnswerIDsTops[i+1];
+			this.studentsAnswerIDsTops[i+1] = this.studentsAnswerIDsTops[i];
+			this.studentsAnswerIDsTops[i] = temp5;
 			i = i - 2;
 		}
 	}
@@ -515,6 +519,10 @@ LaonLevel6ScoreExercise.prototype.saveAnswer = function() {
 				var temp4 = this.xIDs2[i+1];
 				this.xIDs2[i+1] = this.xIDs2[i];
 				this.xIDs2[i] = temp4;
+
+				var temp5 = this.studentsAnswerIDsTops[i+1];
+				this.studentsAnswerIDsTops2[i+1] = this.studentsAnswerIDsTops2[i];
+				this.studentsAnswerIDsTops2[i] = temp5;
 				i = i - 2;
 			}
 		}
@@ -589,49 +597,65 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 		}
 	}*/
 //new check answer start
-	var correctNeums1 = 0; var correctNeums2 = 0;
-	var correctNeums3 = 0; var correctNeums4 = 0;
-	var correctPos1 = 0; var correctPos2 = 0;
-	var correctPos3 = 0; var correctPos4 = 0;
+	var correctNeums1 = []; var correctNeums2 = [];
+	var correctNeums3 = []; var correctNeums4 = [];
+	var correctNum1 = 0; var correctNum2 = 0;
+	var correctNum3 = 0; var correctNum4 = 0;
+	var correctPos1 = [1]; var correctPos2 = [1];
+	var correctPos3 = [1]; var correctPos4 = [1];
 	var score1 = 0; var score2 = 0; var totalScore = 0;
-	var box1score1, box2score1, box2score1, box2score2;
+	var box1score1, box2score1, box1score2, box2score2;
+	box1score1=box2score1=box1score2=box2score2=0;
 	//one answer box
 	if(this.numOfAnswers == 1){//check if it is right neum
-		for (var i = 0; i < this.studentsAnswerIDs.length; i++){
-			if (this.studentsAnswerIDs[i] != "") {
-				if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
-				   correctNeums1++;
+		if (this.studentsAnswerIDs != "") {//has answer
+			for (var i = 0; i < this.studentsAnswerIDs.length; i++){
+					if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
+					   correctNeums1.push(1);
+					   correctNum1++;
+					}
+					else {
+						correctNeums1.push(0);
+					}
+			}
+			console.log("correctNeums1 = "+correctNeums1);
+			console.log("numbers:"+correctNum1);
+			if(correctNum1>0){//have corect neum
+				if(this.studentsAnswerIDs != "" && this.studentsAnswerIDs.length == 1){
+					//only has one neum & right neum
+					document.getElementById(this.tickIDs[0]).style.visibility = "visible";
+					totalScore = 1;
 				}
-				else {
-					break;
-				}
+				else if(this.studentsAnswerIDs.length >= 2){
+					for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
 
-			}
-		}
-		if(correctNeums1>0){
-			for (var i = 1; i < correctNeums1; i++){//check if it is right position
+						var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+						var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
 
-				var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
-				var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
-
-				if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
-					dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
-						correctPos1++;
+						if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
+							dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
+								correctPos1.push(1);
+						}
+						else{
+							correctPos1.push(0);
+						}
+					}
+					console.log("correctPos1 = "+correctPos1);
+					for(var i = 0; i < this.studentsAnswerIDs.length; i++){
+						if(correctNeums1[i] == 1 && correctPos1[i] == 1){
+							document.getElementById(this.tickIDs[i]).style.visibility = "visible";
+							totalScore++;
+						}
+						else{
+							document.getElementById(this.xIDs[i]).style.visibility = "visible";
+						}
+					}
 				}
-				else{
-					break;
+			}
+			else{//no correct neums all wrong.
+				for(var i = 0; i < this.studentsAnswerIDs.length; i++){
+					document.getElementById(this.xIDs[i]).style.visibility = "visible";
 				}
-			}
-			for(var i = 0; i < correctPos1+1; i++){
-				document.getElementById(this.tickIDs[i]).style.visibility = "visible";
-			}
-			for(var i = correctPos1+1; i < this.studentsAnswerIDs.length; i++){
-				document.getElementById(this.xIDs[i]).style.visibility = "visible";
-			}
-		}
-		else{//no correct neums all wrong.
-			for(var i = 0; i < this.studentsAnswerIDs.length; i++){
-				document.getElementById(this.xIDs[i]).style.visibility = "visible";
 			}
 		}
 	}
@@ -639,182 +663,240 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 	else if(this.numOfAnswers == 2){
 	//forward check------------------------------
 		//check box1
-		for (var i = 0; i < this.studentsAnswerIDs.length; i++){
-			if (this.studentsAnswerIDs[i] != "") {
-				if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
-				   correctNeums1++;
-				}
-				else {
-					break;
-				}
-
+		if (this.studentsAnswerIDs != "") {//has answer
+			for (var i = 0; i < this.studentsAnswerIDs.length; i++){
+					if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
+					   correctNeums1.push(1);
+					   correctNum1++;
+					}
+					else {
+						correctNeums1.push(0);
+					}
 			}
-		}
-		if(correctNeums1 >1){
-			for (var i = 1; i < correctNeums1; i++){//check if it is right position
+			console.log("correctNeums1 = "+correctNeums1);
+			console.log("numbers:"+correctNum1);
 
-				var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
-				var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+			if(correctNum1>0){//have corect neum
+				if(this.studentsAnswerIDs != "" && this.studentsAnswerIDs.length == 1){
+						//only has one neum & right neum
+						//document.getElementById(this.tickIDs[0]).style.visibility = "visible";
+						box1score1 = 1;
+					}
+					else if(this.studentsAnswerIDs.length >= 2){
+						for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
 
-				if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
-					dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
-						correctPos1++;
-				}
-				else{
-					break;
-				}
+							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+							var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+
+							if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
+								dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
+									correctPos1.push(1);
+							}
+							else{
+								correctPos1.push(0);
+							}
+						}
+						console.log("correctPos1 = "+correctPos1);
+						for(var i = 0; i < this.studentsAnswerIDs.length; i++){
+							if(correctNeums1[i] == 1 && correctPos1[i] == 1){
+								box1score1++;
+							}
+						}
+					}
 			}
-			 box1score1 = correctPos1 + 1;
-		}
-		else if (correctNeums1 <= 1){
-			correctPos1 = 0;
-			box1score1 = correctNeums1;
 		}
 		console.log("box1score1="+box1score1);
 		//check box2
-		for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
-			if (this.studentsAnswerIDs2[i] != "") {
-				if (this.studentsAnswerIDs2[i] == this.solutionIDs2[i]) {    // answer is right
-				   correctNeums2++;
-				}
-				else {
-					break;
-				}
+		if (this.studentsAnswerIDs2 != "") {//has answer
+			for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
+					if (this.studentsAnswerIDs2[i] == this.solutionIDs2[i]) {    // answer is right
+					   correctNeums2.push(1);
+					   correctNum2++;
+					}
+					else {
+							correctNeums2.push(0);
+					}
+			}
+			console.log("correctNeums2 = "+correctNeums2);
+			console.log("numbers:"+correctNum2);
 
+			if(correctNum2 > 0){//have corect neum
+					if(this.studentsAnswerIDs2 != "" && this.studentsAnswerIDs2.length == 1){
+							//only has one neum & right neum
+							//document.getElementById(this.tickIDs[0]).style.visibility = "visible";
+							box2score1 = 1;
+						}
+					else if(this.studentsAnswerIDs2.length >= 2){
+						for (var i = 1; i < this.studentsAnswerIDs2.length; i++){//check if it is right position
+
+							var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
+							var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
+
+							if (dx > this.solutionPos2[i-1][0] && dx < this.solutionPos2[i-1][1] &&
+								dy > this.solutionPos2[i-1][2] && dy < this.solutionPos2[i-1][3]){
+									correctPos2.push(1);
+							}
+							else{
+								correctPos2.push(0);
+							}
+						}
+						console.log("correctPos2 = "+correctPos2);
+						for(var i = 0; i < this.studentsAnswerIDs2.length; i++){
+							if(correctNeums2[i] == 1 && correctPos2[i] == 1){
+								box2score1++;
+							}
+						}
+					}
+				
 			}
 		}
-		if(correctNeums2 >1){
-			for (var i = 1; i < correctNeums2; i++){//check if it is right position
 
-				var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
-				var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
-
-				if (dx > this.solutionPos2[i-1][0] && dx < this.solutionPos2[i-1][1] &&
-					dy > this.solutionPos2[i-1][2] && dy < this.solutionPos2[i-1][3]){
-						correctPos2++;
-				}
-				else{
-					break;
-				}
-			}
-			box2score1 = correctPos2 +1;
-		}
-		else if (correctNeums2 <= 1){
-			correctPos2 = 0;
-			box2score1 = correctNeums2;
-		}
 		console.log("box2score1="+box2score1);
 		score1 = box1score1 + box2score1;
 		console.log("score1="+score1);
 
 		
-	//reverse check-------------------------------
+		//reverse check-------------------------------
 		//check box1
-		for (var i = 0; i < this.studentsAnswerIDs.length; i++){
-			if (this.studentsAnswerIDs[i] != "") {
-				if (this.studentsAnswerIDs[i] == this.solutionIDs2[i]) {    // answer is right
-				   correctNeums3++;
-				}
-				else {
-					break;
-				}
-
+		if (this.studentsAnswerIDs != "") {//has answer
+			for (var i = 0; i < this.studentsAnswerIDs.length; i++){
+					if (this.studentsAnswerIDs[i] == this.solutionIDs2[i]) {    // answer is right
+					   correctNeums3.push(1);
+					   correctNum3++;
+					}
+					else {
+						correctNeums3.push(0);
+					}
 			}
-		}
-		if(correctNeums3 >1){
-			for (var i = 1; i < correctNeums3; i++){//check if it is right position
+			console.log("correctNeums3 = "+correctNeums3);
+			console.log("numbers:"+correctNum3);
 
-				var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
-				var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+			if(correctNum3>0){//have corect neum
+				if(this.studentsAnswerIDs != "" && this.studentsAnswerIDs.length == 1){
+						//only has one neum & right neum
+						//document.getElementById(this.tickIDs[0]).style.visibility = "visible";
+						box1score2 = 1;
+					}
+					else if(this.studentsAnswerIDs.length >= 2){
+						for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
 
-				if (dx > this.solutionPos2[i-1][0] && dx < this.solutionPos2[i-1][1] &&
-					dy > this.solutionPos2[i-1][2] && dy < this.solutionPos2[i-1][3]){
-						correctPos3++;
-				}
-				else{
-					break;
-				}
+							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+							var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+
+							if (dx > this.solutionPos2[i-1][0] && dx < this.solutionPos2[i-1][1] &&
+								dy > this.solutionPos2[i-1][2] && dy < this.solutionPos2[i-1][3]){
+									correctPos3.push(1);
+							}
+							else{
+								correctPos3.push(0);
+							}
+						}
+						console.log("correctPos3 = "+correctPos3);
+						for(var i = 0; i < this.studentsAnswerIDs.length; i++){
+							if(correctNeums3[i] == 1 && correctPos3[i] == 1){
+								box1score2++;
+							}
+						}
+					}
 			}
-			box1score2 = correctPos3 + 1;
-		}
-		else if (correctNeums3 <= 1){
-			correctPos3 = 0;
-			box1score2 = correctNeums3;
 		}
 		console.log("box1score2="+box1score2);
 		//check box2
-		for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
-			if (this.studentsAnswerIDs2[i] != "") {
-				if (this.studentsAnswerIDs2[i] == this.solutionIDs[i]) {    // answer is right
-				   correctNeums4++;
-				}
-				else {
-					break;
-				}
+		if (this.studentsAnswerIDs2 != "") {//has answer
+			for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
+					if (this.studentsAnswerIDs2[i] == this.solutionIDs[i]) {    // answer is right
+					   correctNeums4.push(1);
+					   correctNum4++;
+					}
+					else {
+							correctNeums4.push(0);
+					}
+			}
+			console.log("correctNeums4 = "+correctNeums4);
+			console.log("numbers:"+correctNum4);
 
+			if(correctNum4 > 0){//have corect neum
+					if(this.studentsAnswerIDs2 != "" && this.studentsAnswerIDs2.length == 1){
+							//only has one neum & right neum
+							//document.getElementById(this.tickIDs[0]).style.visibility = "visible";
+							box2score2 = 1;
+						}
+					else if(this.studentsAnswerIDs2.length >= 2){
+						for (var i = 1; i < this.studentsAnswerIDs2.length; i++){//check if it is right position
+
+							var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
+							var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
+
+							if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
+								dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
+									correctPos4.push(1);
+							}
+							else{
+								correctPos4.push(0);
+							}
+						}
+						console.log("correctPos4 = "+correctPos4);
+						for(var i = 0; i < this.studentsAnswerIDs2.length; i++){
+							if(correctNeums4[i] == 1 && correctPos4[i] == 1){
+								box2score2++;
+							}
+						}
+					}
+				
 			}
 		}
-		if(correctNeums4 >1){
-			for (var i = 1; i < correctNeums4; i++){//check if it is right position
 
-				var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
-				var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
-
-				if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
-					dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
-						correctPos4++;
-				}
-				else{
-					break;
-				}
-			}
-			box2score2 = correctPos4 +1;
-		}
-		else if (correctNeums4 <=1){
-			correctPos4 = 0;
-			box2score2 = correctNeums4;
-		}
 		console.log("box2score2="+box2score2);
 		score2 = box1score2 + box2score2;
 		console.log("score2="+score2);
 
 		if(score1 >= score2){
 			if(this.studentsAnswerIDs != ""){
-				for(var i = 0; i < box1score1; i++){
-					document.getElementById(this.tickIDs[i]).style.visibility = "visible";
-				}
-				for(var i = box1score1; i < this.studentsAnswerIDs.length; i++){
-					document.getElementById(this.xIDs[i]).style.visibility = "visible";
-				}
+				for(var i = 0; i < this.studentsAnswerIDs.length; i++){
+						if(correctNeums1[i] == 1 && correctPos1[i] == 1){
+							document.getElementById(this.tickIDs[i]).style.visibility = "visible";
+						}
+						else{
+							document.getElementById(this.xIDs[i]).style.visibility = "visible";
+						}
+					}
 			}
+
 			if(this.studentsAnswerIDs2 != ""){
-				console.log("answer length===="+this.studentsAnswerIDs2);
-				for(var i = 0; i < box2score1; i++){
-					document.getElementById(this.tickIDs2[i]).style.visibility = "visible";
-				}
-				for(var i = box2score1; i < this.studentsAnswerIDs2.length; i++){
-					document.getElementById(this.xIDs2[i]).style.visibility = "visible";
-				}
+				for(var i = 0; i < this.studentsAnswerIDs2.length; i++){
+						if(correctNeums2[i] == 1 && correctPos2[i] == 1){
+							document.getElementById(this.tickIDs2[i]).style.visibility = "visible";
+						}
+						else{
+							document.getElementById(this.xIDs2[i]).style.visibility = "visible";
+						}
+					}
 			}
 			totalScore = score1;
 			console.log("total="+totalScore);
 		}
+
 		else if(score1 < score2){
-			if(this.studentsAnswerIDs != ""){
-				for(var i = 0; i < box1score2; i++){
-					document.getElementById(this.tickIDs[i]).style.visibility = "visible";
-				}
-				for(var i = box1score2; i < this.studentsAnswerIDs.length; i++){
-					document.getElementById(this.xIDs[i]).style.visibility = "visible";
-				}
+						if(this.studentsAnswerIDs != ""){
+				for(var i = 0; i < this.studentsAnswerIDs.length; i++){
+						if(correctNeums3[i] == 1 && correctPos3[i] == 1){
+							document.getElementById(this.tickIDs[i]).style.visibility = "visible";
+						}
+						else{
+							document.getElementById(this.xIDs[i]).style.visibility = "visible";
+						}
+					}
 			}
+
 			if(this.studentsAnswerIDs2 != ""){
-				for(var i = 0; i < box2score2; i++){
-					document.getElementById(this.tickIDs2[i]).style.visibility = "visible";
-				}
-				for(var i = box2score2; i < this.studentsAnswerIDs2.length; i++){
-					document.getElementById(this.xIDs2[i]).style.visibility = "visible";
-				}
+				for(var i = 0; i < this.studentsAnswerIDs2.length; i++){
+						if(correctNeums4[i] == 1 && correctPos4[i] == 1){
+							document.getElementById(this.tickIDs2[i]).style.visibility = "visible";
+						}
+						else{
+							document.getElementById(this.xIDs2[i]).style.visibility = "visible";
+						}
+					}
 			}
 			totalScore = score2;
 			console.log("total="+totalScore);
