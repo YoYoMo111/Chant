@@ -779,7 +779,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 		console.log("score2="+score2);
 
 		if(score1 >= score2){
-			if(this.studentsAnswerIDs.length > 0){
+			if(this.studentsAnswerIDs != ""){
 				for(var i = 0; i < box1score1; i++){
 					document.getElementById(this.tickIDs[i]).style.visibility = "visible";
 				}
@@ -800,7 +800,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 			console.log("total="+totalScore);
 		}
 		else if(score1 < score2){
-			if(this.studentsAnswerIDs.length > 0){
+			if(this.studentsAnswerIDs != ""){
 				for(var i = 0; i < box1score2; i++){
 					document.getElementById(this.tickIDs[i]).style.visibility = "visible";
 				}
@@ -808,7 +808,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 					document.getElementById(this.xIDs[i]).style.visibility = "visible";
 				}
 			}
-			if(this.studentsAnswerIDs2.length > 0){
+			if(this.studentsAnswerIDs2 != ""){
 				for(var i = 0; i < box2score2; i++){
 					document.getElementById(this.tickIDs2[i]).style.visibility = "visible";
 				}
