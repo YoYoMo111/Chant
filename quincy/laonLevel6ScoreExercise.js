@@ -52,7 +52,7 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 		document.getElementById("dynamicArea").innerHTML =
 			'<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
 		    '<div id="drag-area">' +
-		    '<div id="laonScoreExAnswer">'+
+		    '<div id="laonScoreExAnswer1">'+
 			'</div>' + 
 			'<div id="symbolSection" class="symbolSectionL6"></div>' +
 			'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
@@ -62,7 +62,7 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 		document.getElementById("dynamicArea").innerHTML =
 			'<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
 		    '<div id="drag-area">' +
-		    '<div id="laonScoreExAnswer" style="border-bottom-style: dashed;">'+
+		    '<div id="laonScoreExAnswer1" style="border-bottom-style: dashed;">'+
 			'</div>' + 
 			'<div id="laonScoreExAnswer2">'+
 			'</div>'+
@@ -139,10 +139,10 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 		/*document.getElementById("symbol_"+i).ondragstart = function(event) {
 	        self.dragStart(event);
 	    };*/
-       document.getElementById("laonScoreExAnswer").ondragover = function(event) {
+       document.getElementById("laonScoreExAnswer1").ondragover = function(event) {
 	        self.allowDrop(event);
 	    };		
-		document.getElementById("laonScoreExAnswer").ondrop = function(event) {
+		document.getElementById("laonScoreExAnswer1").ondrop = function(event) {
 		    self.drop(event);
 
 	    };
@@ -196,9 +196,9 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 				console.log("id:"+this.studentsAnswerIDs);
 				console.log("left:"+this.studentsAnswerIDsLefts);
 				console.log("top:"+this.studentsAnswerIDsTops);
-			document.getElementById("laonScoreExAnswer").innerHTML += this.showNeumWithID(this.studentsAnswerIDs[i]);
+			document.getElementById("laonScoreExAnswer1").innerHTML += this.showNeumWithID(this.studentsAnswerIDs[i]);
 			//document.getElementById("scoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
-			var answer = document.getElementById("laonScoreExAnswer").children;
+			var answer = document.getElementById("laonScoreExAnswer1").children;
 			document.getElementById(answer[i].id).style.left = this.studentsAnswerIDsLefts[i]+'px';	
 			document.getElementById(answer[i].id).style.top = this.studentsAnswerIDsTops[i]+'px';	
 		}
@@ -307,7 +307,7 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 		//ev.target.innerHTML += this.showNeumWithID(symbolID);
 
 		if(ev.pageY < 642){//identify which answer box they put neums,642 will change according to the box height
-			document.getElementById("laonScoreExAnswer").innerHTML += this.showNeumWithID(symbolID);
+			document.getElementById("laonScoreExAnswer1").innerHTML += this.showNeumWithID(symbolID);
 		}
 		else if(ev.pageY > 642){
 			document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
@@ -462,7 +462,7 @@ LaonLevel6ScoreExercise.prototype.saveAnswer = function() {
 	//this.studentsAnswerIDs = [""];
 	//this.studentsAnswerIDsLefts = [""];
 
-	var answer = document.getElementById("laonScoreExAnswer").children;
+	var answer = document.getElementById("laonScoreExAnswer1").children;
 	//console.log("answer children:"+answer[0].children[0].id);
 	this.studentsAnswerIDs = [""];
 	this.studentsAnswerIDsLefts = [""];
@@ -580,21 +580,39 @@ LaonLevel6ScoreExercise.prototype.showRightAnswer = function() {
 		document.getElementById("neum-dropbox_" + i).innerHTML = this.showNeumWithID(this.solutionIDs[i]);
 		document.getElementById("neum-dropbox_" + i).setAttribute("data-neumID", this.solutionIDs[i]);
 	}*/
-	document.getElementById("laonScoreExAnswer").innerHTML = "";
+	document.getElementById("laonScoreExAnswer1").innerHTML = "";
+	if(this.numOfAnswers == 2){
+		document.getElementById("laonScoreExAnswer2").innerHTML = "";
+	}
 	document.getElementById("hint").innerHTML = "";
 	//var l = 67;
 	dropTime=0;
-	for (var i = 0; i < this.solutionIDs.length; i++) {
-		if (this.solutionIDs[i] != "") {
-				//console.log(this.studentsAnswerIDs);
-				//console.log(this.studentsAnswerIDsLefts);
-			document.getElementById("laonScoreExAnswer").innerHTML += this.showNeumWithID(this.solutionIDs[i]);
-			var answer = document.getElementById("laonScoreExAnswer").children;
-			document.getElementById(answer[i].id).style.left = this.solutionRange[i]+'px';
-			//document.getElementById(answer[i].id).style.left = l+'px';		
+	for (var j = 0; j < this.numOfAnswers; j++){
+		for (var i = 0; i < this.solutionIDs[j].length; i++) {
+			if (this.solutionIDs[j][i] != "") {
+					//console.log(this.studentsAnswerIDs);
+					//console.log(this.studentsAnswerIDsLefts);
+				document.getElementById("laonScoreExAnswer"+(j+1)).innerHTML += this.showNeumWithID(this.solutionIDs[j][i]);
+				var answer = document.getElementById("laonScoreExAnswer"+(j+1)).children;
+				if(i == 0 && j == 0){
+					document.getElementById(answer[i].id).style.left = 224 +'px';
+					document.getElementById(answer[i].id).style.top = 185 +'px';	
+				}
+				else if(i == 0 && j != 0){
+					document.getElementById(answer[i].id).style.left = 224 +'px';
+					document.getElementById(answer[i].id).style.top = 335 +'px';
+				}
+				else{
+					//console.log("this.solutionPos:"+this.solutionPos[0][0][0]);
+					//console.log("first left:"+ $(answer[i-1].id).css("left"));
+					//console.log(parseInt(window.getComputedStyle(answer[i-1]).getPropertyValue("left")));
+					document.getElementById(answer[i].id).style.left = (parseInt(window.getComputedStyle(answer[i-1]).getPropertyValue("left"))+ parseInt(this.solutionPos[j][i-1][0]))+'px';
+					document.getElementById(answer[i].id).style.top = (parseInt(window.getComputedStyle(answer[i-1]).getPropertyValue("top")) + parseInt(this.solutionPos[j][i-1][1]))+'px';
+				}
+			}
+			//l = l+60;
+			dropTime++;
 		}
-		//l = l+60;
-		dropTime++;
 	}
 }
 
