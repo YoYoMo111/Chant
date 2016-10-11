@@ -3,14 +3,14 @@
     <score id="0" fileName="laon_6_lesson_1.png" school="laon" level="6" type="lesson" solution="578-589-589" symbolPos="34,-42;22,23" symbolPosRange="32,44,-52,-37;17,32,13,33" />
     <score id="1" fileName="laon_6_lesson_2.png" school="laon" level="6" type="lesson" solution="584-589-625" symbolPos="38,-36;12,65" symbolPosRange="28,48,-46,-31;9,22,55,75" />
 	<score id="2" fileName="laon_6_lesson_3.png" school="laon" level="6" type="lesson" solution="585-584-584" symbolPos="21,-13;26,30" symbolPosRange="16,31,-23,-8;16,36,25,40" />
-    <score id="3" fileName="laon_6_lesson_4.png" school="laon" level="6" type="lesson" solution="578-589-603-636" symbolPos="43,-21;48,-7;67;-15"  symbolPosRange="33,53,-31,-18;38,58,-17,-3;57,77,-25,-5" />
+    <score id="3" fileName="laon_6_lesson_4.png" school="laon" level="6" type="lesson" solution="578-589-603-636" symbolPos="43,-21;48,-7;67,-15"  symbolPosRange="33,53,-31,-18;38,58,-17,-3;57,77,-25,-5" />
 	<score id="4" fileName="laon_6_lesson_5.png" school="laon" level="6" type="lesson" solution="585-586" symbolPos="31,-8" symbolPosRange="21,41,-18,-3" />
     <score id="5" fileName="laon_6_lesson_6.png" school="laon" level="6" type="lesson" solution="595=596" symbolPos="" symbolPosRange="" />
 	<score id="6" fileName="laon_6_lesson_7.png" school="laon" level="6" type="lesson" solution="577-577-587" symbolPos="15,-12;30,-2" symbolPosRange="10,20,-17,-7;25,35,-7,3" />
     <score id="7" fileName="laon_6_lesson_8.png" school="laon" level="6" type="lesson" solution="585-587" symbolPos="38,-16" symbolPosRange="33,48,-26,-11" />
 	<score id="8" fileName="laon_6_lesson_9.png" school="laon" level="6" type="lesson" solution="595-586=596-991" symbolPos="30,18=46,25" symbolPosRange="25,40,13,28=36,56,15,35" />
     <score id="9" fileName="laon_6_lesson_10.png" school="laon" level="6" type="lesson" solution="589-589-578" symbolPos="24,29;13,47" symbolPosRange="19,29,14,39;8,23,37,57" />
-	<score id="10" fileName="laon_6_lesson_11.png" school="laon" level="6" type="lesson" solution="627-578-589" symbolPos="43,-5,35,-30" symbolPosRange="33,53,-10,0;35,40,-40,-25" />
+	<score id="10" fileName="laon_6_lesson_11.png" school="laon" level="6" type="lesson" solution="627-578-589" symbolPos="43,-5;35,-30" symbolPosRange="33,53,-10,0;35,40,-40,-25" />
     <score id="11" fileName="laon_6_lesson_12.png" school="laon" level="6" type="lesson" solution="578-707-578-589-618" symbolPos="41,-34;49,-28;17,10;51,16" symbolPosRange="36,51,-44,-29;39,59,-38,-23;12,27,0,20;41,61,6,26" />
 	<score id="12" fileName="laon_6_lesson_13.png" school="laon" level="6" type="lesson" solution="585-577-577-577" symbolPos="24,-29;13,-13;18,0" symbolPosRange="19,29,-34,-24;8,18,-18,-8;13,23,-2,2" />
     <score id="13" fileName="laon_6_lesson_14.png" school="laon" level="6" type="lesson" solution="618-584-603-618" symbolPos="46,-9;53,-15;57,26" symbolPosRange="36,56,-19,0;33,63,-25,-5;37,67,16,36" />

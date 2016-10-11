@@ -6,32 +6,24 @@ function LaonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolP
 	this.level = level;
 	this.scoreFileName = scoreFileName;
 	this.solution = solution;
-	this.size = solution.split("-").length;
 	this.symbolPos = symbolPos;
 	this.symbolPosRange = symbolPosRange;
 	this.score = 0;
 	this.maxScore = this.size;
-	this.numOfAnswers = 2;
 
 	this.getSolution();
 
 	// Init student answer arrays
 	this.studentsAnswerIDs = new Array();
 	this.studentsAnswerIDsLefts = new Array();
-	this.studentsAnswerNames = new Array();
 	this.tickIDs = new Array();
 	this.xIDs = new Array();
 
 	this.studentsAnswerIDs2 = new Array();
 	this.studentsAnswerIDsLefts2 = new Array();
-	this.studentsAnswerNames2 = new Array();
 	this.tickIDs2 = new Array();
 	this.xIDs2 = new Array();
 
-	for (var i = 0; i < this.size; i++) {
-        //this.studentsAnswerIDs.push("");
-        this.studentsAnswerNames.push("");
-	}
 	
 	this.neums = [578, 589, 584, 625, 585, 603, 636, 586,
 				  595, 596, 577, 587, 627, 618, 707, 720,
@@ -46,6 +38,10 @@ var dropTime = 0;
 var insideSymbolID = [];
 
 LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
+	//console.log(this.solutionPos);
+	console.log(this.solutionRange);
+
+
 	var str = "Question " + index + " of " + numOfQuestions + ": Drag the neums to the box to match the notes in the score.";
 
 
@@ -409,18 +405,52 @@ LaonLevel6ScoreExercise.prototype.deleteNeum = function(ev) {
 
 LaonLevel6ScoreExercise.prototype.getSolution = function() {//get the right answers.
 	//this.solutionIDs = this.solution.split("-");
-	//this.solutionPos = this.symbolPos.split("-"); 
-	this.solutionIDs = ["577","578","584"]; 
-	this.solutionPos = [
+	//this.solutionRange = this.symbolPos.split("-"); 
+	/*this.solutionIDs = ["577","578","584"]; 
+	this.solutionRange = [
 						[30,60,30,60],
 						[30,60,30,60]
 					   ];
 	this.solutionIDs2 = ["585","586","587"]; 
-	this.solutionPos2 = [
+	this.solutionRange2 = [
 						[30,60,30,60],
 						[30,60,30,60]
-					   ];
+					   ];*/
+
+	var strings = this.solution.split("=");
+	this.numOfAnswers = strings.length;
+	this.solutionIDs = new Array();
+	for (var i = 0; i < this.numOfAnswers; i++) {
+		this.solutionIDs[i] = strings[i].split("-");
+
+	}
+
+	this.size = this.solutionIDs[0].length;
+
+	strings = this.symbolPos.split("=");
+	var strings2 = this.symbolPosRange.split("=");
+	this.solutionPos = new Array();
+	this.solutionRange = new Array();
+	for (var i = 0; i < this.numOfAnswers; i++) {
+		if (strings[i] != null) {
+			this.solutionPos[i] = [];
+			this.solutionRange[i] = [];
+			var temp = strings[i].split(";");
+			var temp2 = strings2[i].split(";");
+			if (temp[0] != "") {
+				for (var j = 0; j < temp.length; j++) {
+					this.solutionPos[i].push(temp[j].split(","));
+					this.solutionRange[i].push(temp2[j].split(","));
+				}
+			}
+		}
+		else {
+			this.solutionPos[i] = null;
+			this.solutionRange[i] = null;
+		}
+	}
 }
+
 
 LaonLevel6ScoreExercise.prototype.saveAnswer = function() {
 	// Save student's answers - neum IDs and names
@@ -520,7 +550,7 @@ LaonLevel6ScoreExercise.prototype.saveAnswer = function() {
 				this.xIDs2[i+1] = this.xIDs2[i];
 				this.xIDs2[i] = temp4;
 
-				var temp5 = this.studentsAnswerIDsTops[i+1];
+				var temp5 = this.studentsAnswerIDsTops2[i+1];
 				this.studentsAnswerIDsTops2[i+1] = this.studentsAnswerIDsTops2[i];
 				this.studentsAnswerIDsTops2[i] = temp5;
 				i = i - 2;
@@ -560,7 +590,7 @@ LaonLevel6ScoreExercise.prototype.showRightAnswer = function() {
 				//console.log(this.studentsAnswerIDsLefts);
 			document.getElementById("laonScoreExAnswer").innerHTML += this.showNeumWithID(this.solutionIDs[i]);
 			var answer = document.getElementById("laonScoreExAnswer").children;
-			document.getElementById(answer[i].id).style.left = this.solutionPos[i]+'px';
+			document.getElementById(answer[i].id).style.left = this.solutionRange[i]+'px';
 			//document.getElementById(answer[i].id).style.left = l+'px';		
 		}
 		//l = l+60;
@@ -610,7 +640,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 	if(this.numOfAnswers == 1){//check if it is right neum
 		if (this.studentsAnswerIDs != "") {//has answer
 			for (var i = 0; i < this.studentsAnswerIDs.length; i++){
-					if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
+					if (this.studentsAnswerIDs[i] == this.solutionIDs[0][i]) {    // answer is right
 					   correctNeums1.push(1);
 					   correctNum1++;
 					}
@@ -626,14 +656,14 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 					document.getElementById(this.tickIDs[0]).style.visibility = "visible";
 					totalScore = 1;
 				}
-				else if(this.studentsAnswerIDs.length >= 2){
+				else if(this.studentsAnswerIDs.length >= 2){//2 & more right neums
 					for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
 
 						var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
 						var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
 
-						if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
-							dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
+						if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
+							dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3]){
 								correctPos1.push(1);
 						}
 						else{
@@ -665,7 +695,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 		//check box1
 		if (this.studentsAnswerIDs != "") {//has answer
 			for (var i = 0; i < this.studentsAnswerIDs.length; i++){
-					if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
+					if (this.studentsAnswerIDs[i] == this.solutionIDs[0][i]) {    // answer is right
 					   correctNeums1.push(1);
 					   correctNum1++;
 					}
@@ -688,8 +718,8 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
 							var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
 
-							if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
-								dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
+							if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
+								dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3]){
 									correctPos1.push(1);
 							}
 							else{
@@ -709,7 +739,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 		//check box2
 		if (this.studentsAnswerIDs2 != "") {//has answer
 			for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
-					if (this.studentsAnswerIDs2[i] == this.solutionIDs2[i]) {    // answer is right
+					if (this.studentsAnswerIDs2[i] == this.solutionIDs[1][i]) {    // answer is right
 					   correctNeums2.push(1);
 					   correctNum2++;
 					}
@@ -732,8 +762,8 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 							var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
 							var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
 
-							if (dx > this.solutionPos2[i-1][0] && dx < this.solutionPos2[i-1][1] &&
-								dy > this.solutionPos2[i-1][2] && dy < this.solutionPos2[i-1][3]){
+							if (dx > this.solutionRange[1][i-1][0] && dx < this.solutionRange[1][i-1][1] &&
+								dy > this.solutionRange[1][i-1][2] && dy < this.solutionRange[1][i-1][3]){
 									correctPos2.push(1);
 							}
 							else{
@@ -760,7 +790,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 		//check box1
 		if (this.studentsAnswerIDs != "") {//has answer
 			for (var i = 0; i < this.studentsAnswerIDs.length; i++){
-					if (this.studentsAnswerIDs[i] == this.solutionIDs2[i]) {    // answer is right
+					if (this.studentsAnswerIDs[i] == this.solutionIDs[1][i]) {    // answer is right
 					   correctNeums3.push(1);
 					   correctNum3++;
 					}
@@ -783,8 +813,8 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
 							var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
 
-							if (dx > this.solutionPos2[i-1][0] && dx < this.solutionPos2[i-1][1] &&
-								dy > this.solutionPos2[i-1][2] && dy < this.solutionPos2[i-1][3]){
+							if (dx > this.solutionRange[1][i-1][0] && dx < this.solutionRange[1][i-1][1] &&
+								dy > this.solutionRange[1][i-1][2] && dy < this.solutionRange[1][i-1][3]){
 									correctPos3.push(1);
 							}
 							else{
@@ -804,7 +834,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 		//check box2
 		if (this.studentsAnswerIDs2 != "") {//has answer
 			for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
-					if (this.studentsAnswerIDs2[i] == this.solutionIDs[i]) {    // answer is right
+					if (this.studentsAnswerIDs2[i] == this.solutionIDs[0][i]) {    // answer is right
 					   correctNeums4.push(1);
 					   correctNum4++;
 					}
@@ -827,8 +857,8 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 							var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
 							var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
 
-							if (dx > this.solutionPos[i-1][0] && dx < this.solutionPos[i-1][1] &&
-								dy > this.solutionPos[i-1][2] && dy < this.solutionPos[i-1][3]){
+							if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
+								dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3]){
 									correctPos4.push(1);
 							}
 							else{
@@ -904,7 +934,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 
 	}
 
-	if(this.studentsAnswerIDs.length < this.solutionIDs.length){
+	if(this.studentsAnswerIDs.length < this.solutionIDs[0].length || this.studentsAnswerIDs2.length < this.solutionIDs[1].length){
 		document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable"><div class="hint-no-table">More neums are expected.</div></table></div>';
 	}
 	else {
