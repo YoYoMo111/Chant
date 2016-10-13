@@ -39,7 +39,7 @@ var insideSymbolID = [];
 
 LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 	//console.log(this.solutionPos);
-	console.log(this.solutionRange);
+	//console.log(this.solutionRange);
 
 
 	var str = "Question " + index + " of " + numOfQuestions + ": Drag the neums to the box to match the notes in the score.";
@@ -295,7 +295,7 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 	}
 
 	var imageID = ev.dataTransfer.getData("text/html");
-	//console.log("imageID =" + imageID);
+	console.log("imageID1 =" + imageID);
 	var left1 = (ev.pageX-(($(document).width()-1096)/2+235)) - offsetX1;
 	var left2 = (ev.pageX-(($(document).width()-1096)/2+235)) - offsetX2;//for drag and drop in the answerbox
 
@@ -309,7 +309,7 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 		if(ev.pageY < 642){//identify which answer box they put neums,642 will change according to the box height
 			document.getElementById("laonScoreExAnswer1").innerHTML += this.showNeumWithID(symbolID);
 		}
-		else if(ev.pageY > 642){
+		else if(ev.pageY >= 642){
 			document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 		}
 		//document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
@@ -320,6 +320,12 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 		}
 		else if(left1 < 127){
 			left1 = 127;
+		}
+		if(top1 >= 234 && top1 < 296 && ev.pageY < 642){
+			top1 = 234;
+		}
+		else if(top1 >= 234 && top1 < 296 && ev.pageY >= 642){
+			top1 = 297;
 		}
 		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = left1+'px';
 		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.top = top1+'px';
@@ -335,21 +341,38 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 		};*/
 		dropTime++;
 	}
-	else{
+	else{//drop from box to somewhere else in the box
 		if(left2 > 675){
 			left2 = 675;
 		}
 		else if(left2 < 127){
 			left2 = 127;
 		}
-		
-		//console.log("imageID =" + imageID.substring(imageID.indexOf("symbol")));
+		if(top2 >= 234 && top2 < 296 && ev.pageY < 642){
+			top2 = 234;
+		}
+		else if(top2 >= 234 && top2 < 296 && ev.pageY >= 642){
+			top2 = 297;
+		}
+		console.log("imageID =" + imageID.substring(imageID.indexOf("symbol")));
 		//document.getElementById(imageID).style.left = left2+'px';
-		$("#"+imageID.substring(imageID.indexOf("symbol"))).css('left',left2);//in chrome, imageID has meta tag, so we use substring
-		$("#"+imageID.substring(imageID.indexOf("symbol"))).css('top',top2);
+		var symbolID = parseInt(imageID.substring(imageID.indexOf("symbol")+17));
+		Remove(imageID.substring(imageID.indexOf("symbol")));
+		console.log("symbolID:" + symbolID);
+		if(ev.pageY < 642){//identify which answer box they put neums,642 will change according to the box height
+			document.getElementById("laonScoreExAnswer1").innerHTML += this.showNeumWithID(symbolID);
+		}
+		else if(ev.pageY >= 642){
+			document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
+		}
+
+		console.log("IDIDID:"+imageID.substring(imageID.indexOf("symbol"),imageID.indexOf("copy")+5)+dropTime);
+		$("#"+imageID.substring(imageID.indexOf("symbol"),imageID.indexOf("copy")+5)+dropTime).css('left',left2);//in chrome, imageID has meta tag, so we use substring
+		$("#"+imageID.substring(imageID.indexOf("symbol"),imageID.indexOf("copy")+5)+dropTime).css('top',top2);
 		console.log("left="+((ev.pageX-(($(document).width()-1096)/2+235)) - offsetX2) );
 		console.log("top="+top2);
 		//console.log("window width:"+((ev.clientX-((window.innerWidth-15-1096)/2+235)) - offset));	
+		dropTime++;
 
 	}
 }
@@ -455,7 +478,7 @@ LaonLevel6ScoreExercise.prototype.getSolution = function() {//get the right answ
 				}
 			}
 			else {
-				this.solutionRange[i] = null;
+				this.solutionRange[i] = "";
 			}
 	}
 }
@@ -684,20 +707,23 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 					totalScore = 1;
 				}
 				else if(this.studentsAnswerIDs.length >= 2){//2 & more right neums
-					/*for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
+					/*
+					for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
 
 							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
 							var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
 
 							if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
-								dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3]){
+								     dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3]){
 									correctPos1.push(1);
 							}
 							else{
 								correctPos1.push(0);
 							}
-						}*/
+						}
+						*/
 					//-----	
+					/*
 					if(this.studentsAnswerIDs.length <= this.solutionRange[0].length+1){//student answer num = right answer num
 						for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
 
@@ -728,8 +754,34 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 						for(var i = this.solutionRange[0].length+1; i < this.studentsAnswerIDs.length; i++){
 							correctPos1.push(0);
 						}
+					}*/
+
+					//------V3
+					if(this.studentsAnswerIDs.length <= this.solutionRange[0].length+1){
+						var tem = this.studentsAnswerIDs.length;
 					}
-					
+					else if(this.studentsAnswerIDs.length > this.solutionRange[0].length+1){
+						tem = this.solutionRange[0].length+1
+					}
+
+					for (var i = 1; i < tem; i++){//check if it is right position
+
+							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+							var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+								if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
+									dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3] ){
+										correctPos1.push(1);
+								}
+								else{
+									correctPos1.push(0);
+								}
+						}
+					if(this.studentsAnswerIDs.length > this.solutionRange[0].length+1){
+						for(var i = this.solutionRange[0].length+1; i < this.studentsAnswerIDs.length; i++){
+							correctPos1.push(0);
+						}
+					}
+				
 					//-----
 					console.log("correctPos1 = "+correctPos1);
 					for(var i = 0; i < this.studentsAnswerIDs.length; i++){
@@ -774,6 +826,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 						box1score1 = 1;
 					}
 					else if(this.studentsAnswerIDs.length >= 2){
+						/*
 						for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
 
 							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
@@ -787,12 +840,39 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 								correctPos1.push(0);
 							}
 						}
+						*/
+						if(this.studentsAnswerIDs.length <= this.solutionRange[0].length+1){
+							var tem = this.studentsAnswerIDs.length;
+						}
+						else if(this.studentsAnswerIDs.length > this.solutionRange[0].length+1){
+							tem = this.solutionRange[0].length+1
+						}
+
+						for (var i = 1; i < tem; i++){//check if it is right position
+
+								var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+								var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+									if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
+										dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3] ){
+											correctPos1.push(1);
+									}
+									else{
+										correctPos1.push(0);
+									}
+							}
+						if(this.studentsAnswerIDs.length > this.solutionRange[0].length+1){
+							for(var i = this.solutionRange[0].length+1; i < this.studentsAnswerIDs.length; i++){
+								correctPos1.push(0);
+							}
+						}
+						//------
 						console.log("correctPos1 = "+correctPos1);
 						for(var i = 0; i < this.studentsAnswerIDs.length; i++){
 							if(correctNeums1[i] == 1 && correctPos1[i] == 1){
 								box1score1++;
 							}
 						}
+
 					}
 			}
 		}
@@ -818,6 +898,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 							box2score1 = 1;
 						}
 					else if(this.studentsAnswerIDs2.length >= 2){
+						/*
 						for (var i = 1; i < this.studentsAnswerIDs2.length; i++){//check if it is right position
 
 							var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
@@ -831,6 +912,34 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 								correctPos2.push(0);
 							}
 						}
+						*/
+						console.log("this.solutionRange[0]="+this.solutionRange[0]);
+						if(this.studentsAnswerIDs2.length <= this.solutionRange[1].length+1){
+						var tem = this.studentsAnswerIDs2.length;
+						}
+						else if(this.studentsAnswerIDs2.length > this.solutionRange[1].length+1){
+							tem = this.solutionRange[1].length+1
+						}
+
+						for (var i = 1; i < tem; i++){//check if it is right position
+
+								var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
+								var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
+									if (dx > this.solutionRange[1][i-1][0] && dx < this.solutionRange[1][i-1][1] &&
+										dy > this.solutionRange[1][i-1][2] && dy < this.solutionRange[1][i-1][3] ){
+											correctPos2.push(1);
+									}
+									else{
+										correctPos2.push(0);
+									}
+							}
+						if(this.studentsAnswerIDs2.length > this.solutionRange[1].length+1){
+							for(var i = this.solutionRange[1].length+1; i < this.studentsAnswerIDs2.length; i++){
+								correctPos2.push(0);
+							}
+						}
+						//-----
+
 						console.log("correctPos2 = "+correctPos2);
 						for(var i = 0; i < this.studentsAnswerIDs2.length; i++){
 							if(correctNeums2[i] == 1 && correctPos2[i] == 1){
@@ -869,6 +978,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 						box1score2 = 1;
 					}
 					else if(this.studentsAnswerIDs.length >= 2){
+						/*
 						for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
 
 							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
@@ -882,6 +992,34 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 								correctPos3.push(0);
 							}
 						}
+						*/
+
+						if(this.studentsAnswerIDs.length <= this.solutionRange[1].length+1){
+						var tem = this.studentsAnswerIDs.length;
+						}
+						else if(this.studentsAnswerIDs.length > this.solutionRange[1].length+1){
+							tem = this.solutionRange[1].length+1
+						}
+
+						for (var i = 1; i < tem; i++){//check if it is right position
+
+								var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+								var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+									if (dx > this.solutionRange[1][i-1][0] && dx < this.solutionRange[1][i-1][1] &&
+										dy > this.solutionRange[1][i-1][2] && dy < this.solutionRange[1][i-1][3] ){
+											correctPos3.push(1);
+									}
+									else{
+										correctPos3.push(0);
+									}
+							}
+						if(this.studentsAnswerIDs.length > this.solutionRange[1].length+1){
+							for(var i = this.solutionRange[1].length+1; i < this.studentsAnswerIDs.length; i++){
+								correctPos3.push(0);
+							}
+						}
+						//-----
+
 						console.log("correctPos3 = "+correctPos3);
 						for(var i = 0; i < this.studentsAnswerIDs.length; i++){
 							if(correctNeums3[i] == 1 && correctPos3[i] == 1){
@@ -913,6 +1051,7 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 							box2score2 = 1;
 						}
 					else if(this.studentsAnswerIDs2.length >= 2){
+						/*
 						for (var i = 1; i < this.studentsAnswerIDs2.length; i++){//check if it is right position
 
 							var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
@@ -926,6 +1065,33 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 								correctPos4.push(0);
 							}
 						}
+						*/
+						if(this.studentsAnswerIDs2.length <= this.solutionRange[0].length+1){
+						var tem = this.studentsAnswerIDs2.length;
+						}
+						else if(this.studentsAnswerIDs2.length > this.solutionRange[0].length+1){
+							tem = this.solutionRange[0].length+1
+						}
+
+						for (var i = 1; i < tem; i++){//check if it is right position
+
+								var dx = this.studentsAnswerIDsLefts2[i] - this.studentsAnswerIDsLefts2[i-1];
+								var dy = this.studentsAnswerIDsTops2[i] - this.studentsAnswerIDsTops2[i-1];
+									if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
+										dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3] ){
+											correctPos4.push(1);
+									}
+									else{
+										correctPos4.push(0);
+									}
+							}
+						if(this.studentsAnswerIDs2.length > this.solutionRange[0].length+1){
+							for(var i = this.solutionRange[0].length+1; i < this.studentsAnswerIDs2.length; i++){
+								correctPos4.push(0);
+							}
+						}
+
+
 						console.log("correctPos4 = "+correctPos4);
 						for(var i = 0; i < this.studentsAnswerIDs2.length; i++){
 							if(correctNeums4[i] == 1 && correctPos4[i] == 1){
