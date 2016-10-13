@@ -18,7 +18,7 @@ function LevelTest(school, level, groups) {
 	for (var i = 0; i < groups.length; i++) {		
 	    var n = Math.ceil(exerciseGroups[i].exercises.length * N / totalNumber);
 	    exerciseGroups[i].exercises.splice(n, exerciseGroups[i].exercises.length - n);
-//		this.exercises = this.exercises.concat(exerciseGroups[i].exercises);
+		this.exercises = this.exercises.concat(exerciseGroups[i].exercises);
 	}
 	this.exercises.splice(N, this.exercises.length - N);
     
@@ -85,7 +85,7 @@ function LevelTest(school, level, groups) {
 					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
 					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
 					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-					this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+					this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, mechanism));
 				}
 			}
 		}
@@ -96,7 +96,7 @@ function LevelTest(school, level, groups) {
 					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
 					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
 					var symbolPosRange = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPosRange");
-					this.exercises.push(new LaonLevel6ScoreExercise(this.school, this.level, scoreFileName, solution, symbolPos, symbolPosRange, this.mechanism));
+					this.exercises.push(new LaonLevel6ScoreExercise(this.school, this.level, scoreFileName, solution, symbolPos, symbolPosRange, mechanism));
 				}
 			}
 		}
@@ -104,7 +104,7 @@ function LevelTest(school, level, groups) {
 	
 	// Combine N regular exercises and 2 score exercises
 	this.exercises = this.exercises.concat(scoreExercises);
-//	this.exercises = shuffle(this.exercises);
+	this.exercises = shuffle(this.exercises);
 	this.numOfQuestions = this.exercises.length;
 	
 	this.exercises.splice(0, 0, new IntroPage(school, level, groups.length + 2));

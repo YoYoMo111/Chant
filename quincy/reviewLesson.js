@@ -5,7 +5,7 @@ function ReviewLesson(school, level, groups) {
 	// Compile exercises of all groups in this level
 	for (var i = 0; i < groups.length; i++) {		
 		var exerciseGroup = new ExerciseGroup(school, level, groups[i], mechanism, 0);
-//		this.exercises = this.exercises.concat(exerciseGroup.exercises);
+		this.exercises = this.exercises.concat(exerciseGroup.exercises);
 	}
     
 	// Add review score exercises
@@ -70,7 +70,7 @@ function ReviewLesson(school, level, groups) {
 					var scoreFileName = scoreInfo.getElementsByTagName("score")[i].getAttribute("fileName");
 					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
 					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
-					this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, this.mechanism));
+					this.exercises.push(new ScoreExercise2(this.school, this.level, scoreFileName, solution, symbolPos, mechanism));
 				}
 			}
 		}
@@ -81,7 +81,7 @@ function ReviewLesson(school, level, groups) {
 					var solution = scoreInfo.getElementsByTagName("score")[i].getAttribute("solution");
 					var symbolPos = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPos");
 					var symbolPosRange = scoreInfo.getElementsByTagName("score")[i].getAttribute("symbolPosRange");
-					this.exercises.push(new LaonLevel6ScoreExercise(this.school, this.level, scoreFileName, solution, symbolPos, symbolPosRange, this.mechanism));
+					this.exercises.push(new LaonLevel6ScoreExercise(this.school, this.level, scoreFileName, solution, symbolPos, symbolPosRange, mechanism));
 				}
 			}
 		}
