@@ -434,20 +434,29 @@ LaonLevel6ScoreExercise.prototype.getSolution = function() {//get the right answ
 	for (var i = 0; i < this.numOfAnswers; i++) {
 		if (strings[i] != null) {
 			this.solutionPos[i] = [];
-			this.solutionRange[i] = [];
 			var temp = strings[i].split(";");
-			var temp2 = strings2[i].split(";");
 			if (temp[0] != "") {
 				for (var j = 0; j < temp.length; j++) {
 					this.solutionPos[i].push(temp[j].split(","));
-					this.solutionRange[i].push(temp2[j].split(","));
 				}
 			}
 		}
 		else {
 			this.solutionPos[i] = null;
-			this.solutionRange[i] = null;
 		}
+
+		if (strings2[i] != null) {
+				this.solutionRange[i] = [];
+				var temp2 = strings2[i].split(";");
+			if (temp2[0] != "") {
+					for (var j = 0; j < temp2.length; j++) {
+						this.solutionRange[i].push(temp2[j].split(","));
+					}
+				}
+			}
+			else {
+				this.solutionRange[i] = null;
+			}
 	}
 }
 
@@ -594,20 +603,20 @@ LaonLevel6ScoreExercise.prototype.showRightAnswer = function() {
 					//console.log(this.studentsAnswerIDsLefts);
 				document.getElementById("laonScoreExAnswer"+(j+1)).innerHTML += this.showNeumWithID(this.solutionIDs[j][i]);
 				var answer = document.getElementById("laonScoreExAnswer"+(j+1)).children;
-				if(i == 0 && j == 0){
-					document.getElementById(answer[i].id).style.left = 224 +'px';
-					document.getElementById(answer[i].id).style.top = 185 +'px';	
+				if(i == 0 /*&& j == 0*/){
+					document.getElementById(answer[i].id).style.left = parseInt(this.solutionPos[j][i][0]) +'px';
+					document.getElementById(answer[i].id).style.top = parseInt(this.solutionPos[j][i][1]) +'px';	
 				}
-				else if(i == 0 && j != 0){
+				/*else if(i == 0 && j != 0){
 					document.getElementById(answer[i].id).style.left = 224 +'px';
 					document.getElementById(answer[i].id).style.top = 335 +'px';
-				}
+				}*/
 				else{
 					//console.log("this.solutionPos:"+this.solutionPos[0][0][0]);
 					//console.log("first left:"+ $(answer[i-1].id).css("left"));
 					//console.log(parseInt(window.getComputedStyle(answer[i-1]).getPropertyValue("left")));
-					document.getElementById(answer[i].id).style.left = (parseInt(window.getComputedStyle(answer[i-1]).getPropertyValue("left"))+ parseInt(this.solutionPos[j][i-1][0]))+'px';
-					document.getElementById(answer[i].id).style.top = (parseInt(window.getComputedStyle(answer[i-1]).getPropertyValue("top")) + parseInt(this.solutionPos[j][i-1][1]))+'px';
+					document.getElementById(answer[i].id).style.left = (parseInt(window.getComputedStyle(answer[i-1]).getPropertyValue("left"))+ parseInt(this.solutionPos[j][i][0]))+'px';
+					document.getElementById(answer[i].id).style.top = (parseInt(window.getComputedStyle(answer[i-1]).getPropertyValue("top")) + parseInt(this.solutionPos[j][i][1]))+'px';
 				}
 			}
 			//l = l+60;
@@ -675,19 +684,53 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 					totalScore = 1;
 				}
 				else if(this.studentsAnswerIDs.length >= 2){//2 & more right neums
-					for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
+					/*for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
 
-						var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
-						var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+							var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
 
-						if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
-							dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3]){
-								correctPos1.push(1);
+							if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
+								dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3]){
+									correctPos1.push(1);
+							}
+							else{
+								correctPos1.push(0);
+							}
+						}*/
+					//-----	
+					if(this.studentsAnswerIDs.length <= this.solutionRange[0].length+1){//student answer num = right answer num
+						for (var i = 1; i < this.studentsAnswerIDs.length; i++){//check if it is right position
+
+							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+							var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+								if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
+									dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3] ){
+										correctPos1.push(1);
+								}
+								else{
+									correctPos1.push(0);
+								}
 						}
-						else{
+					}
+					else if(this.studentsAnswerIDs.length > this.solutionRange[0].length+1){//student answer num > right answer num
+						for (var i = 1; i < this.solutionRange[0].length+1; i++){//check if it is right position
+
+							var dx = this.studentsAnswerIDsLefts[i] - this.studentsAnswerIDsLefts[i-1];
+							var dy = this.studentsAnswerIDsTops[i] - this.studentsAnswerIDsTops[i-1];
+								if (dx > this.solutionRange[0][i-1][0] && dx < this.solutionRange[0][i-1][1] &&
+									dy > this.solutionRange[0][i-1][2] && dy < this.solutionRange[0][i-1][3] ){
+										correctPos1.push(1);
+								}
+								else{
+									correctPos1.push(0);
+								}
+						}
+						for(var i = this.solutionRange[0].length+1; i < this.studentsAnswerIDs.length; i++){
 							correctPos1.push(0);
 						}
 					}
+					
+					//-----
 					console.log("correctPos1 = "+correctPos1);
 					for(var i = 0; i < this.studentsAnswerIDs.length; i++){
 						if(correctNeums1[i] == 1 && correctPos1[i] == 1){
