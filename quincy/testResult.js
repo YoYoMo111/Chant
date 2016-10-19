@@ -8,6 +8,7 @@ function TestResult() {
 						 "Select the modern equivalent(s) of the given neum",
 						 "TBD",
 						 "TBD",
+						 "Drag the neums to the box to match the notes in the score.",
 						 "Drag the neums to the box to match the notes in the score."];
 }
 
@@ -115,10 +116,16 @@ TestResult.prototype.show = function(exercises) {
 			html += str.substr(0, str.length - 2);
 			tableHTML += html;	
 		}
-		// working
+		
 		else if (exercises[i].type == 10) {
+			tableHTML += '<img class=test-result-symbol src="quincy/img/transparent.png"><br>';
 			tableHTML += '<img class="result-score-image" src="quincy/scores/' + exercises[i].scoreFileName + '"><br>';
 			tableHTML += this.showSymbolAnswers(exercises[i]);
+		}
+		else if (exercises[i].type == 11){
+			tableHTML += '<img class=test-result-symbol src="quincy/img/transparent.png"><br>';
+			tableHTML += '<img class="result-score-image" src="quincy/scores/' + exercises[i].scoreFileName + '"><br>';
+			tableHTML += this.showLaonLevel6Answers(exercises[i]);
 		}
 		
 		tableHTML += '</td><td class=MyScore>' + exercises[i].score + '</td></tr>';//yoyo add class my score
@@ -140,6 +147,36 @@ TestResult.prototype.showQuestionSymbol = function(exercise) {
 		    exercise.symbolDB.symbols[exercise.questionSymbolID].level + '/Group_' +
 		    exercise.symbolDB.symbols[exercise.questionSymbolID].group + '/' +
 		    exercise.symbolDB.symbols[exercise.questionSymbolID].fileName + '"><br>';
+}
+
+TestResult.prototype.showLaonLevel6Answers = function(exercise) {
+	if(exercise.numOfAnswers == 1){	
+		var html = "<table><tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+		if (exercise.studentsAnswerIDs != "") {
+			//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
+			for (var i = 0; i < exercise.studentsAnswerIDs.length; i++) {
+			html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+			        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].school + '/Level_' +
+			        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].level + '/Group_' +
+			        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].group + '/' +
+			        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].fileName + '">';
+			}
+		}
+		html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+		//var solutionSymbolIDs = exercise.solution.split("-");
+		for (var i = 0; i < exercise.solutionIDs[0].length; i++) {
+			html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+			        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].school + '/Level_' +
+			        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].level + '/Group_' +
+			        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].group + '/' +
+			        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].fileName + '">';
+		}
+		html += "</td></tr></table>";
+	}
+	else if(exercise.numOfAnswers == 2){
+		
+	}
+	return html;
 }
 
 TestResult.prototype.showSymbolAnswers = function(exercise) {	
