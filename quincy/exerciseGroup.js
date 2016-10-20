@@ -3,7 +3,7 @@ function ExerciseGroup(school, level, group, mechanism, mode) {
 	this.level = level;
 	this.group = group;
 	this.mechanism = mechanism;
-	
+		
 	// Load symbol database
 	var xmlhttp;
 	if (window.XMLHttpRequest) {    // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -17,46 +17,52 @@ function ExerciseGroup(school, level, group, mechanism, mode) {
 	this.data = xmlhttp.responseXML;
 	var numOfSymbols = this.data.getElementsByTagName("symbol").length;
 	
-	// Get number of neums of the given group, level, school for level 1-5
-	if (level < 6) {
-		var i = 0;
-		for(; i < numOfSymbols; i++) {
-			if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&
-				this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
-				this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
-				this.indexOfFirstNeum = i++;
-				break;
+	// Get number of neums of the given group, level, school for Gall and Laon level 1-5
+	if (school != "Combination") {
+		if (level < 6) {
+			var i = 0;
+			for(; i < numOfSymbols; i++) {
+				if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&
+					this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
+					this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
+					this.indexOfFirstNeum = i++;
+					break;
+				}
 			}
-		}
-		while (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&
-			   this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
-			   this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
-			i++;
-		}
-		this.groupNeumCount = i - this.indexOfFirstNeum;
-		
-		// Get number of modern equivalents
-		for(; i < numOfSymbols; i++) {
-			if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school + "Modern" &&
-				this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
-				this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
-				this.indexOfFirstModernEquivalent = i++;
-				break;
+			while (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school &&
+				   this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
+				   this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
+				i++;
 			}
+			this.groupNeumCount = i - this.indexOfFirstNeum;
+			
+			// Get number of modern equivalents
+			for(; i < numOfSymbols; i++) {
+				if (this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school + "Modern" &&
+					this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
+					this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
+					this.indexOfFirstModernEquivalent = i++;
+					break;
+				}
+			}
+			while (i < numOfSymbols &&
+				   this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school + "Modern" &&
+				   this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
+				   this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
+				i++;
+			}
+			this.modernEquivalentsCount = i - this.indexOfFirstModernEquivalent;
 		}
-		while (i < numOfSymbols &&
-			   this.data.getElementsByTagName("symbol")[i].getAttribute("school") == school + "Modern" &&
-			   this.data.getElementsByTagName("symbol")[i].getAttribute("level") == level &&
-			   this.data.getElementsByTagName("symbol")[i].getAttribute("group") == group) {
-			i++;
-		}
-		this.modernEquivalentsCount = i - this.indexOfFirstModernEquivalent;
+		this.createLaonAndGallExercises(mode);
 	}
 	
-	this.createExercises(mode);
+	// Combined exercises
+	else {
+		this.createCombinedExercises(mode);
+	}
 }
 
-ExerciseGroup.prototype.createExercises = function(mode) {
+ExerciseGroup.prototype.createLaonAndGallExercises = function(mode) {
 	this.exercises = new Array();
 	
 	if (this.level == 1) {
@@ -264,6 +270,28 @@ ExerciseGroup.prototype.createExercises = function(mode) {
 	else if (mode == 2) {
 	    this.exercises = shuffle(this.exercises);
 	}
+}
+
+ExerciseGroup.prototype.createCombinedExercises = function(mode) {
+	stGallNeums = [[6, 7, 10, 11, 12, 13, 14, 15, 16, 18, 21, 22, 23]];
+	
+	laonNeums = [[581, 582, 583, 585, 586, 587, 588, 589, 592, 594, 595, 596, 597, 601]];
+	
+	this.exercises = new Array();
+	
+	// Given St Gall neum, select Laon neums to match
+	for (var i = 0; i < stGallNeums[this.level-1].length; i++) {
+		this.exercises.push(new CombinedMultipleChoiceExercise("Laon", this.level, stGallNeums[this.level-1][i], this.mechanism));
+	}
+	
+	// Given Laon neum, select St Gall neums to match
+	for (var i = 0; i < laonNeums[this.level-1].length; i++) {
+		this.exercises.push(new CombinedMultipleChoiceExercise("StGall", this.level, laonNeums[this.level-1][i], this.mechanism));
+	}
+	
+	// Add intro and end pages
+	this.exercises.splice(0, 0, new IntroPage(this.school, this.level, this.group));
+	this.exercises.push(new EndPage(this.school, this.level, this.group));
 }
 
 function nameExists(array, name) {

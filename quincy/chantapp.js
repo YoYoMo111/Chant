@@ -24,8 +24,18 @@ function ChantApp(container_div_id) {
 
 //NOTE: For St. Gall school = 1, for Laon school = 2
 ChantApp.prototype.initLesson = function(school, level, group) {
-	this.school = (school == 1) ? "StGall" : "Laon";
-	this.schoolTitle = (school == 1) ? "St. Gall" : "Laon";
+	if (school == 1) {
+		this.school = "StGall";
+		this.schoolTitle = "St. Gall";
+	}
+	else if (school == 2) {
+		this.school = "Laon";
+		this.schoolTitle = "Laon";
+	}
+	else {
+		this.school = "Combination";
+		this.schoolTitle = "Combination";
+	}
 	this.level = level;
 	this.group = group;
 	this.lesson = new Lesson(this.school, level, group);
