@@ -9,9 +9,9 @@ function LaonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolP
 	this.symbolPos = symbolPos;
 	this.symbolPosRange = symbolPosRange;
 	this.score = 0;
-	this.score1;
-	this.score2;
-	
+	this.score1 = 0;
+	this.score2 = 0
+	this.startGrade = 0	
 
 	this.getSolution();
 
@@ -766,7 +766,6 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 				//totalScore = 0;
 			}
 			this.score = totalScore;
-			console.log("this score:" + this.score);
 		}
 	}
 	//two answer box
@@ -828,8 +827,9 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 
 					}
 			}
+			console.log("box1score1="+box1score1);
 		}
-		console.log("box1score1="+box1score1);
+		
 		//check box2
 		if (this.studentsAnswerIDs2 != "") {//has answer
 			for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
@@ -902,11 +902,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 					}
 				
 			}
+			console.log("box2score1="+box2score1);
+			score1 = box1score1 + box2score1;
+			console.log("score1="+score1);
 		}
-
-		console.log("box2score1="+box2score1);
-		score1 = box1score1 + box2score1;
-		console.log("score1="+score1);
 
 		
 		//reverse check-------------------------------
@@ -981,8 +980,9 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 						}
 					}
 			}
+			console.log("box1score2="+box1score2);
 		}
-		console.log("box1score2="+box1score2);
+		
 		//check box2
 		if (this.studentsAnswerIDs2 != "") {//has answer
 			for (var i = 0; i < this.studentsAnswerIDs2.length; i++){
@@ -1054,17 +1054,15 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 					}
 				
 			}
+			console.log("box2score2="+box2score2);
+			score2 = box1score2 + box2score2;
+			console.log("score2="+score2);
+			this.score1 = score1;
+			this.score2 = score2;
 		}
 
-		console.log("box2score2="+box2score2);
-		score2 = box1score2 + box2score2;
-		console.log("score2="+score2);
-		this.score1 = score1;
-		this.score2 = score2;
-
 		if(score1 >= score2){
-			this.score = score1;
-			console.log("this score:" + this.score);
+			//this.score = score1;
 			if(this.studentsAnswerIDs != ""){
 				for(var i = 0; i < this.studentsAnswerIDs.length; i++){
 						if(correctNeums1[i] == 1 && correctPos1[i] == 1){
@@ -1085,14 +1083,14 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 							document.getElementById(this.xIDs2[i]).style.visibility = "visible";
 						}
 					}
+				totalScore = score1;
+				console.log("total="+totalScore);
 			}
-			totalScore = score1;
-			console.log("total="+totalScore);
+			
 		}
 
 		else if(score1 < score2){
-			this.score = score2;
-			console.log("this score:" + this.score);
+			//this.score = score2;
 						if(this.studentsAnswerIDs != ""){
 				for(var i = 0; i < this.studentsAnswerIDs.length; i++){
 						if(correctNeums3[i] == 1 && correctPos3[i] == 1){
@@ -1113,27 +1111,30 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 							document.getElementById(this.xIDs2[i]).style.visibility = "visible";
 						}
 					}
+				totalScore = score2;
+				console.log("total="+totalScore);
 			}
-			totalScore = score2;
-			console.log("total="+totalScore);
 		}
 
 	}
-
-	if(this.numOfAnswers == 1){
-		if(this.studentsAnswerIDs.length < this.solutionIDs[0].length){
-			document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable"><div class="hint-no-table">More neums are expected.</div></table></div>';
+	this.score = totalScore;
+	console.log("this score:" + this.score);
+	if(this.startGrade == 0){
+		if(this.numOfAnswers == 1){
+			if(this.studentsAnswerIDs.length < this.solutionIDs[0].length){
+				document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable"><div class="hint-no-table">More neums are expected.</div></table></div>';
+			}
+			else {
+				document.getElementById("hint").innerHTML = "";
+			}
 		}
-		else {
-			document.getElementById("hint").innerHTML = "";
-		}
-	}
-	else if (this.numOfAnswers == 2){
-		if(this.studentsAnswerIDs.length < this.solutionIDs[0].length || this.studentsAnswerIDs2.length < this.solutionIDs[1].length){
-			document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable"><div class="hint-no-table">More neums are expected.</div></table></div>';
-		}
-		else {
-			document.getElementById("hint").innerHTML = "";
+		else if (this.numOfAnswers == 2){
+			if(this.studentsAnswerIDs.length < this.solutionIDs[0].length || this.studentsAnswerIDs2.length < this.solutionIDs[1].length){
+				document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><table id="hintTable"><div class="hint-no-table">More neums are expected.</div></table></div>';
+			}
+			else {
+				document.getElementById("hint").innerHTML = "";
+			}
 		}
 	}
 }
@@ -1160,16 +1161,11 @@ LaonLevel6ScoreExercise.prototype.checkEnteredName = function(solution, enteredT
 }
 
 LaonLevel6ScoreExercise.prototype.grade = function() {
-	this.saveAnswer();
 	this.score = 0;
-	for (var i = 0; i < this.size; i++) {
-		// Check neums
-		if (this.studentsAnswerIDs[i] != "") {
-			if (this.studentsAnswerIDs[i] == this.solutionIDs[i]) {    // answer is right
-			    this.score++;
-			}
-		}
-	}
+	this.saveAnswer();
+	this.startGrade = 1;
+	this.showHint();
+	this.startGrade = 0;
 }
 /*
 function show(id) {

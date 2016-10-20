@@ -174,7 +174,100 @@ TestResult.prototype.showLaonLevel6Answers = function(exercise) {
 		html += "</td></tr></table>";
 	}
 	else if(exercise.numOfAnswers == 2){
-		
+		//console.log("score1 score2:"+exercise.score1+" "+exercise.score2);
+		if(exercise.score1 >= exercise.score2){
+			//console.log("score1 score2:"+exercise.score1+" "+exercise.score2);
+			var html = "<table><tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+			if (exercise.studentsAnswerIDs != "") {
+				//console.log("answer id 1:"+exercise.studentsAnswerIDs);
+				//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
+				for (var i = 0; i < exercise.studentsAnswerIDs.length; i++) {
+				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].school + '/Level_' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].level + '/Group_' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].group + '/' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].fileName + '">';
+				}
+			}
+			html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+			//var solutionSymbolIDs = exercise.solution.split("-");
+			for (var i = 0; i < exercise.solutionIDs[0].length; i++) {
+				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].school + '/Level_' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].level + '/Group_' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].group + '/' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].fileName + '">';
+			}
+			html += "</td></tr>";
+
+			html += "<tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+			if (exercise.studentsAnswerIDs2 != "") {
+				//console.log("answer id 2:"+exercise.studentsAnswerIDs2);
+				//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
+				for (var i = 0; i < exercise.studentsAnswerIDs2.length; i++) {
+				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].school + '/Level_' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].level + '/Group_' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].group + '/' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].fileName + '">';
+				}
+			}
+			html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+			//var solutionSymbolIDs = exercise.solution.split("-");
+			for (var i = 0; i < exercise.solutionIDs[1].length; i++) {
+				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].school + '/Level_' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].level + '/Group_' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].group + '/' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].fileName + '">';
+			}
+			html += "</td></tr></table>";
+		}
+		else if(exercise.score1 < exercise.score2){
+			var html = "<table><tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+			if (exercise.studentsAnswerIDs != "") {
+				//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
+				for (var i = 0; i < exercise.studentsAnswerIDs.length; i++) {
+				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].school + '/Level_' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].level + '/Group_' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].group + '/' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].fileName + '">';
+				}
+			}
+			html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+			//var solutionSymbolIDs = exercise.solution.split("-");
+			for (var i = 0; i < exercise.solutionIDs[1].length; i++) {
+				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].school + '/Level_' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].level + '/Group_' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].group + '/' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].fileName + '">';
+			}
+			html += "</td></tr>";
+
+			html += "<tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+			if (exercise.studentsAnswerIDs2 != "") {
+				//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
+				for (var i = 0; i < exercise.studentsAnswerIDs2.length; i++) {
+				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].school + '/Level_' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].level + '/Group_' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].group + '/' +
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].fileName + '">';
+				}
+			}
+			html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+			//var solutionSymbolIDs = exercise.solution.split("-");
+			for (var i = 0; i < exercise.solutionIDs[0].length; i++) {
+				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].school + '/Level_' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].level + '/Group_' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].group + '/' +
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].fileName + '">';
+			}
+			html += "</td></tr></table>";
+		}
 	}
 	return html;
 }
