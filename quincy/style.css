@@ -710,6 +710,24 @@ table.inside-table {
   padding-top:0px;
   line-height: 26px;
 }
+.LaonL6YourAnswer{
+  background-color:transparent;
+  vertical-align: top;
+  width:372px;
+  padding-left: 0px;
+  padding-top: 0px;
+  line-height: 26px;
+}
+.LaonL6RightAnswer{
+  vertical-align: top;
+  width:372px;
+  padding-top:0px;
+  line-height: 26px;
+}
+.AnswerInsideDiv{
+  position: relative;
+  height:88.5px;
+}
 .YourScore{
   text-align: center;
   color: rgb(221, 4, 4);
@@ -755,6 +773,12 @@ padding-left: 70px;
   height: 50px;
   vertical-align: middle;/*picture vertically align,then questions in odd vertically align*/
   background-color: rgb(252, 237, 217);/*rgba(255, 220, 129, 0.32);*/
+}
+.LaonL6test-result-symbol-answer{
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  position: absolute;
 }
 .divider{
   border-left: 1px; 

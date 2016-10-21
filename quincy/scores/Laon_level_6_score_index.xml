@@ -20,13 +20,13 @@
 	
     <score id="16" fileName="laon_6_test_1.png" school="laon" level="6" type="test" solution="578-603-577" symbolPos="313,203;35,-30;37,-7" symbolPosRange="25,55,-40,-20;27,57,-17,3" />
 	<score id="17" fileName="laon_6_test_2.png" school="laon" level="6" type="test" solution="584-993-603" symbolPos="276,180;42,-8;40,-2" symbolPosRange="27,57,-23,2;25,60,-12,13" />
-    <score id="18" fileName="laon_6_test_3.png" school="laon" level="6" type="test" solution="578-586-720=578-991-720" symbolPos="270,185;31,-4;41,-20=270,185;36,-15,46,31" symbolPosRange="21,41,-14,1;31,51,-35,-10=26,51,-25,5;31,56,16,41" />
+    <score id="18" fileName="laon_6_test_3.png" school="laon" level="6" type="test" solution="578-586-720=578-991-720" symbolPos="270,185;31,-4;41,-20=270,338;36,-15;46,31" symbolPosRange="21,41,-14,1;31,51,-35,-10=26,51,-25,5;31,56,16,41" />
 	<score id="19" fileName="laon_6_test_4.png" school="laon" level="6" type="test" solution="578-589-578-578-578-618" symbolPos="282,145;17,-12;11,54;38,-20;30,-20;48,-2" symbolPosRange="7,22,-22,0;1,26,39,64;28,53,-35,-10;20,45,-35,-10;38,63,-17,8" />
 	<score id="20" fileName="laon_6_test_5.png" school="laon" level="6" type="test" solution="578-578-600-589" symbolPos="250,220;38,-20;37,-9;42,-12" symbolPosRange="28,53,-35,-10;27,52,-19,1;22,57,-27,3" />
-	<score id="21" fileName="laon_6_test_6.png" school="laon" level="6" type="test" solution="578-603-586-577=578-603-901-577" symbolPos="262,196;41,-30;37,26;26,0=262,196;41,30;43,18;27,8" symbolPosRange="31,61,-45,-20;22,52,16,36;11,41,-5,5=31,61,-45,-20;28,58,-2,38;12,42,-2,18" />
+	<score id="21" fileName="laon_6_test_6.png" school="laon" level="6" type="test" solution="578-603-586-577=578-603-901-577" symbolPos="262,196;41,-30;37,26;26,0=262,346;41,-30;43,18;27,8" symbolPosRange="31,61,-45,-20;22,52,16,36;11,41,-5,5=31,61,-45,-20;28,58,-2,38;12,42,-2,18" />
     <score id="22" fileName="laon_6_test_7.png" school="laon" level="6" type="test" solution="629-577-577-587" symbolPos="300,240;22,3;18,-15;28,-4" symbolPosRange="17,27,-7,13;8,33,-30,-5;18,43,-19,6" />
 	<score id="23" fileName="laon_6_test_8.png" school="laon" level="6" type="test" solution="616-589" symbolPos="334,190;23,21" symbolPosRange="13,38,11,31" />
-	<score id="24" fileName="laon_6_test_9.png" school="laon" level="6" type="test" solution="713-615-586-577-615=713-615-991-577-615" symbolPos="236,193;46,-14;23,17;19,1;30;-18=236,193;46,-14;34,23;25,0;33,-23" symbolPosRange="36,61,-19,9;18,38,17,22;14,34,-9,11;20,45,-23,-13=36,61,-19,-9;24,49,18,28;15,40,-10,10;23,48,-28,-18" />
+	<score id="24" fileName="laon_6_test_9.png" school="laon" level="6" type="test" solution="713-615-586-577-615=713-615-991-577-615" symbolPos="236,193;46,-14;23,17;19,1;30;-18=236,343;46,-14;34,23;25,0;33,-23" symbolPosRange="36,61,-19,9;18,38,17,22;14,34,-9,11;20,45,-23,-13=36,61,-19,-9;24,49,18,28;15,40,-10,10;23,48,-28,-18" />
 	<score id="25" fileName="laon_6_test_10.png" school="laon" level="6" type="test" solution="625-994-995" symbolPos="238,189;38,-12;32,24" symbolPosRange="23,53,-22,-2;17,47,14,34" />
     <score id="26" fileName="laon_6_test_11.png" school="laon" level="6" type="test" solution="594-589-603-578-713" symbolPos="173,220;53,-28;51,-14;51,2;61,-27" symbolPosRange="43,68,-43,-13;36,66,-29,1;36,66,-13,17;41,76,-37,-12" />	
 </scores>

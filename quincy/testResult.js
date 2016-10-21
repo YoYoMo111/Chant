@@ -150,123 +150,167 @@ TestResult.prototype.showQuestionSymbol = function(exercise) {
 }
 
 TestResult.prototype.showLaonLevel6Answers = function(exercise) {
+	var ratio = 0.58;
+	var solutionLefts = [[0],[0]];
+	var solutionTops = [[0],[0]];
+	var studentAnswerLefts = [[]];
+	var studentsAnswerTops = [[]];
+	/*if(exercise.studentsAnswerIDs != ""){
+		for(var i = 0; i< exercise.studentsAnswerIDs.length; i++){
+			studentAnswerLefts[0][i]=(exercise.studentsAnswerIDsLefts[i]-127)*ratio;
+			studentsAnswerTops[0][i]=(exercise.studentsAnswerIDsTops[i]-142)*ratio;
+		}
+	}*/
+	solutionLefts[0][0] = (exercise.solutionPos[0][0][0]-127)*ratio;
+	solutionTops[0][0]=(exercise.solutionPos[0][0][1]-142)*ratio;
+	for(var i = 1; i< exercise.solutionIDs[0].length; i++){
+		solutionLefts[0][i]=(exercise.solutionPos[0][i][0])*ratio + solutionLefts[0][i-1];
+		solutionTops[0][i]=(exercise.solutionPos[0][i][1])*ratio + solutionTops[0][i-1];
+	}
+	
+	if(exercise.numOfAnswers == 2 ){
+		/*if(exercise.studentsAnswerIDs2 !=""){
+				for(var i = 0; i< exercise.studentsAnswerIDs2.length; i++){
+				studentAnswerLefts[1][i]=(exercise.studentsAnswerIDsLefts2[i]-127)*ratio;
+				studentsAnswerTops[1][i]=(exercise.studentsAnswerIDsTops2[i]-296)*ratio;
+			}
+		}*/
+			solutionLefts[1][0] = (exercise.solutionPos[1][0][0]-127)*ratio;
+			solutionTops[1][0]=(exercise.solutionPos[1][0][1]-296)*ratio;
+			for(var i = 1; i< exercise.solutionIDs[1].length; i++){
+				solutionLefts[1].push((exercise.solutionPos[1][i][0])*ratio + solutionLefts[1][i-1]);
+				solutionTops[1].push((exercise.solutionPos[1][i][1])*ratio + solutionTops[1][i-1]);
+				console.log("solutionLefts[1]["+i+"]="+solutionLefts[1][i]);
+		}
+	}
+
 	if(exercise.numOfAnswers == 1){	
-		var html = "<table><tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+		var html = "<table><tr><td class=LaonL6YourAnswer>Your Answer<br><div class=AnswerInsideDiv>";//yoyo add class
 		if (exercise.studentsAnswerIDs != "") {
 			//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
 			for (var i = 0; i < exercise.studentsAnswerIDs.length; i++) {
-			html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+			html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 			        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].school + '/Level_' +
 			        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].level + '/Group_' +
 			        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].group + '/' +
-			        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].fileName + '">';
+			        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].fileName + 
+			        '"style="left:'+(exercise.studentsAnswerIDsLefts[i]-127)*ratio+'px; top:'+(exercise.studentsAnswerIDsTops[i]-142)*ratio+'px;">';
 			}
 		}
-		html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+		html += "</div></td><td class=divider></td><td class=LaonL6RightAnswer>Right Answer<br><div class=AnswerInsideDiv>";//yoyo add td,add divider and right answer class
 		//var solutionSymbolIDs = exercise.solution.split("-");
 		for (var i = 0; i < exercise.solutionIDs[0].length; i++) {
-			html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+			html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 			        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].school + '/Level_' +
 			        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].level + '/Group_' +
 			        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].group + '/' +
-			        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].fileName + '">';
+			        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].fileName + 
+			        '"style="left:'+solutionLefts[0][i]+'px; top:'+solutionTops[0][i]+'px;">';
 		}
-		html += "</td></tr></table>";
+		html += "</div></td></tr></table>";
 	}
 	else if(exercise.numOfAnswers == 2){
 		//console.log("score1 score2:"+exercise.score1+" "+exercise.score2);
 		if(exercise.score1 >= exercise.score2){
 			//console.log("score1 score2:"+exercise.score1+" "+exercise.score2);
-			var html = "<table><tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+			var html = "<table><tr><td class=LaonL6YourAnswer>Your Answer<br><div class=AnswerInsideDiv>";//yoyo add class
 			if (exercise.studentsAnswerIDs != "") {
 				//console.log("answer id 1:"+exercise.studentsAnswerIDs);
 				//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
 				for (var i = 0; i < exercise.studentsAnswerIDs.length; i++) {
-				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].school + '/Level_' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].level + '/Group_' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].group + '/' +
-				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].fileName + '">';
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].fileName + 
+				        '"style="left:'+(exercise.studentsAnswerIDsLefts[i]-127)*ratio+'px; top:'+(exercise.studentsAnswerIDsTops[i]-142)*ratio+'px;">';
 				}
 			}
-			html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+			html += "</div></td><td class=divider></td><td class=LaonL6RightAnswer>Right Answer<br><div class=AnswerInsideDiv>";//yoyo add td,add divider and right answer class
 			//var solutionSymbolIDs = exercise.solution.split("-");
 			for (var i = 0; i < exercise.solutionIDs[0].length; i++) {
-				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].school + '/Level_' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].level + '/Group_' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].group + '/' +
-				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].fileName + '">';
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].fileName + 
+				        '"style="left:'+solutionLefts[0][i]+'px; top:'+solutionTops[0][i]+'px;">';
 			}
-			html += "</td></tr>";
+			html += "</div></td></tr>";
 
-			html += "<tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+			html += "<tr><td class=LaonL6YourAnswer>Your Answer<br><div class=AnswerInsideDiv>";//yoyo add class
 			if (exercise.studentsAnswerIDs2 != "") {
 				//console.log("answer id 2:"+exercise.studentsAnswerIDs2);
 				//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
 				for (var i = 0; i < exercise.studentsAnswerIDs2.length; i++) {
-				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].school + '/Level_' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].level + '/Group_' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].group + '/' +
-				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].fileName + '">';
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].fileName + 
+				        '"style="left:'+(exercise.studentsAnswerIDsLefts2[i]-127)*ratio+'px; top:'+(exercise.studentsAnswerIDsTops2[i]-296)*ratio+'px;">';
 				}
 			}
-			html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+			html += "</div></td><td class=divider></td><td class=LaonL6RightAnswer>Right Answer<br><div class=AnswerInsideDiv>";//yoyo add td,add divider and right answer class
 			//var solutionSymbolIDs = exercise.solution.split("-");
 			for (var i = 0; i < exercise.solutionIDs[1].length; i++) {
-				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].school + '/Level_' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].level + '/Group_' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].group + '/' +
-				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].fileName + '">';
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].fileName + 
+				        '"style="left:'+solutionLefts[1][i]+'px; top:'+solutionTops[1][i]+'px;">';
 			}
-			html += "</td></tr></table>";
+			html += "</div></td></tr></table>";
 		}
 		else if(exercise.score1 < exercise.score2){
-			var html = "<table><tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+			var html = "<table><tr><td class=LaonL6YourAnswer>Your Answer<br><div class=AnswerInsideDiv>";//yoyo add class
 			if (exercise.studentsAnswerIDs != "") {
 				//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
 				for (var i = 0; i < exercise.studentsAnswerIDs.length; i++) {
-				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].school + '/Level_' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].level + '/Group_' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].group + '/' +
-				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].fileName + '">';
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs[i]].fileName + 
+				        '"style="left:'+(exercise.studentsAnswerIDsLefts[i]-127)*ratio+'px; top:'+(exercise.studentsAnswerIDsTops[i]-142)*ratio+'px;">';
 				}
 			}
-			html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+			html += "</div></td><td class=divider></td><td class=LaonL6RightAnswer>Right Answer<br><div class=AnswerInsideDiv>";//yoyo add td,add divider and right answer class
 			//var solutionSymbolIDs = exercise.solution.split("-");
 			for (var i = 0; i < exercise.solutionIDs[1].length; i++) {
-				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].school + '/Level_' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].level + '/Group_' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].group + '/' +
-				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].fileName + '">';
+				        exercise.symbolDB.symbols[exercise.solutionIDs[1][i]].fileName + 
+				        '"style="left:'+solutionLefts[1][i]+'px; top:'+solutionTops[1][i]+'px;">';
 			}
-			html += "</td></tr>";
+			html += "</div></td></tr>";
 
-			html += "<tr><td class=YourAnswer>Your Answer<br>";//yoyo add class
+			html += "<tr><td class=LaonL6YourAnswer>Your Answer<br><div class=AnswerInsideDiv>";//yoyo add class
 			if (exercise.studentsAnswerIDs2 != "") {
 				//var studentAnswerSymbolIDs = exercise.studentsAnswer.split("-");
 				for (var i = 0; i < exercise.studentsAnswerIDs2.length; i++) {
-				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].school + '/Level_' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].level + '/Group_' +
 				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].group + '/' +
-				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].fileName + '">';
+				        exercise.symbolDB.symbols[exercise.studentsAnswerIDs2[i]].fileName + 
+				        '"style="left:'+(exercise.studentsAnswerIDsLefts2[i]-127)*ratio+'px; top:'+(exercise.studentsAnswerIDsTops2[i]-296)*ratio+'px;">';
 				}
 			}
-			html += "</td><td class=divider></td><td class=RightAnswer>Right Answer<br>";//yoyo add td,add divider and right answer class
+			html += "</div></td><td class=divider></td><td class=LaonL6RightAnswer>Right Answer<br><div class=AnswerInsideDiv>";//yoyo add td,add divider and right answer class
 			//var solutionSymbolIDs = exercise.solution.split("-");
 			for (var i = 0; i < exercise.solutionIDs[0].length; i++) {
-				html += '<img class="test-result-symbol-answer" src="quincy/symbols/' +
+				html += '<img class="LaonL6test-result-symbol-answer" src="quincy/symbols/' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].school + '/Level_' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].level + '/Group_' +
 				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].group + '/' +
-				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].fileName + '">';
+				        exercise.symbolDB.symbols[exercise.solutionIDs[0][i]].fileName + 
+				        '"style="left:'+solutionLefts[0][i]+'px; top:'+solutionTops[0][i]+'px;">';
 			}
-			html += "</td></tr></table>";
+			html += "</div></td></tr></table>";
 		}
 	}
 	return html;
