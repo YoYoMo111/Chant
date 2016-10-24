@@ -5,7 +5,6 @@ function Lesson(school, level, group) {
 }
 
 Lesson.prototype.initUI = function(container_div_id) {
-	console.log("=========");
 	this.container_div = document.getElementById(container_div_id);
 	this.container_div.innerHTML = 
 		// dynamicArea width is 728px!
