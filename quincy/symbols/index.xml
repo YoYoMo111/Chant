@@ -16,7 +16,7 @@
 	<symbol id="8" name="trivirga" fileName="gall_repercussive_trivirga_simple_1.png" school="StGall" level="1" group="2" matchingModern="238-239" matchingLaon="0" altType="" altLoc="" info="Three notes on the same pitch; they are of normal or perhaps more-than-normal length." />
 	<symbol id="9" name="trigon" fileName="gall_repercussive_trigon_simple_1.png" school="StGall" level="1" group="2" matchingModern="240-241" matchingLaon="0" altType="" altLoc="" info="Three light notes; the first two are the same pitch; the last is a lower pitch." />
 	<!-- Gall level 1 group 3 -->	
-	<symbol id="10" name="clivis" fileName="gall_two-note_clivis_simple_1.png" school="StGall" level="1" group="3" matchingModern="242-243-244" matchingLaon="583" altType="" altLoc="" info="A higher note followed by a lower note." />
+	<symbol id="10" name="clivis" fileName="gall_two-note_clivis_simple_1.png" school="StGall" level="1" group="3" matchingModern="242-243-244" matchingLaon="584" altType="" altLoc="" info="A higher note followed by a lower note." />
 	<symbol id="11" name="podatus=pes" fileName="gall_two-note_podatus=pes_simple_1.png" school="StGall" level="1" group="3" matchingModern="245-246-247" matchingLaon="585" altType="" altLoc="" info="A lower note followed by a higher note." />
 	<!-- Gall level 1 group 4 -->
 	<symbol id="12" name="climacus" fileName="gall_three-note_climacus_simple_1.png" school="StGall" level="1" group="4" matchingModern="248-249" matchingLaon="586" altType="" altLoc="" info="Three notes in descending order." />
@@ -631,8 +631,8 @@
 	<symbol id="581" name="distropha" fileName="laon_repercussive_distropha_simple_1.png" school="Laon" level="1" group="2" matchingModern="773-774" matchingStGall="6" altType="" altLoc="" info="Two repeated light notes." />
 	<symbol id="582" name="tristropha" fileName="laon_repercussive_tristropha_simple_1.png" school="Laon" level="1" group="2" matchingModern="775-776" matchingStGall="7" altType="" altLoc="" info="Three repeated light notes." />
 	<!-- Laon level 1 group 3 -->
-	<symbol id="583" name="clivis" fileName="laon_two-note_clivis_simple_1_V1.png" school="Laon" level="1" group="3" matchingModern="777-778-779" matchingStGall="10" altType="" altLoc="" info="A higher note followed by a lower note." />
-	<symbol id="584" name="clivis" fileName="laon_two-note_clivis_simple_1_V2.png" school="Laon" level="1" group="3" matchingModern="777-778-779" matchingStGall="" altType="" altLoc="" info="A higher note followed by a lower note." />
+	<symbol id="583" name="clivis" fileName="laon_two-note_clivis_simple_1_V1.png" school="Laon" level="1" group="3" matchingModern="777-778-779" matchingStGall="" altType="" altLoc="" info="A higher note followed by a lower note." />
+	<symbol id="584" name="clivis" fileName="laon_two-note_clivis_simple_1_V2.png" school="Laon" level="1" group="3" matchingModern="777-778-779" matchingStGall="10" altType="" altLoc="" info="A higher note followed by a lower note." />
 	<symbol id="585" name="podatus=pes" fileName="laon_two-note_podatus-pes_simple_1.png" school="Laon" level="1" group="3" matchingModern="780-781-782" matchingStGall="11" altType="" altLoc="" info="A lower note followed by a higher note." />
 	<!-- Laon level 1 group 4 -->
 	<symbol id="586" name="climacus" fileName="laon_three-note_climacus_simple_1_V2.png" school="Laon" level="1" group="4" matchingModern="783-784" matchingStGall="12" altType="" altLoc="" info="Three descending notes." />

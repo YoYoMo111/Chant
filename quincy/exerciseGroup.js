@@ -275,7 +275,7 @@ ExerciseGroup.prototype.createLaonAndGallExercises = function(mode) {
 ExerciseGroup.prototype.createCombinedExercises = function(mode) {
 	stGallNeums = [[6, 7, 10, 11, 12, 13, 14, 15, 16, 18, 21, 22, 23]];
 	
-	laonNeums = [[581, 582, 583, 585, 586, 587, 588, 589, 592, 594, 595, 596, 597, 601]];
+	laonNeums = [[581, 582, 584, 585, 586, 587, 588, 589, 592, 594, 595, 596, 597, 601]];
 	
 	this.exercises = new Array();
 	
