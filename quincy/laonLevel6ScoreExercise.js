@@ -753,8 +753,8 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 						}
 						else{
 							document.getElementById(this.xIDs[i]).style.visibility = "visible";
-							//totalScore--;
-							//if(totalScore <= 0){ totalScore = 0; }
+							totalScore--;
+							if(totalScore <= 0){ totalScore = 0; }
 						}
 					}
 				}
@@ -822,6 +822,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 						for(var i = 0; i < this.studentsAnswerIDs.length; i++){
 							if(correctNeums1[i] == 1 && correctPos1[i] == 1){
 								box1score1++;
+							}
+							else{
+								box1score1--;
+								if(box1score1 <= 0){box1score1 = 0;}
 							}
 						}
 
@@ -897,6 +901,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 						for(var i = 0; i < this.studentsAnswerIDs2.length; i++){
 							if(correctNeums2[i] == 1 && correctPos2[i] == 1){
 								box2score1++;
+							}
+							else{
+								box2score1--;
+								if(box2score1 <= 0){box2score1 = 0;}
 							}
 						}
 					}
@@ -977,6 +985,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 							if(correctNeums3[i] == 1 && correctPos3[i] == 1){
 								box1score2++;
 							}
+							else{
+								box1score2--;
+								if(box1score2 <= 0){box1score2 = 0;}
+							}
 						}
 					}
 			}
@@ -1049,6 +1061,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 						for(var i = 0; i < this.studentsAnswerIDs2.length; i++){
 							if(correctNeums4[i] == 1 && correctPos4[i] == 1){
 								box2score2++;
+							}
+							else{
+								box2score2--;
+								if(box2score2 <= 0){box2score2 = 0;}
 							}
 						}
 					}
