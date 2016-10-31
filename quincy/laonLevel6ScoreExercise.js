@@ -224,16 +224,24 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 }
 
 var my_index = 100;
+var buttons = document.getElementsByClassName("delete-buttons");
+/*$('#laonScoreExAnswer1').click(function(){
+	for (var i = 0; i < buttons.length; i++){
+		    	buttons[i].style.visibility = "hidden";
+		    	console.log("hide all");
+		    }
+		});*/
 function sendOnTop(ev){
 	if(document.getElementById("symbol-container-"+ev.target.id.substring(7))==null||"symbol-container-"+ev.target.id.substring(13)==null)return;
 
 	if(ev.target.id.indexOf("button") < 0){
 	    document.getElementById("symbol-container-"+ev.target.id.substring(7)).style.zIndex = my_index++;
 	    console.log("hide1");
-	    var buttons = document.getElementsByClassName("delete-buttons");
+	    
 	    if(document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility != "visible"){
 		    for (var i = 0; i < buttons.length; i++){
 		    	buttons[i].style.visibility = "hidden";
+		    	console.log("hide all");
 		    }
 			document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility = "visible";
 		}
@@ -330,6 +338,12 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 		else if(top1 >= 234 && top1 < 296 && ev.pageY >= 642){
 			top1 = 297;
 		}
+		if(top1 <= 142){
+			top1 = 142;
+		}
+		if(top1 >= 388){
+			top1 = 388;
+		}
 		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.left = left1+'px';
 		document.getElementById("symbol-container-" + symbolID + "_copy_" + dropTime).style.top = top1+'px';
 		console.log("dropX="+ev.pageX);
@@ -356,6 +370,12 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 		}
 		else if(top2 >= 234 && top2 < 296 && ev.pageY >= 642){
 			top2 = 297;
+		}
+		if(top2 <= 142){
+			top2 = 142;
+		}
+		if(top2 >= 388){
+			top2 = 388;
 		}
 		console.log("imageID =" + imageID.substring(imageID.indexOf("symbol")));
 		//document.getElementById(imageID).style.left = left2+'px';
@@ -753,8 +773,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 						}
 						else{
 							document.getElementById(this.xIDs[i]).style.visibility = "visible";
-							totalScore--;
-							if(totalScore <= 0){ totalScore = 0; }
+							if(i > this.solutionRange[0].length){
+								totalScore--;
+								if(totalScore <= 0){ totalScore = 0; }
+							}
 						}
 					}
 				}
@@ -824,8 +846,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 								box1score1++;
 							}
 							else{
-								box1score1--;
-								if(box1score1 <= 0){box1score1 = 0;}
+								if(i > this.solutionRange[0].length){
+									box1score1--;
+									if(box1score1 <= 0){box1score1 = 0;}
+								}
 							}
 						}
 
@@ -903,8 +927,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 								box2score1++;
 							}
 							else{
-								box2score1--;
-								if(box2score1 <= 0){box2score1 = 0;}
+								if(i > this.solutionRange[1].length){
+									box2score1--;
+									if(box2score1 <= 0){box2score1 = 0;}
+								}
 							}
 						}
 					}
@@ -986,8 +1012,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 								box1score2++;
 							}
 							else{
-								box1score2--;
-								if(box1score2 <= 0){box1score2 = 0;}
+								if(i > this.solutionRange[1].length){
+									box1score2--;
+									if(box1score2 <= 0){box1score2 = 0;}
+								}
 							}
 						}
 					}
@@ -1063,8 +1091,10 @@ LaonLevel6ScoreExercise.prototype.showHint = function() {
 								box2score2++;
 							}
 							else{
-								box2score2--;
-								if(box2score2 <= 0){box2score2 = 0;}
+								if(i > this.solutionRange[0].length){
+									box2score2--;
+									if(box2score2 <= 0){box2score2 = 0;}
+								}
 							}
 						}
 					}
