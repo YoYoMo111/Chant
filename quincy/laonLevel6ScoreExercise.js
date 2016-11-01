@@ -54,7 +54,7 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 		document.getElementById("dynamicArea").innerHTML =
 			'<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
 		    '<div id="drag-area">' +
-		    '<div id="laonScoreExAnswer1">'+
+		    '<div id="laonScoreExAnswer1" onclick="hideButtons(event)">'+
 			'</div>' + 
 			'<div id="symbolSection" class="symbolSectionL6"></div>' +
 			'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
@@ -64,9 +64,9 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 		document.getElementById("dynamicArea").innerHTML =
 			'<div><img class="score-image-2" style="margin-top: 10px; margin-bottom: 10px;" draggable="false"; src="quincy/scores/' + this.scoreFileName + '"></div>' +
 		    '<div id="drag-area">' +
-		    '<div id="laonScoreExAnswer1" style="border-bottom-style: dashed;">'+
+		    '<div id="laonScoreExAnswer1" onclick="hideButtons(event)" style="border-bottom-style: dashed;">'+
 			'</div>' + 
-			'<div id="laonScoreExAnswer2">'+
+			'<div id="laonScoreExAnswer2" onclick="hideButtons(event)">'+
 			'</div>'+
 			'<div id="symbolSection" class="symbolSectionL6"></div>' +
 			'<div id="buttonDiv" style="clear: both; text-align: center;"></div>' +
@@ -225,29 +225,53 @@ LaonLevel6ScoreExercise.prototype.show = function(index, numOfQuestions) {
 
 var my_index = 100;
 var buttons = document.getElementsByClassName("delete-buttons");
-/*$('#laonScoreExAnswer1').click(function(){
+/*$("#laonScoreExAnswer1").click(function(){
 	for (var i = 0; i < buttons.length; i++){
 		    	buttons[i].style.visibility = "hidden";
 		    	console.log("hide all");
 		    }
+		    console.log("click");
 		});*/
+function hideButtons(ev){
+	if(ev.target.id.indexOf("symbol") < 0){
+		for (var i = 0; i < buttons.length; i++){
+			    	buttons[i].style.visibility = "hidden";
+			    	console.log("hide all");
+			    }
+	}
+	else if(ev.target.id.indexOf("symbol") >= 0){	   
+			if(document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility != "visible"){
+				    for (var i = 0; i < buttons.length; i++){
+				    	buttons[i].style.visibility = "hidden";
+				    	//console.log("hide all");
+				    }
+					document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility = "visible";
+					console.log("show in hideButtons");
+				}
+				else{
+					document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility = "hidden";
+					console.log("hide in hideButtons");
+				}
+		}
+}
 function sendOnTop(ev){
 	if(document.getElementById("symbol-container-"+ev.target.id.substring(7))==null||"symbol-container-"+ev.target.id.substring(13)==null)return;
 
 	if(ev.target.id.indexOf("button") < 0){
 	    document.getElementById("symbol-container-"+ev.target.id.substring(7)).style.zIndex = my_index++;
-	    console.log("hide1");
-	    
+	    /*
 	    if(document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility != "visible"){
 		    for (var i = 0; i < buttons.length; i++){
 		    	buttons[i].style.visibility = "hidden";
-		    	console.log("hide all");
+		    	//console.log("hide all");
 		    }
 			document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility = "visible";
+			console.log("show for in send on top");
 		}
 		else{
 			document.getElementById("delete-button"+ev.target.id.substring(7)).style.visibility = "hidden";
-		}
+			console.log("hide in sendOnTop");
+		}*/
 	}
 	else {
 		document.getElementById("symbol-container-"+ev.target.id.substring(13)).style.zIndex = my_index++;
@@ -323,6 +347,12 @@ LaonLevel6ScoreExercise.prototype.drop = function(ev) {
 		else if(ev.pageY >= 642){
 			document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 		}
+		/*
+console.log('#symbol-container-'+ symbolID + '_copy_'+dropTime);
+			$( '#symbol-container-'+ symbolID + '_copy_'+dropTime ).draggable({ containment: 'parent', scroll: false,
+        stop: function() { }
+                                    });*/
+
 		//document.getElementById("laonScoreExAnswer2").innerHTML += this.showNeumWithID(symbolID);
 		//this.alowDropOnSymbol(symbolID);
 		ev.target.setAttribute("data-neumID", symbolID);
@@ -1230,7 +1260,10 @@ LaonLevel6ScoreExercise.prototype.showNeumWithID = function(ID) {
 	
 		insideSymbolID[dropTime] =  'symbol-container-'+ ID + '_copy_'+dropTime;
 		//console.log("insideSymbolID="+insideSymbolID[dropTime]);
-	
+		//console.log('#symbol-container-'+ ID + '_copy_'+dropTime);
+	/*$( '#symbol-container-'+ ID + '_copy_'+dropTime ).draggable({ cursor: "move",containment: 'parent', scroll: false,
+        stop: function() { }
+                                    });*/
 
     return '<div id="symbol-container-'+ ID + '_copy_'+dropTime+'" class="answer-symbol" data-neumID="'+ID+'" onclick="sendOnTop(event)" ondragstart="dragStart(event)" draggable="true" style="width:60px;height:60px; top:142px; position: absolute;" >'+	
     		'<img class="symbol-images" id="symbol_' + ID + '_copy_'+dropTime+'" data-neumID="'+ID+'" src="quincy/symbols/' +
