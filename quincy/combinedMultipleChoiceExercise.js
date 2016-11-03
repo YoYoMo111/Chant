@@ -206,7 +206,7 @@ CombinedMultipleChoiceExercise.prototype.showHint = function() {
 		    if (!isInArray(rightAnswers, checked[i])) {    // Show x marks on incorrectly selected symbols
 			    wrongAnswers.push(checked[i]);
 			    this.selectableImages[this.mapping[checked[i]]].showXMark();
-				this.showSymbolInfo(checked[i]);
+				if (this.level != 2)	this.showSymbolInfo(checked[i]);
 		    }
 			else {    // Show check marks on incorrectly selected symbols
 				this.selectableImages[this.mapping[checked[i]]].showCheckMark();
@@ -223,9 +223,11 @@ CombinedMultipleChoiceExercise.prototype.showHint = function() {
 					'<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is correct but incomplete. The correct answer has one or more additional possibilities.</div></div>';
 			}
 		}
-/*		else {
-			document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is wrong. Please try again.</div></div>';
-		}*/
+		else {
+			if (this.level == 2) {
+				document.getElementById("hint").innerHTML = '<div id="hint-box" class="hint-wrong"><div class="hint-no-table">Your answer is wrong. Please try again.</div></div>';
+			}
+		}
 		document.getElementById("hint-box").className = "hint-wrong";
 	}
 }
