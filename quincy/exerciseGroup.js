@@ -268,7 +268,7 @@ ExerciseGroup.prototype.createLaonAndGallExercises = function(mode) {
 	
 	// mode 2 - test mode, shuffle, no intro/end page
 	else if (mode == 2) {
-	    this.exercises = shuffle(this.exercises);
+//	    this.exercises = shuffle(this.exercises);
 	}
 }
 
