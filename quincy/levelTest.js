@@ -65,7 +65,7 @@ function LevelTest(school, level, groups) {
 //		scoreExercises = shuffle(scoreExercises);
 		scoreExercises.splice(2, scoreExercises.length - 2);
 	}
-	else {
+	else if(level == 6){
 		var xmlhttp;
 		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 			xmlhttp = new XMLHttpRequest();
