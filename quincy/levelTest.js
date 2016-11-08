@@ -122,6 +122,7 @@ LevelTest.prototype.initUI = function(container_div_id) {
 		  '<div id="progressBarOutline"><div id="progressBar"></div></div>' +	      
 		  '<div id="dynamicArea"></div>' +
 	      '<div id="controls" style="margin-top: 50px;"></div>' +
+	      '<button id="excercise-btn" type="button" ><a>Go to Assessment >></a></button>' +
 		  '<div id="hint"></div>' +
 	    '</div>';
 	    	
@@ -138,8 +139,18 @@ LevelTest.prototype.initUI = function(container_div_id) {
 	};
 	document.getElementById("next").onclick = function() {
 	    self.nextQuestion();
+	    document.getElementById("progressBarOutline").style.display = "block";
 	};
-	document.getElementById("prev").style.visibility = "hidden";//init
+	document.getElementById("excercise-btn").onclick = function() {
+	    self.nextQuestion();
+	    document.getElementById("progressBarOutline").style.display = "block";
+	};
+
+	if(this.currentEx == 0){
+		document.getElementById("prev").style.visibility = "hidden";//init
+		document.getElementById("next").style.visibility = "hidden";
+		document.getElementById("excercise-btn").style.display = "block";
+	}
 	
 }
 
@@ -155,16 +166,28 @@ LevelTest.prototype.prevQuestion = function() {
 	
 	if (this.currentEx > 0) {
 		this.showProgress(this.currentEx);
+		document.getElementById("excercise-btn").style.visibility = "hidden";
+		document.getElementById("excercise-btn").style.marginTop = "0px";
+		document.getElementById("excercise-btn").style.marginBottom = "0px";
 	}
 	else {
 		this.hideProgress();
 	}
 	document.getElementById("next").style.visibility = "visible";
+	if(this.currentEx==0){
+	    document.getElementById("prev").style.visibility = "hidden";
+		document.getElementById("next").style.visibility = "hidden";
+		//document.getElementById("excercise-btn").style.display = "block";
+		document.getElementById("excercise-btn").style.visibility = "visible";
+		document.getElementById("excercise-btn").style.marginTop = "30px";
+		document.getElementById("excercise-btn").style.marginBottom = "40px";
+		
+		//document.getElementById("progressBarOutline").style.display = "none";//yoyo
+		}
 }
 
 LevelTest.prototype.nextQuestion = function() {
 	document.getElementById("progressBarOutline").style.display = "block";//yoyo
-	document.getElementById("prev").style.visibility = "visible";
 
 	if (this.currentEx > 0 && this.currentEx < this.exercises.length -1) {
 		this.exercises[this.currentEx].grade();
@@ -172,7 +195,12 @@ LevelTest.prototype.nextQuestion = function() {
 	if (this.currentEx < this.exercises.length - 1) {
 	    this.currentEx++;
 	}
-	
+	if (this.currentEx > 0) {
+		document.getElementById("excercise-btn").style.visibility = "hidden";
+		document.getElementById("excercise-btn").style.marginTop = "0px";
+		document.getElementById("excercise-btn").style.marginBottom = "0px";
+		//document.getElementById("excercise-btn").style.display = "none";
+	}
 	if (this.currentEx < this.exercises.length - 1) {    // regular exercises
 		this.showProgress(Math.min(this.currentEx, this.numOfQuestions));
 		this.exercises[this.currentEx].show(this.currentEx, this.numOfQuestions);
@@ -182,6 +210,14 @@ LevelTest.prototype.nextQuestion = function() {
 		document.getElementById("progressBarOutline").style.display = "none";//yoyo
 		this.hideProgress();
 		this.exercises[this.currentEx].show(this.exercises);
+	}
+	document.getElementById("prev").style.visibility = "visible";
+	document.getElementById("next").style.visibility = "visible";
+	
+	if (this.currentEx == this.exercises.length - 1) {
+		document.getElementById("next").style.visibility = "hidden";
+		document.getElementById("prev").style.visibility = "hidden";
+		console.log("hide both arrows");
 	}
 
     // If question 1 is shown for the first time, start timer
