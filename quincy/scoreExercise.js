@@ -27,7 +27,7 @@ ScoreExercise.prototype.constructor = ScoreExercise;
 
 
 ScoreExercise.prototype.show = function(index, numOfQuestions) {
-	var str = "Question " + index + " of " + numOfQuestions + ": Drag the neums to the boxes to match the notes in the score";
+	var str = "Question " + index + " of " + numOfQuestions + ": Drag the neums to the boxes to match the circled notes in the score";
 	if (this.mode == 1) {
 		str += ".";
 		

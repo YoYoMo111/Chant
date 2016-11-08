@@ -27,14 +27,14 @@
 	<score id="22" fileName="gall_3_test_3.png" school="StGall" level="3" type="test" solution="10-13-3-3-7-2-13" />
 	<score id="23" fileName="gall_3_test_4.png" school="StGall" level="3" type="test" solution="10-12-10-11-6-12-13" />
 	
-	<score id="24" fileName="gall_4_review_1.png" school="StGall" level="4" type="review" solution="14-11-6-17-11-17-15-10" />
-    <score id="25" fileName="gall_4_review_2.png" school="StGall" level="4" type="review" solution="2-11-3-2-17-11-10" />
-	<score id="26" fileName="gall_4_review_3.png" school="StGall" level="4" type="review" solution="2-11-10-3-15-11-15-6" />
-	<score id="27" fileName="gall_4_review_4.png" school="StGall" level="4" type="review" solution="18-3-14-3-15-12-11" />
-	<score id="28" fileName="gall_4_test_1.png" school="StGall" level="4" type="test" solution="2-11-23-6-10-2-22-3" />
-	<score id="29" fileName="gall_4_test_2.png" school="StGall" level="4" type="test" solution="3-2-11-6-10-6-12" />
-	<score id="30" fileName="gall_4_test_3.png" school="StGall" level="4" type="test" solution="10-13-3-3-7-2-13" />
-	<score id="31" fileName="gall_4_test_4.png" school="StGall" level="4" type="test" solution="10-12-10-11-6-12-13" />
+	<score id="24" fileName="gall_5_review_1.png" school="StGall" level="5" type="review" solution="14-11-6-17-11-17-15-10" />
+    <score id="25" fileName="gall_5_review_2.png" school="StGall" level="5" type="review" solution="2-11-3-2-17-11-10" />
+	<score id="26" fileName="gall_5_review_3.png" school="StGall" level="5" type="review" solution="2-11-10-3-15-11-15-6" />
+	<score id="27" fileName="gall_5_review_4.png" school="StGall" level="5" type="review" solution="18-3-14-3-15-12-11" />
+	<score id="28" fileName="gall_5_test_1.png" school="StGall" level="5" type="test" solution="2-11-23-6-10-2-22-3" />
+	<score id="29" fileName="gall_5_test_2.png" school="StGall" level="5" type="test" solution="3-2-11-6-10-6-12" />
+	<score id="30" fileName="gall_5_test_3.png" school="StGall" level="5" type="test" solution="10-13-3-3-7-2-13" />
+	<score id="31" fileName="gall_5_test_4.png" school="StGall" level="5" type="test" solution="10-12-10-11-6-12-13" />
 	
 	<score id="32" fileName="laon_1_review_1.png" school="Laon" level="1" type="review" solution="14-11-6-17-11-17-15-10" />
     <score id="33" fileName="laon_1_review_2.png" school="Laon" level="1" type="review" solution="2-11-3-2-17-11-10" />
@@ -63,12 +63,12 @@
 	<score id="54" fileName="laon_3_test_3.png" school="Laon" level="3" type="test" solution="10-13-3-3-7-2-13" />
 	<score id="55" fileName="laon_3_test_4.png" school="Laon" level="3" type="test" solution="10-12-10-11-6-12-13" />
 	
-	<score id="56" fileName="laon_4_review_1.png" school="Laon" level="4" type="review" solution="14-11-6-17-11-17-15-10" />
-    <score id="57" fileName="laon_4_review_2.png" school="Laon" level="4" type="review" solution="2-11-3-2-17-11-10" />
-	<score id="58" fileName="laon_4_review_3.png" school="Laon" level="4" type="review" solution="2-11-10-3-15-11-15-6" />
-	<score id="59" fileName="laon_4_review_4.png" school="Laon" level="4" type="review" solution="18-3-14-3-15-12-11" />
-	<score id="60" fileName="laon_4_test_1.png" school="Laon" level="4" type="test" solution="2-11-23-6-10-2-22-3" />
-	<score id="61" fileName="laon_4_test_2.png" school="Laon" level="4" type="test" solution="3-2-11-6-10-6-12" />
-	<score id="62" fileName="laon_4_test_3.png" school="Laon" level="4" type="test" solution="10-13-3-3-7-2-13" />
-	<score id="63" fileName="laon_4_test_4.png" school="Laon" level="4" type="test" solution="10-12-10-11-6-12-13" />
+	<score id="56" fileName="laon_5_review_1.png" school="Laon" level="5" type="review" solution="14-11-6-17-11-17-15-10" />
+    <score id="57" fileName="laon_5_review_2.png" school="Laon" level="5" type="review" solution="2-11-3-2-17-11-10" />
+	<score id="58" fileName="laon_5_review_3.png" school="Laon" level="5" type="review" solution="2-11-10-3-15-11-15-6" />
+	<score id="59" fileName="laon_5_review_4.png" school="Laon" level="5" type="review" solution="18-3-14-3-15-12-11" />
+	<score id="60" fileName="laon_5_test_1.png" school="Laon" level="5" type="test" solution="2-11-23-6-10-2-22-3" />
+	<score id="61" fileName="laon_5_test_2.png" school="Laon" level="5" type="test" solution="3-2-11-6-10-6-12" />
+	<score id="62" fileName="laon_5_test_3.png" school="Laon" level="5" type="test" solution="10-13-3-3-7-2-13" />
+	<score id="63" fileName="laon_5_test_4.png" school="Laon" level="5" type="test" solution="10-12-10-11-6-12-13" />
 </scores>

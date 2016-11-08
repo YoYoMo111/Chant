@@ -15,9 +15,6 @@ function IntroPage(school, level, group) {
 						["Melodic Implications", "Rhythmic Implications", "Melodic or Rhythmic Implications", "Combinations", "Combined Letters Separate Meanings", "Tironien Signs", "Review Lesson", "Assessment"],
 						["Quilisma", "Oriscus Basics", "Oriscus Variations", "Liquescence", "Review Lesson", "Assessment"],
 						["Neumatic Breaks", "Review Lesson", "Assessment"]];
-						
-	
-	this.introText = ["review", "test"];
 }
 
 IntroPage.prototype.show = function() {
@@ -45,9 +42,31 @@ IntroPage.prototype.show = function() {
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-3\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div class="video_thumbnail"></div></a>' +
 			'<div class="box"><div class="video-description">Communio: Visionem quam vidistis, performed by Marek Klein.</div></div>';
 		}
-		// Show instruction text for review or test
-		else {
-			document.getElementById("dynamicArea").innerHTML = this.introText[this.group + 1 - this.stGallGroup[this.level - 1].length];
+		// Show instruction text for review
+		if (this.school == "StGall" && this.group == this.stGallGroup[this.level - 1].length - 1 ||
+			this.school == "Laon" && this.group == this.laonGroup[this.level - 1].length - 1) {
+			// Level 4
+			if (this.level == 4) {
+				document.getElementById("dynamicArea").innerHTML =
+				    "All of the previous exercises are assembled together here for your review.<br>There is a study guide below to help you prepare.<br>When you are ready to begin, click the link below to go to the review exercises.";
+			}
+			else {
+				document.getElementById("dynamicArea").innerHTML =
+					"All of the previous exercises are assembled together here for your review.<br>In addition, there are some surprise questions to help you synthesis the material in this level.<br>When you are ready to begin, click the link below to go to the review exercises.";
+			}
+		}
+		// Show instruction text for test
+		if (this.school == "StGall" && this.group == this.stGallGroup[this.level - 1].length ||
+			this.school == "Laon" && this.group == this.laonGroup[this.level - 1].length) {
+			// Level 4
+			if (this.level == 4) {
+				document.getElementById("dynamicArea").innerHTML =
+					"This test consists of a small number of questions taken randomly from the various exercises for this level.<br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br>When you are ready to begin, click the link below to go to the assessment.";
+			}
+			else {
+				document.getElementById("dynamicArea").innerHTML =
+					"This test consists of a small number of questions taken randomly from the various exercises for this level. In addition, there are some surprise questions to assess your synthesis of the material in this level.<br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br>When you are ready to begin, click the link below to go to the assessment.";
+			}
 		}
 	}
 	else {

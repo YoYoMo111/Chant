@@ -10,7 +10,7 @@ function ReviewLesson(school, level, groups) {
     
 	// Add review score exercises
 	var scoreExercises = new Array();
-	if (level < 6) {
+	if (level < 6 && level != 4) {
 		var xmlhttp;
 		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 			xmlhttp = new XMLHttpRequest();

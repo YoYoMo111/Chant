@@ -22,7 +22,7 @@ GivenNeumEnterEnglishOrLatinNamesExercise.prototype.show = function(index, numOf
 
 	var language = (this.language == 2) ? "English" : "Latin";
 	var term = (this.answerLength == 1) ? " term" : " terms";
-	this.questionText = "Enter the " + language + term + " that the given letter signifies";
+	this.questionText = "Enter the " + language + term + " signified by the given letter(s)";
     document.getElementById("question").innerHTML = "Question " + index + " of " + numOfQuestions + ": " + this.questionText + ".";
 		
 	var html = '<div id="type2ExAnswerArea"><center><div id="questionSymbol">' +
