@@ -142,16 +142,34 @@ ExerciseGroup.prototype.createLaonAndGallExercises = function(mode) {
 			for (var j = 0; j < englishNames.length; j++) {
 				if (typeof englishToLatinMap[englishNames[j]] === "undefined") {
 					englishToLatinMap[englishNames[j]] = latinNames;
+//					console.log("adding new English name: " + englishNames[j]);
+//					console.log("and its Latin names: " + latinNames);
 				}
 				else {
 					// Avoid adding duplicates
 					for (var k = 0; k < latinNames.length; k++) {
 						if (!nameExists(englishToLatinMap[englishNames[j]], latinNames[k])) {
+							/*console.log("dealing with " + englishNames[j]);
+							console.log("----before push: lift up, quickly: " + englishToLatinMap["lift up, quickly"]);
+							console.log("----before push: " + englishNames[j] + ": " + englishToLatinMap[englishNames[j]]);*/
 							englishToLatinMap[englishNames[j]].push(latinNames[k]);
+							if (englishNames[j] == "higher, quickly" && englishToLatinMap["lift up, quickly"].length > 1) {
+								englishToLatinMap["lift up, quickly"].splice(1, 1);
+							}
+							if (englishNames[j] == "higher, hold" && englishToLatinMap["lift up, hold"].length > 1) {
+								englishToLatinMap["lift up, hold"].splice(1, 1);
+							}
+							
+						/*	console.log(englishNames[j] + " already exists");
+							console.log("pushing Latin: " + latinNames[k]);
+							console.log("----after push: lift up, quickly: " + englishToLatinMap["lift up, quickly"]);
+							console.log("----after push: " + englishNames[j] + ": " + englishToLatinMap[englishNames[j]]);*/
 						}
 					}
 				}
+//				console.log("====================");
 			}
+			
 			for (var j = 0; j < latinNames.length; j++) {
 				if (typeof latinToEnglishMap[latinNames[j]] === "undefined") {
 					latinToEnglishMap[latinNames[j]] = englishNames;
@@ -166,6 +184,7 @@ ExerciseGroup.prototype.createLaonAndGallExercises = function(mode) {
 				}
 			}
 		}
+		
 		for (var key in englishToLatinMap) {
 			this.exercises.push(new GivenNameEnterNameExercise(1, key, englishToLatinMap[key], this.mechanism));
 		}
