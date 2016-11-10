@@ -329,7 +329,7 @@ div.box {
   width:200px;
   height:150px;
   padding:0px 30px 0px 30px;
-  margin: 50px 20px 20px 20px;
+  margin: 20px;
   display: table;
   border: dashed 1.8px rgb(255, 184, 5);
   border-radius: 10px;
@@ -895,6 +895,12 @@ text-align: left;
 
 .introText{
   padding:100px 60px 10px 60px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 17px;
+  line-height: 2;
+}
+.quizletintroText{
+  padding:20px 60px 10px 60px;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 17px;
   line-height: 2;
