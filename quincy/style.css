@@ -892,3 +892,10 @@ text-align: left;
 #modern-equivalents{
   text-align: left;
 }
+
+.introText{
+  padding:100px 60px 10px 60px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 17px;
+  line-height: 2;
+}

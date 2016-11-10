@@ -48,11 +48,11 @@ IntroPage.prototype.show = function() {
 			// Level 4
 			if (this.level == 4) {
 				document.getElementById("dynamicArea").innerHTML =
-				    "All of the previous exercises are assembled together here for your review.<br>There is a study guide below to help you prepare.<br>When you are ready to begin, click the link below to go to the review exercises.";
+				    '<div class = "introText">All of the previous exercises are assembled together here for your review.<br>There is a study guide below to help you prepare.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
 			}
 			else {
 				document.getElementById("dynamicArea").innerHTML =
-					"All of the previous exercises are assembled together here for your review.<br>In addition, there are some surprise questions to help you synthesis the material in this level.<br>When you are ready to begin, click the link below to go to the review exercises.";
+					'<div class = "introText">All of the previous exercises are assembled together here for your review.<br>In addition, there are some surprise questions to help you synthesis the material in this level.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
 			}
 		}
 		// Show instruction text for test
@@ -61,11 +61,11 @@ IntroPage.prototype.show = function() {
 			// Level 4
 			if (this.level == 4) {
 				document.getElementById("dynamicArea").innerHTML =
-					"This test consists of a small number of questions taken randomly from the various exercises for this level.<br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br>When you are ready to begin, click the link below to go to the assessment.";
+					'<div class = "introText">This test consists of a small number of questions taken randomly from the various exercises for this level.<br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br>When you are ready to begin, click the link below to go to the assessment.</div>';
 			}
 			else {
 				document.getElementById("dynamicArea").innerHTML =
-					"This test consists of a small number of questions taken randomly from the various exercises for this level. In addition, there are some surprise questions to assess your synthesis of the material in this level.<br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br>When you are ready to begin, click the link below to go to the assessment.";
+					'<div class = "introText">This test consists of a small number of questions taken randomly from the various exercises for this level. In addition, there are some surprise questions to assess your synthesis of the material in this level.<br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br>When you are ready to begin, click the link below to go to the assessment.</div>';
 			}
 		}
 	}

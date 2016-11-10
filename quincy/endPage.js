@@ -8,10 +8,10 @@ function EndPage(school, level, group) {
 }
 
 EndPage.prototype.show = function() {
-	document.getElementById("question").innerHTML = "The end";
+	document.getElementById("question").innerHTML = 'The end';
 	
 	document.getElementById("dynamicArea").innerHTML =
-    	"You have finished the exercises.";
+    	'<div class="introText" style="text-align: center;">You have finished the exercises.</div>';
 	
     // Show prev arrow only	
 	document.getElementById("next").style.visibility = "hidden";
