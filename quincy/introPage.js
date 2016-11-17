@@ -48,11 +48,12 @@ IntroPage.prototype.show = function() {
 			// Level 4
 			if (this.level == 4) {
 				document.getElementById("dynamicArea").innerHTML =
-				    '<div class = "introText">All of the previous exercises are assembled together here for your review.<br>Below there is a study guide to help you prepare.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
+				    '<div class = "introText">All of the previous exercises are assembled together here for your review.<br><br>Below there is a study guide to help you prepare.<br><br>When you are ready to begin, click the link below to go to the review exercises.</div>'+
+				    '<a class="nonblock nontext museBGSize grpelem" id = "studyGuide" href="St_Gall_Level_Four_ Study_Guide.pdf" target="_blank"></a>';
 			}
 			else {
 				document.getElementById("dynamicArea").innerHTML =
-					'<div class = "introText">All of the previous exercises are assembled together here for your review.<br>In addition, there are some surprise questions to help you synthesize the material in this level.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
+					'<div class = "introText">All of the previous exercises are assembled together here for your review.<br><br>In addition, there are some surprise questions to help you synthesize the material in this level.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
 			}
 		}
 		// Show instruction text for test
@@ -61,11 +62,11 @@ IntroPage.prototype.show = function() {
 			// Level 4
 			if (this.level == 4) {
 				document.getElementById("dynamicArea").innerHTML =
-					'<div class = "introText">This test consists of a small number of questions taken randomly from the various exercises for this level.<br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br>When you are ready to begin, click the link below to go to the assessment.</div>';
+					'<div class = "introText">This test consists of a small number of questions taken randomly from the various exercises for this level.<br><br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br><br>When you are ready to begin, click the link below to go to the assessment.</div>';
 			}
 			else {
 				document.getElementById("dynamicArea").innerHTML =
-					'<div class = "introText">This test consists of a small number of questions taken randomly from the various exercises for this level. In addition, there are some surprise questions to assess your synthesis of the material in this level.<br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br>When you are ready to begin, click the link below to go to the assessment.</div>';
+					'<div class = "introText">This test consists of a small number of questions taken randomly from the various exercises for this level. In addition, there are some surprise questions to assess your synthesis of the material in this level.<br><br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br><br>When you are ready to begin, click the link below to go to the assessment.</div>';
 			}
 		}
 	}
