@@ -39,7 +39,7 @@ Quizlet.prototype.initUI = function(container_div_id) {
 
 	this.container_div = document.getElementById(container_div_id);
 	this.container_div.innerHTML = 
-		'<div class="quizletintroText">We have placed teamed additional tools to review the material in this level on Quizlet. Click any of the links to begin.</div>'+
+		'<div class="quizletintroText">We have placed additional tools to help you review the material in this level on Quizlet. Click any of the links to begin.</div>'+
 	    '<div id="quizletOutdiv" style="margin-left: 123.5px;">'+
 
 	    '<div id="scatterLink" class="quizletBox" onclick="document.getElementById(\'scatter\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+

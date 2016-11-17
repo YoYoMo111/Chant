@@ -48,11 +48,11 @@ IntroPage.prototype.show = function() {
 			// Level 4
 			if (this.level == 4) {
 				document.getElementById("dynamicArea").innerHTML =
-				    '<div class = "introText">All of the previous exercises are assembled together here for your review.<br>There is a study guide below to help you prepare.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
+				    '<div class = "introText">All of the previous exercises are assembled together here for your review.<br>Below there is a study guide to help you prepare.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
 			}
 			else {
 				document.getElementById("dynamicArea").innerHTML =
-					'<div class = "introText">All of the previous exercises are assembled together here for your review.<br>In addition, there are some surprise questions to help you synthesis the material in this level.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
+					'<div class = "introText">All of the previous exercises are assembled together here for your review.<br>In addition, there are some surprise questions to help you synthesize the material in this level.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
 			}
 		}
 		// Show instruction text for test
