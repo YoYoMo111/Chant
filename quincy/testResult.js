@@ -405,7 +405,7 @@ TestResult.prototype.showAlterationAnswers = function(exercise) {
 	}
 	
 		
-	html += "<br class=fillExLineHight>Right answer:";
+	html += "<br class=fillExLineHight><br class=fillExLineHight>Right answer:";
 	if (exercise.altType != "both") {
 		html += "<br class=fillExLineHight> - Type: " + exercise.altType + "<br class=fillExLineHight> - Location: " + this.getAltLocText(exercise.altLoc);
 	}
