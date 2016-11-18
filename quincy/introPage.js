@@ -53,7 +53,7 @@ IntroPage.prototype.show = function() {
 			}
 			else {
 				document.getElementById("dynamicArea").innerHTML =
-					'<div class = "introText">All of the previous exercises are assembled together here for your review.<br><br>In addition, there are some surprise questions to help you synthesize the material in this level.<br>When you are ready to begin, click the link below to go to the review exercises.</div>';
+					'<div class = "introText">All of the previous exercises are assembled together here for your review.<br><br>In addition, there are some surprise questions to help you synthesize the material in this level.<br><br>When you are ready to begin, click the link below to go to the review exercises.</div>';
 			}
 		}
 		// Show instruction text for test
