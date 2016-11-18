@@ -895,13 +895,14 @@ text-align: left;
 
 .introText{
   padding:60px 60px 10px 60px;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  /*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
+  font-family: Arial, sans-serif;
   font-size: 17px;
   line-height: 1.4;
 }
 .quizletintroText{
   padding:20px 60px 10px 60px;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: Arial, sans-serif;
   font-size: 17px;
   line-height: 1.4;
 }
