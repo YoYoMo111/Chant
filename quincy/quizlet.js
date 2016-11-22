@@ -9,11 +9,16 @@ Quizlet.prototype.initUI = function(container_div_id) {
 	this.container_div = document.getElementById(container_div_id);
 	this.container_div.innerHTML = 
 		'<div class="quizletintroText">We have placed additional tools to help you review the material in this level on Quizlet. Click any of the links to begin.</div>'+
-	    '<div id="quizletOutdiv" style="margin-left: 123.5px;">'+
+		'<div id="quizletOutdiv" style="margin-left: 123.5px;"></div>';
+	if(this.school == "StGall" && this.level == 4){
+		document.getElementById("quizletOutdiv").innerHTML +=
+		'<div id = "quizletSet1">Latin Terms and Letters:</div>';
+	}
 
+	document.getElementById("quizletOutdiv").innerHTML += 	
 	    '<div id="scatterLink" class="quizletBox" onclick="document.getElementById(\'scatter\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
 	    '<div class="quizletContent">'+
-	    '<img id="scatterIcon" src="images/scatter.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+	    '<img id="scatterIcon" src="images/match.png" style = "height:70px; margin-bottom: 12px;"><br>'+
 	    '<a href="javascript:void(0)" >Match</a>'+
 	    '</div></div>' +
 
@@ -25,34 +30,35 @@ Quizlet.prototype.initUI = function(container_div_id) {
 
 		'<div id="flash-cardsLink" class="quizletBox" onclick="document.getElementById(\'flash-cards\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
 		'<div class="quizletContent">'+
-		'<img id="gravityIcon" src="images/gravity.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+		'<img id="gravityIcon" src="images/cards.png" style = "height:70px; margin-bottom: 12px;"><br>'+
 		'<a href="javascript:void(0)" >Flash Cards</a>'+
 		'</div></div>'+
 
 		'<div id="spellLink" class="quizletBox" onclick="document.getElementById(\'spell\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
 		'<div class="quizletContent">'+
-		'<img id="gravityIcon" src="images/gravity.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+		'<img id="gravityIcon" src="images/spell.png" style = "height:70px; margin-bottom: 12px;"><br>'+
 		'<a href="javascript:void(0)" >Spell</a>'+
 		'</div></div>'+
 
 		'<div id="learnLink" class="quizletBox" onclick="document.getElementById(\'learn\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
 		'<div class="quizletContent">'+
-		'<img id="gravityIcon" src="images/gravity.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+		'<img id="gravityIcon" src="images/learn.png" style = "height:70px; margin-bottom: 12px;"><br>'+
 		'<a href="javascript:void(0)" >learn</a>'+
 		'</div></div>'+
 
 		'<div id="testLink" class="quizletBox" onclick="document.getElementById(\'test\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
 		'<div class="quizletContent">'+
-		'<img id="gravityIcon" src="images/gravity.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+		'<img id="gravityIcon" src="images/test.png" style = "height:70px; margin-bottom: 12px;"><br>'+
 		'<a href="javascript:void(0)" >Test</a>'+
-		'</div></div>'
+		'</div></div>';
 
-		+'</div>' ;
+		
 		if(this.school == "StGall" && this.level == 4){
 			document.getElementById("quizletOutdiv").innerHTML += 
+			'<br><div id = "quizletSet2">Latin Terms and English Translations:</div>'+
 			'<div id="scatterLink2" class="quizletBox" onclick="document.getElementById(\'scatter2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
 		    '<div class="quizletContent">'+
-		    '<img id="scatterIcon" src="images/scatter.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+		    '<img id="scatterIcon" src="images/match.png" style = "height:70px; margin-bottom: 12px;"><br>'+
 		    '<a href="javascript:void(0)" >Match</a>'+
 		    '</div></div>' +
 
@@ -64,19 +70,19 @@ Quizlet.prototype.initUI = function(container_div_id) {
 
 			'<div id="flash-cardsLink2" class="quizletBox" onclick="document.getElementById(\'flash-cards2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
 			'<div class="quizletContent">'+
-			'<img id="gravityIcon" src="images/gravity.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+			'<img id="gravityIcon" src="images/cards.png" style = "height:70px; margin-bottom: 12px;"><br>'+
 			'<a href="javascript:void(0)" >Flash Cards</a>'+
 			'</div></div>'+
 
 			'<div id="learnLink2" class="quizletBox" onclick="document.getElementById(\'learn2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
 			'<div class="quizletContent">'+
-			'<img id="gravityIcon" src="images/gravity.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+			'<img id="gravityIcon" src="images/learn.png" style = "height:70px; margin-bottom: 12px;"><br>'+
 			'<a href="javascript:void(0)" >learn</a>'+
 			'</div></div>'+
 
 			'<div id="testLink2" class="quizletBox" onclick="document.getElementById(\'test2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
 			'<div class="quizletContent">'+
-			'<img id="gravityIcon" src="images/gravity.png" style = "height:70px; margin-bottom: 12px;"><br>'+
+			'<img id="gravityIcon" src="images/test.png" style = "height:70px; margin-bottom: 12px;"><br>'+
 			'<a href="javascript:void(0)" >Test</a>'+
 			'</div></div>'
 		}

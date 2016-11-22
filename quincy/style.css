@@ -326,19 +326,24 @@ div.box {
 .quizletBox{
   float:left;
   clear:none;
-  width:200px;
+  width:90px;
   height:150px;
   padding:0px 30px 0px 30px;
   margin: 20px;
   display: table;
-  border: dashed 1.8px rgb(255, 184, 5);
-  border-radius: 10px;
+  /* border: dashed 1.8px rgb(255, 184, 5); */
+  /* border-radius: 10px; */
+  border-bottom: solid 6px rgb(255, 184, 5);
+
+  background: white;
   text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .quizletBox:hover{
-  opacity:.7;
+  /*opacity:.7;*/
   cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(225, 184, 5, 0.5), 0 0px 15px 0 rgba(225, 184, 5, 0.19);
 }
 
 .video-description,.quizletContent{
@@ -921,4 +926,14 @@ text-align: left;
 
 #studyGuide:hover{
   opacity: 0.7;
+}
+
+#quizletSet1,#quizletSet2{
+  float:left;
+  clear:none;
+  width:700px;
+  height:10px;
+  padding:0px 30px 0px 0px;
+  margin: 20px 0px;
+  display: table;
 }
