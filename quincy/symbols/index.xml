@@ -720,7 +720,7 @@
 	<symbol id="659" name="same pitch--equaliter" fileName="laon_letter_eq_1.png" school="Laon" level="4" group="1" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />		
 	<symbol id="660" name="same pitch--equaliter" fileName="laon_letter_eq_2.png" school="Laon" level="4" group="1" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />		
 	<symbol id="661" name="(melodic) peak--fastigium" fileName="laon_letter_f_1.png" school="Laon" level="4" group="1" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />		
-	<symbol id="662" name="low=downwards=deep--humiliter" fileName="laon_letter_h_1.png" school="Laon" level="4" group="1" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />		
+	<symbol id="662" name="low=downward=deep--humiliter" fileName="laon_letter_h_1.png" school="Laon" level="4" group="1" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />		
 	<symbol id="663" name="higher--sursum" fileName="laon_letter_s_1.png" school="Laon" level="4" group="1" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />		
 	<!-- Laon level 4 group 2 -->
 	<symbol id="664" name="increase=lengthen--augete" fileName="laon_letter_a_1.png" school="Laon" level="4" group="2" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
@@ -740,12 +740,12 @@
 	<symbol id="675" name="higher, hold--sursum, tenere" fileName="laon_letter_rt_1.png" school="Laon" level="4" group="5" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="676" name="hold, lower--tenere, humiliter" fileName="laon_letter_th_1.png" school="Laon" level="4" group="5" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<!-- Laon level 4 group 6 -->
-	<symbol id="677" name="downwards--deorsum" fileName="laon_tironien_deorsum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="677" name="downward--deorsum" fileName="laon_tironien_deorsum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="678" name="bend--devertit" fileName="laon_tironien_devertit_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="679" name="bend--devertit" fileName="laon_tironien_devertit_simple_2.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="680" name="bend--devertit" fileName="laon_tironien_devertit_simple_3.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="681" name="lower=descending--devexum" fileName="laon_tironien_devexum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
-	<symbol id="682" name="downwards--iusum" fileName="laon_tironien_iusum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
+	<symbol id="682" name="downward--iusum" fileName="laon_tironien_iusum_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="683" name="place it lower--pro sub eam=trade subtus" fileName="laon_tironien_prode-sub-eam_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="684" name="very quickly--quam mox" fileName="laon_tironien_quam-mox_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
 	<symbol id="685" name="leap quickly--saltate=salte" fileName="laon_tironien_saltate_simple_1.png" school="Laon" level="4" group="6" matchingModern="" matchingStGall="" altType="" altLoc="" info="" />
@@ -803,7 +803,8 @@
 	<symbol id="734" name="pressus" fileName="laon_special_pressus_oriscus-inside-rhy_1.png" school="Laon" level="5" group="3" matchingModern="960-961" matchingStGall="" altType="" altLoc="" info="Note, repeated note, lower note; all lengthened." />
 	<!-- Laon level 5 group 4 -->
 	<symbol id="735" name="climacus augmentative" fileName="laon_special_climacus-liquescent_augmentative_1.png" school="Laon" level="5" group="4" matchingModern="962" matchingStGall="194" altType="" altLoc="" info="Three descending notes: the last note is augmentatively liquescent." />
-	<symbol id="736" name="climacus diminutive" fileName="laon_special_climacus-liquescent_diminutive_1.png" school="Laon" level="5" group="4" matchingModern="963-964-966" matchingStGall="195-196" altType="" altLoc="" info="Three descending notes: the last note is diminutively liquescent OR Higher note, lower note; the second note is augmentatively liquescent." />
+	<symbol id="736" name="climacus diminutive=clivis augmentative" fileName="laon_special_climacus-liquescent_diminutive_1.png" school="Laon" level="5" group="4" matchingModern="963-964-966" matchingStGall="195-196" altType="" altLoc="" info="Three descending notes: the last note is diminutively liquescent OR Higher note, lower note; the second note is augmentatively liquescent." />
+	<symbol id="737" name="clivis augmentative" fileName="laon_special_clivis-liquescent_augmentative_1.png" school="Laon" level="5" group="4" matchingModern="965" matchingStGall="195-196" altType="" altLoc="" info="Higher note, lower note; both notes are lengthened; the second note is augmentatively liquescent." />dpwmdd
 	<symbol id="737" name="clivis augmentative" fileName="laon_special_clivis-liquescent_augmentative_1.png" school="Laon" level="5" group="4" matchingModern="965" matchingStGall="195-196" altType="" altLoc="" info="Higher note, lower note; both notes are lengthened; the second note is augmentatively liquescent." />
 	<symbol id="738" name="clivis diminutive" fileName="laon_special_clivis-liquescent_diminutive_1.png" school="Laon" level="5" group="4" matchingModern="967" matchingStGall="197" altType="" altLoc="" info="Higher note, lower note; the second note is diminutively liquescent." />
 	<symbol id="739" name="clivis diminutive=tractulus liquescent" fileName="laon_special_clivis-liquescent_diminutive_2.png" school="Laon" level="5" group="4" matchingModern="967-968-969-970" matchingStGall="197" altType="" altLoc="" info="Higher note, lower note; the second note is diminutively liquescent OR a single liquescent note." />

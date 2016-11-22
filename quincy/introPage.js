@@ -15,6 +15,8 @@ function IntroPage(school, level, group) {
 						["Melodic Implications", "Rhythmic Implications", "Melodic or Rhythmic Implications", "Combinations", "Combined Letters Separate Meanings", "Tironien Signs", "Review Lesson", "Assessment"],
 						["Quilisma", "Oriscus Basics", "Oriscus Variations", "Liquescence", "Review Lesson", "Assessment"],
 						["Neumatic Breaks", "Review Lesson", "Assessment"]];
+						
+	this.combinedLevels = ["Simple Neums", "Neums with Repercussive and Rhythmic Signs", "Neumative Alternations with Melodic and Rhythmic Alterations", "", "Special Signs"];
 }
 
 IntroPage.prototype.show = function() {
@@ -25,7 +27,7 @@ IntroPage.prototype.show = function() {
 		document.getElementById("question").innerHTML = this.laonGroup[this.level - 1][this.group - 1];
 	}
 	else {
-		document.getElementById("question").innerHTML = "Level " + this.level;
+		document.getElementById("question").innerHTML = this.combinedLevels[this.level - 1];
 	}
 	
 	// Show instruction videos for this group
@@ -71,6 +73,19 @@ IntroPage.prototype.show = function() {
 		}
 	}
 	else {
-		document.getElementById("dynamicArea").innerHTML = "Combined exercises for level " + this.level;
+		var text;
+		if (this.level == 1) {
+			text = "This level asks you to match simple neums of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.";
+		}
+		else if (this.level == 2) {
+			text = "This level asks you to match neums with repercussive and/or rhythmic signs of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.";
+		}
+		else if (this.level == 3) {
+			text = "This level asks you to match neums with alterations that have melodic and/or rhythmic implications of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.";
+		}
+		else if (this.level == 5) {
+			text = "This level asks you to match quilismatic, oriscus, or liquescent neums of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.";
+		}
+		document.getElementById("dynamicArea").innerHTML = text;
 	}
 }
