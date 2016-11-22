@@ -60,7 +60,7 @@ IntroPage.prototype.show = function() {
 			}
 			else if (this.level == 6){
 				document.getElementById("dynamicArea").innerHTML =
-					'<div class = "introText">All of the previous exercises are assembled together here, along with some additional questions, for your review.<br><br>In addition, there are some surprise questions to help you synthesize the material in this level.<br><br>When you are ready to begin, click the link below to go to the review exercises.</div>';
+					'<div class = "introText">All of the previous exercises are assembled together here, along with some additional questions, for your review.<br><br>When you are ready to begin, click the link below to go to the review exercises.</div>';
 			}
 			else {
 				document.getElementById("dynamicArea").innerHTML =
@@ -74,6 +74,10 @@ IntroPage.prototype.show = function() {
 			if (this.level == 4) {
 				document.getElementById("dynamicArea").innerHTML =
 					'<div class = "introText">This test consists of a small number of questions taken randomly from the various exercises for this level.<br><br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br><br>When you are ready to begin, click the link below to go to the assessment.</div>';
+			}
+			else if (this.level == 6){
+				document.getElementById("dynamicArea").innerHTML =
+					'<div class = "introText">This test consists of a small number of questions taken randomly from the various exercises for this level, along with some new questions.<br><br>In the assessment you will be able to review your answers and see your score only when the test is complete.<br><br>When you are ready to begin, click the link below to go to the assessment.</div>';
 			}
 			else {
 				document.getElementById("dynamicArea").innerHTML =
