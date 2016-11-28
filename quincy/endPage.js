@@ -11,7 +11,7 @@ EndPage.prototype.show = function() {
 	document.getElementById("question").innerHTML = 'The end';
 	
 	document.getElementById("dynamicArea").innerHTML =
-    	'<div class="introText" style="text-align: center;">You have finished the exercises.</div>';
+    	'<div class="introText" style="text-align: center;">You have finished the review lesson.</div>';
 	
     // Show prev arrow only	
 	document.getElementById("next").style.visibility = "hidden";
