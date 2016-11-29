@@ -88,16 +88,16 @@ IntroPage.prototype.show = function() {
 	else {
 		var text;
 		if (this.level == 1) {
-			text = "This level asks you to match simple neums of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.";
+			text = '<div class = "introText">This level asks you to match simple neums of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.</div>';
 		}
 		else if (this.level == 2) {
-			text = "This level asks you to match neums with repercussive and/or rhythmic signs of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.";
+			text = '<div class = "introText">This level asks you to match neums with repercussive and/or rhythmic signs of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.</div>';
 		}
 		else if (this.level == 3) {
-			text = "This level asks you to match neums with alterations that have melodic and/or rhythmic implications of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.";
+			text = '<div class = "introText">This level asks you to match neums with alterations that have melodic and/or rhythmic implications of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.</div>';
 		}
 		else if (this.level == 5) {
-			text = "This level asks you to match quilismatic, oriscus, or liquescent neums of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.";
+			text = '<div class = "introText">This level asks you to match quilismatic, oriscus, or liquescent neums of the St. Gall notation with the corresponding neums of the Laon notation or vice versa.</div>';
 		}
 		document.getElementById("dynamicArea").innerHTML = text;
 	}
