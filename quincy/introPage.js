@@ -51,12 +51,12 @@ IntroPage.prototype.show = function() {
 			if (this.school == "StGall" && this.level == 4) {
 				document.getElementById("dynamicArea").innerHTML =
 				    '<div class = "introText">All of the previous exercises are assembled together here for your review.<br><br>Below there is a study guide to help you prepare.<br><br>When you are ready to begin, click the link below to go to the review exercises.</div>'+
-				    '<a class="nonblock nontext museBGSize grpelem" id = "studyGuide" href="St_Gall_Level_Four_ Study_Guide.pdf" target="_blank"></a><a href="St_Gall_Level_Four_ Study_Guide.pdf" target="_blank" style="z-index: 92; width: 160px; height: 20px; position: relative; margin-right: -10000px; left:385px; top:200px;">Study Guide</a>';
+				    '<a class="nonblock nontext museBGSize grpelem" id = "studyGuide" href="St_Gall_Level_Four_ Study_Guide.pdf" target="_blank"></a><a href="St_Gall_Level_Four_ Study_Guide.pdf" target="_blank" style="z-index: 92; width: 160px; height: 20px; position: relative; margin-right: -10000px; left:382px; top:200px;">Study Guide</a>';
 			}
 			else if (this.school == "Laon" && this.level == 4){
 				document.getElementById("dynamicArea").innerHTML =
 				    '<div class = "introText">All of the previous exercises are assembled together here for your review.<br><br>Below there is a study guide to help you prepare.<br><br>When you are ready to begin, click the link below to go to the review exercises.</div>'+
-				    '<a class="nonblock nontext museBGSize grpelem" id = "studyGuide" href="Laon_Level_Four_ Study_Guide.pdf" target="_blank"></a><a href="Laon_Level_Four_ Study_Guide.pdf" target="_blank" style="z-index: 92; width: 160px; height: 20px; position: relative; margin-right: -10000px; left:385px; top:200px;">Study Guide</a>';
+				    '<a class="nonblock nontext museBGSize grpelem" id = "studyGuide" href="Laon_Level_Four_ Study_Guide.pdf" target="_blank"></a><a href="Laon_Level_Four_ Study_Guide.pdf" target="_blank" style="z-index: 92; width: 160px; height: 20px; position: relative; margin-right: -10000px; left:382px; top:200px;">Study Guide</a>';
 			}
 			else if (this.level == 6){
 				document.getElementById("dynamicArea").innerHTML =
