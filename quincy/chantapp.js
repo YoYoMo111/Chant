@@ -42,7 +42,7 @@ ChantApp.prototype.initLesson = function(school, level, group) {
     this.lesson.initUI(this.container_div_id);
 
 	// Change text color of selected menu item to red
-	if (this.school = "Combination"){
+	if (this.school == "Combination"){
 			for (var i = 1; i <= 4; i++){
 			//document.getElementById("menu-"+school+"-"+level+"-"+i).style.background="transparent";//yoyo
 			document.getElementById("menu-"+i).style.background="transparent";//yoyo
@@ -56,12 +56,17 @@ ChantApp.prototype.initLesson = function(school, level, group) {
 			//document.getElementById("menu-"+school+"-"+level+"-"+i).style.background="transparent";//yoyo
 			document.getElementById("menu-"+i).style.background="transparent";//yoyo
 		}
-		document.getElementById("u3339").style.background="transparent";//intro
-		document.getElementById("u1981").style.background="transparent";//review
-		document.getElementById("u1960").style.background="transparent";//assessment
-		document.getElementById("quizlet").style.background="transparent";//quizlet
-		//document.getElementById("menu-"+school+"-"+level+"-"+group).style.background="#FF994D";//yoyo
-		document.getElementById("menu-"+group).style.background="#FF994D";//yoyo
+		
+			document.getElementById("u3339").style.background="transparent";//intro
+			document.getElementById("u1981").style.background="transparent";//review
+			document.getElementById("u1960").style.background="transparent";//assessment
+			document.getElementById("menu-"+group).style.background="#FF994D";//yoyo
+		
+		if(this.level !=6){
+			document.getElementById("quizlet").style.background="transparent";//quizlet
+		}
+			//document.getElementById("menu-"+school+"-"+level+"-"+group).style.background="#FF994D";//yoyo
+			document.getElementById("menu-"+group).style.background="#FF994D";//yoyo
 	}
 	
 //	this.changeTextColor(group);
@@ -90,7 +95,9 @@ ChantApp.prototype.initReviewLesson = function(school, level) {
 	document.getElementById("u3339").style.background="transparent";//intro
 	document.getElementById("u1981").style.background="#FF994D";//review
 	document.getElementById("u1960").style.background="transparent";//assessment
-	document.getElementById("quizlet").style.background="transparent";//quizlet
+	if(this.level !=6){
+		document.getElementById("quizlet").style.background="transparent";//quizlet
+	}
 }
 
 ChantApp.prototype.initTest = function(school, level) {
@@ -116,7 +123,9 @@ ChantApp.prototype.initTest = function(school, level) {
 	document.getElementById("u3339").style.background="transparent";//intro
 	document.getElementById("u1981").style.background="transparent";//review
 	document.getElementById("u1960").style.background="#FF994D";//assessment
-	document.getElementById("quizlet").style.background="transparent";//quizlet
+	if(this.level !=6){
+		document.getElementById("quizlet").style.background="transparent";//quizlet
+	}
 }
 
 /*yoyo add*/
