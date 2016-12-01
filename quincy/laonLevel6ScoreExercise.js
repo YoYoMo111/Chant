@@ -30,7 +30,7 @@ function LaonLevel6ScoreExercise(school, level, scoreFileName, solution, symbolP
 	this.neums = [578, 589, 584, 625, 585, 603, 636, 586,
 				  595, 596, 577, 587, 627, 618, 707, 720,
 				  600, 629, 616, 615, 594, 734, 713, 991,
-				  992, 993, 994, 995, 996, 626, 639, 588];
+				  992, 993, 994, 995, 996, 613, 639, 588];
 }
 
 LaonLevel6ScoreExercise.prototype = Object.create(Exercise.prototype);
