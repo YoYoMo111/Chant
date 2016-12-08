@@ -14,7 +14,7 @@ Quizlet.prototype.initUI = function(container_div_id) {
 		document.getElementById("quizletOutdiv").innerHTML +=
 		'<div id = "quizletSet1">Latin Terms and Letters:</div>';
 	}
-	else if(this.school == "Laon" && this.level == 5){
+	else if(this.level == 5){
 		document.getElementById("quizletOutdiv").innerHTML +=
 		'<div id = "quizletSet1">Oriscus:</div>';
 	}
@@ -63,12 +63,12 @@ Quizlet.prototype.initUI = function(container_div_id) {
 			document.getElementById("quizletOutdiv").innerHTML += 
 			'<br><div id = "quizletSet2">Latin Terms and English Translations:</div>';
 		}
-		else if (this.school == "Laon" && this.level == 5){
+		else if (this.level == 5){
 			document.getElementById("quizletOutdiv").innerHTML += 
 			'<br><div id = "quizletSet2">Liquescence:</div>';
 		}
 
-		if(this.level == 4 || (this.school == "Laon" && this.level == 5)){
+		if(this.level == 4 || this.level == 5){
 			document.getElementById("quizletOutdiv").innerHTML += 
 
 			'<div id="flash-cardsLink2" class="quizletBox" onclick="document.getElementById(\'flash-cards2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'">'+
@@ -206,6 +206,49 @@ Quizlet.prototype.initUI = function(container_div_id) {
 	  	'<p><iframe src="https://quizlet.com/168357639/test/embed" height="550" width="100%" style="border:0"></iframe></p>';
 
 	  	document.getElementById("spellLink").style.display='none';
+	  }
+	  else if (this.school == "StGall" && this.level == 5){
+	  	//set 1
+	  	document.getElementById("flash-cards").innerHTML =
+	  	'<a href="javascript:void(0)" onclick="document.getElementById(\'flash-cards\').style.display=\'none\';document.getElementById(\'fade\').style.display=\'none\'" class="textright">Close</a>'+
+	  	'<p><iframe src="https://quizlet.com/168505029/flashcards/embed" height="550" width="100%" style="border:0"></iframe></p>';
+
+	  	document.getElementById("test").innerHTML =
+	  	'<a href="javascript:void(0)" onclick="document.getElementById(\'test\').style.display=\'none\';document.getElementById(\'fade\').style.display=\'none\'" class="textright">Close</a>'+
+	  	'<p><iframe src="https://quizlet.com/168505029/test/embed" height="550" width="100%" style="border:0"></iframe></p>';
+
+		document.getElementById("scatter").innerHTML =
+		'<a href="javascript:void(0)" onclick="document.getElementById(\'scatter\').style.display=\'none\';document.getElementById(\'fade\').style.display=\'none\'" class="textright">Close</a>'+
+	  	'<p><iframe src="https://quizlet.com/168505029/match/embed" height="550" width="100%" style="border:0"></iframe></p>';
+
+	  	document.getElementById("race").innerHTML =
+	  	'<a href="javascript:void(0)" onclick="document.getElementById(\'race\').style.display=\'none\';document.getElementById(\'fade\').style.display=\'none\'" class="textright">Close</a>'+
+	  	'<p><iframe src="https://quizlet.com/168355966/gravity/embed" height="550" width="100%" style="border:0"></iframe></p>';
+
+	  	//set 2
+	  	
+	  	document.getElementById("flash-cards2").innerHTML =
+	  	'<a href="javascript:void(0)" onclick="document.getElementById(\'flash-cards2\').style.display=\'none\';document.getElementById(\'fade\').style.display=\'none\'" class="textright">Close</a>'+
+	  	'<p><iframe src="https://quizlet.com/168492186/flashcards/embed" height="550" width="100%" style="border:0"></iframe></p>';
+
+	  	document.getElementById("learn2").innerHTML =
+	  	'<a href="javascript:void(0)" onclick="document.getElementById(\'learn2\').style.display=\'none\';document.getElementById(\'fade\').style.display=\'none\'" class="textright">Close</a>'+
+	  	'<p><iframe src="https://quizlet.com/168492186/learn/embed" height="550" width="100%" style="border:0"></iframe></p>';
+
+	  	document.getElementById("test2").innerHTML =
+	  	'<a href="javascript:void(0)" onclick="document.getElementById(\'test2\').style.display=\'none\';document.getElementById(\'fade\').style.display=\'none\'" class="textright">Close</a>'+
+	  	'<p><iframe src="https://quizlet.com/168492186/test/embed" height="550" width="100%" style="border:0"></iframe></p>';
+
+		document.getElementById("scatter2").innerHTML =
+		'<a href="javascript:void(0)" onclick="document.getElementById(\'scatter2\').style.display=\'none\';document.getElementById(\'fade\').style.display=\'none\'" class="textright">Close</a>'+
+	  	'<p><iframe src="https://quizlet.com/168492186/match/embed" height="550" width="100%" style="border:0"></iframe></p>';
+
+	  	document.getElementById("race2").innerHTML =
+	  	'<a href="javascript:void(0)" onclick="document.getElementById(\'race2\').style.display=\'none\';document.getElementById(\'fade\').style.display=\'none\'" class="textright">Close</a>'+
+	  	'<p><iframe src="https://quizlet.com/168357639/gravity/embed" height="550" width="100%" style="border:0"></iframe></p>';
+
+	  	document.getElementById("spellLink").style.display='none';
+	  	document.getElementById("learnLink").style.display='none';
 	  }
 	  else if (this.school == "Laon" && this.level == 1){
 
