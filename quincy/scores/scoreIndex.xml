@@ -20,12 +20,12 @@
 	
 	<score id="16" fileName="gall_3_review_1.png" school="StGall" level="3" type="review" solution="104-90-98-97" />
     <score id="17" fileName="gall_3_review_2.png" school="StGall" level="3" type="review" solution="100-100-97-97-91" />
-	<score id="18" fileName="gall_3_review_3.png" school="StGall" level="3" type="review" solution="100-96-90" />
-	<score id="19" fileName="gall_3_review_4.png" school="StGall" level="3" type="review" solution="102-96-50-99-93" />
+	<score id="18" fileName="gall_3_review_3.png" school="StGall" level="3" type="review" solution="100-91-96-90" />
+	<score id="19" fileName="gall_3_review_4.png" school="StGall" level="3" type="review" solution="102-96-99-93" />
 	<score id="20" fileName="gall_3_test_1.png" school="StGall" level="3" type="test" solution="95-97-103-90" />
-	<score id="21" fileName="gall_3_test_2.png" school="StGall" level="3" type="test" solution="96-50-99-102-60-105-93" />
+	<score id="21" fileName="gall_3_test_2.png" school="StGall" level="3" type="test" solution="96-99-102-60-105-93" />
 	<score id="22" fileName="gall_3_test_3.png" school="StGall" level="3" type="test" solution="60-105-93-93-102" />
-	<score id="23" fileName="gall_3_test_4.png" school="StGall" level="3" type="test" solution="104-100-92-91-50-99-92" />
+	<score id="23" fileName="gall_3_test_4.png" school="StGall" level="3" type="test" solution="104-100-92-91-99-92" />
 	
 	<score id="24" fileName="gall_5_review_1.png" school="StGall" level="5" type="review" solution="14-11-6-17-11-17-15-10" />
     <score id="25" fileName="gall_5_review_2.png" school="StGall" level="5" type="review" solution="2-11-3-2-17-11-10" />
