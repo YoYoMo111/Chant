@@ -1,3 +1,62 @@
+<?php
+ ob_start();
+ session_start();
+ require_once 'db-connect.php';
+ 
+ // it will never let you open login page if session is set
+ if ( isset($_SESSION['user'])!="" ) {
+  header("Location: index.html");
+  exit;
+ }
+ 
+ $error = false;
+ 
+ if( isset($_POST['btn-login']) ) { 
+  
+  // prevent sql injections/ clear user invalid inputs
+  $email = trim($_POST['email']);
+  $email = strip_tags($email);
+  $email = htmlspecialchars($email);
+  
+  $pass = trim($_POST['pass']);
+  $pass = strip_tags($pass);
+  $pass = htmlspecialchars($pass);
+  // prevent sql injections / clear user invalid inputs
+  
+  if(empty($email)){
+   $error = true;
+   $emailError = "Please enter your email address.";
+  } else if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
+   $error = true;
+   $emailError = "Please enter valid email address.";
+  }
+  
+  if(empty($pass)){
+   $error = true;
+   $passError = "Please enter your password.";
+  }
+  
+  // if there's no error, continue to login
+  if (!$error) {
+   
+   $password = hash('sha256', $pass); // password hashing using SHA256
+  
+   $res=mysql_query("SELECT userId, userName, userPass FROM users WHERE userEmail='$email'");
+   $row=mysql_fetch_array($res);
+   $count = mysql_num_rows($res); // if uname/pass correct it returns must be 1 row
+   
+   if( $count == 1 && $row['userPass']==$password ) {
+    $_SESSION['user'] = $row['userId'];
+    header("Location: index.html");
+   } else {
+    $errMSG = "Incorrect Credentials, Try again...";
+   }
+    
+  }
+  
+ }
+?>
+
 <!DOCTYPE html>
 <html class="html" lang="en-US">
  <head>
@@ -47,13 +106,13 @@ var __adobewebfontsappname__ = "muse";
        <div class="clearfix" id="u4273_align_to_page">
         <nav class="MenuBar clearfix grpelem" id="menuu686"><!-- horizontal box -->
          <div class="MenuItemContainer clearfix grpelem" id="u687"><!-- vertical box -->
-          <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u688" href="sign-in.html"><!-- horizontal box --><div class="MenuItemLabel NoWrap clearfix grpelem" id="u691-4"><!-- content --><p>Sign in</p></div></a>
+          <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u688" href="sign-in.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap clearfix grpelem" id="u691-4"><!-- content --><p>Sign in</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u4277"><!-- vertical box -->
-          <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u4280" href="sign-in.html"><!-- horizontal box --><div class="MenuItemLabel NoWrap clearfix grpelem" id="u4283-4"><!-- content --><p>|</p></div></a>
+          <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u4280" href="sign-in.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap clearfix grpelem" id="u4283-4"><!-- content --><p>|</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u722"><!-- vertical box -->
-          <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u723" href="register.html"><!-- horizontal box --><div class="MenuItemLabel NoWrap clearfix grpelem" id="u726-4"><!-- content --><p>Create Account</p></div></a>
+          <a class="nonblock nontext MenuItem MenuItemWithSubMenu clearfix colelem" id="u723" href="register.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap clearfix grpelem" id="u726-4"><!-- content --><p>Create Account</p></div></a>
          </div>
         </nav>
         <a class="nonblock nontext grpelem" id="u3757" href="index.html"><!-- simple frame --></a>
@@ -94,7 +153,57 @@ var __adobewebfontsappname__ = "muse";
     <p>Sign In</p>
    </div>
    <div class="clearfix colelem" id="u3541-4"><!-- content -->
-    <p>Coming soon!</p>
+
+
+<div class="container">
+
+ <div id="login-form">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
+    
+     <div class="col-md-12">
+        
+            <?php
+   if ( isset($errMSG) ) {
+    
+    ?>
+    <div class="form-group">
+             <div class="alert alert-danger">
+    <span class="glyphicon glyphicon-info-sign"></span> <?php echo $errMSG; ?>
+                </div>
+             </div>
+                <?php
+   }
+   ?>
+            
+            <div class="form-group">
+             <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+             <input type="email" name="email" class="form-control" placeholder="Your Email" value="<?php echo $email; ?>" maxlength="40" />
+                </div>
+                <span class="text-danger"><?php echo $emailError; ?></span>
+            </div>
+            
+            <div class="form-group">
+             <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+             <input type="password" name="pass" class="form-control" placeholder="Your Password" maxlength="15" />
+                </div>
+                <span class="text-danger"><?php echo $passError; ?></span>
+            </div>
+            
+            <div class="form-group">
+             <button type="submit" class="btn btn-block btn-primary" name="btn-login">Sign In</button>
+            </div>
+            
+        </div>
+   
+    </form>
+    </div> 
+
+</div>
+
+
+
    </div>
    <div class="clearfix colelem" id="u110"><!-- group -->
     <div class="footer clearfix grpelem" id="u116-20"><!-- content -->
@@ -143,3 +252,4 @@ Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
 </script>
    </body>
 </html>
+<?php ob_end_flush(); ?>
