@@ -667,20 +667,20 @@
 	<symbol id="612" name="uncinus" fileName="laon_single-note_uncinus_simple_4_V2.png" school="Laon" level="2" group="1" matchingModern="815-816" matchingStGall="" altType="rhythmic" altLoc="4" info="" />		
 	<symbol id="613" name="virga" fileName="laon_single-note_virga_simple_1.png" school="Laon" level="2" group="1" matchingModern="815-816" matchingStGall="26" altType="rhythmic" altLoc="4" info="" />		
 	<!-- Laon level 2 group 2 -->
-	<symbol id="614" name="" fileName="laon_repercussive_bivirga_neums_1_V2.png" school="Laon" level="2" group="2" matchingModern="817-818-819-820" matchingStGall="27" altType="rhythmic" altLoc="4" info="" />		
-	<symbol id="615" name="" fileName="laon_repercussive_distropha_neums_1.png" school="Laon" level="2" group="2" matchingModern="821-822" matchingStGall="29" altType="rhythmic" altLoc="3" info="" />		
-	<symbol id="616" name="" fileName="laon_repercussive_tristropha_neums_1.png" school="Laon" level="2" group="2" matchingModern="823-824" matchingStGall="30" altType="rhythmic" altLoc="3" info="" />		
+	<symbol id="614" name="bivirga" fileName="laon_repercussive_bivirga_neums_1_V2.png" school="Laon" level="2" group="2" matchingModern="817-818-819-820" matchingStGall="27" altType="rhythmic" altLoc="4" info="" />		
+	<symbol id="615" name="distropha" fileName="laon_repercussive_distropha_neums_1.png" school="Laon" level="2" group="2" matchingModern="821-822" matchingStGall="29" altType="rhythmic" altLoc="3" info="" />		
+	<symbol id="616" name="tristropha" fileName="laon_repercussive_tristropha_neums_1.png" school="Laon" level="2" group="2" matchingModern="823-824" matchingStGall="30" altType="rhythmic" altLoc="3" info="" />		
 	<symbol id="617" name="" fileName="laon_repercussive_trivirga_neums_1.png" school="Laon" level="2" group="2" matchingModern="825-826-827-828" matchingStGall="28" altType="rhythmic" altLoc="4" info="" />
 	<!-- Laon level 2 group 3 -->
-	<symbol id="618" name="" fileName="laon_two-note_clivis_neums_1.png" school="Laon" level="2" group="3" matchingModern="829-830-831-832-833" matchingStGall="32-33" altType="rhythmic" altLoc="4" info="" />		
+	<symbol id="618" name="clivis" fileName="laon_two-note_clivis_neums_1.png" school="Laon" level="2" group="3" matchingModern="829-830-831-832-833" matchingStGall="32-33" altType="rhythmic" altLoc="4" info="" />		
 	<symbol id="619" name="" fileName="laon_two-note_clivis_neums-repercussion-bottom_1.png" school="Laon" level="2" group="3" matchingModern="834" matchingStGall="" altType="both" altLoc="1-3,3" info="" />		
 	<symbol id="620" name="" fileName="laon_two-note_clivis_neums-repercussion-top_1.png" school="Laon" level="2" group="3" matchingModern="835" matchingStGall="40" altType="both" altLoc="4,1" info="" />		
 	<symbol id="621" name="" fileName="laon_two-note_clivis_neums-repercussion-top_2.png" school="Laon" level="2" group="3" matchingModern="836" matchingStGall="39" altType="both" altLoc="1,1" info="" />		
 	<symbol id="622" name="" fileName="laon_two-note_pes_neums-repercussion-bottom_1.png" school="Laon" level="2" group="3" matchingModern="837" matchingStGall="43" altType="both" altLoc="4,1" info="" />		
 	<symbol id="623" name="" fileName="laon_two-note_pes_neums-repercussion-top_1.png" school="Laon" level="2" group="3" matchingModern="838-839" matchingStGall="" altType="both" altLoc="4,3" info="" />		
-	<symbol id="624" name="" fileName="laon_two-note_podatus-pes_neums_1.png" school="Laon" level="2" group="3" matchingModern="840" matchingStGall="49-50" altType="rhythmic" altLoc="4" info="" />		
+	<symbol id="624" name="pes=podatus" fileName="laon_two-note_podatus-pes_neums_1.png" school="Laon" level="2" group="3" matchingModern="840" matchingStGall="49-50" altType="rhythmic" altLoc="4" info="" />		
 	<!-- Laon level 2 group 4 -->	
-	<symbol id="625" name="" fileName="laon_three-note_climacus_neums_1.png" school="Laon" level="2" group="4" matchingModern="841-842-843" matchingStGall="51" altType="rhythmic" altLoc="4" info="" />		
+	<symbol id="625" name="climacus" fileName="laon_three-note_climacus_neums_1.png" school="Laon" level="2" group="4" matchingModern="841-842-843" matchingStGall="51" altType="rhythmic" altLoc="4" info="" />		
 	<symbol id="626" name="" fileName="laon_three-note_climacus_neums_2.png" school="Laon" level="2" group="4" matchingModern="844-845-846" matchingStGall="" altType="rhythmic" altLoc="1-3" info="" />		
 	<symbol id="627" name="" fileName="laon_three-note_climacus_neums_3.png" school="Laon" level="2" group="4" matchingModern="847-848-849" matchingStGall="53" altType="rhythmic" altLoc="3" info="" />		
 	<symbol id="628" name="" fileName="laon_three-note_porrectus_neums_1.png" school="Laon" level="2" group="4" matchingModern="850-851-852" matchingStGall="54" altType="rhythmic" altLoc="4" info="" />		
@@ -691,12 +691,12 @@
 	<symbol id="633" name="" fileName="laon_three-note_torculus_neums_2.png" school="Laon" level="2" group="4" matchingModern="865-866-867-868" matchingStGall="61" altType="rhythmic" altLoc="4" info="" />		
 	<symbol id="634" name="" fileName="laon_three-note_torculus_initio-debilis-lengthened-end.png" school="Laon" level="2" group="4" matchingModern="869-870-871-872" matchingStGall="" altType="rhythmic" altLoc="4" info="" />		
 	<symbol id="635" name="" fileName="laon_three-note_torculus_neums_4.png" school="Laon" level="2" group="4" matchingModern="873-874-875-876" matchingStGall="66-67-68" altType="rhythmic" altLoc="1" info="" />
-	<symbol id="636" name="" fileName="laon_three-note_torculus_lengthened-end.png" school="Laon" level="2" group="4" matchingModern="877-878-879" matchingStGall="63-64" altType="rhythmic" altLoc="2-3" info="" />
+	<symbol id="636" name="torculus" fileName="laon_three-note_torculus_lengthened-end.png" school="Laon" level="2" group="4" matchingModern="877-878-879" matchingStGall="63-64" altType="rhythmic" altLoc="2-3" info="" />
 	<!-- Laon level 2 group 5 -->	
 	<symbol id="637" name="" fileName="laon_four-five-note_torculus-resupinus_initio-debilis_1.png" school="Laon" level="2" group="5" matchingModern="880-881-882-883" matchingStGall="" altType="rhythmic" altLoc="1" info="" />		
 	<symbol id="638" name="" fileName="laon_four-five-note_climacus_neums_5.png" school="Laon" level="2" group="5" matchingModern="884-885" matchingStGall="70" altType="rhythmic" altLoc="1" info="" />		
 	<symbol id="639" name="" fileName="laon_four-five-note_pes-subtripunctis-torculus-subbipunctis_neums_1.png" school="Laon" level="2" group="5" matchingModern="886-887-888" matchingStGall="" altType="rhythmic" altLoc="3" info="" />		
-	<symbol id="640" name="" fileName="laon_four-five-note_pes-subbipunctis-torculus-subpunctis_neums_2.png" school="Laon" level="2" group="5" matchingModern="889-890-891-892" matchingStGall="" altType="rhythmic" altLoc="1" info="" />		
+	<symbol id="640" name="pes subbipunctis=torculus subpunctis" fileName="laon_four-five-note_pes-subbipunctis-torculus-subpunctis_neums_2.png" school="Laon" level="2" group="5" matchingModern="889-890-891-892" matchingStGall="" altType="rhythmic" altLoc="1" info="" />		
 	<symbol id="641" name="" fileName="laon_four-five-note_porrectus-subbipunctis_neums_1.png" school="Laon" level="2" group="5" matchingModern="893-894-895" matchingStGall="" altType="rhythmic" altLoc="1-2" info="" />		
 	<symbol id="642" name="" fileName="laon_four-five-note_pes-subbipunctis-torculus-subpunctis_neums_4.png" school="Laon" level="2" group="5" matchingModern="896-897-898-899" matchingStGall="73" altType="rhythmic" altLoc="4" info="" />		
 	<symbol id="643" name="" fileName="laon_four-five-note_pes-subbipunctis-torculus-subpunctis_neums_5.png" school="Laon" level="2" group="5" matchingModern="900-901" matchingStGall="" altType="rhythmic" altLoc="3" info="" />		
@@ -708,7 +708,7 @@
 	<symbol id="649" name="" fileName="laon_four-five-note_porrectus_neums-repercussion-end_1.png" school="Laon" level="2" group="5" matchingModern="913-914" matchingStGall="" altType="both" altLoc="3,3" info="" />		
 	<symbol id="650" name="" fileName="laon_four-five-note_torculus-resupinus_neums_2.png" school="Laon" level="2" group="5" matchingModern="915" matchingStGall="76-77" altType="rhythmic" altLoc="1" info="" />		
 	<symbol id="651" name="" fileName="laon_four-five-note_torculus-resupinus_neums_3.png" school="Laon" level="2" group="5" matchingModern="916-917-918-919" matchingStGall="" altType="rhythmic" altLoc="3" info="" />		
-	<symbol id="652" name="" fileName="laon_four-five-note_torculus-resupinus_neums_4_V3.png" school="Laon" level="2" group="5" matchingModern="920-921-922-923" matchingStGall="85" altType="rhythmic" altLoc="4" info="" />		
+	<symbol id="652" name="torculus resupinus" fileName="laon_four-five-note_torculus-resupinus_neums_4_V3.png" school="Laon" level="2" group="5" matchingModern="920-921-922-923" matchingStGall="85" altType="rhythmic" altLoc="4" info="" />		
 	<!-- Laon level 3 group 1 -->
 	<symbol id="653" name="clivis" fileName="laon_X-note_clivis_neums-mel_2.png" school="Laon" level="3" group="1" matchingModern="" matchingStGall="91" altType="" altLoc="" info="A higher note followed by a much lower note." />		
 	<symbol id="654" name="porrectus" fileName="laon_X-note_porrectus_neums-mel_1.png" school="Laon" level="3" group="1" matchingModern="" matchingStGall="" altType="" altLoc="" info="A higher note followed by a lower note followed by a much higher note." />		
