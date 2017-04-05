@@ -229,7 +229,8 @@ ScoreExercise.prototype.showRightAnswer = function() {
 		
 		if (this.mode == 2) {
 			document.getElementById("textBox_" + i).style.backgroundColor = "white";    // clear background color
-			document.getElementById("textBox_" + i).value = this.symbolDB.symbols[this.solutionIDs[i]].name.replace("=", " OR ");
+			//document.getElementById("textBox_" + i).value = this.symbolDB.symbols[this.solutionIDs[i]].name.replace("=", " OR ");
+			document.getElementById("textBox_" + i).value = replaceAll(this.symbolDB.symbols[this.solutionIDs[i]].name, "=", " OR ");
 		}
 	}
 }
@@ -309,4 +310,8 @@ ScoreExercise.prototype.showNeumWithID = function(ID) {
 		    this.symbolDB.symbols[ID].school + '/Level_' + this.symbolDB.symbols[ID].level +
 		    '/Group_' + this.symbolDB.symbols[ID].group + '/' + this.symbolDB.symbols[ID].fileName +
 	        '" draggable="false" style="width:60px;height:60px;">';
+}
+
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
 }
