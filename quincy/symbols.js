@@ -94,7 +94,7 @@ SymbolDB.prototype.showList = function(nNeumsInARow) {
     
 	for (var i = 0; i < this.symbols.length; i++) {
 	    if (this.symbols[i].visible) {
-			html += this.symbols[i].show(width, padding);
+			html += this.symbols[i].show(width, padding);//how to show symbol
 	    }
     }
 	html += '</div>';
@@ -129,18 +129,58 @@ SymbolDB.prototype.filterList = function(school, level, studentsAnswer, nNeumsIn
 	};
 */
 	// reset visibility of all symbols
+
+	//set invisible neums here
     this.numOfVisibleSymbols = 0;
     for (var i = 0; i < this.symbols.length; i++) {
 	    this.symbols[i].visible = false;
 	}
 	
-	for (var i = 0; i < this.symbols.length; i++) {
-	    if (this.symbols[i].school == school && this.symbols[i].level == level) {
-			this.symbols[i].visible = true;
-			this.symbols[i].belongsToThisExercise = true;
-			this.numOfVisibleSymbols++;
-		}		
-	}	
+	if(school == "Laon" && level == 2){
+		for (var i = 0; i < this.symbols.length; i++) {
+		    if (this.symbols[i].school == school && this.symbols[i].level == level && this.symbols[i].id != 611 && this.symbols[i].id != 612) {
+				this.symbols[i].visible = true;
+				this.symbols[i].belongsToThisExercise = true;
+				this.numOfVisibleSymbols++;
+			}		
+		}
+	}
+	else if (school == "Laon" && level == 1){
+		for (var i = 0; i < this.symbols.length; i++) {
+		    if (this.symbols[i].school == school && this.symbols[i].level == level && 
+		    	this.symbols[i].id != 579 && 
+		    	this.symbols[i].id != 580 &&
+		    	this.symbols[i].id != 583 &&
+		    	this.symbols[i].id != 589 &&
+		    	this.symbols[i].id != 595 &&
+		    	this.symbols[i].id != 597 &&
+		    	this.symbols[i].id != 600 &&
+		    	this.symbols[i].id != 602 &&
+		    	this.symbols[i].id != 603) {
+				this.symbols[i].visible = true;
+				this.symbols[i].belongsToThisExercise = true;
+				this.numOfVisibleSymbols++;
+			}		
+		}
+	}
+	else if(school == "StGall" && level == 2){
+		for (var i = 0; i < this.symbols.length; i++) {
+		    if (this.symbols[i].school == school && this.symbols[i].level == level && this.symbols[i].id != 35) {
+				this.symbols[i].visible = true;
+				this.symbols[i].belongsToThisExercise = true;
+				this.numOfVisibleSymbols++;
+			}		
+		}
+	}
+	else{
+		for (var i = 0; i < this.symbols.length; i++) {
+		    if (this.symbols[i].school == school && this.symbols[i].level == level) {
+				this.symbols[i].visible = true;
+				this.symbols[i].belongsToThisExercise = true;
+				this.numOfVisibleSymbols++;
+			}		
+		}	
+	}
 	this.studentsAnswer = studentsAnswer;
 	this.showList(nNeumsInARow);
 }
