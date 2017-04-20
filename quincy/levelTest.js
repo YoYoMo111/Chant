@@ -62,8 +62,8 @@ function LevelTest(school, level, groups) {
 		}
 		
 		// Randomly draw 2 score exercises!!!
-		//scoreExercises = shuffle(scoreExercises);
-		//scoreExercises.splice(2, scoreExercises.length - 2);
+		scoreExercises = shuffle(scoreExercises);
+		scoreExercises.splice(2, scoreExercises.length - 2);
 	}
 	else if(level == 6){
 		var xmlhttp;
