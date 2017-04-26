@@ -35,14 +35,19 @@ IntroPage.prototype.show = function() {
 		if (this.school == "StGall" && this.group <= this.stGallGroup[this.level - 1].length - 2 ||
 			this.school == "Laon" && this.group <= this.laonGroup[this.level - 1].length - 2) {
 			document.getElementById("dynamicArea").innerHTML =
-			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-1\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div class="video_thumbnail"></div></a>' +
+			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-1\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail1"></div></a>' +
 			'<div class="box"><div class="video-description">A description of each of the four single-note St. Gall neums: the punctum, the tractulus, the virga, and the gravis.</div></div>' +
 			
-			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div class="video_thumbnail"></div></a>' +
+			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail2"></div></a>' +
 			'<div class="box"><div class="video-description">A comparison of how each of the four single-note neums appears in modern chant notation with how each appears in early St. Gall manuscripts.</div></div>'  + 
 		
-			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-3\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div class="video_thumbnail"></div></a>' +
+			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-3\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail3"></div></a>' +
 			'<div class="box"><div class="video-description">Communio: Visionem quam vidistis, performed by Marek Klein.</div></div>';
+
+			//set video thumbnails
+			document.getElementById("video_thumbnail1").style.backgroundImage = "url('images/thumbnails/" + this.school + "-thumbnail-" + this.level + "-" + this.group + "-1.jpg')";
+			document.getElementById("video_thumbnail2").style.backgroundImage = "url('images/thumbnails/" + this.school + "-thumbnail-" + this.level + "-" + this.group + "-2.jpg')";
+			document.getElementById("video_thumbnail3").style.backgroundImage = "url('images/thumbnails/" + this.school + "-thumbnail-" + this.level + "-" + this.group + "-3.jpg')";
 		}
 		// Show instruction text for review
 		if (this.school == "StGall" && this.group == this.stGallGroup[this.level - 1].length - 1 ||

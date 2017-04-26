@@ -290,7 +290,7 @@ text-justify: inter-ideograph;
   float: right;
 }
 
-.video_thumbnail{
+#video_thumbnail1,#video_thumbnail2,#video_thumbnail3{
   float:left;
   clear:none;
   width:350px;
