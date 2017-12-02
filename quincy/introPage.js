@@ -17,14 +17,28 @@ function IntroPage(school, level, group) {
 						["Neumatic Breaks", "Review Lesson", "Assessment"]];
 						
 	this.combinedLevels = ["Simple Neums", "Neums with Repercussive and Rhythmic Signs", "Neumative Alternations with Melodic and Rhythmic Alterations", "", "Special Signs"];
+	
+	
 }
 
 IntroPage.prototype.show = function() {
+	
 	if (this.school == "StGall") {
 		document.getElementById("question").innerHTML = this.stGallGroup[this.level - 1][this.group - 1];
+        console.log(this.level-1);
+        console.log(this.group-1);
+        console.log(videoDesc_gall[this.level-1][this.group-1][0]);
+        console.log(videoDesc_gall[this.level-1][this.group-1][1]);
+        console.log(videoDesc_gall[this.level-1][this.group-1][2]);
+		var videoDesc1 = videoDesc_gall[this.level-1][this.group-1][0];
+		var videoDesc2 = videoDesc_gall[this.level-1][this.group-1][1];
+		var videoDesc3 = videoDesc_gall[this.level-1][this.group-1][2];
 	}
 	else if (this.school == "Laon") {
 		document.getElementById("question").innerHTML = this.laonGroup[this.level - 1][this.group - 1];
+		var videoDesc1 = videoDesc_laon[this.level-1][this.group-1][0];
+		var videoDesc2 = videoDesc_laon[this.level-1][this.group-1][1];
+		var videoDesc3 = videoDesc_laon[this.level-1][this.group-1][2];
 	}
 	else {
 		document.getElementById("question").innerHTML = this.combinedLevels[this.level - 1];
@@ -36,13 +50,13 @@ IntroPage.prototype.show = function() {
 			this.school == "Laon" && this.group <= this.laonGroup[this.level - 1].length - 2) {
 			document.getElementById("dynamicArea").innerHTML =
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-1\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail1"></div></a>' +
-			'<div class="box"><div class="video-description">A description of each of the four single-note St. Gall neums: the punctum, the tractulus, the virga, and the gravis.</div></div>' +
+			'<div class="box"><div class="video-description"><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_1.pdf" target="_blank" style="color:black;">'+videoDesc1+'</a></div></div>' +
 			
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail2"></div></a>' +
-			'<div class="box"><div class="video-description">A comparison of how each of the four single-note neums appears in modern chant notation with how each appears in early St. Gall manuscripts.</div></div>'  + 
+			'<div class="box"><div class="video-description"><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_2.pdf" target="_blank" style="color:black;">'+videoDesc2+'</a></div></div>'  + 
 		
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-3\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail3"></div></a>' +
-			'<div class="box"><div class="video-description">Communio: Visionem quam vidistis, performed by Marek Klein.</div></div>';
+			'<div class="box"><div class="video-description"><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_3.pdf" target="_blank" style="color:black;">'+videoDesc3+'</a></div></div>';
 
 			//set video thumbnails
 			document.getElementById("video_thumbnail1").style.backgroundImage = "url('images/thumbnails/" + this.school + "-thumbnail-" + this.level + "-" + this.group + "-1.jpg')";
