@@ -25,21 +25,9 @@ IntroPage.prototype.show = function() {
 	
 	if (this.school == "StGall") {
 		document.getElementById("question").innerHTML = this.stGallGroup[this.level - 1][this.group - 1];
-        console.log(this.level-1);
-        console.log(this.group-1);
-        console.log(videoDesc_gall[this.level-1][this.group-1][0]);
-        console.log(videoDesc_gall[this.level-1][this.group-1][1]);
-        console.log(videoDesc_gall[this.level-1][this.group-1][2]);
-        
-		var videoDesc1 = videoDesc_gall[this.level-1][this.group-1][0];
-		var videoDesc2 = videoDesc_gall[this.level-1][this.group-1][1];
-		var videoDesc3 = videoDesc_gall[this.level-1][this.group-1][2];
 	}
 	else if (this.school == "Laon") {
 		document.getElementById("question").innerHTML = this.laonGroup[this.level - 1][this.group - 1];
-		var videoDesc1 = videoDesc_laon[this.level-1][this.group-1][0];
-		var videoDesc2 = videoDesc_laon[this.level-1][this.group-1][1];
-		var videoDesc3 = videoDesc_laon[this.level-1][this.group-1][2];
 	}
 	else {
 		document.getElementById("question").innerHTML = this.combinedLevels[this.level - 1];
@@ -47,8 +35,25 @@ IntroPage.prototype.show = function() {
 	
 	// Show instruction videos for this group
 	if (this.school == "StGall" || this.school == "Laon") {
+		
 		if (this.school == "StGall" && this.group <= this.stGallGroup[this.level - 1].length - 2 ||
 			this.school == "Laon" && this.group <= this.laonGroup[this.level - 1].length - 2) {
+			if (this.school == "StGall") {
+				console.log(this.level-1);
+		        console.log(this.group-1);
+		        console.log(videoDesc_gall[this.level-1][this.group-1][0]);
+		        console.log(videoDesc_gall[this.level-1][this.group-1][1]);
+		        console.log(videoDesc_gall[this.level-1][this.group-1][2]);
+		        
+				var videoDesc1 = videoDesc_gall[this.level-1][this.group-1][0];
+				var videoDesc2 = videoDesc_gall[this.level-1][this.group-1][1];
+				var videoDesc3 = videoDesc_gall[this.level-1][this.group-1][2];
+			}
+			else if (this.school == "Laon") {
+				var videoDesc1 = videoDesc_laon[this.level-1][this.group-1][0];
+				var videoDesc2 = videoDesc_laon[this.level-1][this.group-1][1];
+				var videoDesc3 = videoDesc_laon[this.level-1][this.group-1][2];
+			}
 			document.getElementById("dynamicArea").innerHTML =
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-1\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail1"></div></a>' +
 			'<div class="box"><div class="video-description">'+videoDesc1+'<br><br><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_1.pdf" target="_blank" >Click here for the Transcript.</a></div></div>' +
