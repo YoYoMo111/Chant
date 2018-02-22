@@ -30,6 +30,7 @@ IntroPage.prototype.show = function() {
         console.log(videoDesc_gall[this.level-1][this.group-1][0]);
         console.log(videoDesc_gall[this.level-1][this.group-1][1]);
         console.log(videoDesc_gall[this.level-1][this.group-1][2]);
+        
 		var videoDesc1 = videoDesc_gall[this.level-1][this.group-1][0];
 		var videoDesc2 = videoDesc_gall[this.level-1][this.group-1][1];
 		var videoDesc3 = videoDesc_gall[this.level-1][this.group-1][2];
@@ -50,13 +51,13 @@ IntroPage.prototype.show = function() {
 			this.school == "Laon" && this.group <= this.laonGroup[this.level - 1].length - 2) {
 			document.getElementById("dynamicArea").innerHTML =
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-1\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail1"></div></a>' +
-			'<div class="box"><div class="video-description"><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_1.pdf" target="_blank" style="color:black;">'+videoDesc1+'</a></div></div>' +
+			'<div class="box"><div class="video-description">'+videoDesc1+'<br><br><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_1.pdf" target="_blank" >Click here for the Transcript.</a></div></div>' +
 			
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail2"></div></a>' +
-			'<div class="box"><div class="video-description"><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_2.pdf" target="_blank" style="color:black;">'+videoDesc2+'</a></div></div>'  + 
+			'<div class="box"><div class="video-description">'+videoDesc2+'<br><br><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_2.pdf" target="_blank" >Click here for the Transcript.</a></div></div>'  + 
 		
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-3\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail3"></div></a>' +
-			'<div class="box"><div class="video-description"><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_3.pdf" target="_blank" style="color:black;">'+videoDesc3+'</a></div></div>';
+			'<div class="box"><div class="video-description">'+videoDesc3+'<br><br><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_3.pdf" target="_blank" >Click here for the Transcript.</a></div></div>';
 
 			//set video thumbnails
 			document.getElementById("video_thumbnail1").style.backgroundImage = "url('images/thumbnails/" + this.school + "-thumbnail-" + this.level + "-" + this.group + "-1.jpg')";
