@@ -56,10 +56,10 @@ IntroPage.prototype.show = function() {
 			}
 			document.getElementById("dynamicArea").innerHTML =
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-1\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail1"></div></a>' +
-			'<div class="box"><div class="video-description">'+videoDesc1+'<br><br><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_1.pdf" target="_blank" >Click here for the Transcript.</a></div></div>' +
+			'<div class="box"><div class="video-description">'+videoDesc1+'<br><br><a href="transcripts/transcript_'+this.school+'_'+this.level+'_'+this.group+'_1.pdf" target="_blank" >Click here for the Transcript.</a></div></div>' +
 			
 			'<a href="javascript:void(0)" onclick="document.getElementById(\'video-' + this.school + '-' + this.level + '-' + this.group + '-2\').style.display=\'block\';document.getElementById(\'fade\').style.display=\'block\'"><div id="video_thumbnail2"></div></a>' +
-			'<div class="box"><div class="video-description">'+videoDesc2+'<br><br><a href="transcripts/transcript_gall_'+this.level+'_'+this.group+'_2.pdf" target="_blank" >Click here for the Transcript.</a></div></div>'  + 
+			'<div class="box"><div class="video-description">'+videoDesc2+'<br><br><a href="transcripts/transcript_'+this.school+'_'+this.level+'_'+this.group+'_2.pdf" target="_blank" >Click here for the Transcript.</a></div></div>'  + 
 		
 			'<a href="studyGuide/studyGuide-'+this.school+'-'+this.level+'-'+this.group+'.pdf" target="_blank"><div id="video_thumbnail3"></div></a>' +
 			'<div class="box"><div class="video-description">'+videoDesc3+'<br><br></div></div>';
